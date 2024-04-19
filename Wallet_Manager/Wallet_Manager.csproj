@@ -101,7 +101,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Budget.cs" />
     <Compile Include="Classes\BusinessLogic.cs" />
+    <Compile Include="Classes\Category.cs" />
     <Compile Include="Classes\GlobalData.cs" />
     <Compile Include="Classes\SqlDataAccessLayer.cs" />
     <Compile Include="Classes\Transaction.cs" />
@@ -126,6 +128,12 @@
     </Compile>
     <Compile Include="Forms\AddExpense.Designer.cs">
       <DependentUpon>AddExpense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddGoal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddGoal.Designer.cs">
+      <DependentUpon>AddGoal.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddIncome.cs">
       <SubType>Form</SubType>
@@ -161,8 +169,14 @@
     <Compile Include="IDataAccessLayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddBudget.resx">
+      <DependentUpon>AddBudget.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddExpense.resx">
       <DependentUpon>AddExpense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddGoal.resx">
+      <DependentUpon>AddGoal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddIncome.resx">
       <DependentUpon>AddIncome.cs</DependentUpon>

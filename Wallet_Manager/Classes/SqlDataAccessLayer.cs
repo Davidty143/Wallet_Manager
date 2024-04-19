@@ -291,9 +291,64 @@ namespace Wallet_Manager.Classes
                 return dataTable;
             }
         }
+        public void SaveBudget(Budget budget)
+        {
+            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            {
+                try
+                {
+                    conn.Open();
 
+                    // Begin a database transaction to ensure data integrity
+                    using (MySqlTransaction transaction = conn.BeginTransaction())
+                    {
+                        // Insert the main budget details into the Budget table
+                        string insertBudgetQuery = @"
+                        INSERT INTO Budget (UserID, BudgetName, TotalAmount, PeriodType, StartDate, EndDate) 
+                        VALUES (@UserID, @BudgetName, @TotalAmount, @PeriodType, @StartDate, @EndDate)";
 
+                        MySqlCommand cmd = new MySqlCommand(insertBudgetQuery, conn, transaction);
+                        cmd.Parameters.AddWithValue("@UserID", budget.UserID);
+                        cmd.Parameters.AddWithValue("@BudgetName", budget.BudgetName);
+                        cmd.Parameters.AddWithValue("@TotalAmount", budget.TotalAmount);
+                        cmd.Parameters.AddWithValue("@PeriodType", budget.PeriodType);
+                        cmd.Parameters.AddWithValue("@StartDate", budget.StartDate);
+                        cmd.Parameters.AddWithValue("@EndDate", budget.EndDate);
+                        cmd.ExecuteNonQuery();
 
+                        // Retrieve the ID of the newly inserted budget
+                        long budgetId = cmd.LastInsertedId;
 
+                        // Insert category associations in BudgetCategories table
+                        foreach (int categoryId in budget.CategoryIds)
+                        {
+                            string insertCategoryQuery = @"
+                            INSERT INTO BudgetCategory (BudgetID, CategoryID) 
+                            VALUES (@BudgetID, @CategoryID)";
+
+                            MySqlCommand categoryCmd = new MySqlCommand(insertCategoryQuery, conn, transaction);
+                            categoryCmd.Parameters.AddWithValue("@BudgetID", budgetId);
+                            categoryCmd.Parameters.AddWithValue("@CategoryID", categoryId);
+                            categoryCmd.ExecuteNonQuery();
+                        }
+
+                        // Commit the transaction to finalize the changes
+                        transaction.Commit();
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine("Database error: " + ex.Message);
+                    throw;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("General error: " + ex.Message);
+                    throw;
+                }
+            }
+        }
     }
+
+
 }
