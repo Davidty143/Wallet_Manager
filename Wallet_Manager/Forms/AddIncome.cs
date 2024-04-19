@@ -20,74 +20,78 @@ namespace Wallet_Manager.Forms
         {
             InitializeComponent();
             PopulateWalletsComboBox();
-            PopulateCategory();
+            PopulateIncomeCategoryComboBox();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+private void button1_Click(object sender, EventArgs e)
+{
+    // Validate and parse the amount entered
+    if (!float.TryParse(txtAmount.Text, out float amount))
+    {
+        MessageBox.Show("Please enter a valid number for the amount.");
+        return;
+    }
+
+    // Determine the wallet category based on checkbox selection
+    string walletCategory = checkBoxSpending.Checked ? "Spending" : checkBoxSavings.Checked ? "Savings" : string.Empty;
+    if (string.IsNullOrEmpty(walletCategory))
+    {
+        MessageBox.Show("Please select a wallet category.");
+        return;
+    }
+
+    // Validate and parse the selected category ID
+    if (!(txtCategory.SelectedValue is int categoryId))
+    {
+        MessageBox.Show("Please select a valid category.");
+        return;
+    }
+
+    // Create a new Transaction object
+    Transaction newIncome = new Transaction
+    {
+        UserID = 1, // Assuming a static user ID for simplicity
+        WalletID = Convert.ToInt32(txtWallet.SelectedValue),
+        WalletCategory = walletCategory,
+        TransactionType = "Income",
+        CategoryID = categoryId,
+        Amount = amount,
+        Date = txtDate.Value,
+        Description = txtDescription.Text
+    };
+
+    // Database connection string
+    string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+
+    // Add the new income to the database
+    SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
+    bool isIncomeAdded = dataAccessLayer.AddTransaction(newIncome);
+
+    if (isIncomeAdded)
+    {
+        // Update the wallet balance
+        Wallet wallet = dataAccessLayer.GetWallet(newIncome.WalletID);
+        if (walletCategory == "Spending")
         {
-            // Create a new Transaction object with the data from the form
-            float amount;
-            if (!float.TryParse(txtAmount.Text, out amount))
-            {
-                MessageBox.Show("Please enter a valid number for the amount.");
-                return;
-            }
-
-            string walletCategory = "";
-
-            if (checkBoxSpending.Checked)
-            {
-                walletCategory = "Spending";
-            }
-            else if (checkBoxSavings.Checked)
-            {
-                walletCategory = "Savings";
-            }
-
-            Transaction newIncome = new Transaction
-            {
-                UserID = 1,
-                WalletID = Convert.ToInt32(txtWallet.SelectedValue),
-                WalletCategory = walletCategory,
-                TransactionType = "Income",
-                Category = txtCategory.Text,
-                Amount = float.Parse(txtAmount.Text),
-                Date = txtDate.Value,
-                Description = txtDescription.Text,
-            };
-
-            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-
-            // Add the new income to the database
-            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
-            bool isIncomeAdded = _dataAccessLayer.AddTransaction(newIncome);
-
-            if (isIncomeAdded)
-            {
-                // If the income was added successfully, update the wallet balance
-                Wallet wallet = _dataAccessLayer.GetWallet(newIncome.WalletID);
-
-                if (newIncome.WalletCategory == "Spending")
-                {
-                    wallet.SpendingMoney += newIncome.Amount;
-                }
-                else if (newIncome.WalletCategory == "Savings")
-                {
-                    wallet.SavingsMoney += newIncome.Amount;
-                }
-
-                _dataAccessLayer.UpdateWallet(wallet);
-
-                // Clear the form and show a success message
-                ClearForm();
-                MessageBox.Show("Income added successfully!");
-            }
-            else
-            {
-                // If the income was not added, show an error message
-                MessageBox.Show("An error occurred. Please try again.");
-            }
+            wallet.SpendingMoney += amount;
         }
+        else if (walletCategory == "Savings")
+        {
+            wallet.SavingsMoney += amount;
+        }
+
+        dataAccessLayer.UpdateWallet(wallet);
+
+        // Clear the form and show a success message
+        ClearForm();
+        MessageBox.Show("Income added successfully!");
+    }
+    else
+    {
+        MessageBox.Show("An error occurred. Please try again.");
+    }
+}
+
 
 
         private void PopulateWalletsComboBox()
@@ -108,21 +112,24 @@ namespace Wallet_Manager.Forms
             txtWallet.ValueMember = "Value";
             txtWallet.DataSource = walletBindingList;
         }
-        public void PopulateCategory()
+
+
+        private void PopulateIncomeCategoryComboBox()
         {
-
-            foreach (IncomeCategory value in Enum.GetValues(typeof(IncomeCategory)))
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+            try
             {
-                FieldInfo fieldInfo = value.GetType().GetField(value.ToString());
-                DisplayEnum displayNameAttribute = (DisplayEnum)fieldInfo.GetCustomAttribute(typeof(DisplayEnum));
-                string displayName = displayNameAttribute != null ? displayNameAttribute.DisplayName : value.ToString();
-                txtCategory.Items.Add(new KeyValuePair<IncomeCategory, string>(value, displayName));
-
-                txtCategory.DisplayMember = "Value";
-                txtCategory.ValueMember = "Key";
+                DataTable incomeCategories = dataAccessLayer.GetIncomeCategories();
+                txtCategory.DataSource = incomeCategories;
+                txtCategory.DisplayMember = "Name";
+                txtCategory.ValueMember = "CategoryId";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error populating income category combo box: " + ex.Message);
             }
         }
-
 
 
         private void ClearForm()

@@ -111,10 +111,11 @@ namespace Wallet_Manager.Forms
             // Create a new instance of BusinessLogic
             BusinessLogic businessLogic = new BusinessLogic(new SqlDataAccessLayer(_connectionString));
 
+            
             // Perform the transfer
             try
             {
-                bool transferSuccess = businessLogic.Transfer(sourceWalletId, sourceCategory, targetWalletId, targetCategory, amount, 1, "idk", description);
+                bool transferSuccess = businessLogic.Transfer(sourceWalletId, sourceCategory, targetWalletId, targetCategory, amount, 1, description);
                 if (transferSuccess)
                 {
                     MessageBox.Show("Transfer completed successfully.");

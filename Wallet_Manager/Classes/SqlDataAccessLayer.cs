@@ -141,20 +141,21 @@ namespace Wallet_Manager.Classes
                 }
             }
         }
-
         public bool AddTransaction(Transaction transaction)
         {
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
 
-                using (MySqlCommand command = new MySqlCommand("INSERT INTO Transaction (UserID, WalletID, WalletCategory, TransactionType, Category, Amount, Date, Description) VALUES (@UserID, @WalletID, @WalletCategory, @TransactionType, @Category, @Amount, @Date, @Description)", connection))
+                // Updated SQL command to use CategoryID instead of Category
+                using (MySqlCommand command = new MySqlCommand("INSERT INTO Transaction (UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description) VALUES (@UserID, @WalletID, @WalletCategory, @TransactionType, @CategoryID, @Amount, @Date, @Description)", connection))
                 {
                     command.Parameters.AddWithValue("@UserID", transaction.UserID);
                     command.Parameters.AddWithValue("@WalletID", transaction.WalletID);
                     command.Parameters.AddWithValue("@WalletCategory", transaction.WalletCategory);
                     command.Parameters.AddWithValue("@TransactionType", transaction.TransactionType);
-                    command.Parameters.AddWithValue("@Category", transaction.Category);
+                    // Updated to use CategoryID
+                    command.Parameters.AddWithValue("@CategoryID", transaction.CategoryID);
                     command.Parameters.AddWithValue("@Amount", transaction.Amount);
                     command.Parameters.AddWithValue("@Date", transaction.Date);
                     command.Parameters.AddWithValue("@Description", transaction.Description);
@@ -259,6 +260,40 @@ namespace Wallet_Manager.Classes
                 }
             }
         }
+
+        public DataTable GetIncomeCategories()
+        {
+            using (var conn = new MySqlConnection(_connectionString)) // Ensure you use MySqlConnection
+            {
+                conn.Open();
+                // Adjust the query to match your database schema
+                var cmd = new MySqlCommand("SELECT CategoryId, Name FROM Category WHERE CategoryType = 'Income' ORDER BY Name", conn);
+                var dataTable = new DataTable();
+                using (var adapter = new MySqlDataAdapter(cmd))
+                {
+                    adapter.Fill(dataTable);
+                }
+                return dataTable;
+            }
+        }
+
+        public DataTable GetExpenseCategories()
+        {
+            using (var conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                var cmd = new MySqlCommand("SELECT CategoryId, Name FROM Category WHERE CategoryType = 'Expense' ORDER BY Name", conn);
+                var dataTable = new DataTable();
+                using (var adapter = new MySqlDataAdapter(cmd))
+                {
+                    adapter.Fill(dataTable);
+                }
+                return dataTable;
+            }
+        }
+
+
+
 
     }
 }

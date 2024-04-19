@@ -111,7 +111,7 @@ namespace Wallet_Manager.Classes
 
 
 
-        public bool Transfer(int sourceWalletId, string sourceCategory, int targetWalletId, string targetCategory, float amount, int userId, string category, string description)
+        public bool Transfer(int sourceWalletId, string sourceCategory, int targetWalletId, string targetCategory, float amount, int userId, string description)
         {
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
@@ -129,13 +129,10 @@ namespace Wallet_Manager.Classes
             }
 
             // Check for sufficient funds in the source wallet
-            if (sourceCategory == "Spending" && sourceWallet.SpendingMoney < amount)
+            if ((sourceCategory == "Spending" && sourceWallet.SpendingMoney < amount) ||
+                (sourceCategory == "Savings" && sourceWallet.SavingsMoney < amount))
             {
-                throw new Exception("Not enough balance in source wallet's Spending Money.");
-            }
-            else if (sourceCategory == "Savings" && sourceWallet.SavingsMoney < amount)
-            {
-                throw new Exception("Not enough balance in source wallet's Savings Money.");
+                throw new Exception("Not enough balance in source wallet's " + sourceCategory + ".");
             }
 
             // Deduct from the source category
@@ -165,7 +162,7 @@ namespace Wallet_Manager.Classes
                 WalletID = sourceWalletId,
                 WalletCategory = sourceCategory,
                 TransactionType = "Transfer",
-                Category = category,
+                CategoryID = 18, // Assuming CategoryID is predefined
                 Amount = -amount, // Negative for withdrawal
                 Date = DateTime.Now,
                 Description = description
@@ -177,12 +174,13 @@ namespace Wallet_Manager.Classes
                 WalletID = targetWalletId,
                 WalletCategory = targetCategory,
                 TransactionType = "Transfer",
-                Category = category,
+                CategoryID = 19, // Assuming CategoryID is predefined
                 Amount = amount,
                 Date = DateTime.Now,
                 Description = description
             };
 
+            // Only proceed with adding transactions if all checks pass
             bool isWithdrawalAdded = _dataAccessLayer.AddTransaction(withdrawal);
             bool isDepositAdded = _dataAccessLayer.AddTransaction(deposit);
 
@@ -198,10 +196,10 @@ namespace Wallet_Manager.Classes
                 _dataAccessLayer.UpdateWallet(targetWallet);
             }
 
-            MessageBox.Show(category + " transferred successfully.");
-
             return true;
         }
+
+
 
 
 

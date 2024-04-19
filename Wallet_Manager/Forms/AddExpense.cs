@@ -22,79 +22,76 @@ namespace Wallet_Manager.Forms
         {
             InitializeComponent();
             PopulateWalletsComboBox();
-            PopulateCategory();
+            PopulateExpenseCategoryComboBox();
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            // Create a new Transaction object with the data from the form
-            float amount;
-            if (!float.TryParse(txtAmount.Text, out amount))
+            // Parse the amount from the text box
+            if (!float.TryParse(txtAmount.Text, out float amount))
             {
                 MessageBox.Show("Please enter a valid number for the amount.");
                 return;
             }
 
-            string walletCategory = "";
-
-            if (checkBoxSpending.Checked)
+            // Determine the wallet category based on checkbox selection
+            string walletCategory = checkBoxSpending.Checked ? "Spending" : checkBoxSavings.Checked ? "Savings" : string.Empty;
+            if (string.IsNullOrEmpty(walletCategory))
             {
-                walletCategory = "Spending";
-            }
-            else if (checkBoxSavings.Checked)
-            {
-                walletCategory = "Savings";
+                MessageBox.Show("Please select a wallet category.");
+                return;
             }
 
+            // Ensure a category is selected
+            if (txtCategory.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a category.");
+                return;
+            }
+            int categoryId = Convert.ToInt32(txtCategory.SelectedValue);
 
-
+            // Create a new Transaction object
             Transaction newExpense = new Transaction
             {
-                UserID = 1,
+                UserID = 1, // Assuming a static user ID for simplicity
                 WalletID = Convert.ToInt32(txtWallet.SelectedValue),
                 WalletCategory = walletCategory,
                 TransactionType = "Expense",
-                Category = txtCategory.SelectedText,
-                Amount = float.Parse(txtAmount.Text),
+                CategoryID = categoryId,
+                Amount = amount,
                 Date = txtDate.Value,
-                Description = txtDescription.Text,
+                Description = txtDescription.Text
             };
 
-            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            // Initialize the data access layer
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
 
             // Check if the wallet has enough balance before adding the expense
-            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
-            Wallet wallet = _dataAccessLayer.GetWallet(newExpense.WalletID);
-
-            if (newExpense.WalletCategory == "Spending" && wallet.SpendingMoney < newExpense.Amount)
+            Wallet wallet = dataAccessLayer.GetWallet(newExpense.WalletID);
+            if ((walletCategory == "Spending" && wallet.SpendingMoney < amount) ||
+                (walletCategory == "Savings" && wallet.SavingsMoney < amount))
             {
-                MessageBox.Show("Not enough balance in Spending Money.");
-                return;
-            }
-            else if (newExpense.WalletCategory == "Savings" && wallet.SavingsMoney < newExpense.Amount)
-            {
-                MessageBox.Show("Not enough balance in Savings Money.");
+                MessageBox.Show("Not enough balance in " + walletCategory + " Money.");
                 return;
             }
 
             // Add the new expense to the database
-            bool isExpenseAdded = _dataAccessLayer.AddTransaction(newExpense);
-
+            bool isExpenseAdded = dataAccessLayer.AddTransaction(newExpense);
             if (isExpenseAdded)
             {
-                // If the expense was added successfully, update the wallet balance
-                if (newExpense.WalletCategory == "Spending")
+                // Update the wallet balance
+                if (walletCategory == "Spending")
                 {
-                    wallet.SpendingMoney -= newExpense.Amount;
+                    wallet.SpendingMoney -= amount;
                 }
-                else if (newExpense.WalletCategory == "Savings")
+                else if (walletCategory == "Savings")
                 {
-                    wallet.SavingsMoney -= newExpense.Amount;
+                    wallet.SavingsMoney -= amount;
                 }
 
-                _dataAccessLayer.UpdateWallet(wallet);
+                dataAccessLayer.UpdateWallet(wallet);
 
                 // Clear the form and show a success message
                 ClearForm();
@@ -102,9 +99,19 @@ namespace Wallet_Manager.Forms
             }
             else
             {
-                // If the expense was not added, show an error message
                 MessageBox.Show("An error occurred. Please try again.");
             }
+        }
+
+        private void ClearForm()
+        {
+            txtAmount.Clear();
+            txtDescription.Clear();
+            txtCategory.SelectedIndex = -1;
+            txtWallet.SelectedIndex = -1;
+            checkBoxSpending.Checked = false;
+            checkBoxSavings.Checked = false;
+            txtDate.Value = DateTime.Now;
         }
 
         private void PopulateWalletsComboBox()
@@ -125,25 +132,26 @@ namespace Wallet_Manager.Forms
             txtWallet.ValueMember = "Value";
             txtWallet.DataSource = walletBindingList;
         }
-        public void PopulateCategory()
+        private void PopulateExpenseCategoryComboBox()
         {
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
 
-            foreach (ExpenseCategory value in Enum.GetValues(typeof(ExpenseCategory)))
+            try
             {
-                FieldInfo fieldInfo = value.GetType().GetField(value.ToString());
-                DisplayEnum displayNameAttribute = (DisplayEnum)fieldInfo.GetCustomAttribute(typeof(DisplayEnum));
-                string displayName = displayNameAttribute != null ? displayNameAttribute.DisplayName : value.ToString();
-                txtCategory.Items.Add(new KeyValuePair<ExpenseCategory, string>(value, displayName));
+                DataTable expenseCategories = dataAccessLayer.GetExpenseCategories();
 
-                txtCategory.DisplayMember = "Value";
-                txtCategory.ValueMember = "Key";
+                txtCategory.DisplayMember = "Name";
+                txtCategory.ValueMember = "CategoryId";
+                txtCategory.DataSource = expenseCategories;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error populating expense categories: " + ex.Message);
             }
         }
 
-        private void ClearForm()
-        {
 
-        }
 
         private void txtDate_ValueChanged(object sender, EventArgs e)
         {
