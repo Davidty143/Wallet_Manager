@@ -348,6 +348,37 @@ namespace Wallet_Manager.Classes
                 }
             }
         }
+
+
+        public void AddGoal(Goal goal)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                string query = @"INSERT INTO Goal (UserID, GoalName, TargetAmount, CurrentAmount, Deadline, WalletId) 
+                             VALUES (@UserID, @GoalName, @TargetAmount, @CurrentAmount, @Deadline, @WalletId)";
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@UserID", goal.UserID);
+                command.Parameters.AddWithValue("@GoalName", goal.GoalName);
+                command.Parameters.AddWithValue("@TargetAmount", goal.TargetAmount);
+                command.Parameters.AddWithValue("@CurrentAmount", goal.CurrentAmount);
+                command.Parameters.AddWithValue("@Deadline", goal.Deadline);
+                command.Parameters.AddWithValue("@WalletId", goal.WalletID);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
     }
 
 

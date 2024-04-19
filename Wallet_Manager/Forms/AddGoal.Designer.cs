@@ -37,7 +37,7 @@
             this.txtTargetAmount = new System.Windows.Forms.TextBox();
             this.txtCurrentAmount = new System.Windows.Forms.TextBox();
             this.txtWallet = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtDate = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -129,14 +129,14 @@
             this.txtWallet.Size = new System.Drawing.Size(208, 31);
             this.txtWallet.TabIndex = 134;
             // 
-            // dateTimePicker1
+            // txtDate
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(381, 271);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(208, 30);
-            this.dateTimePicker1.TabIndex = 135;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.txtDate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDate.Location = new System.Drawing.Point(381, 271);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(208, 30);
+            this.txtDate.TabIndex = 135;
+            this.txtDate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // button1
             // 
@@ -154,7 +154,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.txtDate);
             this.Controls.Add(this.txtWallet);
             this.Controls.Add(this.txtCurrentAmount);
             this.Controls.Add(this.txtTargetAmount);
@@ -183,7 +183,7 @@
         private System.Windows.Forms.TextBox txtTargetAmount;
         private System.Windows.Forms.TextBox txtCurrentAmount;
         private System.Windows.Forms.ComboBox txtWallet;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker txtDate;
         private System.Windows.Forms.Button button1;
     }
 }

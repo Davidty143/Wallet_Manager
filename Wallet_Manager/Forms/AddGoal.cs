@@ -49,23 +49,54 @@ namespace Wallet_Manager.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (ValidateInput())
+            try
             {
-                string goalName = txtGoalName.Text;
-                decimal targetAmount = decimal.Parse(txtTargetAmount.Text);
-                decimal currentAmount = decimal.Parse(txtCurrentAmount.Text);
-                DateTime? deadline = datePickerDeadline.Value;
-                int walletId = (int)comboBoxWallet.SelectedValue;
+                // Validate and convert inputs
+                string goalName = txtName.Text;
+                if (string.IsNullOrWhiteSpace(goalName))
+                {
+                    MessageBox.Show("Please enter a valid goal name.");
+                    return;
+                }
 
-                // Insert into database (simplified)
-                InsertGoal(goalName, targetAmount, currentAmount, deadline, walletId);
+                if (!float.TryParse(txtTargetAmount.Text, out float targetAmount) || targetAmount <= 0)
+                {
+                    MessageBox.Show("Please enter a valid target amount.");
+                    return;
+                }
+
+                if (!float.TryParse(txtCurrentAmount.Text, out float currentAmount) || currentAmount < 0)
+                {
+                    MessageBox.Show("Please enter a valid target amount.");
+                    return;
+                }
+
+
+
+                DateTime? deadline = txtDate.Value;
+                int walletId = Convert.ToInt32(txtWallet.SelectedValue);
+
+                // Create a new Goal object
+                Goal newGoal = new Goal
+                {
+                    UserID = 1,
+                    GoalName = goalName,
+                    TargetAmount = targetAmount,
+                    CurrentAmount = currentAmount,
+                    Deadline = deadline,
+                    WalletID = walletId
+                };
+
+                string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+                SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
+                dataAccessLayer.AddGoal(newGoal);
 
                 MessageBox.Show("Goal added successfully!");
-                this.Close(); // Optionally close the form
+                this.Close(); // Optionally close the form or clear the inputs for a new entry
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please check your input and try again.");
+                MessageBox.Show("Failed to add goal. Error: " + ex.Message);
             }
         }
     }
