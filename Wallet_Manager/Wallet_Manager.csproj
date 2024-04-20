@@ -165,6 +165,12 @@
     <Compile Include="Forms\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DashboardUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\DashboardUC.Designer.cs">
+      <DependentUpon>DashboardUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DisplayEnum.cs" />
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
@@ -202,6 +208,9 @@
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DashboardUC.resx">
+      <DependentUpon>DashboardUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,19 +219,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -246,6 +255,93 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dashboard_transaparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\windows_transparent_grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard_transaparent1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bardgraphgrey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bardGraphWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_wallet_inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transaction_grey_transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_analytics_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\budget_grey_transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\goals_grey_transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help_white_Transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help_grey_Transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help_white_Transparent1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\signout_grey_transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\goals_grey_transparent1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\goals_White_transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\budget_grey_transparent1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\budget_white_transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\analytics_grey_transparent1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\analytics_White_transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transaction_grey_transparent1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transaction_white_Transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallet_grey_transparent1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_wallet_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\goals_grey_transparent2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallet+.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallet+1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_dashboard_inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_dashboard_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit 31.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

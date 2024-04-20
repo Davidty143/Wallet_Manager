@@ -186,7 +186,7 @@
             this.Controls.Add(this.cb_show_pass);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
-            this.Text = "Login";
+            this.Text = "W";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
