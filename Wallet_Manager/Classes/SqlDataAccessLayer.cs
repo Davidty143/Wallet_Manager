@@ -291,6 +291,21 @@ namespace Wallet_Manager.Classes
                 return dataTable;
             }
         }
+        public DataTable GetTransferCategories()
+        {
+            using (var conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                var cmd = new MySqlCommand("SELECT CategoryId, Name FROM Category WHERE CategoryType = 'Transfer' ORDER BY Name", conn);
+                var dataTable = new DataTable();
+                using (var adapter = new MySqlDataAdapter(cmd))
+                {
+                    adapter.Fill(dataTable);
+                }
+                return dataTable;
+            }
+        }
+
         public void SaveBudget(Budget budget)
         {
             using (MySqlConnection conn = new MySqlConnection(_connectionString))
@@ -370,12 +385,52 @@ namespace Wallet_Manager.Classes
             }
         }
 
+        public List<Transaction> GetAllTransactions()
+        {
+            List<Transaction> transactions = new List<Transaction>();
+            using (MySqlConnection connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction", connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Transaction transaction = new Transaction
+                            {
+                                TransactionID = reader.GetInt32("TransactionID"),
+                                UserID = reader.GetInt32("UserID"),
+                                WalletID = reader.GetInt32("WalletID"),
+                                WalletCategory = reader.GetString("WalletCategory"),
+                                TransactionType = reader.GetString("TransactionType"),
+                                CategoryID = reader.GetInt32("CategoryID"),
+                                Amount = reader.GetFloat("Amount"),
+                                Date = reader.GetDateTime("Date"),
+                                Description = reader.GetString("Description")
+                            };
+                            transactions.Add(transaction);
+                        }
+                    }
+                }
+            }
+            return transactions;
+        }
 
-
-
-
-
-
+        public string GetWalletNameById(int walletId)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                var query = "SELECT WalletName FROM Wallet WHERE WalletID = @WalletID";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@WalletID", walletId);
+                    var result = command.ExecuteScalar();
+                    return result != null ? result.ToString() : "Unknown Wallet";
+                }
+            }
+        }
 
 
 

@@ -44,7 +44,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.dashboardUC1 = new Wallet_Manager.Forms.DashboardUC();
+            this.transactionHistory1 = new Wallet_Manager.Forms.TransactionHistory();
             this.display_panel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -56,7 +56,7 @@
             // display_panel
             // 
             this.display_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.display_panel.Controls.Add(this.dashboardUC1);
+            this.display_panel.Controls.Add(this.transactionHistory1);
             this.display_panel.Controls.Add(this.panel1);
             this.display_panel.Controls.Add(this.panel4);
             this.display_panel.Controls.Add(this.panel3);
@@ -301,13 +301,14 @@
             this.guna2Button1.TabIndex = 0;
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
-            // dashboardUC1
+            // transactionHistory1
             // 
-            this.dashboardUC1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dashboardUC1.Location = new System.Drawing.Point(413, 162);
-            this.dashboardUC1.Name = "dashboardUC1";
-            this.dashboardUC1.Size = new System.Drawing.Size(1509, 856);
-            this.dashboardUC1.TabIndex = 8;
+            this.transactionHistory1.BackColor = System.Drawing.Color.White;
+            this.transactionHistory1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.transactionHistory1.Location = new System.Drawing.Point(413, 162);
+            this.transactionHistory1.Name = "transactionHistory1";
+            this.transactionHistory1.Size = new System.Drawing.Size(1509, 856);
+            this.transactionHistory1.TabIndex = 8;
             // 
             // Dashboard
             // 
@@ -345,7 +346,7 @@
         private Guna.UI2.WinForms.Guna2Button button_transaction;
         private Guna.UI2.WinForms.Guna2Button button_wallet;
         private Guna.UI2.WinForms.Guna2Button button_dashboard;
-        private DashboardUC dashboardUC1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private TransactionHistory transactionHistory1;
     }
 }
