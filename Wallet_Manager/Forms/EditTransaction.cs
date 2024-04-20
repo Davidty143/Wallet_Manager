@@ -13,10 +13,11 @@ namespace Wallet_Manager.Forms
 {
     public partial class EditTransaction : Form
     {
-        int txtTransactionID = 69;
+        int txtTransactionID;
         int txtUserID = 1; 
-        public EditTransaction()
+        public EditTransaction(int transactionID)
         {
+            txtTransactionID = transactionID;
             InitializeComponent();
             populateTransactionType();
             PopulateWalletsComboBox();

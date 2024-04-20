@@ -49,6 +49,12 @@ namespace Wallet_Manager.Forms
             dateLabels = new Label[] { dateLabel1, dateLabel2, dateLabel3, dateLabel4, dateLabel5, dateLabel6 };
             editLabels = new Label[] { editLabel1, editLabel2, editLabel3, editLabel4, editLabel5, editLabel6 };
             deleteLabels = new Label[] { deleteLabel1, deleteLabel2, deleteLabel3, deleteLabel4, deleteLabel5, deleteLabel6 };
+
+            foreach (var label in editLabels)
+            {
+                label.Click += editLabel_Click; // Attach the click event handler
+            }
+
         }
 
 
@@ -56,7 +62,7 @@ namespace Wallet_Manager.Forms
         {
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
-            var transactions = _dataAccessLayer.GetAllTransactions();
+            transactions = _dataAccessLayer.GetAllTransactions();
             int index = 0;
 
             foreach (var transaction in transactions)
@@ -65,54 +71,34 @@ namespace Wallet_Manager.Forms
                 {
                     transactionPanels[index].Visible = true;
                     descriptionLabels[index].Text = transaction.Description;
-                    categoryLabels[index].Text = transaction.WalletCategory;
+                    string categoryName = _dataAccessLayer.GetCategoryNameById(transaction.CategoryID);
+                    categoryLabels[index].Text = categoryName;
                     transactionTypeLabels[index].Text = transaction.TransactionType;
                     amountLabels[index].Text = $"₱ {transaction.Amount}";
                     string walletName = _dataAccessLayer.GetWalletNameById(transaction.WalletID);
                     walletNameLabels[index].Text = walletName;
-
-                    walletTypeLabels[index].Text = transaction.WalletCategory; 
+                    walletTypeLabels[index].Text = transaction.WalletCategory;
                     dateLabels[index].Text = transaction.Date.ToString("d");
+                    editLabels[index].Tag = transaction.TransactionID; // Set the Tag to the transaction ID
                     index++;
                 }
             }
 
-            // Hide unused panels if there are fewer transactions than panels
             for (int i = index; i < transactionPanels.Length; i++)
             {
                 transactionPanels[i].Visible = false;
             }
         }
 
-        /*
-
-        private void ConnectEventHandlers()
-        {
-            foreach (var label in editLabels)
-            {
-                label.Click += editLabel_Click;
-            }
-        }
-        
         private void editLabel_Click(object sender, EventArgs e)
         {
             Label editLabel = sender as Label;
-            int index = Array.IndexOf(editLabels, editLabel);
-            if (index != -1 && index < transactions.Count)
+            if (editLabel != null && editLabel.Tag is int transactionId)
             {
-                EditTransactionForm editForm = new EditTransactionForm(transactions[index]);
-                if (editForm.ShowDialog() == DialogResult.OK)
-                {
-                    // Assuming EditTransactionForm has a way to get the updated transaction
-                    transactions[index] = editForm.UpdatedTransaction;
-                    _dataAccessLayer.UpdateTransaction(transactions[index]);
-                    LoadTransactions();  // Refresh the UI to show updated data
-                }
+                EditTransaction editForm = new EditTransaction(transactionId);
+                editForm.ShowDialog(); // Show the form as a modal dialog
             }
         }
-        
-        */
-
 
 
 
