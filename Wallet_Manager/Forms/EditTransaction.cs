@@ -103,8 +103,8 @@ namespace Wallet_Manager.Forms
             {
                 txtWallet.Text = dataAccessLayer.GetWalletNameById(transaction.WalletID); // Display wallet name
                 txtCategory.Text = dataAccessLayer.GetCategoryNameById(transaction.CategoryID); // Display category name
-                checkBoxSavings.Checked = transaction.WalletCategory == "Spending";
-                checkBoxSpending.Checked = transaction.WalletCategory == "Savings";
+                checkBoxSavings.Checked = transaction.WalletCategory == "Savings";
+                checkBoxSpending.Checked = transaction.WalletCategory == "Spending";
                 txtTransactionType.Text = transaction.TransactionType;
                 txtAmount.Text = transaction.Amount.ToString(); // Format for currency
                 txtDate.Value = transaction.Date;

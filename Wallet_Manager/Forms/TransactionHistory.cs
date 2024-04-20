@@ -27,12 +27,39 @@ namespace Wallet_Manager.Forms
         private Label[] editLabels;
         private Label[] deleteLabels;
 
+        private Image[] categoryImages;
+
+
+        private int currentPage = 0;
+        private int transactionsPerPage = 6; // Adjust based on your UI setup
+        private int totalTransactions = 0;
+
         public TransactionHistory()
         {
             InitializeComponent();
             InitializeControlArrays();
+            LoadCategoryImages();
             LoadTransactions();
+            
             //ConnectEventHandlers();
+        }
+
+        private void labelPrev_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 0)
+            {
+                currentPage--;
+                UpdateTransactionDisplay();
+            }
+        }
+
+        private void labelNext_Click(object sender, EventArgs e)
+        {
+            if ((currentPage + 1) * transactionsPerPage < totalTransactions)
+            {
+                currentPage++;
+                UpdateTransactionDisplay();
+            }
         }
 
 
@@ -60,6 +87,28 @@ namespace Wallet_Manager.Forms
                 label.Click += deleteLabel_Click; // Attach the click event handler
             }
 
+            labelNext.Click += new EventHandler(labelNext_Click);
+            labelPrev.Click += new EventHandler(labelPrev_Click);
+
+        }
+        private void LoadCategoryImages()
+        {
+            categoryImages = new Image[19]; // Create an array to hold 19 images
+            for (int i = 0; i < categoryImages.Length; i++)
+            {
+                string imageName = (i + 1).ToString(); // This will generate "1", "2", ..., "19"
+                categoryImages[i] = (Image)Properties.Resources.ResourceManager.GetObject(imageName);
+
+                if (categoryImages[i] == null)
+                {
+                    Console.WriteLine($"Image '{imageName}.png' not found for category ID: {i + 1}, using default image.");
+                    categoryImages[i] = Properties.Resources.button_budget_active; // Fallback to a default image
+                    if (categoryImages[i] == null)
+                    {
+                        Console.WriteLine("Default image is also not found. Check resource file.");
+                    }
+                }
+            }
         }
 
 
@@ -68,7 +117,11 @@ namespace Wallet_Manager.Forms
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
             transactions = _dataAccessLayer.GetAllTransactions();
+            totalTransactions = transactions.Count;
+            UpdateTransactionDisplay();
+
             int index = 0;
+
 
             foreach (var transaction in transactions)
             {
@@ -96,6 +149,55 @@ namespace Wallet_Manager.Forms
             }
         }
 
+        private void UpdateTransactionDisplay()
+        {
+            int start = currentPage * transactionsPerPage;
+            int end = Math.Min(start + transactionsPerPage, transactions.Count);
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+
+            for (int i = 0; i < transactionPanels.Length; i++)
+            {
+                if (i + start < end)
+                {
+                    var transaction = transactions[i + start];
+                    transactionPanels[i].Visible = true;
+                    descriptionLabels[i].Text = transaction.Description;
+                    categoryLabels[i].Text = _dataAccessLayer.GetCategoryNameById(transaction.CategoryID);
+                    transactionTypeLabels[i].Text = transaction.TransactionType;
+                    amountLabels[i].Text = $"₱ {transaction.Amount}";
+                    walletNameLabels[i].Text = _dataAccessLayer.GetWalletNameById(transaction.WalletID);
+                    walletTypeLabels[i].Text = transaction.WalletCategory;
+                    dateLabels[i].Text = transaction.Date.ToString("d");
+                    editLabels[i].Tag = transaction.TransactionID;
+                    deleteLabels[i].Tag = transaction.TransactionID;
+
+                    // Check for null PictureBox and Image
+                    if (categoryPictureBoxes[i] == null)
+                    {
+                        Console.WriteLine("PictureBox at index " + i + " is null.");
+                        continue; // Skip this iteration
+                    }
+
+                    int imageIndex = transaction.CategoryID - 1; // Calculate the index
+                    if (imageIndex < 0 ||  categoryImages[imageIndex] == null)
+                    {
+                        Console.WriteLine("Invalid or missing image for Category ID: " + transaction.CategoryID);
+                        categoryPictureBoxes[i].Image = Properties.Resources.button_budget_active; // Use default image
+                    }
+                    else
+                    {
+                        categoryPictureBoxes[i].Image = categoryImages[imageIndex];
+                    }
+                }
+                else
+                {
+                    transactionPanels[i].Visible = false;
+                }
+            }
+        }
+
+
         private void editLabel_Click(object sender, EventArgs e)
         {
             Label editLabel = sender as Label;
@@ -103,6 +205,7 @@ namespace Wallet_Manager.Forms
             {
                 EditTransaction editForm = new EditTransaction(transactionId);
                 editForm.ShowDialog(); // Show the form as a modal dialog
+                LoadTransactions(); // Reload transactions to reflect the change
             }
         }
 
@@ -120,6 +223,7 @@ namespace Wallet_Manager.Forms
                 }
             }
         }
+
 
 
 
@@ -181,6 +285,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void editLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void categoryPictureBox1_Click(object sender, EventArgs e)
         {
 
         }

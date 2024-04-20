@@ -510,7 +510,7 @@ namespace Wallet_Manager.Classes
             using (var connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                var query = "DELETE FROM transaction WHERE TransactionID = @TransactionID";
+                var query = "DELETE FROM transaction     WHERE TransactionID = @TransactionID";
 
                 using (var command = new MySqlCommand(query, connection))
                 {
