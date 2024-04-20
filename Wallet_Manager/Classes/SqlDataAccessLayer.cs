@@ -505,6 +505,37 @@ namespace Wallet_Manager.Classes
             }
         }
 
+        public void DeleteTransaction(int transactionId)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                var query = "DELETE FROM transaction WHERE TransactionID = @TransactionID";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TransactionID", transactionId);
+
+                    try
+                    {
+                        int result = command.ExecuteNonQuery();
+                        if (result > 0)
+                        {
+                            Console.WriteLine("Transaction successfully deleted.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("No transaction found with the specified ID.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+        }
+
 
 
 

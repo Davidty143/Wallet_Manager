@@ -55,6 +55,11 @@ namespace Wallet_Manager.Forms
                 label.Click += editLabel_Click; // Attach the click event handler
             }
 
+            foreach (var label in deleteLabels)
+            {
+                label.Click += deleteLabel_Click; // Attach the click event handler
+            }
+
         }
 
 
@@ -80,6 +85,7 @@ namespace Wallet_Manager.Forms
                     walletTypeLabels[index].Text = transaction.WalletCategory;
                     dateLabels[index].Text = transaction.Date.ToString("d");
                     editLabels[index].Tag = transaction.TransactionID; // Set the Tag to the transaction ID
+                    deleteLabels[index].Tag = transaction.TransactionID;
                     index++;
                 }
             }
@@ -97,6 +103,21 @@ namespace Wallet_Manager.Forms
             {
                 EditTransaction editForm = new EditTransaction(transactionId);
                 editForm.ShowDialog(); // Show the form as a modal dialog
+            }
+        }
+
+        private void deleteLabel_Click(object sender, EventArgs e)
+        {
+            Label deleteLabel = sender as Label;
+            if (deleteLabel != null && deleteLabel.Tag is int transactionId)
+            {
+                if (MessageBox.Show("Are you sure you want to delete this transaction?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+                    SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+                    _dataAccessLayer.DeleteTransaction(transactionId);
+                    LoadTransactions(); // Reload transactions to reflect the change
+                }
             }
         }
 
