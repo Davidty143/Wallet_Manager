@@ -21,7 +21,7 @@ namespace Wallet_Manager.Forms
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-
+                
         }
         private void PopulateWalletsComboBox()
         {
@@ -69,7 +69,7 @@ namespace Wallet_Manager.Forms
                 {
                     MessageBox.Show("Please enter a valid target amount.");
                     return;
-                }
+                }   
 
 
 
@@ -83,7 +83,7 @@ namespace Wallet_Manager.Forms
                     GoalName = goalName,
                     TargetAmount = targetAmount,
                     CurrentAmount = currentAmount,
-                    Deadline = deadline,
+                    Deadline = deadline,    
                     WalletID = walletId
                 };
 
