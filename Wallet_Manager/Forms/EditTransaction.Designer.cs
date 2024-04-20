@@ -235,6 +235,7 @@
             this.checkBoxSavings.TabIndex = 132;
             this.checkBoxSavings.Text = "Savings";
             this.checkBoxSavings.UseVisualStyleBackColor = true;
+            this.checkBoxSavings.CheckedChanged += new System.EventHandler(this.checkBoxSavings_CheckedChanged);
             // 
             // txtAmount
             // 
@@ -275,6 +276,7 @@
             this.button2.TabIndex = 136;
             this.button2.Text = "Add";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // EditTransaction
             // 

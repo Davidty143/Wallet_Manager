@@ -207,25 +207,25 @@ namespace Wallet_Manager.Classes
         }
 
 
-        public bool UpdateWallet(Wallet wallet)
-        {
-            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            public bool UpdateWallet(Wallet wallet)
             {
-                string query = "UPDATE wallet SET SpendingMoney = @SpendingMoney, SavingsMoney = @SavingsMoney WHERE WalletID = @WalletID";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlConnection conn = new MySqlConnection(_connectionString))
                 {
-                    cmd.Parameters.AddWithValue("@SpendingMoney", wallet.SpendingMoney);
-                    cmd.Parameters.AddWithValue("@SavingsMoney", wallet.SavingsMoney);
-                    cmd.Parameters.AddWithValue("@WalletID", wallet.WalletID);
+                    string query = "UPDATE wallet SET SpendingMoney = @SpendingMoney, SavingsMoney = @SavingsMoney WHERE WalletID = @WalletID";
 
-                    conn.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@SpendingMoney", wallet.SpendingMoney);
+                        cmd.Parameters.AddWithValue("@SavingsMoney", wallet.SavingsMoney);
+                        cmd.Parameters.AddWithValue("@WalletID", wallet.WalletID);
 
-                    return rowsAffected > 0;
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        return rowsAffected > 0;
+                    }
                 }
             }
-        }
 
         public Wallet GetWallet(int walletId)
         {
@@ -431,6 +431,81 @@ namespace Wallet_Manager.Classes
                 }
             }
         }
+
+
+        public Transaction GetTransactionById(int transactionId)
+        {
+            Transaction transaction = null;
+            using (var conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                var cmd = new MySqlCommand("SELECT TransactionID, UserID, WalletID, CategoryID, WalletCategory, TransactionType, Amount, Date, Description FROM Transaction WHERE TransactionID = @TransactionID", conn);
+                cmd.Parameters.AddWithValue("@TransactionID", transactionId);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        transaction = new Transaction
+                        {
+                            TransactionID = reader.GetInt32("TransactionID"),
+                            UserID = reader.GetInt32("UserID"),
+                            WalletID = reader.GetInt32("WalletID"),
+                            CategoryID = reader.GetInt32("CategoryID"),
+                            WalletCategory = reader.GetString("WalletCategory"),
+                            TransactionType = reader.GetString("TransactionType"),
+                            Amount = reader.GetFloat("Amount"),
+                            Date = reader.GetDateTime("Date"),
+                            Description = reader.IsDBNull(reader.GetOrdinal("Description")) ? null : reader.GetString("Description")
+                        };
+                    }
+                }
+            }
+            return transaction;
+        }
+
+        public string GetCategoryNameById(int categoryId)
+        {
+            string categoryName = "";
+            using (var conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                var cmd = new MySqlCommand("SELECT Name FROM Category WHERE CategoryID = @CategoryID", conn);
+                cmd.Parameters.AddWithValue("@CategoryID", categoryId);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        categoryName = reader.GetString("Name");
+                    }
+                }
+            }
+            return categoryName;
+        }
+
+        public void UpdateTransaction(Transaction transaction)
+        {
+            using (var conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                var cmd = new MySqlCommand("UPDATE transaction SET UserID=@UserID, WalletID=@WalletID, CategoryID=@CategoryID, WalletCategory=@WalletCategory, TransactionType=@TransactionType, Amount=@Amount, Date=@Date, Description=@Description WHERE TransactionID=@TransactionID", conn);
+
+                cmd.Parameters.AddWithValue("@TransactionID", transaction.TransactionID);
+                cmd.Parameters.AddWithValue("@UserID", transaction.UserID);
+                cmd.Parameters.AddWithValue("@WalletID", transaction.WalletID);
+                cmd.Parameters.AddWithValue("@CategoryID", transaction.CategoryID);
+                cmd.Parameters.AddWithValue("@WalletCategory", transaction.WalletCategory);
+                cmd.Parameters.AddWithValue("@TransactionType", transaction.TransactionType);
+                cmd.Parameters.AddWithValue("@Amount", transaction.Amount);
+                cmd.Parameters.AddWithValue("@Date", transaction.Date);
+                cmd.Parameters.AddWithValue("@Description", transaction.Description);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
 
 
 
