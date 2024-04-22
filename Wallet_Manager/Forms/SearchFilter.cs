@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,14 +15,16 @@ namespace Wallet_Manager.Forms
 {
     public partial class SearchFilter : Form
     {
-        private static SearchFilter instance;
+        private static SearchFilter instance = null;
+        private TransactionHistory _transactionHistory;
 
-        public SearchFilter()
+        public SearchFilter(TransactionHistory transactionHistory)
         {
             InitializeComponent();
             populateTransactionType();
             PopulateWalletCategoryComboBox();
             PopulateWalletsComboBox();
+            _transactionHistory = transactionHistory;
         }
 
         private void walletComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -97,15 +100,67 @@ namespace Wallet_Manager.Forms
             transactionTypeComboBox.SelectedIndex = 0;
         }
 
-        public static SearchFilter Instance
+        public static SearchFilter GetInstance(TransactionHistory transactionHistory)
         {
-            get
+            if (instance == null || instance.IsDisposed)
             {
-                if (instance == null)
+                instance = new SearchFilter(transactionHistory);
+            }
+            return instance;
+        }
+
+
+        private void FilterTransactions()
+        {
+            string transactionType = transactionTypeComboBox.SelectedItem?.ToString();
+            string category = categoryComboBox.SelectedItem?.ToString();
+            string wallet = walletComboBox.SelectedItem?.ToString();
+            string walletCategory = walletCategoryComboBox.SelectedItem?.ToString();
+            DateTime startDate = startDatePicker.Value.Date;
+            DateTime endDate = endDatePicker.Value.Date.AddDays(1); // Include the end date in the search
+
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                StringBuilder query = new StringBuilder("SELECT * FROM Transaction WHERE 1=1 ");
+                List<MySqlParameter> parameters = new List<MySqlParameter>();
+
+                if (!string.IsNullOrEmpty(transactionType))
                 {
-                    instance = new SearchFilter();
+                    query.Append("AND TransactionType = @TransactionType ");
+                    parameters.Add(new MySqlParameter("@TransactionType", transactionType));
                 }
-                return instance;
+                if (!string.IsNullOrEmpty(category))
+                {
+                    query.Append("AND CategoryID = @CategoryID ");
+                    parameters.Add(new MySqlParameter("@CategoryID", category));
+                }
+                if (!string.IsNullOrEmpty(wallet))
+                {
+                    query.Append("AND WalletID = @WalletID ");
+                    parameters.Add(new MySqlParameter("@WalletID", wallet));
+                }
+                if (!string.IsNullOrEmpty(walletCategory))
+                {
+                    query.Append("AND WalletCategory = @WalletCategory ");
+                    parameters.Add(new MySqlParameter("@WalletCategory", walletCategory));
+                }
+                query.Append("AND DATE BETWEEN @StartDate AND @EndDate");
+                parameters.Add(new MySqlParameter("@StartDate", startDate));
+                parameters.Add(new MySqlParameter("@EndDate", endDate));
+
+                using (MySqlCommand cmd = new MySqlCommand(query.ToString(), conn))
+                {
+                    cmd.Parameters.AddRange(parameters.ToArray());
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+
+                        DataTable filteredTransactions = new DataTable();
+                        adapter.Fill(filteredTransactions);
+                        //transactionsDataGridView.DataSource = filteredTransactions;
+                    }
+                }
             }
         }
 
@@ -131,6 +186,20 @@ namespace Wallet_Manager.Forms
         private void walletTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string transactionType = transactionTypeComboBox.SelectedItem?.ToString();
+            string category = categoryComboBox.SelectedValue?.ToString();
+            string wallet = walletComboBox.SelectedValue?.ToString();
+            string walletCategory = walletCategoryComboBox.SelectedItem?.ToString();
+            DateTime startDate = startDatePicker.Value.Date;
+            DateTime endDate = endDatePicker.Value.Date.AddDays(1); // Include the end date in the search
+
+            // Call ApplyFilters on the TransactionHistory form
+            _transactionHistory.ApplyFilters(transactionType, category, wallet, walletCategory, startDate, endDate);
+            this.Close(); // Optionally close the SearchFilter form
         }
     }
 }

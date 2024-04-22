@@ -224,12 +224,73 @@ namespace Wallet_Manager.Forms
             }
         }
 
+        public void ApplyFilters(string transactionType, string category, string wallet, string walletCategory, DateTime startDate, DateTime endDate)
+        {
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+            var filteredTransactions = _dataAccessLayer.GetAllFilteredTransactions(transactionType, category, wallet, walletCategory, startDate, endDate);
+            totalTransactions = transactions.Count;
+            UpdateFilteredTransactionDisplay(filteredTransactions);
+        }
+
+
+
+        private void UpdateFilteredTransactionDisplay(List<Transaction> filteredTransactions)
+        {
+            int start = 0; // Start from the first transaction in the filtered list
+            int end = Math.Min(transactionsPerPage, filteredTransactions.Count);
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+
+            for (int i = 0; i < transactionPanels.Length; i++)
+            {
+                if (i < end)
+                {
+                    var transaction = filteredTransactions[i + start];
+                    transactionPanels[i].Visible = true;
+                    descriptionLabels[i].Text = transaction.Description;
+                    categoryLabels[i].Text = _dataAccessLayer.GetCategoryNameById(transaction.CategoryID);
+                    transactionTypeLabels[i].Text = transaction.TransactionType;
+                    amountLabels[i].Text = $"₱ {transaction.Amount}";
+                    walletNameLabels[i].Text = _dataAccessLayer.GetWalletNameById(transaction.WalletID);
+                    walletTypeLabels[i].Text = transaction.WalletCategory;
+                    dateLabels[i].Text = transaction.Date.ToString("d");
+                    editLabels[i].Tag = transaction.TransactionID;
+                    deleteLabels[i].Tag = transaction.TransactionID;
+
+                    // Check for null PictureBox and Image
+                    if (categoryPictureBoxes[i] == null)
+                    {
+                        Console.WriteLine("PictureBox at index " + i + " is null.");
+                        continue; // Skip this iteration
+                    }
+
+                    int imageIndex = transaction.CategoryID - 1; // Calculate the index
+                    if (imageIndex < 0 || categoryImages[imageIndex] == null)
+                    {
+                        Console.WriteLine("Invalid or missing image for Category ID: " + transaction.CategoryID);
+                        categoryPictureBoxes[i].Image = Properties.Resources.button_budget_active; // Use default image
+                    }
+                    else
+                    {
+                        categoryPictureBoxes[i].Image = categoryImages[imageIndex];
+                    }
+                }
+                else
+                {
+                    transactionPanels[i].Visible = false;
+                }
+            }
+        }
 
 
 
 
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+
+
+
+private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -296,17 +357,20 @@ namespace Wallet_Manager.Forms
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            // Assuming SearchFilter is correctly implementing a Singleton pattern
-            // and has a public static property called Instance to access it.
-            SearchFilter searchForm = SearchFilter.Instance;
+ 
+            SearchFilter searchForm = SearchFilter.GetInstance(this);
             if (searchForm == null)
             {
-                searchForm = new SearchFilter();
-                searchForm.ShowDialog(); // Set the instance if it's part of the Singleton pattern
+                searchForm = new SearchFilter(this);
+                searchForm.ShowDialog(); 
             }
 
-            searchForm.ShowDialog(); // Show the form as a modal dialog
-            //LoadTransactions(); // Reload transactions to reflect the changes
+            searchForm.ShowDialog(); 
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

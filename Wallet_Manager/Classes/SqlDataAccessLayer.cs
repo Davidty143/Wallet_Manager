@@ -417,6 +417,69 @@ namespace Wallet_Manager.Classes
             return transactions;
         }
 
+        public List<Transaction> GetAllFilteredTransactions(string transactionType = null, string category = null, string wallet = null, string walletCategory = null, DateTime? startDate = null, DateTime? endDate = null)
+        {
+            List<Transaction> transactions = new List<Transaction>();
+            using (MySqlConnection connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                StringBuilder query = new StringBuilder("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction WHERE 1=1");
+
+                if (!string.IsNullOrEmpty(transactionType))
+                    query.Append(" AND TransactionType = @TransactionType");
+                if (!string.IsNullOrEmpty(category))
+                    query.Append(" AND CategoryID = @CategoryID");
+                if (!string.IsNullOrEmpty(wallet))
+                    query.Append(" AND WalletID = @WalletID");
+                if (!string.IsNullOrEmpty(walletCategory))
+                    query.Append(" AND WalletCategory = @WalletCategory");
+                if (startDate.HasValue)
+                    query.Append(" AND Date >= @StartDate");
+                if (endDate.HasValue)
+                    query.Append(" AND Date <= @EndDate");
+
+                using (MySqlCommand command = new MySqlCommand(query.ToString(), connection))
+                {
+                    if (!string.IsNullOrEmpty(transactionType))
+                        command.Parameters.AddWithValue("@TransactionType", transactionType);
+                    if (!string.IsNullOrEmpty(category))
+                        command.Parameters.AddWithValue("@CategoryID", category);
+                    if (!string.IsNullOrEmpty(wallet))
+                        command.Parameters.AddWithValue("@WalletID", wallet);
+                    if (!string.IsNullOrEmpty(walletCategory))
+                        command.Parameters.AddWithValue("@WalletCategory", walletCategory);
+                    if (startDate.HasValue)
+                        command.Parameters.AddWithValue("@StartDate", startDate.Value);
+                    if (endDate.HasValue)
+                        command.Parameters.AddWithValue("@EndDate", endDate.Value);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Transaction transaction = new Transaction
+                            {
+                                TransactionID = reader.GetInt32("TransactionID"),
+                                UserID = reader.GetInt32("UserID"),
+                                WalletID = reader.GetInt32("WalletID"),
+                                WalletCategory = reader.GetString("WalletCategory"),
+                                TransactionType = reader.GetString("TransactionType"),
+                                CategoryID = reader.GetInt32("CategoryID"),
+                                Amount = reader.GetFloat("Amount"),
+                                Date = reader.GetDateTime("Date"),
+                                Description = reader.GetString("Description")
+                            };
+                            transactions.Add(transaction);
+                        }
+                    }
+                }
+            }
+            return transactions;
+        }
+
+
+
+
         public string GetWalletNameById(int walletId)
         {
             using (var connection = new MySqlConnection(_connectionString))
