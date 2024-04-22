@@ -12,7 +12,9 @@ namespace Wallet_Manager.Classes
 {
     internal class SqlDataAccessLayer : IDataAccessLayer
     {
-        private string _connectionString;   
+        private string _connectionString;
+
+
 
         public SqlDataAccessLayer(string connectionString)
         {

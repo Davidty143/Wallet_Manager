@@ -32,7 +32,7 @@
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.labelNext = new System.Windows.Forms.Label();
             this.labelPrev = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
+            this.paginationLabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -108,6 +108,7 @@
             this.transactionTypeLabel6 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -158,18 +159,18 @@
             this.labelPrev.Text = "<";
             this.labelPrev.Click += new System.EventHandler(this.labelPrev_Click);
             // 
-            // label59
+            // paginationLabel
             // 
-            this.label59.AutoSize = true;
-            this.label59.BackColor = System.Drawing.Color.White;
-            this.label59.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label59.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label59.Location = new System.Drawing.Point(1258, 762);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(81, 20);
-            this.label59.TabIndex = 223;
-            this.label59.Text = "Page 1 of 1";
+            this.paginationLabel.AutoSize = true;
+            this.paginationLabel.BackColor = System.Drawing.Color.White;
+            this.paginationLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.paginationLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paginationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.paginationLabel.Location = new System.Drawing.Point(1258, 762);
+            this.paginationLabel.Name = "paginationLabel";
+            this.paginationLabel.Size = new System.Drawing.Size(81, 20);
+            this.paginationLabel.TabIndex = 223;
+            this.paginationLabel.Text = "Page 1 of 1";
             // 
             // label8
             // 
@@ -1180,11 +1181,23 @@
             this.guna2Button1.Text = "Filter";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(1307, 115);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 16);
+            this.label1.TabIndex = 298;
+            this.label1.Text = "Remove FIlter";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // TransactionHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
@@ -1195,7 +1208,7 @@
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.labelNext);
             this.Controls.Add(this.labelPrev);
-            this.Controls.Add(this.label59);
+            this.Controls.Add(this.paginationLabel);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -1234,7 +1247,7 @@
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private System.Windows.Forms.Label labelNext;
         private System.Windows.Forms.Label labelPrev;
-        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label paginationLabel;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -1310,5 +1323,6 @@
         private System.Windows.Forms.Label dateLabel6;
         private System.Windows.Forms.Label transactionTypeLabel6;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private System.Windows.Forms.Label label1;
     }
 }

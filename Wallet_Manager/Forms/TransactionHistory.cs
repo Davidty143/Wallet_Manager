@@ -34,6 +34,9 @@ namespace Wallet_Manager.Forms
         private int transactionsPerPage = 6; // Adjust based on your UI setup
         private int totalTransactions = 0;
 
+        //aaaaaaaaaaaaaaaprivate bool isFilterActive = false;
+
+
         public TransactionHistory()
         {
             InitializeComponent();
@@ -114,6 +117,7 @@ namespace Wallet_Manager.Forms
 
         private void LoadTransactions()
         {
+            //isFilterActive = false;
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
             transactions = _dataAccessLayer.GetAllTransactions();
@@ -194,6 +198,7 @@ namespace Wallet_Manager.Forms
                 {
                     transactionPanels[i].Visible = false;
                 }
+                UpdatePaginationLabel();
             }
         }
 
@@ -226,11 +231,18 @@ namespace Wallet_Manager.Forms
 
         public void ApplyFilters(string transactionType, string category, string wallet, string walletCategory, DateTime startDate, DateTime endDate)
         {
+            //isFilterActive = true;
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
-            var filteredTransactions = _dataAccessLayer.GetAllFilteredTransactions(transactionType, category, wallet, walletCategory, startDate, endDate);
+            transactions = _dataAccessLayer.GetAllFilteredTransactions(transactionType, category, wallet, walletCategory, startDate, endDate);
             totalTransactions = transactions.Count;
-            UpdateFilteredTransactionDisplay(filteredTransactions);
+            currentPage = 0; // Reset to the first page
+            UpdateTransactionDisplay(); // Use the generic update method to handle both filtered and unfiltered cases
+        }
+        private void UpdatePaginationLabel()
+        {
+            int totalPages = (totalTransactions + transactionsPerPage - 1) / transactionsPerPage;
+            paginationLabel.Text = $"Page {currentPage + 1} of {totalPages}";
         }
 
 
@@ -280,6 +292,8 @@ namespace Wallet_Manager.Forms
                 {
                     transactionPanels[i].Visible = false;
                 }
+                UpdatePaginationLabel();
+
             }
         }
 
@@ -371,6 +385,11 @@ private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            LoadTransactions();
         }
     }
 }
