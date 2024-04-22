@@ -71,7 +71,6 @@
             this.amountLabel3 = new System.Windows.Forms.Label();
             this.walletLabel3 = new System.Windows.Forms.Label();
             this.transactionTypeLabel3 = new System.Windows.Forms.Label();
-            this.iconPictureBox3 = new System.Windows.Forms.PictureBox();
             this.label42 = new System.Windows.Forms.Label();
             this.descriptionLabel3 = new System.Windows.Forms.Label();
             this.categoryLabel3 = new System.Windows.Forms.Label();
@@ -79,7 +78,6 @@
             this.amountLabel2 = new System.Windows.Forms.Label();
             this.walletLabel2 = new System.Windows.Forms.Label();
             this.transactionTypeLabel2 = new System.Windows.Forms.Label();
-            this.iconPictureBox2 = new System.Windows.Forms.PictureBox();
             this.label35 = new System.Windows.Forms.Label();
             this.descriptionLabel2 = new System.Windows.Forms.Label();
             this.categoryLabel2 = new System.Windows.Forms.Label();
@@ -88,17 +86,21 @@
             this.amountLabel1 = new System.Windows.Forms.Label();
             this.walletLabel1 = new System.Windows.Forms.Label();
             this.transactionTypeLabel1 = new System.Windows.Forms.Label();
-            this.iconPictureBox1 = new System.Windows.Forms.PictureBox();
             this.label28 = new System.Windows.Forms.Label();
             this.descriptionLabel1 = new System.Windows.Forms.Label();
             this.categoryLabel1 = new System.Windows.Forms.Label();
             this.dateLabel2 = new System.Windows.Forms.Label();
             this.dateLabel3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.iconPictureBox3 = new System.Windows.Forms.PictureBox();
+            this.iconPictureBox2 = new System.Windows.Forms.PictureBox();
+            this.iconPictureBox1 = new System.Windows.Forms.PictureBox();
             this.recentTransactionPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
             this.recentTransactionPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             this.recentTransactionPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,7 +110,7 @@
             this.label43.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label43.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label43.Location = new System.Drawing.Point(714, 437);
+            this.label43.Location = new System.Drawing.Point(713, 444);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(85, 25);
             this.label43.TabIndex = 162;
@@ -200,7 +202,7 @@
             this.label22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label22.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label22.Location = new System.Drawing.Point(746, 282);
+            this.label22.Location = new System.Drawing.Point(733, 282);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(75, 25);
             this.label22.TabIndex = 156;
@@ -726,18 +728,6 @@
             this.transactionTypeLabel3.TabIndex = 294;
             this.transactionTypeLabel3.Text = "Expense";
             // 
-            // iconPictureBox3
-            // 
-            this.iconPictureBox3.BackColor = System.Drawing.Color.White;
-            this.iconPictureBox3.Image = global::Wallet_Manager.Properties.Resources._9;
-            this.iconPictureBox3.Location = new System.Drawing.Point(80, 35);
-            this.iconPictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.iconPictureBox3.Name = "iconPictureBox3";
-            this.iconPictureBox3.Size = new System.Drawing.Size(60, 60);
-            this.iconPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconPictureBox3.TabIndex = 285;
-            this.iconPictureBox3.TabStop = false;
-            // 
             // label42
             // 
             this.label42.AutoSize = true;
@@ -789,7 +779,7 @@
             this.recentTransactionPanel2.Controls.Add(this.label35);
             this.recentTransactionPanel2.Controls.Add(this.descriptionLabel2);
             this.recentTransactionPanel2.Controls.Add(this.categoryLabel2);
-            this.recentTransactionPanel2.Location = new System.Drawing.Point(904, 212);
+            this.recentTransactionPanel2.Location = new System.Drawing.Point(904, 86);
             this.recentTransactionPanel2.Name = "recentTransactionPanel2";
             this.recentTransactionPanel2.Size = new System.Drawing.Size(547, 111);
             this.recentTransactionPanel2.TabIndex = 303;
@@ -832,18 +822,6 @@
             this.transactionTypeLabel2.Size = new System.Drawing.Size(74, 23);
             this.transactionTypeLabel2.TabIndex = 294;
             this.transactionTypeLabel2.Text = "Expense";
-            // 
-            // iconPictureBox2
-            // 
-            this.iconPictureBox2.BackColor = System.Drawing.Color.White;
-            this.iconPictureBox2.Image = global::Wallet_Manager.Properties.Resources._9;
-            this.iconPictureBox2.Location = new System.Drawing.Point(80, 35);
-            this.iconPictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.iconPictureBox2.Name = "iconPictureBox2";
-            this.iconPictureBox2.Size = new System.Drawing.Size(60, 60);
-            this.iconPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconPictureBox2.TabIndex = 285;
-            this.iconPictureBox2.TabStop = false;
             // 
             // label35
             // 
@@ -896,7 +874,7 @@
             this.recentTransactionPanel1.Controls.Add(this.label28);
             this.recentTransactionPanel1.Controls.Add(this.descriptionLabel1);
             this.recentTransactionPanel1.Controls.Add(this.categoryLabel1);
-            this.recentTransactionPanel1.Location = new System.Drawing.Point(904, 86);
+            this.recentTransactionPanel1.Location = new System.Drawing.Point(904, 212);
             this.recentTransactionPanel1.Name = "recentTransactionPanel1";
             this.recentTransactionPanel1.Size = new System.Drawing.Size(547, 111);
             this.recentTransactionPanel1.TabIndex = 302;
@@ -951,18 +929,6 @@
             this.transactionTypeLabel1.Size = new System.Drawing.Size(74, 23);
             this.transactionTypeLabel1.TabIndex = 294;
             this.transactionTypeLabel1.Text = "Expense";
-            // 
-            // iconPictureBox1
-            // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.White;
-            this.iconPictureBox1.Image = global::Wallet_Manager.Properties.Resources._9;
-            this.iconPictureBox1.Location = new System.Drawing.Point(80, 35);
-            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(60, 60);
-            this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconPictureBox1.TabIndex = 285;
-            this.iconPictureBox1.TabStop = false;
             // 
             // label28
             // 
@@ -1027,11 +993,59 @@
             this.dateLabel3.TabIndex = 299;
             this.dateLabel3.Text = "Today";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Wallet_Manager.Properties.Resources.wallet_;
+            this.pictureBox1.Location = new System.Drawing.Point(725, 391);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 305;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // iconPictureBox3
+            // 
+            this.iconPictureBox3.BackColor = System.Drawing.Color.White;
+            this.iconPictureBox3.Image = global::Wallet_Manager.Properties.Resources._9;
+            this.iconPictureBox3.Location = new System.Drawing.Point(80, 35);
+            this.iconPictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iconPictureBox3.Name = "iconPictureBox3";
+            this.iconPictureBox3.Size = new System.Drawing.Size(60, 60);
+            this.iconPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox3.TabIndex = 285;
+            this.iconPictureBox3.TabStop = false;
+            // 
+            // iconPictureBox2
+            // 
+            this.iconPictureBox2.BackColor = System.Drawing.Color.White;
+            this.iconPictureBox2.Image = global::Wallet_Manager.Properties.Resources._9;
+            this.iconPictureBox2.Location = new System.Drawing.Point(80, 35);
+            this.iconPictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iconPictureBox2.Name = "iconPictureBox2";
+            this.iconPictureBox2.Size = new System.Drawing.Size(60, 60);
+            this.iconPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox2.TabIndex = 285;
+            this.iconPictureBox2.TabStop = false;
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.BackColor = System.Drawing.Color.White;
+            this.iconPictureBox1.Image = global::Wallet_Manager.Properties.Resources._9;
+            this.iconPictureBox1.Location = new System.Drawing.Point(80, 35);
+            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(60, 60);
+            this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox1.TabIndex = 285;
+            this.iconPictureBox1.TabStop = false;
+            // 
             // DashboardUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.recentTransactionPanel3);
             this.Controls.Add(this.recentTransactionPanel2);
             this.Controls.Add(this.recentTransactionPanel1);
@@ -1079,12 +1093,13 @@
             this.Load += new System.EventHandler(this.DashboardUC_Load);
             this.recentTransactionPanel3.ResumeLayout(false);
             this.recentTransactionPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
             this.recentTransactionPanel2.ResumeLayout(false);
             this.recentTransactionPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
             this.recentTransactionPanel1.ResumeLayout(false);
             this.recentTransactionPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -1158,5 +1173,6 @@
         private System.Windows.Forms.Label categoryLabel1;
         private System.Windows.Forms.Label dateLabel3;
         private System.Windows.Forms.Label dateLabel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
