@@ -7,14 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Wallet_Manager.Forms
 {
     public partial class Budget_uc : UserControl
     {
-        public Budget_uc()
+        public Budget_uc(int totalAmount, int amountSpent)
         {
             InitializeComponent();
+          //  UpdateProgress(totalAmount, amountSpent);
+        }
+
+        private void Budget_uc_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

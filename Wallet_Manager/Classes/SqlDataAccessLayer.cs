@@ -435,6 +435,40 @@ namespace Wallet_Manager.Classes
             return transactions;
         }
 
+        public List<Transaction> GetLatestThreeTransactions()
+        {
+            List<Transaction> transactions = new List<Transaction>();
+            using (MySqlConnection connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                // Modified SQL command to fetch only the latest 3 transactions
+                using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction ORDER BY Date DESC LIMIT 3", connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Transaction transaction = new Transaction
+                            {
+                                TransactionID = reader.GetInt32("TransactionID"),
+                                UserID = reader.GetInt32("UserID"),
+                                WalletID = reader.GetInt32("WalletID"),
+                                WalletCategory = reader.GetString("WalletCategory"),
+                                TransactionType = reader.GetString("TransactionType"),
+                                CategoryID = reader.GetInt32("CategoryID"),
+                                Amount = reader.GetFloat("Amount"),
+                                Date = reader.GetDateTime("Date"),
+                                Description = reader.GetString("Description")
+                            };
+                            transactions.Add(transaction);
+                        }
+                    }
+                }
+            }
+            return transactions;
+        }
+
+
         public List<Transaction> GetAllFilteredTransactions(string transactionType = null, string category = null, string wallet = null, string walletCategory = null, DateTime? startDate = null, DateTime? endDate = null)
         {
             List<Transaction> transactions = new List<Transaction>();

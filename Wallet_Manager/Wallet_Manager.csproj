@@ -159,6 +159,12 @@
     <Compile Include="Forms\AddWallet.Designer.cs">
       <DependentUpon>AddWallet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Budget_uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Budget_uc.Designer.cs">
+      <DependentUpon>Budget_uc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddWallet.resx">
       <DependentUpon>AddWallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Budget_uc.resx">
+      <DependentUpon>Budget_uc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
