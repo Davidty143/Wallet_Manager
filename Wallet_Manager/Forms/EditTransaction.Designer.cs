@@ -215,6 +215,7 @@
             this.txtWallet.Name = "txtWallet";
             this.txtWallet.Size = new System.Drawing.Size(208, 36);
             this.txtWallet.TabIndex = 130;
+            this.txtWallet.SelectedIndexChanged += new System.EventHandler(this.txtWallet_SelectedIndexChanged);
             // 
             // checkBoxSpending
             // 

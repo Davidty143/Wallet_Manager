@@ -229,5 +229,9 @@ namespace Wallet_Manager.Forms
             return dataAccessLayer.UpdateWallet(wallet);
         }
 
+        private void txtWallet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

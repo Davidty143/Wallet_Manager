@@ -40,7 +40,7 @@ namespace Wallet_Manager.Forms
             InitializeControlArrays();
             LoadCategoryImages();
             LoadTransactions();
-            
+
             //ConnectEventHandlers();
         }
 
@@ -180,7 +180,7 @@ namespace Wallet_Manager.Forms
                     }
 
                     int imageIndex = transaction.CategoryID - 1; // Calculate the index
-                    if (imageIndex < 0 ||  categoryImages[imageIndex] == null)
+                    if (imageIndex < 0 || categoryImages[imageIndex] == null)
                     {
                         Console.WriteLine("Invalid or missing image for Category ID: " + transaction.CategoryID);
                         categoryPictureBoxes[i].Image = Properties.Resources.button_budget_active; // Use default image
@@ -292,6 +292,21 @@ namespace Wallet_Manager.Forms
         private void categoryPictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            // Assuming SearchFilter is correctly implementing a Singleton pattern
+            // and has a public static property called Instance to access it.
+            SearchFilter searchForm = SearchFilter.Instance;
+            if (searchForm == null)
+            {
+                searchForm = new SearchFilter();
+                searchForm.ShowDialog(); // Set the instance if it's part of the Singleton pattern
+            }
+
+            searchForm.ShowDialog(); // Show the form as a modal dialog
+            //LoadTransactions(); // Reload transactions to reflect the changes
         }
     }
 }
