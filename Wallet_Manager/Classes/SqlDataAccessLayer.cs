@@ -236,7 +236,7 @@ namespace Wallet_Manager.Classes
                 string query = "SELECT * FROM wallet WHERE WalletID = @WalletID";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
+                {   
                     cmd.Parameters.AddWithValue("@WalletID", walletId);
 
                     conn.Open();
@@ -263,13 +263,29 @@ namespace Wallet_Manager.Classes
             }
         }
 
+        public DataTable GetAllCategories()
+        {
+            using (var conn = new MySqlConnection(_connectionString)) // Ensure you use MySqlConnection
+            {
+                conn.Open();
+                // Corrected SQL query
+                var cmd = new MySqlCommand("SELECT CategoryId, Name FROM Category", conn);
+                var dataTable = new DataTable();
+                using (var adapter = new MySqlDataAdapter(cmd))
+                {
+                    adapter.Fill(dataTable);
+                }
+                return dataTable;
+            }
+        }
+
         public DataTable GetIncomeCategories()
         {
             using (var conn = new MySqlConnection(_connectionString)) // Ensure you use MySqlConnection
             {
                 conn.Open();
                 // Adjust the query to match your database schema
-                var cmd = new MySqlCommand("SELECT CategoryId, Name FROM Category WHERE CategoryType = 'Income' ORDER BY Name", conn);
+                var cmd = new MySqlCommand("SELECT CategoryId, Name FROM Category WHERE CategoryType = 'Income' ", conn);
                 var dataTable = new DataTable();
                 using (var adapter = new MySqlDataAdapter(cmd))
                 {
@@ -284,7 +300,7 @@ namespace Wallet_Manager.Classes
             using (var conn = new MySqlConnection(_connectionString))
             {
                 conn.Open();
-                var cmd = new MySqlCommand("SELECT CategoryId, Name FROM Category WHERE CategoryType = 'Expense' ORDER BY Name", conn);
+                var cmd = new MySqlCommand("SELECT CategoryId, Name FROM Category WHERE CategoryType = 'Expense' ", conn);
                 var dataTable = new DataTable();
                 using (var adapter = new MySqlDataAdapter(cmd))
                 {
@@ -298,7 +314,7 @@ namespace Wallet_Manager.Classes
             using (var conn = new MySqlConnection(_connectionString))
             {
                 conn.Open();
-                var cmd = new MySqlCommand("SELECT CategoryId, Name FROM Category WHERE CategoryType = 'Transfer' ORDER BY Name", conn);
+                var cmd = new MySqlCommand("SELECT CategoryId, Name FROM Category WHERE CategoryType = 'Transfer' ", conn);
                 var dataTable = new DataTable();
                 using (var adapter = new MySqlDataAdapter(cmd))
                 {

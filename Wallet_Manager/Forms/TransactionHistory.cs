@@ -153,6 +153,8 @@ namespace Wallet_Manager.Forms
             }
         }
 
+
+
         private void UpdateTransactionDisplay()
         {
             int start = currentPage * transactionsPerPage;
@@ -231,19 +233,46 @@ namespace Wallet_Manager.Forms
 
         public void ApplyFilters(string transactionType, string category, string wallet, string walletCategory, DateTime startDate, DateTime endDate)
         {
-            //isFilterActive = true;
+            // Assuming "All" is represented by "All" for string types and "0" for IDs in category and wallet
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
-            transactions = _dataAccessLayer.GetAllFilteredTransactions(transactionType, category, wallet, walletCategory, startDate, endDate);
+
+            // Check for "All" cases and adjust parameters accordingly
+            string filterTransactionType = transactionType == "All" ? null : transactionType;
+            string filterCategory = (category == "0" || category == null) ? null : category;
+            string filterWallet = (wallet == "0" || wallet == null) ? null : wallet;
+            string filterWalletCategory = walletCategory == "All" ? null : walletCategory;
+
+            // Retrieve filtered transactions based on the adjusted parameters
+            transactions = _dataAccessLayer.GetAllFilteredTransactions(filterTransactionType, filterCategory, filterWallet, filterWalletCategory, startDate, endDate);
             totalTransactions = transactions.Count;
             currentPage = 0; // Reset to the first page
             UpdateTransactionDisplay(); // Use the generic update method to handle both filtered and unfiltered cases
         }
+
         private void UpdatePaginationLabel()
         {
-            int totalPages = (totalTransactions + transactionsPerPage - 1) / transactionsPerPage;
-            paginationLabel.Text = $"Page {currentPage + 1} of {totalPages}";
+            // Calculate total pages, ensuring we handle zero transactions correctly
+            int totalPages = totalTransactions > 0 ? (totalTransactions + transactionsPerPage - 1) / transactionsPerPage : 0;
+
+            // Adjust currentPage to ensure it's within the valid range
+            if (totalPages == 0)
+            {
+                currentPage = 0; // No pages to display
+                paginationLabel.Text = "Page 0 of 0"; // Display no pages available
+            }
+            else
+            {
+                // Ensure currentPage is not out of range, which can happen with filter changes
+                if (currentPage >= totalPages)
+                {
+                    currentPage = totalPages - 1; // Adjust to the last valid page index
+                }
+                // currentPage + 1 because pages are usually displayed as 1-based to users
+                paginationLabel.Text = $"Page {currentPage + 1} of {totalPages}";
+            }
         }
+
 
 
 

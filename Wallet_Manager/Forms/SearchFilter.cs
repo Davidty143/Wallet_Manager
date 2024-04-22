@@ -17,6 +17,9 @@ namespace Wallet_Manager.Forms
     {
         private static SearchFilter instance = null;
         private TransactionHistory _transactionHistory;
+        private const string ALL = "All";
+        private const int ALL_ID = 0;
+
 
         public SearchFilter(TransactionHistory transactionHistory)
         {
@@ -34,11 +37,12 @@ namespace Wallet_Manager.Forms
 
         public void PopulateWalletCategoryComboBox()
         {
-            walletCategoryComboBox.Items.Add("Savings");
+            walletCategoryComboBox.Items.Add("All");
             walletCategoryComboBox.Items.Add("Spending");
+            walletCategoryComboBox.Items.Add("Savings");
             walletCategoryComboBox.SelectedIndex = 0;
-
         }
+
         private void PopulateCategoryComboBox(string transactionType)
         {
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
@@ -49,6 +53,9 @@ namespace Wallet_Manager.Forms
             {
                 switch (transactionType)
                 {
+                    case "All":
+                        categories = dataAccessLayer.GetAllCategories();
+                        break;
                     case "Expense":
                         categories = dataAccessLayer.GetExpenseCategories();
                         break;
@@ -62,6 +69,11 @@ namespace Wallet_Manager.Forms
                         categories = new DataTable();
                         break;
                 }
+
+                DataRow newRow = categories.NewRow();
+                newRow["CategoryId"] = DBNull.Value; // Or use 0 or another special value
+                newRow["Name"] = "All";
+                categories.Rows.InsertAt(newRow, 0); // Insert at the top of the list
 
                 categoryComboBox.DisplayMember = "Name";
                 categoryComboBox.ValueMember = "CategoryId";
@@ -87,6 +99,8 @@ namespace Wallet_Manager.Forms
                 Value = wallet.WalletID
             }).ToList();
 
+            walletBindingList.Insert(0, new { Text = "All", Value = 0 });
+
             walletComboBox.DisplayMember = "Text";
             walletComboBox.ValueMember = "Value";
             walletComboBox.DataSource = walletBindingList;
@@ -94,6 +108,7 @@ namespace Wallet_Manager.Forms
 
         private void populateTransactionType()
         {
+            transactionTypeComboBox.Items.Add("All");
             transactionTypeComboBox.Items.Add("Expense");
             transactionTypeComboBox.Items.Add("Income");
             transactionTypeComboBox.Items.Add("Transfer");
@@ -108,64 +123,6 @@ namespace Wallet_Manager.Forms
             }
             return instance;
         }
-
-
-        private void FilterTransactions()
-        {
-            string transactionType = transactionTypeComboBox.SelectedItem?.ToString();
-            string category = categoryComboBox.SelectedItem?.ToString();
-            string wallet = walletComboBox.SelectedItem?.ToString();
-            string walletCategory = walletCategoryComboBox.SelectedItem?.ToString();
-            DateTime startDate = startDatePicker.Value.Date;
-            DateTime endDate = endDatePicker.Value.Date.AddDays(1); // Include the end date in the search
-
-            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-            using (MySqlConnection conn = new MySqlConnection(_connectionString))
-            {
-                conn.Open();
-                StringBuilder query = new StringBuilder("SELECT * FROM Transaction WHERE 1=1 ");
-                List<MySqlParameter> parameters = new List<MySqlParameter>();
-
-                if (!string.IsNullOrEmpty(transactionType))
-                {
-                    query.Append("AND TransactionType = @TransactionType ");
-                    parameters.Add(new MySqlParameter("@TransactionType", transactionType));
-                }
-                if (!string.IsNullOrEmpty(category))
-                {
-                    query.Append("AND CategoryID = @CategoryID ");
-                    parameters.Add(new MySqlParameter("@CategoryID", category));
-                }
-                if (!string.IsNullOrEmpty(wallet))
-                {
-                    query.Append("AND WalletID = @WalletID ");
-                    parameters.Add(new MySqlParameter("@WalletID", wallet));
-                }
-                if (!string.IsNullOrEmpty(walletCategory))
-                {
-                    query.Append("AND WalletCategory = @WalletCategory ");
-                    parameters.Add(new MySqlParameter("@WalletCategory", walletCategory));
-                }
-                query.Append("AND DATE BETWEEN @StartDate AND @EndDate");
-                parameters.Add(new MySqlParameter("@StartDate", startDate));
-                parameters.Add(new MySqlParameter("@EndDate", endDate));
-
-                using (MySqlCommand cmd = new MySqlCommand(query.ToString(), conn))
-                {
-                    cmd.Parameters.AddRange(parameters.ToArray());
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                    {
-
-                        DataTable filteredTransactions = new DataTable();
-                        adapter.Fill(filteredTransactions);
-                        //transactionsDataGridView.DataSource = filteredTransactions;
-                    }
-                }
-            }
-        }
-
-
-
 
 
         private void SearchFilter_Load(object sender, EventArgs e)
@@ -200,6 +157,7 @@ namespace Wallet_Manager.Forms
             // Call ApplyFilters on the TransactionHistory form
             _transactionHistory.ApplyFilters(transactionType, category, wallet, walletCategory, startDate, endDate);
             this.Close(); // Optionally close the SearchFilter form
+
         }
     }
 }
