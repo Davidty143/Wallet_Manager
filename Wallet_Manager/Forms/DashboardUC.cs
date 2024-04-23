@@ -46,8 +46,6 @@ namespace Wallet_Manager.Forms
             amountLabels = new Label[] { amountLabel1, amountLabel2, amountLabel3 };
             walletNameLabels = new Label[] { walletLabel1, walletLabel2, walletLabel3 };
             dateLabels = new Label[] { dateLabel1, dateLabel2, dateLabel3 };
-
-
         }
         private void LoadCategoryImages()
         {
