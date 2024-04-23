@@ -1,6 +1,6 @@
 ﻿namespace Wallet_Manager.Forms
 {
-    partial class Test
+    partial class Test1
     {
         /// <summary>
         /// Required designer variable.
@@ -35,20 +35,20 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Wallet_Manager.Properties.Resources._10;
-            this.pictureBox1.Location = new System.Drawing.Point(470, 208);
+            this.pictureBox1.Location = new System.Drawing.Point(478, 248);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 50);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // Test
+            // Test1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1032, 482);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Test";
-            this.Text = "Test";
+            this.Name = "Test1";
+            this.Text = "Test1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

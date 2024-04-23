@@ -47,7 +47,7 @@
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.dashboardUC1 = new Wallet_Manager.Forms.DashboardUC();
             this.wallet_uc1 = new Wallet_Manager.Forms.Wallet_uc();
-            this.wallet_uc2 = new Wallet_Manager.Forms.Wallet_uc();
+            this.transactionHistory1 = new Wallet_Manager.Forms.TransactionHistory();
             this.display_panel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -59,7 +59,7 @@
             // display_panel
             // 
             this.display_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.display_panel.Controls.Add(this.wallet_uc2);
+            this.display_panel.Controls.Add(this.transactionHistory1);
             this.display_panel.Controls.Add(this.panel1);
             this.display_panel.Controls.Add(this.panel4);
             this.display_panel.Controls.Add(this.panel3);
@@ -255,11 +255,11 @@
             resources.ApplyResources(this.wallet_uc1, "wallet_uc1");
             this.wallet_uc1.Name = "wallet_uc1";
             // 
-            // wallet_uc2
+            // transactionHistory1
             // 
-            this.wallet_uc2.BackColor = System.Drawing.Color.WhiteSmoke;
-            resources.ApplyResources(this.wallet_uc2, "wallet_uc2");
-            this.wallet_uc2.Name = "wallet_uc2";
+            this.transactionHistory1.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.transactionHistory1, "transactionHistory1");
+            this.transactionHistory1.Name = "transactionHistory1";
             // 
             // Dashboard
             // 
@@ -298,6 +298,6 @@
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private DashboardUC dashboardUC1;
         private Wallet_uc wallet_uc1;
-        private Wallet_uc wallet_uc2;
+        private TransactionHistory transactionHistory1;
     }
 }
