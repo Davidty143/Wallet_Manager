@@ -110,5 +110,9 @@ namespace Wallet_Manager.Forms
         {
             Application.Exit();
         }
+
+        private void transactionHistory1_Load(object sender, EventArgs e)
+        {
+                    }
     }
 }

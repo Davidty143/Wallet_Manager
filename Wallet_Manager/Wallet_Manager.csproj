@@ -184,6 +184,12 @@
     <Compile Include="Forms\EditTransaction.Designer.cs">
       <DependentUpon>EditTransaction.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EditWallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditWallet.Designer.cs">
+      <DependentUpon>EditWallet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditTransaction.resx">
       <DependentUpon>EditTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditWallet.resx">
+      <DependentUpon>EditWallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -459,6 +468,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\wallet+2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deletebutton_transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_transparent2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_transparent3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_button4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

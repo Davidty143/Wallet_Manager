@@ -209,25 +209,76 @@ namespace Wallet_Manager.Classes
         }
 
 
-            public bool UpdateWallet(Wallet wallet)
+        public bool UpdateWallet(Wallet wallet)
+        {
+            using (MySqlConnection conn = new MySqlConnection(_connectionString))
             {
-                using (MySqlConnection conn = new MySqlConnection(_connectionString))
+                string query = "UPDATE wallet SET SpendingMoney = @SpendingMoney, SavingsMoney = @SavingsMoney WHERE WalletID = @WalletID";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    string query = "UPDATE wallet SET SpendingMoney = @SpendingMoney, SavingsMoney = @SavingsMoney WHERE WalletID = @WalletID";
+                    cmd.Parameters.AddWithValue("@SpendingMoney", wallet.SpendingMoney);
+                    cmd.Parameters.AddWithValue("@SavingsMoney", wallet.SavingsMoney);
+                    cmd.Parameters.AddWithValue("@WalletID", wallet.WalletID);
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@SpendingMoney", wallet.SpendingMoney);
-                        cmd.Parameters.AddWithValue("@SavingsMoney", wallet.SavingsMoney);
-                        cmd.Parameters.AddWithValue("@WalletID", wallet.WalletID);
+                    conn.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
 
-                        conn.Open();
-                        int rowsAffected = cmd.ExecuteNonQuery();
-
-                        return rowsAffected > 0;
-                    }
+                    return rowsAffected > 0;
                 }
             }
+        }
+
+        public bool CheckAndUpdateWallet(Wallet wallet)
+        {
+            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            {
+                // First, check if the wallet name already exists for another wallet
+                string checkQuery = "SELECT COUNT(1) FROM wallet WHERE WalletName = @WalletName AND WalletID != @WalletID";
+                using (MySqlCommand checkCmd = new MySqlCommand(checkQuery, conn))
+                {
+                    checkCmd.Parameters.AddWithValue("@WalletName", wallet.WalletName);
+                    checkCmd.Parameters.AddWithValue("@WalletID", wallet.WalletID);
+
+                    conn.Open();
+                    int count = Convert.ToInt32(checkCmd.ExecuteScalar());
+                    conn.Close();
+
+                    if (count > 0)
+                    {
+                        // If the wallet name exists for another wallet, return false
+                        return false;
+                    }
+                }
+
+                // If the wallet name does not exist, proceed with updating the wallet
+                string updateQuery = @"
+            UPDATE wallet 
+            SET 
+                WalletName = @WalletName, 
+                WalletType = @WalletType, 
+                SpendingMoney = @SpendingMoney, 
+                SavingsMoney = @SavingsMoney 
+            WHERE WalletID = @WalletID";
+
+                using (MySqlCommand updateCmd = new MySqlCommand(updateQuery, conn))
+                {
+                    updateCmd.Parameters.AddWithValue("@WalletName", wallet.WalletName);
+                    updateCmd.Parameters.AddWithValue("@WalletType", wallet.WalletType);
+                    updateCmd.Parameters.AddWithValue("@SpendingMoney", wallet.SpendingMoney);
+                    updateCmd.Parameters.AddWithValue("@SavingsMoney", wallet.SavingsMoney);
+                    updateCmd.Parameters.AddWithValue("@WalletID", wallet.WalletID);
+
+                    conn.Open();
+                    int rowsAffected = updateCmd.ExecuteNonQuery();
+
+                    // Return true if the update was successful
+                    return rowsAffected > 0;
+                }
+            }
+        }
+
+
 
         public Wallet GetWallet(int walletId)
         {
@@ -236,7 +287,7 @@ namespace Wallet_Manager.Classes
                 string query = "SELECT * FROM wallet WHERE WalletID = @WalletID";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                {   
+                {
                     cmd.Parameters.AddWithValue("@WalletID", walletId);
 
                     conn.Open();
@@ -403,6 +454,35 @@ namespace Wallet_Manager.Classes
             }
         }
 
+        public Wallet GetWalletById(int walletId)
+        {
+            Wallet wallet = null;
+            using (var conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                var cmd = new MySqlCommand("SELECT WalletID, UserID, WalletName, WalletType, SpendingMoney, SavingsMoney FROM Wallet WHERE WalletID = @WalletID", conn);
+                cmd.Parameters.AddWithValue("@WalletID", walletId);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        wallet = new Wallet
+                        {
+                            WalletID = reader.GetInt32("WalletID"),
+                            UserID = reader.GetInt32("UserID"),
+                            WalletName = reader.IsDBNull(reader.GetOrdinal("WalletName")) ? null : reader.GetString("WalletName"),
+                            WalletType = reader.IsDBNull(reader.GetOrdinal("WalletType")) ? null : reader.GetString("WalletType"),
+                            SpendingMoney = reader.IsDBNull(reader.GetOrdinal("SpendingMoney")) ? 0 : reader.GetFloat("SpendingMoney"),
+                            SavingsMoney = reader.IsDBNull(reader.GetOrdinal("SavingsMoney")) ? 0 : reader.GetFloat("SavingsMoney")
+                        };
+                    }
+                }
+            }
+            return wallet;
+        }
+
+
         public List<Transaction> GetAllTransactions()
         {
             List<Transaction> transactions = new List<Transaction>();
@@ -436,37 +516,37 @@ namespace Wallet_Manager.Classes
         }
 
         public List<Transaction> GetLatestThreeTransactions()
-{
-    List<Transaction> transactions = new List<Transaction>();
-    using (MySqlConnection connection = new MySqlConnection(_connectionString))
-    {
-        connection.Open();
-        // Modified SQL command to fetch only the latest 3 transactions
-        using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction ORDER BY Date DESC LIMIT 3", connection))
         {
-            using (MySqlDataReader reader = command.ExecuteReader())
+            List<Transaction> transactions = new List<Transaction>();
+            using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
-                while (reader.Read())
+                connection.Open();
+                // Modified SQL command to fetch only the latest 3 transactions
+                using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction ORDER BY Date DESC LIMIT 3", connection))
                 {
-                    Transaction transaction = new Transaction
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
-                        TransactionID = reader.GetInt32("TransactionID"),
-                        UserID = reader.GetInt32("UserID"),
-                        WalletID = reader.GetInt32("WalletID"),
-                        WalletCategory = reader.GetString("WalletCategory"),
-                        TransactionType = reader.GetString("TransactionType"),
-                        CategoryID = reader.GetInt32("CategoryID"),
-                        Amount = reader.GetFloat("Amount"),
-                        Date = reader.GetDateTime("Date"),
-                        Description = reader.GetString("Description")
-                    };
-                    transactions.Add(transaction);
+                        while (reader.Read())
+                        {
+                            Transaction transaction = new Transaction
+                            {
+                                TransactionID = reader.GetInt32("TransactionID"),
+                                UserID = reader.GetInt32("UserID"),
+                                WalletID = reader.GetInt32("WalletID"),
+                                WalletCategory = reader.GetString("WalletCategory"),
+                                TransactionType = reader.GetString("TransactionType"),
+                                CategoryID = reader.GetInt32("CategoryID"),
+                                Amount = reader.GetFloat("Amount"),
+                                Date = reader.GetDateTime("Date"),
+                                Description = reader.GetString("Description")
+                            };
+                            transactions.Add(transaction);
+                        }
+                    }
                 }
             }
+            return transactions;
         }
-    }
-    return transactions;
-}
 
 
         public List<Transaction> GetAllFilteredTransactions(string transactionType = null, string category = null, string wallet = null, string walletCategory = null, DateTime? startDate = null, DateTime? endDate = null)
@@ -764,10 +844,64 @@ namespace Wallet_Manager.Classes
             return mostUsedWallet;
         }
 
+
+        public bool DeleteWallet(int walletId)
+        {
+            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+
+                // Start a transaction
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        // Delete related records from the 'goal' table
+                        var deleteGoalsQuery = "DELETE FROM goal WHERE WalletID = @WalletID";
+                        using (var cmd = new MySqlCommand(deleteGoalsQuery, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@WalletID", walletId);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        // Delete related records from the 'transaction' table
+                        var deleteTransactionsQuery = "DELETE FROM transaction WHERE WalletID = @WalletID";
+                        using (var cmd = new MySqlCommand(deleteTransactionsQuery, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@WalletID", walletId);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        // Now delete the wallet
+                        var deleteWalletQuery = "DELETE FROM wallet WHERE WalletID = @WalletID";
+                        using (var cmd = new MySqlCommand(deleteWalletQuery, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@WalletID", walletId);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        // Commit transaction
+                        transaction.Commit();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        // Rollback transaction on error
+                        transaction.Rollback();
+                        // Log or handle the error as needed
+                        return false;
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
     }
-
-
-
-
-
 }
