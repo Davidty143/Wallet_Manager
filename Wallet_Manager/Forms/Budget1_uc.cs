@@ -7,19 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Wallet_Manager.Forms
 {
-    public partial class Budget_uc : UserControl
+    public partial class Budget1_uc : UserControl
     {
-        public Budget_uc(int totalAmount, int amountSpent)
+        public Budget1_uc()
         {
             InitializeComponent();
-          //  UpdateProgress(totalAmount, amountSpent);
         }
 
-        private void Budget_uc_Load(object sender, EventArgs e)
+        private void guna2ProgressBar2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
         {
 
         }
