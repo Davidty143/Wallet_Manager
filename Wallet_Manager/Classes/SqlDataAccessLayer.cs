@@ -921,7 +921,7 @@ namespace Wallet_Manager.Classes
                         transaction.Commit();
                         return true;
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         // Rollback transaction on error
                         transaction.Rollback();
@@ -930,6 +930,40 @@ namespace Wallet_Manager.Classes
                     }
                 }
             }
+        }
+
+        public List<Budget> GetAllBudgets()
+        {
+            var budgets = new List<Classes.Budget>();
+
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                var query = "SELECT BudgetID, UserID, BudgetName, TotalAmount, PeriodType, StartDate, EndDate FROM budget";
+
+                using (var cmd = new MySqlCommand(query, connection))
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var budget = new Budget
+                            {
+                                BudgetID = reader.GetInt32("BudgetID"),
+                                UserID = reader.GetInt32("UserID"),
+                                BudgetName = reader.GetString("BudgetName"),
+                                TotalAmount = reader.GetFloat("TotalAmount"),
+                                PeriodType = reader.GetString("PeriodType"),
+                                StartDate = reader.GetDateTime("StartDate"),
+                                EndDate = reader.GetDateTime("EndDate")
+                            };
+                            budgets.Add(budget);
+                        }
+                    }
+                }
+            }
+
+            return budgets;
         }
 
 
