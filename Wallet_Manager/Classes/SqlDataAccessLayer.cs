@@ -436,37 +436,37 @@ namespace Wallet_Manager.Classes
         }
 
         public List<Transaction> GetLatestThreeTransactions()
+{
+    List<Transaction> transactions = new List<Transaction>();
+    using (MySqlConnection connection = new MySqlConnection(_connectionString))
+    {
+        connection.Open();
+        // Modified SQL command to fetch only the latest 3 transactions
+        using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction ORDER BY Date DESC LIMIT 3", connection))
         {
-            List<Transaction> transactions = new List<Transaction>();
-            using (MySqlConnection connection = new MySqlConnection(_connectionString))
+            using (MySqlDataReader reader = command.ExecuteReader())
             {
-                connection.Open();
-                // Modified SQL command to fetch only the latest 3 transactions
-                using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction ORDER BY Date DESC LIMIT 3", connection))
+                while (reader.Read())
                 {
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    Transaction transaction = new Transaction
                     {
-                        while (reader.Read())
-                        {
-                            Transaction transaction = new Transaction
-                            {
-                                TransactionID = reader.GetInt32("TransactionID"),
-                                UserID = reader.GetInt32("UserID"),
-                                WalletID = reader.GetInt32("WalletID"),
-                                WalletCategory = reader.GetString("WalletCategory"),
-                                TransactionType = reader.GetString("TransactionType"),
-                                CategoryID = reader.GetInt32("CategoryID"),
-                                Amount = reader.GetFloat("Amount"),
-                                Date = reader.GetDateTime("Date"),
-                                Description = reader.GetString("Description")
-                            };
-                            transactions.Add(transaction);
-                        }
-                    }
+                        TransactionID = reader.GetInt32("TransactionID"),
+                        UserID = reader.GetInt32("UserID"),
+                        WalletID = reader.GetInt32("WalletID"),
+                        WalletCategory = reader.GetString("WalletCategory"),
+                        TransactionType = reader.GetString("TransactionType"),
+                        CategoryID = reader.GetInt32("CategoryID"),
+                        Amount = reader.GetFloat("Amount"),
+                        Date = reader.GetDateTime("Date"),
+                        Description = reader.GetString("Description")
+                    };
+                    transactions.Add(transaction);
                 }
             }
-            return transactions;
         }
+    }
+    return transactions;
+}
 
 
         public List<Transaction> GetAllFilteredTransactions(string transactionType = null, string category = null, string wallet = null, string walletCategory = null, DateTime? startDate = null, DateTime? endDate = null)
@@ -651,11 +651,123 @@ namespace Wallet_Manager.Classes
             }
         }
 
+        public float CalculateTotalSavingsForToday()
+        {
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            float totalSavings = 0;
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = @"
+        SELECT GREATEST(0,
+            (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
+             WHERE TransactionType = 'Transfer' AND CategoryID = 19 AND Date = CURDATE()) -
+            (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
+             WHERE TransactionType = 'Transfer' AND CategoryID = 18 AND Date = CURDATE()) -
+            (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
+             WHERE TransactionType = 'Expense' AND WalletCategory = 'Savings' AND Date = CURDATE())
+        ) AS TotalSavingsToday";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    object result = command.ExecuteScalar();
+                    if (result != DBNull.Value)
+                    {
+                        totalSavings = Convert.ToSingle(result);
+                    }
+                }
+            }
+
+            return totalSavings;
+        }
+
+        public float GetTotalExpensesForToday()
+        {
+            float totalExpenses = 0;
+
+            using (MySqlConnection connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                string query = @"
+                SELECT IFNULL(SUM(Amount), 0) FROM Transaction
+                WHERE TransactionType = 'Expense' AND Date = CURDATE()";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    object result = command.ExecuteScalar();
+                    if (result != DBNull.Value)
+                    {
+                        totalExpenses = Convert.ToSingle(result);
+                    }
+                }
+            }
+
+            return totalExpenses;
+        }
 
 
+        public Wallet GetMostUsedWallet()
+        {
+            Wallet mostUsedWallet = null;
 
+            using (MySqlConnection connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                // Query to find the most used wallet ID
+                string queryFindMostUsedWalletId = @"
+                SELECT WalletID
+                FROM Transaction
+                GROUP BY WalletID
+                ORDER BY COUNT(*) DESC
+                LIMIT 1";
+
+                int mostUsedWalletId = 0;
+                using (MySqlCommand command = new MySqlCommand(queryFindMostUsedWalletId, connection))
+                {
+                    object result = command.ExecuteScalar();
+                    if (result != DBNull.Value)
+                    {
+                        mostUsedWalletId = Convert.ToInt32(result);
+                    }
+                }
+
+                // Query to get the details of the most used wallet
+                if (mostUsedWalletId != 0)
+                {
+                    string queryGetWalletDetails = $@"
+                    SELECT WalletID, UserID, WalletName, WalletType, SpendingMoney, SavingsMoney
+                    FROM Wallet
+                    WHERE WalletID = {mostUsedWalletId}";
+
+                    using (MySqlCommand command = new MySqlCommand(queryGetWalletDetails, connection))
+                    {
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                mostUsedWallet = new Wallet
+                                {
+                                    WalletID = reader.GetInt32("WalletID"),
+                                    UserID = reader.GetInt32("UserID"),
+                                    WalletName = reader.GetString("WalletName"),
+                                    WalletType = reader.GetString("WalletType"),
+                                    SpendingMoney = reader.GetFloat("SpendingMoney"),
+                                    SavingsMoney = reader.GetFloat("SavingsMoney")
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+
+            return mostUsedWallet;
+        }
 
     }
+
+
+
 
 
 }

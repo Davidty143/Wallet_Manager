@@ -30,6 +30,9 @@ namespace Wallet_Manager.Forms
             InitializeControlArrays();
             LoadCategoryImages();
             LoadTransactions();
+            UpdateSavingsLabel();
+            UpdateExpenseLabel();
+            UpdateMostUsedWalletDisplay();
 
         }
 
@@ -81,9 +84,21 @@ namespace Wallet_Manager.Forms
                     descriptionLabels[i].Text = transaction.Description;
                     categoryLabels[i].Text = _dataAccessLayer.GetCategoryNameById(transaction.CategoryID);
                     transactionTypeLabels[i].Text = transaction.TransactionType;
-                    amountLabels[i].Text = $"₱ {transaction.Amount}";
+                    amountLabels[i].Text = $"{transaction.Amount:C}".Insert(1, " ");
                     walletNameLabels[i].Text = _dataAccessLayer.GetWalletNameById(transaction.WalletID) + " - " + transaction.WalletCategory.ToString();
-                    dateLabels[i].Text = transaction.Date.ToString("d");
+                    if (transaction.Date.Date == DateTime.Today)
+                    {
+                        dateLabels[i].Text = "         Today";
+                    }
+                    else if (transaction.Date.Date == DateTime.Today.AddDays(-1))
+                    {
+                        dateLabels[i].Text = "   Yesterday";
+
+                    }
+                    else
+                    {
+                        dateLabels[i].Text = transaction.Date.ToString("d");
+                    }
                 }
                 else
                 {
@@ -138,6 +153,47 @@ namespace Wallet_Manager.Forms
             }
         }
 
+        private void UpdateExpenseLabel()
+        {
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+            float totalExpenses = _dataAccessLayer.GetTotalExpensesForToday();
+            expenseTodayLabel.Text = $"{totalExpenses:C}".Insert(1, " ");
+        }
+
+
+        private void UpdateSavingsLabel()
+        {
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+            float totalSavings = _dataAccessLayer.CalculateTotalSavingsForToday();
+
+            // Assuming labelTotalSavings is the Label control on your form
+            savingsTodayLabel.Text = $"{totalSavings:C}".Insert(1, " ");
+        }
+
+
+        private void UpdateMostUsedWalletDisplay()
+        {
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+            Wallet mostUsedWallet = _dataAccessLayer.GetMostUsedWallet();
+            if (mostUsedWallet != null)
+            {
+                mostUsedWalletLabel.Text = $"{mostUsedWallet.WalletName}";
+                mostUsedWalletTypeLabel.Text = $"{mostUsedWallet.WalletType}";
+                mostUsedSpendingLabel.Text = $"{mostUsedWallet.SpendingMoney:C}".Insert(1, " ");
+                mostUsedSavingsLabel.Text = $"{mostUsedWallet.SavingsMoney:C}".Insert(1, " ");
+                mostUsedTotalAmountLabel.Text = $"{mostUsedWallet.SavingsMoney + mostUsedWallet.SpendingMoney:C}".Insert(1, " ");
+            }
+            else
+            {
+                mostUsedWalletLabel.Text = "Most Used Wallet: Not Available";
+                mostUsedWalletTypeLabel.Text = "Type: N/A";
+                mostUsedSpendingLabel.Text = "Spending Money: N/A";
+                mostUsedSavingsLabel.Text = "Savings Money: N/A";
+            }
+        }
 
 
         private void label43_Click(object sender, EventArgs e)
@@ -156,6 +212,21 @@ namespace Wallet_Manager.Forms
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button16_Click(object sender, EventArgs e)
         {
 
         }
