@@ -11,17 +11,98 @@ using Wallet_Manager.Classes;
 using Guna.Charts;
 using Guna.Charts.WinForms;
 using Guna.Charts.Interfaces;
+using Guna.UI2.WinForms;
+using System.Runtime.InteropServices;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
+
 
 namespace Wallet_Manager.Forms
 {
     public partial class Budget1_uc : UserControl
     {
+        private Guna2CustomGradientPanel[] recordPanels;
+        private Label[] spentLabels;
+        private Label[] dateLabels;
+        private Label[] percentageLabels;
+        private Guna2ProgressBar[] progressBar;
+
+        private int currentRecordPage = 1;
+        private int recordsPerPage = 4; // Adjust as needed
+        private int actualRecordsCount = 0;
+
+
         public Budget1_uc()
         {
             InitializeComponent();
+            initializeControlArrays();
             PopulateBudgetComboBox();
             
+
         }
+
+        
+        public void initializeControlArrays()
+        {
+            recordPanels = new Guna2CustomGradientPanel[] { rpanel1, rpanel2, rpanel3, rpanel4 };
+            spentLabels = new Label[] { spentLabel1, spentLabel2, spentLabel3, spentLabel4 };
+            dateLabels = new Label[] { dateLabel1, dateLabel2, dateLabel3, dateLabel4 };
+            percentageLabels = new Label[] { percentageLabel1, percentageLabel2, percentageLabel3, percentageLabel4 };
+            progressBar = new Guna2ProgressBar[] { progressBar1, progressBar2, progressBar3, progressBar4 };
+
+        }
+
+        
+        public void PopulatePanels(Budget budget)
+        {
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
+            var dailyAmounts = dataAccessLayer.GetDailyExpensesUnderBudget(budget);
+            int index = 0;
+            MessageBox.Show(dailyAmounts.Count.ToString());
+            
+
+            foreach (var entry in dailyAmounts)
+            {
+                if (index >= recordPanels.Length)
+                    break; // Stop if there are more entries than panels
+
+                // Update the UI elements with the transaction data
+                if (entry.Key.Date == DateTime.Today)
+                {
+                    dateLabels[index].Text = "Today";
+                }
+                else if (entry.Key.Date == DateTime.Today.AddDays(-1))
+                {
+                    dateLabels[index].Text = "Yesterday";
+                }
+                else
+                {
+                    dateLabels[index].Text = entry.Key.ToString("yyyy-MM-dd");
+                }
+                spentLabels[index].Text = $"Spent: {entry.Value:C2}";
+
+                // Calculate the percentage of budget spent
+                float totalBudget = budget.TotalAmount; // Example fixed daily budget, replace with actual budget retrieval
+                float percentageSpent = (entry.Value / totalBudget) * 100;
+
+                // Update the progress bar and percentage label
+                progressBar[index].Value = (int)percentageSpent;
+                percentageLabels[index].Text = $"{percentageSpent:F2}%" + " of total budget";
+
+                // Make sure the panel is visible
+                recordPanels[index].Visible = true;
+                index++;
+            }
+
+            // Hide any unused panels
+            for (int i = index; i < recordPanels.Length; i++)
+            {
+                recordPanels[i].Visible = false;
+            }
+        }
+        
+
+
 
         public void UpdateProgressBar(Budget budget)
         {
@@ -56,7 +137,7 @@ namespace Wallet_Manager.Forms
 
 
 
-        public float ComputeTotalSpendForBudget(Budget budget)
+    public float ComputeTotalSpendForBudget(Budget budget)
         {
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
@@ -79,6 +160,7 @@ namespace Wallet_Manager.Forms
 
         private void PopulateBudgetComboBox()
         {
+            
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
             var budgets = dataAccessLayer.GetAllBudgets();
@@ -86,6 +168,14 @@ namespace Wallet_Manager.Forms
             budgetComboBox.DisplayMember = "BudgetName";
             budgetComboBox.ValueMember = "BudgetID";
         }
+
+        private void UpdatePaginationLabel()
+        {
+            int totalTransactions = actualRecordsCount;
+            int totalPages = (int)Math.Ceiling((double)totalTransactions / recordsPerPage);
+            //paginationLabel.Text = $"Page {currentRecordPage + 1} of {totalPages}";
+        }
+
 
 
         private void guna2ProgressBar2_ValueChanged(object sender, EventArgs e)
@@ -107,12 +197,14 @@ namespace Wallet_Manager.Forms
         {
             if (budgetComboBox.SelectedItem is Budget selectedBudget)
             {
+                actualRecordsCount = (selectedBudget.EndDate - selectedBudget.StartDate).Days + 1;
                 string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
                 SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
                 selectedBudget.CategoryIds = dataAccessLayer.GetCategoryIdsByBudgetId(selectedBudget.BudgetID);
                 UpdateProgressBar(selectedBudget);
                 PopulateDoughnutChart(selectedBudget);
                 PopulateSplineChart(selectedBudget);
+                PopulatePanels(selectedBudget);
                 
             }
         }
@@ -168,7 +260,7 @@ namespace Wallet_Manager.Forms
         {
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
-            var expensesData = dataAccessLayer.GetBudgetDailyExpenses(budget.BudgetID, budget.StartDate, budget.EndDate);
+            var expensesData = dataAccessLayer.GetDailyExpensesUnderBudget(budget);
 
             splineDailyExpenseChart.Series.Clear();
             var series = new System.Windows.Forms.DataVisualization.Charting.Series
@@ -196,6 +288,7 @@ namespace Wallet_Manager.Forms
             splineDailyExpenseChart.Series.Add(series);
             splineDailyExpenseChart.Invalidate(); // Refresh the chart
         }
+
 
 
 
@@ -238,6 +331,21 @@ namespace Wallet_Manager.Forms
         }
 
         private void generalProgressBar_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
         {
 
         }

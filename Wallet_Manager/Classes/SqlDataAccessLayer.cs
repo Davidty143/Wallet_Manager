@@ -1115,6 +1115,67 @@ namespace Wallet_Manager.Classes
         }
 
 
+        public Dictionary<DateTime, float> GetDailyExpensesUnderBudget(Budget budget)
+        {
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            Dictionary<DateTime, float> dailyExpenses = new Dictionary<DateTime, float>();
+
+            // Initialize all dates within the budget range with 0 expenses
+            for (DateTime date = budget.StartDate; date <= budget.EndDate; date = date.AddDays(1))
+            {
+                dailyExpenses[date] = 0;
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Ensure the CategoryIds list is not empty to avoid SQL errors
+                if (budget.CategoryIds == null || budget.CategoryIds.Count == 0)
+                {
+                    throw new ArgumentException("Budget must include at least one category ID.");
+                }
+
+                // Construct the SQL query to fetch expenses that match the budget's categories and date range
+                string query = $@"
+            SELECT Date, IFNULL(SUM(Amount), 0) AS TotalAmount
+            FROM Transaction
+            WHERE TransactionType = 'Expense' 
+                AND Date BETWEEN @StartDate AND @EndDate
+                AND CategoryID IN ({string.Join(",", budget.CategoryIds)})
+            GROUP BY Date
+            ORDER BY Date DESC";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@StartDate", budget.StartDate);
+                    command.Parameters.AddWithValue("@EndDate", budget.EndDate);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        // Update the dictionary with actual expenses
+                        while (reader.Read())
+                        {
+                            DateTime date = reader.GetDateTime("Date");
+                            float amount = reader.GetFloat("TotalAmount");
+                            if (dailyExpenses.ContainsKey(date))
+                            {
+                                dailyExpenses[date] = amount;
+                            }
+                        }
+                    }
+                }
+            }
+                
+            return dailyExpenses;
+        }
+
+
+
+
+
+
+
 
 
 
