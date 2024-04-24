@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wallet_Manager.Classes
 {
-    internal class Transaction
+    public class Transaction
     {
         public int TransactionID { get; set; }
         public int UserID { get; set; }

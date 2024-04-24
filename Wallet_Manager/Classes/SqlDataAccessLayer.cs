@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace Wallet_Manager.Classes
@@ -514,6 +515,78 @@ namespace Wallet_Manager.Classes
             }
             return transactions;
         }
+
+        public List<Transaction> GetTransactionsByCategoryAndDate(List<int> categoryIds, DateTime startDate, DateTime endDate)
+        {
+            MessageBox.Show(categoryIds.Count.ToString());
+            List<Transaction> transactions = new List<Transaction>();
+            using (MySqlConnection connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                string categories = string.Join(",", categoryIds);
+                if (categories == "") // Check if the category list is empty
+                {
+                    return transactions; // Return empty list if no categories are specified
+                }
+
+                string query = $"SELECT * FROM `Transaction` WHERE CategoryID IN ({categories}) AND `Date` >= @StartDate AND `Date` <= @EndDate";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@StartDate", startDate);
+                    command.Parameters.AddWithValue("@EndDate", endDate);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Transaction transaction = new Transaction
+                            {
+                                TransactionID = reader.GetInt32("TransactionID"),
+                                UserID = reader.GetInt32("UserID"),
+                                WalletID = reader.GetInt32("WalletID"),
+                                WalletCategory = reader.GetString("WalletCategory"),
+                                TransactionType = reader.GetString("TransactionType"),
+                                CategoryID = reader.GetInt32("CategoryID"),
+                                Amount = reader.GetFloat("Amount"),
+                                Date = reader.GetDateTime("Date"),
+                                Description = reader.GetString("Description")
+                            };
+                            transactions.Add(transaction);
+                        }
+                    }
+                }
+            }
+            return transactions;
+        }
+
+        public List<int> GetCategoryIdsByBudgetId(int budgetId)
+        {
+            List<int> categoryIds = new List<int>();
+            using (MySqlConnection connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                string query = "SELECT CategoryID FROM BudgetCategory WHERE BudgetID = @BudgetID";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@BudgetID", budgetId);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int categoryId = reader.GetInt32("CategoryID");
+                            categoryIds.Add(categoryId);
+                        }
+                    }
+                }
+            }
+            return categoryIds;
+        }
+
+
+
+
 
         public List<Transaction> GetLatestThreeTransactions()
         {

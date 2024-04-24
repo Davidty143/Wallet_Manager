@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Wallet_Manager.Classes
 {
-    internal class Budget
+    public class Budget
     {
         public int BudgetID { get; set; } // Primary key, auto-incremented
         public int UserID { get; set; } // Foreign key linking to the Users table
@@ -20,5 +21,8 @@ namespace Wallet_Manager.Classes
         {
             CategoryIds = new List<int>(); // Initialize the list to prevent null reference issues
         }
+
+
+
     }
 }

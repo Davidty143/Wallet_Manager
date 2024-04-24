@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Budget.cs" />
+    <Compile Include="Classes\BudgetCategory.cs" />
     <Compile Include="Classes\BusinessLogic.cs" />
     <Compile Include="Classes\Category.cs" />
     <Compile Include="Classes\GlobalData.cs" />
