@@ -1144,7 +1144,7 @@ namespace Wallet_Manager.Classes
                 AND Date BETWEEN @StartDate AND @EndDate
                 AND CategoryID IN ({string.Join(",", budget.CategoryIds)})
             GROUP BY Date
-            ORDER BY Date DESC";
+            ORDER BY Date ASC";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {

@@ -26,6 +26,7 @@ namespace Wallet_Manager.Forms
         private Label[] percentageLabels;
         private Guna2ProgressBar[] progressBar;
 
+        private Budget currentBudget;
         private int currentRecordPage = 1;
         private int recordsPerPage = 4; // Adjust as needed
         private int actualRecordsCount = 0;
@@ -51,56 +52,52 @@ namespace Wallet_Manager.Forms
 
         }
 
-        
+
         public void PopulatePanels(Budget budget)
         {
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
-            var dailyAmounts = dataAccessLayer.GetDailyExpensesUnderBudget(budget);
-            int index = 0;
-            MessageBox.Show(dailyAmounts.Count.ToString());
-            
+            var dailyAmounts = dataAccessLayer.GetDailyExpensesUnderBudget(budget).ToList();
 
-            foreach (var entry in dailyAmounts)
+            // Calculate the number of pages and update pagination controls
+            actualRecordsCount = dailyAmounts.Count;
+            int totalPages = (int)Math.Ceiling((double)actualRecordsCount / recordsPerPage);
+            UpdatePaginationLabel();
+
+            int start = Math.Max(0, actualRecordsCount - currentRecordPage * recordsPerPage);
+            int end = Math.Min(start + recordsPerPage, actualRecordsCount);
+
+            for (int i = end - 1, index = 0; i >= start && index < recordsPerPage; i--, index++)
             {
-                if (index >= recordPanels.Length)
-                    break; // Stop if there are more entries than panels
-
-                // Update the UI elements with the transaction data
-                if (entry.Key.Date == DateTime.Today)
-                {
-                    dateLabels[index].Text = "Today";
-                }
-                else if (entry.Key.Date == DateTime.Today.AddDays(-1))
-                {
-                    dateLabels[index].Text = "Yesterday";
-                }
-                else
-                {
-                    dateLabels[index].Text = entry.Key.ToString("yyyy-MM-dd");
-                }
-                spentLabels[index].Text = $"Spent: {entry.Value:C2}";
-
-                // Calculate the percentage of budget spent
-                float totalBudget = budget.TotalAmount; // Example fixed daily budget, replace with actual budget retrieval
+                var entry = dailyAmounts[i];
+                dateLabels[index].Text = FormatDate(entry.Key);
+                spentLabels[index].Text = $"{entry.Value:C2}";
+                float totalBudget = budget.TotalAmount;
                 float percentageSpent = (entry.Value / totalBudget) * 100;
-
-                // Update the progress bar and percentage label
                 progressBar[index].Value = (int)percentageSpent;
-                percentageLabels[index].Text = $"{percentageSpent:F2}%" + " of total budget";
-
-                // Make sure the panel is visible
+                percentageLabels[index].Text = $"{percentageSpent:F2}% of total budget";
                 recordPanels[index].Visible = true;
-                index++;
             }
 
             // Hide any unused panels
-            for (int i = index; i < recordPanels.Length; i++)
+            for (int index = end - start; index < recordPanels.Length; index++)
             {
-                recordPanels[i].Visible = false;
+                recordPanels[index].Visible = false;
             }
         }
-        
+
+
+
+        private string FormatDate(DateTime date)
+        {
+            if (date.Date == DateTime.Today)
+                return "Today";
+            else if (date.Date == DateTime.Today.AddDays(-1))
+                return "Yesterday";
+            else
+                return date.ToString("yyyy-MM-dd");
+        }
+
 
 
 
@@ -135,9 +132,16 @@ namespace Wallet_Manager.Forms
 
         }
 
+        private void UpdatePaginationLabel()
+        {
+            int totalPages = (int)Math.Ceiling((double)actualRecordsCount / recordsPerPage);
+            paginationLabel.Text = $"Page {currentRecordPage} of {totalPages}";
+        }
 
 
-    public float ComputeTotalSpendForBudget(Budget budget)
+
+
+        public float ComputeTotalSpendForBudget(Budget budget)
         {
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
@@ -169,13 +173,6 @@ namespace Wallet_Manager.Forms
             budgetComboBox.ValueMember = "BudgetID";
         }
 
-        private void UpdatePaginationLabel()
-        {
-            int totalTransactions = actualRecordsCount;
-            int totalPages = (int)Math.Ceiling((double)totalTransactions / recordsPerPage);
-            //paginationLabel.Text = $"Page {currentRecordPage + 1} of {totalPages}";
-        }
-
 
 
         private void guna2ProgressBar2_ValueChanged(object sender, EventArgs e)
@@ -197,6 +194,7 @@ namespace Wallet_Manager.Forms
         {
             if (budgetComboBox.SelectedItem is Budget selectedBudget)
             {
+                currentBudget = selectedBudget;
                 actualRecordsCount = (selectedBudget.EndDate - selectedBudget.StartDate).Days + 1;
                 string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
                 SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
@@ -342,10 +340,23 @@ namespace Wallet_Manager.Forms
 
         private void label6_Click(object sender, EventArgs e)
         {
-
+            if (currentRecordPage * recordsPerPage < actualRecordsCount)
+            {
+                currentRecordPage++;
+                PopulatePanels(currentBudget); // Assuming currentBudget is accessible
+            }
         }
 
         private void label9_Click(object sender, EventArgs e)
+        {
+            if (currentRecordPage > 1)
+            {
+                currentRecordPage--;
+                PopulatePanels(currentBudget);
+            }
+        }
+
+        private void paginationLabel_Click(object sender, EventArgs e)
         {
 
         }

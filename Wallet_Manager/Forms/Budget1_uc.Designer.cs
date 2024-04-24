@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label23 = new System.Windows.Forms.Label();
             this.budgetComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
@@ -64,7 +64,7 @@
             this.percentageLabel2 = new System.Windows.Forms.Label();
             this.dateLabel2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.paginationLabel = new System.Windows.Forms.Label();
             this.rpanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label10 = new System.Windows.Forms.Label();
             this.spentLabel1 = new System.Windows.Forms.Label();
@@ -241,7 +241,7 @@
             this.guna2CustomGradientPanel1.Controls.Add(this.rpanel3);
             this.guna2CustomGradientPanel1.Controls.Add(this.rpanel2);
             this.guna2CustomGradientPanel1.Controls.Add(this.label9);
-            this.guna2CustomGradientPanel1.Controls.Add(this.label8);
+            this.guna2CustomGradientPanel1.Controls.Add(this.paginationLabel);
             this.guna2CustomGradientPanel1.Controls.Add(this.rpanel1);
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(54, 355);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
@@ -494,18 +494,19 @@
             this.label9.Text = "< ";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // label8
+            // paginationLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label8.Location = new System.Drawing.Point(591, 420);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 23);
-            this.label8.TabIndex = 298;
-            this.label8.Text = "Page 1 of 1";
+            this.paginationLabel.AutoSize = true;
+            this.paginationLabel.BackColor = System.Drawing.Color.White;
+            this.paginationLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.paginationLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paginationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.paginationLabel.Location = new System.Drawing.Point(591, 420);
+            this.paginationLabel.Name = "paginationLabel";
+            this.paginationLabel.Size = new System.Drawing.Size(93, 23);
+            this.paginationLabel.TabIndex = 298;
+            this.paginationLabel.Text = "Page 1 of 1";
+            this.paginationLabel.Click += new System.EventHandler(this.paginationLabel_Click);
             // 
             // rpanel1
             // 
@@ -611,20 +612,20 @@
             // 
             // doughnutCategoryChart
             // 
-            chartArea5.Name = "ChartArea1";
-            this.doughnutCategoryChart.ChartAreas.Add(chartArea5);
+            chartArea3.Name = "ChartArea1";
+            this.doughnutCategoryChart.ChartAreas.Add(chartArea3);
             this.doughnutCategoryChart.Dock = System.Windows.Forms.DockStyle.Right;
-            legend5.Name = "Legend1";
-            this.doughnutCategoryChart.Legends.Add(legend5);
+            legend3.Name = "Legend1";
+            this.doughnutCategoryChart.Legends.Add(legend3);
             this.doughnutCategoryChart.Location = new System.Drawing.Point(190, 0);
             this.doughnutCategoryChart.Name = "doughnutCategoryChart";
             this.doughnutCategoryChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.doughnutCategoryChart.Series.Add(series5);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.doughnutCategoryChart.Series.Add(series3);
             this.doughnutCategoryChart.Size = new System.Drawing.Size(456, 337);
             this.doughnutCategoryChart.TabIndex = 0;
             this.doughnutCategoryChart.Text = "chart1";
@@ -667,20 +668,20 @@
             // 
             // splineDailyExpenseChart
             // 
-            chartArea6.Name = "ChartArea1";
-            this.splineDailyExpenseChart.ChartAreas.Add(chartArea6);
+            chartArea4.Name = "ChartArea1";
+            this.splineDailyExpenseChart.ChartAreas.Add(chartArea4);
             this.splineDailyExpenseChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend6.Name = "Legend1";
-            this.splineDailyExpenseChart.Legends.Add(legend6);
+            legend4.Name = "Legend1";
+            this.splineDailyExpenseChart.Legends.Add(legend4);
             this.splineDailyExpenseChart.Location = new System.Drawing.Point(0, 0);
             this.splineDailyExpenseChart.Name = "splineDailyExpenseChart";
             this.splineDailyExpenseChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series6.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.splineDailyExpenseChart.Series.Add(series6);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.splineDailyExpenseChart.Series.Add(series4);
             this.splineDailyExpenseChart.Size = new System.Drawing.Size(646, 324);
             this.splineDailyExpenseChart.TabIndex = 0;
             this.splineDailyExpenseChart.Text = "chart1";
@@ -752,7 +753,7 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label paginationLabel;
         private Guna.UI2.WinForms.Guna2ProgressBar progressBar1;
         private System.Windows.Forms.Label percentageLabel1;
         private System.Windows.Forms.Label spentLabel1;
