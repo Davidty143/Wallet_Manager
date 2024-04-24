@@ -46,25 +46,25 @@
             this.label1 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.dateLabel4 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
+            this.percentageLabel4 = new System.Windows.Forms.Label();
             this.spentLabel4 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.progressBar4 = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.recordsPanel4 = new Guna.UI2.WinForms.Guna2Button();
             this.dateLabel3 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.percentageLabel3 = new System.Windows.Forms.Label();
             this.spentLabel3 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.progressBar3 = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.recordsPanel3 = new Guna.UI2.WinForms.Guna2Button();
             this.dateLabel2 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.percentageLabel2 = new System.Windows.Forms.Label();
             this.spentLabel2 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.progressBar2 = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.recordsPanel2 = new Guna.UI2.WinForms.Guna2Button();
             this.dateLabel1 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.percentageLabel1 = new System.Windows.Forms.Label();
             this.spentLabel1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.progressBar1 = new Guna.UI2.WinForms.Guna2ProgressBar();
@@ -134,15 +134,18 @@
             // 
             // generalProgressBar
             // 
-            this.generalProgressBar.BorderRadius = 5;
+            this.generalProgressBar.BackColor = System.Drawing.Color.White;
+            this.generalProgressBar.BorderRadius = 10;
             this.generalProgressBar.Location = new System.Drawing.Point(31, 56);
             this.generalProgressBar.Name = "generalProgressBar";
+            this.generalProgressBar.ProgressBrushMode = Guna.UI2.WinForms.Enums.BrushMode.Solid;
             this.generalProgressBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(91)))), ((int)(((byte)(206)))));
             this.generalProgressBar.ProgressColor2 = System.Drawing.Color.White;
             this.generalProgressBar.Size = new System.Drawing.Size(653, 47);
             this.generalProgressBar.TabIndex = 0;
             this.generalProgressBar.Text = "guna2ProgressBar1";
             this.generalProgressBar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.generalProgressBar.ValueChanged += new System.EventHandler(this.generalProgressBar_ValueChanged);
             // 
             // label5
             // 
@@ -229,25 +232,25 @@
             this.guna2CustomGradientPanel1.BorderRadius = 5;
             this.guna2CustomGradientPanel1.BorderThickness = 1;
             this.guna2CustomGradientPanel1.Controls.Add(this.dateLabel4);
-            this.guna2CustomGradientPanel1.Controls.Add(this.label24);
+            this.guna2CustomGradientPanel1.Controls.Add(this.percentageLabel4);
             this.guna2CustomGradientPanel1.Controls.Add(this.spentLabel4);
             this.guna2CustomGradientPanel1.Controls.Add(this.label26);
             this.guna2CustomGradientPanel1.Controls.Add(this.progressBar4);
             this.guna2CustomGradientPanel1.Controls.Add(this.recordsPanel4);
             this.guna2CustomGradientPanel1.Controls.Add(this.dateLabel3);
-            this.guna2CustomGradientPanel1.Controls.Add(this.label19);
+            this.guna2CustomGradientPanel1.Controls.Add(this.percentageLabel3);
             this.guna2CustomGradientPanel1.Controls.Add(this.spentLabel3);
             this.guna2CustomGradientPanel1.Controls.Add(this.label21);
             this.guna2CustomGradientPanel1.Controls.Add(this.progressBar3);
             this.guna2CustomGradientPanel1.Controls.Add(this.recordsPanel3);
             this.guna2CustomGradientPanel1.Controls.Add(this.dateLabel2);
-            this.guna2CustomGradientPanel1.Controls.Add(this.label15);
+            this.guna2CustomGradientPanel1.Controls.Add(this.percentageLabel2);
             this.guna2CustomGradientPanel1.Controls.Add(this.spentLabel2);
             this.guna2CustomGradientPanel1.Controls.Add(this.label17);
             this.guna2CustomGradientPanel1.Controls.Add(this.progressBar2);
             this.guna2CustomGradientPanel1.Controls.Add(this.recordsPanel2);
             this.guna2CustomGradientPanel1.Controls.Add(this.dateLabel1);
-            this.guna2CustomGradientPanel1.Controls.Add(this.label12);
+            this.guna2CustomGradientPanel1.Controls.Add(this.percentageLabel1);
             this.guna2CustomGradientPanel1.Controls.Add(this.spentLabel1);
             this.guna2CustomGradientPanel1.Controls.Add(this.label10);
             this.guna2CustomGradientPanel1.Controls.Add(this.progressBar1);
@@ -273,18 +276,18 @@
             this.dateLabel4.TabIndex = 320;
             this.dateLabel4.Text = "Yesterday";
             // 
-            // label24
+            // percentageLabel4
             // 
-            this.label24.AutoSize = true;
-            this.label24.BackColor = System.Drawing.Color.White;
-            this.label24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label24.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label24.Location = new System.Drawing.Point(58, 367);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(136, 20);
-            this.label24.TabIndex = 319;
-            this.label24.Text = "0% of total budget";
+            this.percentageLabel4.AutoSize = true;
+            this.percentageLabel4.BackColor = System.Drawing.Color.White;
+            this.percentageLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.percentageLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.percentageLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.percentageLabel4.Location = new System.Drawing.Point(58, 367);
+            this.percentageLabel4.Name = "percentageLabel4";
+            this.percentageLabel4.Size = new System.Drawing.Size(136, 20);
+            this.percentageLabel4.TabIndex = 319;
+            this.percentageLabel4.Text = "0% of total budget";
             // 
             // spentLabel4
             // 
@@ -356,18 +359,18 @@
             this.dateLabel3.TabIndex = 314;
             this.dateLabel3.Text = "Yesterday";
             // 
-            // label19
+            // percentageLabel3
             // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.White;
-            this.label19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label19.Location = new System.Drawing.Point(58, 272);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(136, 20);
-            this.label19.TabIndex = 313;
-            this.label19.Text = "0% of total budget";
+            this.percentageLabel3.AutoSize = true;
+            this.percentageLabel3.BackColor = System.Drawing.Color.White;
+            this.percentageLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.percentageLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.percentageLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.percentageLabel3.Location = new System.Drawing.Point(58, 272);
+            this.percentageLabel3.Name = "percentageLabel3";
+            this.percentageLabel3.Size = new System.Drawing.Size(136, 20);
+            this.percentageLabel3.TabIndex = 313;
+            this.percentageLabel3.Text = "0% of total budget";
             // 
             // spentLabel3
             // 
@@ -439,18 +442,18 @@
             this.dateLabel2.TabIndex = 308;
             this.dateLabel2.Text = "Yesterday";
             // 
-            // label15
+            // percentageLabel2
             // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.White;
-            this.label15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label15.Location = new System.Drawing.Point(58, 177);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(136, 20);
-            this.label15.TabIndex = 307;
-            this.label15.Text = "0% of total budget";
+            this.percentageLabel2.AutoSize = true;
+            this.percentageLabel2.BackColor = System.Drawing.Color.White;
+            this.percentageLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.percentageLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.percentageLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.percentageLabel2.Location = new System.Drawing.Point(58, 177);
+            this.percentageLabel2.Name = "percentageLabel2";
+            this.percentageLabel2.Size = new System.Drawing.Size(136, 20);
+            this.percentageLabel2.TabIndex = 307;
+            this.percentageLabel2.Text = "0% of total budget";
             // 
             // spentLabel2
             // 
@@ -522,19 +525,19 @@
             this.dateLabel1.TabIndex = 302;
             this.dateLabel1.Text = "Yesterday";
             // 
-            // label12
+            // percentageLabel1
             // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.White;
-            this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label12.Location = new System.Drawing.Point(58, 82);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(136, 20);
-            this.label12.TabIndex = 301;
-            this.label12.Text = "0% of total budget";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
+            this.percentageLabel1.AutoSize = true;
+            this.percentageLabel1.BackColor = System.Drawing.Color.White;
+            this.percentageLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.percentageLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.percentageLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.percentageLabel1.Location = new System.Drawing.Point(58, 82);
+            this.percentageLabel1.Name = "percentageLabel1";
+            this.percentageLabel1.Size = new System.Drawing.Size(136, 20);
+            this.percentageLabel1.TabIndex = 301;
+            this.percentageLabel1.Text = "0% of total budget";
+            this.percentageLabel1.Click += new System.EventHandler(this.label12_Click);
             // 
             // spentLabel1
             // 
@@ -766,24 +769,24 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2ProgressBar progressBar1;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label percentageLabel1;
         private System.Windows.Forms.Label spentLabel1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label dateLabel1;
         private System.Windows.Forms.Label dateLabel4;
-        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label percentageLabel4;
         private System.Windows.Forms.Label spentLabel4;
         private System.Windows.Forms.Label label26;
         private Guna.UI2.WinForms.Guna2ProgressBar progressBar4;
         private Guna.UI2.WinForms.Guna2Button recordsPanel4;
         private System.Windows.Forms.Label dateLabel3;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label percentageLabel3;
         private System.Windows.Forms.Label spentLabel3;
         private System.Windows.Forms.Label label21;
         private Guna.UI2.WinForms.Guna2ProgressBar progressBar3;
         private Guna.UI2.WinForms.Guna2Button recordsPanel3;
         private System.Windows.Forms.Label dateLabel2;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label percentageLabel2;
         private System.Windows.Forms.Label spentLabel2;
         private System.Windows.Forms.Label label17;
         private Guna.UI2.WinForms.Guna2ProgressBar progressBar2;

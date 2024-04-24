@@ -25,6 +25,7 @@ namespace Wallet_Manager.Forms
 
         public void UpdateProgressBar(Budget budget)
         {
+            generalProgressBar.Maximum = (int)(budget.TotalAmount);
             // Calculate the amount spent
             float totalSpent = ComputeTotalSpendForBudget(budget);
 
@@ -35,13 +36,13 @@ namespace Wallet_Manager.Forms
             // Calculate the progress bar value
             // Ensure the value is within the bounds of the progress bar's minimum and maximum
             int progressBarValue = (int)(totalSpent);  // Convert total spent to an integer
-            if (progressBarValue > progressBar1.Maximum)
+            if (progressBarValue > generalProgressBar.Maximum)
             {
-                progressBarValue = progressBar1.Maximum;
+                progressBarValue = generalProgressBar.Maximum;
             }
-            else if (progressBarValue < progressBar1.Minimum)
+            else if (progressBarValue < generalProgressBar.Minimum)
             {
-                progressBarValue = progressBar1.Minimum;
+                progressBarValue = generalProgressBar.Minimum;
             }
 
             // Set the progress bar value
@@ -232,6 +233,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void generalProgressBar_ValueChanged(object sender, EventArgs e)
         {
 
         }
