@@ -518,8 +518,7 @@ namespace Wallet_Manager.Classes
 
         public List<Transaction> GetTransactionsByCategoryAndDate(List<int> categoryIds, DateTime startDate, DateTime endDate)
         {
-            MessageBox.Show(categoryIds.Count.ToString());
-            List<Transaction> transactions = new List<Transaction>();
+                List<Transaction> transactions = new List<Transaction>();
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
@@ -583,6 +582,45 @@ namespace Wallet_Manager.Classes
             }
             return categoryIds;
         }
+
+
+        public Dictionary<int, float> GetCategoryExpensesByDate(List<int> categoryIds, DateTime startDate, DateTime endDate)
+        {
+            Dictionary<int, float> categoryTotals = new Dictionary<int, float>();
+            using (MySqlConnection connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                // Convert category IDs to a comma-separated string for the SQL query
+                string categories = string.Join(",", categoryIds);
+                if (categories == "") // Check if the category list is empty
+                {
+                    return categoryTotals; // Return empty dictionary if no categories are specified
+                }
+
+                string query = $"SELECT CategoryID, SUM(Amount) AS TotalAmount FROM `Transaction` " +
+                               $"WHERE CategoryID IN ({categories}) AND `Date` >= @StartDate AND `Date` <= @EndDate " +
+                               $"GROUP BY CategoryID";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@StartDate", startDate);
+                    command.Parameters.AddWithValue("@EndDate", endDate);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int categoryId = reader.GetInt32("CategoryID");
+                            float totalAmount = reader.GetFloat("TotalAmount");
+                            categoryTotals[categoryId] = totalAmount;
+                        }
+                    }
+                }
+            }
+            return categoryTotals;
+        }
+
+
 
 
 

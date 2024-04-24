@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Wallet_Manager.Classes;
+using Guna.Charts;
+using Guna.Charts.WinForms;
+using Guna.Charts.Interfaces;
 
 namespace Wallet_Manager.Forms
 {
@@ -71,6 +74,8 @@ namespace Wallet_Manager.Forms
             return totalSpend;
         }
 
+
+
         private void PopulateBudgetComboBox()
         {
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
@@ -105,8 +110,59 @@ namespace Wallet_Manager.Forms
                 SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
                 selectedBudget.CategoryIds = dataAccessLayer.GetCategoryIdsByBudgetId(selectedBudget.BudgetID);
                 UpdateProgressBar(selectedBudget);
+                PopulateDoughnutChart(selectedBudget);
             }
         }
+        private void PopulateDoughnutChart(Budget budget)
+        {
+            // Use the category IDs and date range from the budget object
+            List<int> categoryIds = budget.CategoryIds;
+            DateTime startDate = budget.StartDate;
+            DateTime endDate = budget.EndDate;
+
+            // Create an instance of SqlDataAccessLayer and get the expenses data
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
+            var categoryExpenses = dataAccessLayer.GetCategoryExpensesByDate(categoryIds, startDate, endDate);
+
+            // Assuming 'doughnutCategoryChart' is your System.Windows.Forms.DataVisualization.Charting.Chart control
+            doughnutCategoryChart.Series.Clear();
+            var series = new System.Windows.Forms.DataVisualization.Charting.Series
+            {
+                Name = "Expenses",
+                ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
+            };
+
+            // Add data points to the series
+            foreach (var expense in categoryExpenses)
+            {
+                int categoryId = expense.Key;
+                string categoryName = dataAccessLayer.GetCategoryNameById(categoryId);
+                series.Points.AddXY(categoryName, expense.Value);
+            }
+
+            // Add the series to the chart
+            doughnutCategoryChart.Series.Add(series);
+
+            // Customize the chart: Hide labels around the doughnut, show them in the legend
+            doughnutCategoryChart.Series["Expenses"]["PieLabelStyle"] = "Disabled"; // Disable the labels on the slices
+            series.IsValueShownAsLabel = false; // Ensure values are not shown as labels on the chart
+            doughnutCategoryChart.Legends[0].Font = new Font("Segoe UI", 8, FontStyle.Bold); // Customize the legend font
+           // doughnutCategoryChart.Legends[0].ForeColor = Color.DarkGray; // Customize the legend font color
+            doughnutCategoryChart.Legends[0].Enabled = true; // Ensure the legend is enabled
+
+            // Optional: Further customize the chart, e.g., colors, labels, etc.
+            doughnutCategoryChart.ChartAreas[0].RecalculateAxesScale();
+
+            // Refresh the chart to display the new data
+            doughnutCategoryChart.Invalidate();
+        }
+
+
+
+
+
+
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -114,6 +170,16 @@ namespace Wallet_Manager.Forms
         }
 
         private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2CustomGradientPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void doughnutCategoryChart_Click(object sender, EventArgs e)
         {
 
         }
