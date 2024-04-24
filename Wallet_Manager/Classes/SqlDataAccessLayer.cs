@@ -807,6 +807,43 @@ namespace Wallet_Manager.Classes
             return transaction;
         }
 
+        public Dictionary<DateTime, float> GetBudgetDailyExpenses(int budgetId, DateTime startDate, DateTime endDate)
+        {
+            var dailyExpenses = new Dictionary<DateTime, float>();
+            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                // Ensure the SQL command text is correctly formatted and appropriate for MySQL
+                string sql = @"
+            SELECT DATE(date) AS ExpenseDate, SUM(Amount) AS TotalSpent
+            FROM Transaction
+            WHERE TransactionType = 'expense' 
+                AND CategoryId IN (SELECT CategoryId FROM BudgetCategory WHERE BudgetId = @BudgetId)
+                AND Date BETWEEN @StartDate AND @EndDate
+            GROUP BY DATE(Date)
+            ORDER BY ExpenseDate;
+        ";
+                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@BudgetId", budgetId);
+                    cmd.Parameters.AddWithValue("@StartDate", startDate);
+                    cmd.Parameters.AddWithValue("@EndDate", endDate);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            DateTime date = reader.GetDateTime(reader.GetOrdinal("ExpenseDate"));
+                            float totalSpent = reader.GetFloat(reader.GetOrdinal("TotalSpent"));
+                            dailyExpenses.Add(date, totalSpent);
+                        }
+                    }
+                }
+            }
+            return dailyExpenses;
+        }
+
+
         public string GetCategoryNameById(int categoryId)
         {
             string categoryName = "";

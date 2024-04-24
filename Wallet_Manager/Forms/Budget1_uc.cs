@@ -111,6 +111,8 @@ namespace Wallet_Manager.Forms
                 selectedBudget.CategoryIds = dataAccessLayer.GetCategoryIdsByBudgetId(selectedBudget.BudgetID);
                 UpdateProgressBar(selectedBudget);
                 PopulateDoughnutChart(selectedBudget);
+                PopulateSplineChart(selectedBudget);
+                
             }
         }
         private void PopulateDoughnutChart(Budget budget)
@@ -161,6 +163,41 @@ namespace Wallet_Manager.Forms
 
 
 
+        private void PopulateSplineChart(Budget budget)
+        {
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
+            var expensesData = dataAccessLayer.GetBudgetDailyExpenses(budget.BudgetID, budget.StartDate, budget.EndDate);
+
+            splineDailyExpenseChart.Series.Clear();
+            var series = new System.Windows.Forms.DataVisualization.Charting.Series
+            {
+                Name = "Spending Trend",
+                ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline,
+                LabelFormat = $"{0:C}".Insert(1, " "),
+                BorderWidth = 2, // Increase the line thicknes
+                BorderColor = Color.FromArgb(151, 91, 206) // Change the line color
+            };
+
+            foreach (var item in expensesData)
+            {
+                // Format the date as "Month Day"
+                string formattedDate = item.Key.ToString("MMMM d");
+                series.Points.AddXY(formattedDate, item.Value);
+                series.Points.Last().Label = $"{item.Value:C}".Insert(1, " ");
+        }
+            splineDailyExpenseChart.ChartAreas[0].AxisY.LabelStyle.Format = $"{0:C}".Insert(1, " ");
+            splineDailyExpenseChart.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Segoe UI", 8, FontStyle.Bold);
+
+            splineDailyExpenseChart.ChartAreas[0].AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(138, 138, 138);
+            splineDailyExpenseChart.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Segoe UI", 8, FontStyle.Bold);
+            splineDailyExpenseChart.ChartAreas[0].AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(138, 138, 138);
+            splineDailyExpenseChart.Series.Add(series);
+            splineDailyExpenseChart.Invalidate(); // Refresh the chart
+        }
+
+
+
 
 
 
@@ -180,6 +217,21 @@ namespace Wallet_Manager.Forms
         }
 
         private void doughnutCategoryChart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaChart1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label27_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

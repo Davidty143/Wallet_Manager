@@ -31,6 +31,9 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label23 = new System.Windows.Forms.Label();
             this.budgetComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
@@ -70,14 +73,17 @@
             this.recordsPanel1 = new Guna.UI2.WinForms.Guna2Button();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.doughnutCategoryChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.doughnutCategoryChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.splineDailyExpenseChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doughnutCategoryChart)).BeginInit();
+            this.guna2CustomGradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splineDailyExpenseChart)).BeginInit();
             this.SuspendLayout();
             // 
             // label23
@@ -630,11 +636,32 @@
             // 
             this.guna2CustomGradientPanel3.BackColor = System.Drawing.Color.White;
             this.guna2CustomGradientPanel3.Controls.Add(this.doughnutCategoryChart);
-            this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(814, 479);
+            this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(814, 501);
             this.guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
-            this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(628, 359);
+            this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(646, 337);
             this.guna2CustomGradientPanel3.TabIndex = 295;
             this.guna2CustomGradientPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel3_Paint);
+            // 
+            // doughnutCategoryChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.doughnutCategoryChart.ChartAreas.Add(chartArea1);
+            this.doughnutCategoryChart.Dock = System.Windows.Forms.DockStyle.Right;
+            legend1.Name = "Legend1";
+            this.doughnutCategoryChart.Legends.Add(legend1);
+            this.doughnutCategoryChart.Location = new System.Drawing.Point(190, 0);
+            this.doughnutCategoryChart.Name = "doughnutCategoryChart";
+            this.doughnutCategoryChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.doughnutCategoryChart.Series.Add(series1);
+            this.doughnutCategoryChart.Size = new System.Drawing.Size(456, 337);
+            this.doughnutCategoryChart.TabIndex = 0;
+            this.doughnutCategoryChart.Text = "chart1";
+            this.doughnutCategoryChart.Click += new System.EventHandler(this.doughnutCategoryChart_Click);
             // 
             // label27
             // 
@@ -642,11 +669,12 @@
             this.label27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label27.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.Color.Black;
-            this.label27.Location = new System.Drawing.Point(823, 427);
+            this.label27.Location = new System.Drawing.Point(824, 438);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(175, 31);
             this.label27.TabIndex = 296;
             this.label27.Text = "Category Trend";
+            this.label27.Click += new System.EventHandler(this.label27_Click);
             // 
             // label28
             // 
@@ -663,30 +691,32 @@
             // guna2CustomGradientPanel2
             // 
             this.guna2CustomGradientPanel2.BackColor = System.Drawing.Color.White;
+            this.guna2CustomGradientPanel2.Controls.Add(this.splineDailyExpenseChart);
             this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(814, 95);
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
-            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(628, 292);
+            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(646, 324);
             this.guna2CustomGradientPanel2.TabIndex = 294;
+            this.guna2CustomGradientPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel2_Paint);
             // 
-            // doughnutCategoryChart
+            // splineDailyExpenseChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.doughnutCategoryChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.doughnutCategoryChart.Legends.Add(legend1);
-            this.doughnutCategoryChart.Location = new System.Drawing.Point(146, 0);
-            this.doughnutCategoryChart.Name = "doughnutCategoryChart";
-            this.doughnutCategoryChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.doughnutCategoryChart.Series.Add(series1);
-            this.doughnutCategoryChart.Size = new System.Drawing.Size(482, 356);
-            this.doughnutCategoryChart.TabIndex = 0;
-            this.doughnutCategoryChart.Text = "chart1";
-            this.doughnutCategoryChart.Click += new System.EventHandler(this.doughnutCategoryChart_Click);
+            chartArea2.Name = "ChartArea1";
+            this.splineDailyExpenseChart.ChartAreas.Add(chartArea2);
+            this.splineDailyExpenseChart.Dock = System.Windows.Forms.DockStyle.Right;
+            legend2.Name = "Legend1";
+            this.splineDailyExpenseChart.Legends.Add(legend2);
+            this.splineDailyExpenseChart.Location = new System.Drawing.Point(24, 0);
+            this.splineDailyExpenseChart.Name = "splineDailyExpenseChart";
+            this.splineDailyExpenseChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.splineDailyExpenseChart.Series.Add(series2);
+            this.splineDailyExpenseChart.Size = new System.Drawing.Size(622, 324);
+            this.splineDailyExpenseChart.TabIndex = 0;
+            this.splineDailyExpenseChart.Text = "chart1";
             // 
             // Budget1_uc
             // 
@@ -711,6 +741,8 @@
             this.guna2CustomGradientPanel1.PerformLayout();
             this.guna2CustomGradientPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.doughnutCategoryChart)).EndInit();
+            this.guna2CustomGradientPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splineDailyExpenseChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -761,5 +793,6 @@
         private System.Windows.Forms.Label label28;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
         private System.Windows.Forms.DataVisualization.Charting.Chart doughnutCategoryChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart splineDailyExpenseChart;
     }
 }
