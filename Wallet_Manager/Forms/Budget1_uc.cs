@@ -64,27 +64,31 @@ namespace Wallet_Manager.Forms
             int totalPages = (int)Math.Ceiling((double)actualRecordsCount / recordsPerPage);
             UpdatePaginationLabel();
 
-            int start = Math.Max(0, actualRecordsCount - currentRecordPage * recordsPerPage);
+            // Correct calculation for start index based on the current page
+            int start = (currentRecordPage - 1) * recordsPerPage;
             int end = Math.Min(start + recordsPerPage, actualRecordsCount);
 
-            for (int i = end - 1, index = 0; i >= start && index < recordsPerPage; i--, index++)
+            // Populate the panels with data
+            int panelIndex = 0;
+            for (int i = start; i < end; i++, panelIndex++)
             {
                 var entry = dailyAmounts[i];
-                dateLabels[index].Text = FormatDate(entry.Key);
-                spentLabels[index].Text = $"{entry.Value:C2}";
+                dateLabels[panelIndex].Text = FormatDate(entry.Key);
+                spentLabels[panelIndex].Text = $"{entry.Value:C2}";
                 float totalBudget = budget.TotalAmount;
                 float percentageSpent = (entry.Value / totalBudget) * 100;
-                progressBar[index].Value = (int)percentageSpent;
-                percentageLabels[index].Text = $"{percentageSpent:F2}% of total budget";
-                recordPanels[index].Visible = true;
+                progressBar[panelIndex].Value = (int)percentageSpent;
+                percentageLabels[panelIndex].Text = $"{percentageSpent:F2}% of total budget";
+                recordPanels[panelIndex].Visible = true;
             }
 
             // Hide any unused panels
-            for (int index = end - start; index < recordPanels.Length; index++)
+            for (int index = panelIndex; index < recordPanels.Length; index++)
             {
                 recordPanels[index].Visible = false;
             }
         }
+
 
 
 

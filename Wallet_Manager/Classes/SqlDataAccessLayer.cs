@@ -1121,10 +1121,11 @@ namespace Wallet_Manager.Classes
             Dictionary<DateTime, float> dailyExpenses = new Dictionary<DateTime, float>();
 
             // Initialize all dates within the budget range with 0 expenses
-            for (DateTime date = budget.StartDate; date <= budget.EndDate; date = date.AddDays(1))
+            for (DateTime date = budget.EndDate; date >= budget.StartDate; date = date.AddDays(-1))
             {
                 dailyExpenses[date] = 0;
             }
+
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -1144,7 +1145,7 @@ namespace Wallet_Manager.Classes
                 AND Date BETWEEN @StartDate AND @EndDate
                 AND CategoryID IN ({string.Join(",", budget.CategoryIds)})
             GROUP BY Date
-            ORDER BY Date ASC";
+            ORDER BY Date DESC";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
