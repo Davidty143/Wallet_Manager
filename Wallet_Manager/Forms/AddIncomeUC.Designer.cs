@@ -67,6 +67,7 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(601, 534);
             this.guna2CustomGradientPanel1.TabIndex = 0;
+            this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
             // 
             // guna2Button1
             // 
@@ -82,6 +83,7 @@
             this.guna2Button1.Size = new System.Drawing.Size(183, 35);
             this.guna2Button1.TabIndex = 147;
             this.guna2Button1.Text = "Cancel";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // button1
             // 
@@ -97,6 +99,7 @@
             this.button1.Size = new System.Drawing.Size(183, 35);
             this.button1.TabIndex = 146;
             this.button1.Text = "Add";
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtDescription
             // 

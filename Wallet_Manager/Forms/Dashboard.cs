@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,9 +13,11 @@ namespace Wallet_Manager.Forms
 {
     public partial class Dashboard : Form
     {
+        private AddTransaction transactionForm = null;
         public Dashboard()
         {
             InitializeComponent();
+            transactionForm = new AddTransaction();
         }
 
         private void display_panel_Paint(object sender, PaintEventArgs e)
@@ -113,12 +116,18 @@ namespace Wallet_Manager.Forms
 
         private void transactionHistory1_Load(object sender, EventArgs e)
         {
-                    }
+         
+        
+        }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            AddTransaction transaction =  new AddTransaction();
-            transaction.ShowDialog();
+            if (transactionForm == null || transactionForm.IsDisposed)
+            {
+                transactionForm = new AddTransaction();
+            }
+            transactionForm.Show();
+            transactionForm.BringToFront();
         }
     }
 }

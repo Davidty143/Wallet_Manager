@@ -41,5 +41,10 @@ namespace Wallet_Manager.Forms
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
