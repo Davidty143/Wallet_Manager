@@ -15,7 +15,7 @@ namespace Wallet_Manager.Forms
     public partial class AddWallet : Form
     {
         private BusinessLogic _businessLogic;
-        public AddWallet()
+        public AddWallet(int userID)
         {
             InitializeComponent();
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
@@ -72,6 +72,11 @@ namespace Wallet_Manager.Forms
             {
                 MessageBox.Show("Failed to create wallet. A wallet of the same type may already exist.");
             }
+        }
+
+        private void AddWallet_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

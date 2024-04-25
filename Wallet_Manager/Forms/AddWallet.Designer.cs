@@ -202,6 +202,7 @@
             this.Controls.Add(this.label4);
             this.Name = "AddWallet";
             this.Text = "AddWallet";
+            this.Load += new System.EventHandler(this.AddWallet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

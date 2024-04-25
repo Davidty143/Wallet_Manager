@@ -18,7 +18,7 @@ namespace Wallet_Manager.Forms
 {
     public partial class AddExpense : Form
     {
-        public AddExpense()
+        public AddExpense(int userID)
         {
             InitializeComponent();
             PopulateWalletsComboBox();

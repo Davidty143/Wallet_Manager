@@ -14,7 +14,7 @@ namespace Wallet_Manager.Forms
 {
     public partial class AddBudget : Form
     {
-        public AddBudget()
+        public AddBudget(int userID)
         {
             InitializeComponent();
             PopulateCategories();

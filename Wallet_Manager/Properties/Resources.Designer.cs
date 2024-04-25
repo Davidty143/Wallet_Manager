@@ -253,6 +253,26 @@ namespace Wallet_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addbutton_purple {
+            get {
+                object obj = ResourceManager.GetObject("addbutton_purple", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap addbutton_transparent {
+            get {
+                object obj = ResourceManager.GetObject("addbutton_transparent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap button_analytics_active {
             get {
                 object obj = ResourceManager.GetObject("button_analytics_active", resourceCulture);

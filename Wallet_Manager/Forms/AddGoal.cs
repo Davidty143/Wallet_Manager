@@ -13,7 +13,7 @@ namespace Wallet_Manager.Forms
 {
     public partial class AddGoal : Form
     {
-        public AddGoal()
+        public AddGoal(int userID)
         {
             InitializeComponent();
             PopulateWalletsComboBox();
