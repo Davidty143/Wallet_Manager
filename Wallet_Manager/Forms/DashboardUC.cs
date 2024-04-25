@@ -211,7 +211,8 @@ namespace Wallet_Manager.Forms
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            AddWallet addWallet = new AddWallet();
+            addWallet.ShowDialog();
         }
 
         private void label13_Click(object sender, EventArgs e)
@@ -231,7 +232,16 @@ namespace Wallet_Manager.Forms
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            Dashboard dashboardParent = this.FindForm() as Dashboard;
+            
 
+           if (dashboardParent.transactionForm == null || dashboardParent.transactionForm.IsDisposed)
+            {
+                dashboardParent.transactionForm = new AddTransaction();
+            }
+            dashboardParent.transactionForm.Show();
+            dashboardParent.transactionForm.BringToFront();
         }
+
     }
 }

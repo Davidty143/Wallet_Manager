@@ -28,204 +28,211 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.txtSpending = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtType = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtType = new System.Windows.Forms.ComboBox();
-            this.txtSpending = new System.Windows.Forms.TextBox();
-            this.txtSavings = new System.Windows.Forms.TextBox();
-            this.add_Wallet = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.txtSavings = new Guna.UI2.WinForms.Guna2TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // guna2CustomGradientPanel1
+            // 
+            this.guna2CustomGradientPanel1.Controls.Add(this.button1);
+            this.guna2CustomGradientPanel1.Controls.Add(this.button3);
+            this.guna2CustomGradientPanel1.Controls.Add(this.txtSavings);
+            this.guna2CustomGradientPanel1.Controls.Add(this.txtSpending);
+            this.guna2CustomGradientPanel1.Controls.Add(this.txtType);
+            this.guna2CustomGradientPanel1.Controls.Add(this.txtName);
+            this.guna2CustomGradientPanel1.Controls.Add(this.label3);
+            this.guna2CustomGradientPanel1.Controls.Add(this.label2);
+            this.guna2CustomGradientPanel1.Controls.Add(this.label1);
+            this.guna2CustomGradientPanel1.Controls.Add(this.label4);
+            this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(601, 626);
+            this.guna2CustomGradientPanel1.TabIndex = 0;
+            this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
+            // 
+            // txtSpending
+            // 
+            this.txtSpending.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSpending.DefaultText = "";
+            this.txtSpending.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSpending.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSpending.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSpending.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSpending.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSpending.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtSpending.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSpending.Location = new System.Drawing.Point(260, 272);
+            this.txtSpending.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSpending.Name = "txtSpending";
+            this.txtSpending.PasswordChar = '\0';
+            this.txtSpending.PlaceholderText = "";
+            this.txtSpending.SelectedText = "";
+            this.txtSpending.Size = new System.Drawing.Size(262, 35);
+            this.txtSpending.TabIndex = 121;
+            // 
+            // txtType
+            // 
+            this.txtType.BackColor = System.Drawing.Color.Transparent;
+            this.txtType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtType.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtType.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.txtType.ItemHeight = 30;
+            this.txtType.Location = new System.Drawing.Point(260, 202);
+            this.txtType.Name = "txtType";
+            this.txtType.Size = new System.Drawing.Size(262, 36);
+            this.txtType.TabIndex = 120;
             // 
             // txtName
             // 
-            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(422, 138);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtName.DefaultText = "";
+            this.txtName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtName.Location = new System.Drawing.Point(260, 135);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(188, 34);
-            this.txtName.TabIndex = 105;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Location = new System.Drawing.Point(191, 276);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(22, 24);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 101;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(191, 232);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(22, 24);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 100;
-            this.pictureBox2.TabStop = false;
+            this.txtName.PasswordChar = '\0';
+            this.txtName.PlaceholderText = "";
+            this.txtName.SelectedText = "";
+            this.txtName.Size = new System.Drawing.Size(262, 35);
+            this.txtName.TabIndex = 119;
             // 
             // label3
             // 
+            this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(218, 232);
+            this.label3.Location = new System.Drawing.Point(11, 272);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(156, 25);
-            this.label3.TabIndex = 99;
+            this.label3.Size = new System.Drawing.Size(235, 28);
+            this.label3.TabIndex = 118;
             this.label3.Text = "Initial Spending Amount";
             // 
             // label2
             // 
+            this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(218, 276);
+            this.label2.Location = new System.Drawing.Point(20, 341);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(172, 25);
-            this.label2.TabIndex = 98;
+            this.label2.Size = new System.Drawing.Size(217, 28);
+            this.label2.TabIndex = 117;
             this.label2.Text = "Initial Savings Amount";
             // 
             // label1
             // 
+            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(218, 190);
+            this.label1.Location = new System.Drawing.Point(92, 202);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 25);
-            this.label1.TabIndex = 97;
+            this.label1.Size = new System.Drawing.Size(117, 28);
+            this.label1.TabIndex = 116;
             this.label1.Text = "Wallet Type";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(191, 190);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(22, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 96;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(191, 148);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(22, 24);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 95;
-            this.pictureBox3.TabStop = false;
             // 
             // label4
             // 
+            this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(218, 147);
+            this.label4.Location = new System.Drawing.Point(92, 135);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 25);
-            this.label4.TabIndex = 94;
+            this.label4.Size = new System.Drawing.Size(128, 28);
+            this.label4.TabIndex = 115;
             this.label4.Text = "Wallet Name";
-            // 
-            // txtType
-            // 
-            this.txtType.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.txtType.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtType.FormattingEnabled = true;
-            this.txtType.Location = new System.Drawing.Point(422, 187);
-            this.txtType.Margin = new System.Windows.Forms.Padding(2);
-            this.txtType.Name = "txtType";
-            this.txtType.Size = new System.Drawing.Size(188, 36);
-            this.txtType.TabIndex = 106;
-            // 
-            // txtSpending
-            // 
-            this.txtSpending.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSpending.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSpending.Location = new System.Drawing.Point(422, 232);
-            this.txtSpending.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSpending.Name = "txtSpending";
-            this.txtSpending.Size = new System.Drawing.Size(188, 34);
-            this.txtSpending.TabIndex = 107;
             // 
             // txtSavings
             // 
-            this.txtSavings.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSavings.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSavings.Location = new System.Drawing.Point(422, 276);
-            this.txtSavings.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSavings.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSavings.DefaultText = "";
+            this.txtSavings.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSavings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSavings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSavings.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSavings.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSavings.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtSavings.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSavings.Location = new System.Drawing.Point(260, 341);
+            this.txtSavings.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSavings.Name = "txtSavings";
-            this.txtSavings.Size = new System.Drawing.Size(188, 34);
-            this.txtSavings.TabIndex = 108;
+            this.txtSavings.PasswordChar = '\0';
+            this.txtSavings.PlaceholderText = "";
+            this.txtSavings.SelectedText = "";
+            this.txtSavings.Size = new System.Drawing.Size(262, 35);
+            this.txtSavings.TabIndex = 123;
             // 
-            // add_Wallet
+            // button3
             // 
-            this.add_Wallet.Location = new System.Drawing.Point(422, 343);
-            this.add_Wallet.Name = "add_Wallet";
-            this.add_Wallet.Size = new System.Drawing.Size(188, 27);
-            this.add_Wallet.TabIndex = 109;
-            this.add_Wallet.Text = "Add Wallet";
-            this.add_Wallet.UseVisualStyleBackColor = true;
-            this.add_Wallet.Click += new System.EventHandler(this.add_Wallet_Click);
+            this.button3.Location = new System.Drawing.Point(317, 414);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(205, 35);
+            this.button3.TabIndex = 124;
+            this.button3.Text = "Add Wallet";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(97, 414);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(205, 35);
+            this.button1.TabIndex = 125;
+            this.button1.Text = "Cancel";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // AddWallet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.add_Wallet);
-            this.Controls.Add(this.txtSavings);
-            this.Controls.Add(this.txtSpending);
-            this.Controls.Add(this.txtType);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(601, 626);
+            this.Controls.Add(this.guna2CustomGradientPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddWallet";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddWallet";
             this.Load += new System.EventHandler(this.AddWallet_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.guna2CustomGradientPanel1.ResumeLayout(false);
+            this.guna2CustomGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
+        private Guna.UI2.WinForms.Guna2TextBox txtSpending;
+        private Guna.UI2.WinForms.Guna2ComboBox txtType;
+        private Guna.UI2.WinForms.Guna2TextBox txtName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox txtType;
-        private System.Windows.Forms.TextBox txtSpending;
-        private System.Windows.Forms.TextBox txtSavings;
-        private System.Windows.Forms.Button add_Wallet;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private Guna.UI2.WinForms.Guna2TextBox txtSavings;
     }
 }

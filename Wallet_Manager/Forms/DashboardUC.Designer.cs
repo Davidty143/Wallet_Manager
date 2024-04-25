@@ -54,7 +54,6 @@
             this.guna2Button14 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button13 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button12 = new Guna.UI2.WinForms.Guna2Button();
-            this.label11 = new System.Windows.Forms.Label();
             this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
             this.recentTransactionPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
@@ -95,13 +94,12 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2VProgressBar1 = new Guna.UI2.WinForms.Guna2VProgressBar();
-            this.guna2WinProgressIndicator1 = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.iconPictureBox3 = new System.Windows.Forms.PictureBox();
             this.iconPictureBox2 = new System.Windows.Forms.PictureBox();
             this.iconPictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.recentTransactionPanel3.SuspendLayout();
             this.recentTransactionPanel2.SuspendLayout();
             this.recentTransactionPanel1.SuspendLayout();
@@ -489,18 +487,6 @@
             this.guna2Button12.PressedColor = System.Drawing.Color.White;
             this.guna2Button12.Size = new System.Drawing.Size(790, 173);
             this.guna2Button12.TabIndex = 126;
-            // 
-            // label11
-            // 
-            this.label11.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(59, 11);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(207, 44);
-            this.label11.TabIndex = 124;
-            this.label11.Text = "Overview";
             // 
             // guna2Button9
             // 
@@ -1067,22 +1053,6 @@
             this.guna2Button5.Size = new System.Drawing.Size(790, 173);
             this.guna2Button5.TabIndex = 317;
             // 
-            // guna2VProgressBar1
-            // 
-            this.guna2VProgressBar1.Location = new System.Drawing.Point(-19, -19);
-            this.guna2VProgressBar1.Name = "guna2VProgressBar1";
-            this.guna2VProgressBar1.Size = new System.Drawing.Size(30, 300);
-            this.guna2VProgressBar1.TabIndex = 324;
-            this.guna2VProgressBar1.Text = "guna2VProgressBar1";
-            this.guna2VProgressBar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            // 
-            // guna2WinProgressIndicator1
-            // 
-            this.guna2WinProgressIndicator1.Location = new System.Drawing.Point(-19, -19);
-            this.guna2WinProgressIndicator1.Name = "guna2WinProgressIndicator1";
-            this.guna2WinProgressIndicator1.Size = new System.Drawing.Size(90, 90);
-            this.guna2WinProgressIndicator1.TabIndex = 325;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
@@ -1142,14 +1112,24 @@
             this.iconPictureBox1.TabIndex = 285;
             this.iconPictureBox1.TabStop = false;
             // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(59, 11);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(207, 44);
+            this.label11.TabIndex = 124;
+            this.label11.Text = "Overview";
+            // 
             // DashboardUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.guna2WinProgressIndicator1);
-            this.Controls.Add(this.guna2VProgressBar1);
             this.Controls.Add(this.guna2ComboBox2);
             this.Controls.Add(this.guna2ProgressBar1);
             this.Controls.Add(this.label7);
@@ -1244,7 +1224,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button14;
         private Guna.UI2.WinForms.Guna2Button guna2Button13;
         private Guna.UI2.WinForms.Guna2Button guna2Button12;
-        private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2Button guna2Button9;
         private Guna.UI2.WinForms.Guna2Button guna2Button8;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel recentTransactionPanel3;
@@ -1289,8 +1268,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
-        private Guna.UI2.WinForms.Guna2VProgressBar guna2VProgressBar1;
-        private Guna.UI2.WinForms.Guna2WinProgressIndicator guna2WinProgressIndicator1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label11;
     }
 }

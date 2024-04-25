@@ -117,39 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dashboardUC2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="guna2Button2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
+  <data name="dashboardUC2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>413, 162</value>
   </data>
-  <data name="guna2Button2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>581, 226</value>
-  </data>
-  <data name="guna2Button2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 45</value>
+  <data name="dashboardUC2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1509, 856</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="guna2Button2.TabIndex" type="System.Int32, mscorlib">
+  <data name="dashboardUC2.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="guna2Button2.Text" xml:space="preserve">
-    <value>guna2Button2</value>
+  <data name="&gt;&gt;dashboardUC2.Name" xml:space="preserve">
+    <value>dashboardUC2</value>
   </data>
-  <data name="&gt;&gt;guna2Button2.Name" xml:space="preserve">
-    <value>guna2Button2</value>
+  <data name="&gt;&gt;dashboardUC2.Type" xml:space="preserve">
+    <value>Wallet_Manager.Forms.DashboardUC, Wallet_Manager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;guna2Button2.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;guna2Button2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;dashboardUC2.Parent" xml:space="preserve">
     <value>display_panel</value>
   </data>
-  <data name="&gt;&gt;guna2Button2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;dashboardUC2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="label10.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lucida Sans, 19.8pt, style=Bold</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -767,6 +764,9 @@
   <data name="&gt;&gt;transactionHistory1.Type" xml:space="preserve">
     <value>Wallet_Manager.Forms.TransactionHistory, Wallet_Manager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <metadata name="guna2AnimateWindow2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>233, 17</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -775,6 +775,9 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1924, 1020</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -786,6 +789,12 @@
     <value>guna2AnimateWindow1</value>
   </data>
   <data name="&gt;&gt;guna2AnimateWindow1.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2AnimateWindow, Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2AnimateWindow2.Name" xml:space="preserve">
+    <value>guna2AnimateWindow2</value>
+  </data>
+  <data name="&gt;&gt;guna2AnimateWindow2.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2AnimateWindow, Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

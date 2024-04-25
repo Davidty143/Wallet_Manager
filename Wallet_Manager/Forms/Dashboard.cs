@@ -13,7 +13,7 @@ namespace Wallet_Manager.Forms
 {
     public partial class Dashboard : Form
     {
-        private AddTransaction transactionForm = null;
+        public AddTransaction transactionForm = null;
         public Dashboard()
         {
             InitializeComponent();
@@ -122,12 +122,16 @@ namespace Wallet_Manager.Forms
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            if (transactionForm == null || transactionForm.IsDisposed)
-            {
-                transactionForm = new AddTransaction();
-            }
-            transactionForm.Show();
-            transactionForm.BringToFront();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dashboardUC2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
