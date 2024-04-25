@@ -48,7 +48,7 @@
             this.dashboardUC1 = new Wallet_Manager.Forms.DashboardUC();
             this.wallet_uc1 = new Wallet_Manager.Forms.Wallet_uc();
             this.transactionHistory1 = new Wallet_Manager.Forms.TransactionHistory();
-            this.budget1_uc1 = new Wallet_Manager.Forms.Budget1_uc();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.display_panel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -60,7 +60,7 @@
             // display_panel
             // 
             this.display_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.display_panel.Controls.Add(this.budget1_uc1);
+            this.display_panel.Controls.Add(this.guna2Button2);
             this.display_panel.Controls.Add(this.panel1);
             this.display_panel.Controls.Add(this.panel4);
             this.display_panel.Controls.Add(this.panel3);
@@ -262,11 +262,16 @@
             resources.ApplyResources(this.transactionHistory1, "transactionHistory1");
             this.transactionHistory1.Name = "transactionHistory1";
             // 
-            // budget1_uc1
+            // guna2Button2
             // 
-            this.budget1_uc1.BackColor = System.Drawing.Color.WhiteSmoke;
-            resources.ApplyResources(this.budget1_uc1, "budget1_uc1");
-            this.budget1_uc1.Name = "budget1_uc1";
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            resources.ApplyResources(this.guna2Button2, "guna2Button2");
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // Dashboard
             // 
@@ -306,6 +311,6 @@
         private DashboardUC dashboardUC1;
         private Wallet_uc wallet_uc1;
         private TransactionHistory transactionHistory1;
-        private Budget1_uc budget1_uc1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }
 }

@@ -114,5 +114,11 @@ namespace Wallet_Manager.Forms
         private void transactionHistory1_Load(object sender, EventArgs e)
         {
                     }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            AddTransaction transaction =  new AddTransaction();
+            transaction.ShowDialog();
+        }
     }
 }

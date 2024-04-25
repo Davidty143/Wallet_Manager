@@ -134,11 +134,23 @@
     <Compile Include="Forms\AddBudget.Designer.cs">
       <DependentUpon>AddBudget.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddBudgetUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\AddBudgetUC.Designer.cs">
+      <DependentUpon>AddBudgetUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddExpense.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AddExpense.Designer.cs">
       <DependentUpon>AddExpense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddExpenseUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\AddExpenseUC.Designer.cs">
+      <DependentUpon>AddExpenseUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddGoal.cs">
       <SubType>Form</SubType>
@@ -152,11 +164,29 @@
     <Compile Include="Forms\AddIncome.Designer.cs">
       <DependentUpon>AddIncome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddIncomeUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\AddIncomeUC.Designer.cs">
+      <DependentUpon>AddIncomeUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddTransaction.Designer.cs">
+      <DependentUpon>AddTransaction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddTransfer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AddTransfer.Designer.cs">
       <DependentUpon>AddTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddTransferUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\AddTransferUC.Designer.cs">
+      <DependentUpon>AddTransferUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddWallet.cs">
       <SubType>Form</SubType>
@@ -243,8 +273,14 @@
     <EmbeddedResource Include="Forms\AddBudget.resx">
       <DependentUpon>AddBudget.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddBudgetUC.resx">
+      <DependentUpon>AddBudgetUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddExpense.resx">
       <DependentUpon>AddExpense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddExpenseUC.resx">
+      <DependentUpon>AddExpenseUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddGoal.resx">
       <DependentUpon>AddGoal.cs</DependentUpon>
@@ -252,8 +288,17 @@
     <EmbeddedResource Include="Forms\AddIncome.resx">
       <DependentUpon>AddIncome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddIncomeUC.resx">
+      <DependentUpon>AddIncomeUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddTransaction.resx">
+      <DependentUpon>AddTransaction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddTransfer.resx">
       <DependentUpon>AddTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddTransferUC.resx">
+      <DependentUpon>AddTransferUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddWallet.resx">
       <DependentUpon>AddWallet.cs</DependentUpon>
@@ -506,6 +551,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addbutton_purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addbutton_transparent.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -65,7 +65,7 @@
             this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(601, 588);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(601, 534);
             this.guna2CustomGradientPanel1.TabIndex = 0;
             // 
             // guna2Button1
@@ -77,7 +77,7 @@
             this.guna2Button1.FillColor = System.Drawing.Color.Silver;
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(108, 431);
+            this.guna2Button1.Location = new System.Drawing.Point(108, 398);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(183, 35);
             this.guna2Button1.TabIndex = 147;
@@ -92,7 +92,7 @@
             this.button1.FillColor = System.Drawing.Color.Silver;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(330, 431);
+            this.button1.Location = new System.Drawing.Point(330, 398);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(183, 35);
             this.button1.TabIndex = 146;
@@ -109,7 +109,7 @@
             this.txtDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDescription.Location = new System.Drawing.Point(250, 287);
+            this.txtDescription.Location = new System.Drawing.Point(250, 254);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.PasswordChar = '\0';
@@ -128,7 +128,7 @@
             this.txtCategory.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.txtCategory.ItemHeight = 30;
-            this.txtCategory.Location = new System.Drawing.Point(251, 349);
+            this.txtCategory.Location = new System.Drawing.Point(251, 316);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(262, 36);
             this.txtCategory.TabIndex = 144;
@@ -144,7 +144,7 @@
             this.txtAmount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAmount.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtAmount.Location = new System.Drawing.Point(251, 225);
+            this.txtAmount.Location = new System.Drawing.Point(251, 192);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.PasswordChar = '\0';
@@ -160,7 +160,7 @@
             this.checkBoxSavings.CheckedState.BorderRadius = 0;
             this.checkBoxSavings.CheckedState.BorderThickness = 0;
             this.checkBoxSavings.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.checkBoxSavings.Location = new System.Drawing.Point(435, 194);
+            this.checkBoxSavings.Location = new System.Drawing.Point(435, 161);
             this.checkBoxSavings.Name = "checkBoxSavings";
             this.checkBoxSavings.Size = new System.Drawing.Size(78, 20);
             this.checkBoxSavings.TabIndex = 142;
@@ -177,7 +177,7 @@
             this.checkBoxSpending.CheckedState.BorderRadius = 0;
             this.checkBoxSpending.CheckedState.BorderThickness = 0;
             this.checkBoxSpending.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.checkBoxSpending.Location = new System.Drawing.Point(317, 194);
+            this.checkBoxSpending.Location = new System.Drawing.Point(317, 161);
             this.checkBoxSpending.Name = "checkBoxSpending";
             this.checkBoxSpending.Size = new System.Drawing.Size(87, 20);
             this.checkBoxSpending.TabIndex = 141;
@@ -197,7 +197,7 @@
             this.txtWallet.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtWallet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.txtWallet.ItemHeight = 30;
-            this.txtWallet.Location = new System.Drawing.Point(250, 152);
+            this.txtWallet.Location = new System.Drawing.Point(250, 119);
             this.txtWallet.Name = "txtWallet";
             this.txtWallet.Size = new System.Drawing.Size(262, 36);
             this.txtWallet.TabIndex = 140;
@@ -207,7 +207,7 @@
             this.txtDate.Checked = true;
             this.txtDate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.txtDate.Location = new System.Drawing.Point(251, 87);
+            this.txtDate.Location = new System.Drawing.Point(251, 54);
             this.txtDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.txtDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.txtDate.Name = "txtDate";
@@ -219,7 +219,7 @@
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(103, 87);
+            this.label3.Location = new System.Drawing.Point(103, 54);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 25);
@@ -230,7 +230,7 @@
             // 
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(103, 225);
+            this.label6.Location = new System.Drawing.Point(103, 192);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(109, 25);
@@ -241,7 +241,7 @@
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(103, 287);
+            this.label2.Location = new System.Drawing.Point(103, 254);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(134, 40);
@@ -252,7 +252,7 @@
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(103, 349);
+            this.label1.Location = new System.Drawing.Point(103, 316);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(126, 37);
@@ -263,7 +263,7 @@
             // 
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(103, 152);
+            this.label4.Location = new System.Drawing.Point(103, 119);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 25);
@@ -276,7 +276,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Name = "AddIncomeUC";
-            this.Size = new System.Drawing.Size(601, 588);
+            this.Size = new System.Drawing.Size(601, 534);
             this.Load += new System.EventHandler(this.AddIncomeUC_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();

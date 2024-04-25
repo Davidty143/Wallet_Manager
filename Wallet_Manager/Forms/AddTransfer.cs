@@ -13,7 +13,7 @@ namespace Wallet_Manager.Forms
 {
     public partial class AddTransfer : Form
     {
-        public AddTransfer()
+        public AddTransfer(int userID)
         {
             InitializeComponent();
             PopulateWalletsComboBox();
