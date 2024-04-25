@@ -130,7 +130,7 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="dashboardUC2.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>11</value>
   </data>
   <data name="&gt;&gt;dashboardUC2.Name" xml:space="preserve">
     <value>dashboardUC2</value>
@@ -143,6 +143,78 @@
   </data>
   <data name="&gt;&gt;dashboardUC2.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="wallet_uc2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="wallet_uc2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>413, 162</value>
+  </data>
+  <data name="wallet_uc2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1509, 856</value>
+  </data>
+  <data name="wallet_uc2.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;wallet_uc2.Name" xml:space="preserve">
+    <value>wallet_uc2</value>
+  </data>
+  <data name="&gt;&gt;wallet_uc2.Type" xml:space="preserve">
+    <value>Wallet_Manager.Forms.Wallet_uc, Wallet_Manager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;wallet_uc2.Parent" xml:space="preserve">
+    <value>display_panel</value>
+  </data>
+  <data name="&gt;&gt;wallet_uc2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="transactionHistory2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="transactionHistory2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>413, 162</value>
+  </data>
+  <data name="transactionHistory2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1509, 856</value>
+  </data>
+  <data name="transactionHistory2.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;transactionHistory2.Name" xml:space="preserve">
+    <value>transactionHistory2</value>
+  </data>
+  <data name="&gt;&gt;transactionHistory2.Type" xml:space="preserve">
+    <value>Wallet_Manager.Forms.TransactionHistory, Wallet_Manager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;transactionHistory2.Parent" xml:space="preserve">
+    <value>display_panel</value>
+  </data>
+  <data name="&gt;&gt;transactionHistory2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="budget1_uc1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="budget1_uc1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>413, 162</value>
+  </data>
+  <data name="budget1_uc1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1509, 856</value>
+  </data>
+  <data name="budget1_uc1.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;budget1_uc1.Name" xml:space="preserve">
+    <value>budget1_uc1</value>
+  </data>
+  <data name="&gt;&gt;budget1_uc1.Type" xml:space="preserve">
+    <value>Wallet_Manager.Forms.Budget1_uc, Wallet_Manager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;budget1_uc1.Parent" xml:space="preserve">
+    <value>display_panel</value>
+  </data>
+  <data name="&gt;&gt;budget1_uc1.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="label10.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lucida Sans, 19.8pt, style=Bold</value>
@@ -196,7 +268,7 @@
     <value>display_panel</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="button_goals.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>
@@ -627,7 +699,7 @@
     <value>display_panel</value>
   </data>
   <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="guna2Button1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
@@ -678,7 +750,7 @@
     <value>display_panel</value>
   </data>
   <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="display_panel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -709,6 +781,9 @@
   </data>
   <metadata name="guna2AnimateWindow1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="guna2AnimateWindow2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>233, 17</value>
   </metadata>
   <data name="dashboardUC1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -764,9 +839,6 @@
   <data name="&gt;&gt;transactionHistory1.Type" xml:space="preserve">
     <value>Wallet_Manager.Forms.TransactionHistory, Wallet_Manager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <metadata name="guna2AnimateWindow2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>233, 17</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

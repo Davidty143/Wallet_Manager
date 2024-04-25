@@ -253,6 +253,16 @@ namespace Wallet_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_purple {
+            get {
+                object obj = ResourceManager.GetObject("add_purple", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap addbutton_purple {
             get {
                 object obj = ResourceManager.GetObject("addbutton_purple", resourceCulture);
@@ -263,9 +273,29 @@ namespace Wallet_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addbutton_purple1 {
+            get {
+                object obj = ResourceManager.GetObject("addbutton_purple1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap addbutton_transparent {
             get {
                 object obj = ResourceManager.GetObject("addbutton_transparent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap addButtonPurple {
+            get {
+                object obj = ResourceManager.GetObject("addButtonPurple", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

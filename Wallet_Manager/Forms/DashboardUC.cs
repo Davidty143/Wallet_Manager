@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Wallet_Manager.Classes;
 
 namespace Wallet_Manager.Forms
@@ -33,6 +34,7 @@ namespace Wallet_Manager.Forms
             UpdateSavingsLabel();
             UpdateExpenseLabel();
             UpdateMostUsedWalletDisplay();
+            //SetupChart();
 
         }
 
@@ -194,6 +196,7 @@ namespace Wallet_Manager.Forms
         }
 
 
+
         private void label43_Click(object sender, EventArgs e)
         {
 
@@ -243,5 +246,24 @@ namespace Wallet_Manager.Forms
             dashboardParent.transactionForm.BringToFront();
         }
 
+        private void guna2Button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label24_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void spentBudgetLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

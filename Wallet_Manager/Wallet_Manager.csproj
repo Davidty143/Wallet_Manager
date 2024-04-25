@@ -558,5 +558,14 @@
   <ItemGroup>
     <None Include="Resources\addbutton_transparent.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addbutton_purple1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addButtonPurple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_purple.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
