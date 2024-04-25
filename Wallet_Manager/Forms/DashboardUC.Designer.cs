@@ -86,11 +86,6 @@
             this.generalProgressBar = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.iconPictureBox3 = new System.Windows.Forms.PictureBox();
-            this.iconPictureBox2 = new System.Windows.Forms.PictureBox();
-            this.iconPictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label3 = new System.Windows.Forms.Label();
@@ -99,18 +94,23 @@
             this.remainingBudgetLabel = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.iconPictureBox3 = new System.Windows.Forms.PictureBox();
+            this.iconPictureBox2 = new System.Windows.Forms.PictureBox();
+            this.iconPictureBox1 = new System.Windows.Forms.PictureBox();
             this.recentTransactionPanel3.SuspendLayout();
             this.recentTransactionPanel2.SuspendLayout();
             this.recentTransactionPanel1.SuspendLayout();
+            this.guna2CustomGradientPanel1.SuspendLayout();
+            this.guna2CustomGradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.guna2CustomGradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
-            this.guna2CustomGradientPanel1.SuspendLayout();
-            this.guna2CustomGradientPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            this.guna2CustomGradientPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label43
@@ -183,7 +183,7 @@
             this.label23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label23.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(897, 27);
+            this.label23.Location = new System.Drawing.Point(897, 30);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(311, 44);
             this.label23.TabIndex = 158;
@@ -873,65 +873,6 @@
             this.label11.TabIndex = 124;
             this.label11.Text = "Overview";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = global::Wallet_Manager.Properties.Resources.add_purple;
-            this.pictureBox2.Location = new System.Drawing.Point(721, 179);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 326;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Wallet_Manager.Properties.Resources.wallet_;
-            this.pictureBox1.Location = new System.Drawing.Point(721, 399);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 305;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // iconPictureBox3
-            // 
-            this.iconPictureBox3.BackColor = System.Drawing.Color.White;
-            this.iconPictureBox3.Image = global::Wallet_Manager.Properties.Resources._9;
-            this.iconPictureBox3.Location = new System.Drawing.Point(80, 35);
-            this.iconPictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.iconPictureBox3.Name = "iconPictureBox3";
-            this.iconPictureBox3.Size = new System.Drawing.Size(60, 60);
-            this.iconPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconPictureBox3.TabIndex = 285;
-            this.iconPictureBox3.TabStop = false;
-            // 
-            // iconPictureBox2
-            // 
-            this.iconPictureBox2.BackColor = System.Drawing.Color.White;
-            this.iconPictureBox2.Image = global::Wallet_Manager.Properties.Resources._9;
-            this.iconPictureBox2.Location = new System.Drawing.Point(80, 35);
-            this.iconPictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.iconPictureBox2.Name = "iconPictureBox2";
-            this.iconPictureBox2.Size = new System.Drawing.Size(60, 60);
-            this.iconPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconPictureBox2.TabIndex = 285;
-            this.iconPictureBox2.TabStop = false;
-            // 
-            // iconPictureBox1
-            // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.White;
-            this.iconPictureBox1.Image = global::Wallet_Manager.Properties.Resources._9;
-            this.iconPictureBox1.Location = new System.Drawing.Point(80, 35);
-            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(60, 60);
-            this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconPictureBox1.TabIndex = 285;
-            this.iconPictureBox1.TabStop = false;
-            // 
             // guna2CustomGradientPanel1
             // 
             this.guna2CustomGradientPanel1.BorderRadius = 5;
@@ -1053,6 +994,65 @@
             this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(547, 303);
             this.guna2CustomGradientPanel3.TabIndex = 330;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = global::Wallet_Manager.Properties.Resources.add_purple;
+            this.pictureBox2.Location = new System.Drawing.Point(721, 179);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 326;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Wallet_Manager.Properties.Resources.wallet_;
+            this.pictureBox1.Location = new System.Drawing.Point(721, 399);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 305;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // iconPictureBox3
+            // 
+            this.iconPictureBox3.BackColor = System.Drawing.Color.White;
+            this.iconPictureBox3.Image = global::Wallet_Manager.Properties.Resources._33;
+            this.iconPictureBox3.Location = new System.Drawing.Point(80, 35);
+            this.iconPictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iconPictureBox3.Name = "iconPictureBox3";
+            this.iconPictureBox3.Size = new System.Drawing.Size(60, 60);
+            this.iconPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox3.TabIndex = 285;
+            this.iconPictureBox3.TabStop = false;
+            // 
+            // iconPictureBox2
+            // 
+            this.iconPictureBox2.BackColor = System.Drawing.Color.White;
+            this.iconPictureBox2.Image = global::Wallet_Manager.Properties.Resources._31;
+            this.iconPictureBox2.Location = new System.Drawing.Point(80, 35);
+            this.iconPictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iconPictureBox2.Name = "iconPictureBox2";
+            this.iconPictureBox2.Size = new System.Drawing.Size(60, 60);
+            this.iconPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox2.TabIndex = 285;
+            this.iconPictureBox2.TabStop = false;
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.BackColor = System.Drawing.Color.White;
+            this.iconPictureBox1.Image = global::Wallet_Manager.Properties.Resources._32;
+            this.iconPictureBox1.Location = new System.Drawing.Point(80, 35);
+            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(60, 60);
+            this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox1.TabIndex = 285;
+            this.iconPictureBox1.TabStop = false;
+            // 
             // DashboardUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1103,16 +1103,16 @@
             this.recentTransactionPanel2.PerformLayout();
             this.recentTransactionPanel1.ResumeLayout(false);
             this.recentTransactionPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel2.ResumeLayout(false);
             this.guna2CustomGradientPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.guna2CustomGradientPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1159,7 +1159,6 @@
         private System.Windows.Forms.Label amountLabel2;
         private System.Windows.Forms.Label walletLabel2;
         private System.Windows.Forms.Label transactionTypeLabel2;
-        private System.Windows.Forms.PictureBox iconPictureBox2;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label descriptionLabel2;
         private System.Windows.Forms.Label categoryLabel2;
@@ -1187,5 +1186,6 @@
         private System.Windows.Forms.Label remainingBudgetLabel;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel3;
+        private System.Windows.Forms.PictureBox iconPictureBox2;
     }
 }

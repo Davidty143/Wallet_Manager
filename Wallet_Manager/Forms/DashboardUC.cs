@@ -30,7 +30,7 @@ namespace Wallet_Manager.Forms
             InitializeComponent();
             InitializeControlArrays();
             LoadCategoryImages();
-            LoadTransactions();
+            //LoadTransactions();
             UpdateSavingsLabel();
             UpdateExpenseLabel();
             UpdateMostUsedWalletDisplay();
