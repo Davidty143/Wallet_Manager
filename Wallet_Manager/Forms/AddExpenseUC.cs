@@ -79,6 +79,16 @@ namespace Wallet_Manager.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.FindForm().Hide();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
             // Parse the amount from the text box
             if (!float.TryParse(txtAmount.Text, out float amount))
             {
@@ -154,7 +164,7 @@ namespace Wallet_Manager.Forms
             }
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void guna2Button1_Click_1(object sender, EventArgs e)
         {
             this.FindForm().Hide();
         }

@@ -74,7 +74,7 @@ namespace Wallet_Manager.Forms
             if (page != 1)
             {
                 page = 1;
-                addIncomeUC1.BringToFront();
+               // addIncomeUC1.BringToFront();
             }
         }
 
@@ -88,7 +88,7 @@ namespace Wallet_Manager.Forms
             if (page != 3)
             {
                 page = 3;
-                addTransferUC1.BringToFront();
+                //addTransferUC1.BringToFront();
             }
         }
 
@@ -97,8 +97,13 @@ namespace Wallet_Manager.Forms
             if (page != 2)
             {
                 page = 2;
-                addExpenseUC1.BringToFront();
+                //addExpenseUC1.BringToFront();
             }
+        }
+
+        private void guna2CustomGradientPanel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

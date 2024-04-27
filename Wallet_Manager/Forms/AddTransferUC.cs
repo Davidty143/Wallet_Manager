@@ -68,6 +68,21 @@ namespace Wallet_Manager.Forms
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            this.FindForm().Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             string sourceCategory = "";
             string targetCategory = "";
 
@@ -133,12 +148,7 @@ namespace Wallet_Manager.Forms
             }
         }
 
-        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Button3_Click(object sender, EventArgs e)
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
             this.FindForm().Hide();
         }
