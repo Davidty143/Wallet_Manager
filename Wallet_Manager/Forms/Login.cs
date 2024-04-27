@@ -25,6 +25,16 @@ namespace Wallet_Manager.Forms
 
         private void t_login_button_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void t_login_button_Click_1(object sender, EventArgs e)
+        {
             string email = txtEmail.Text;
             string password = txtPassword.Text;
 

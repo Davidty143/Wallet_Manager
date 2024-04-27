@@ -18,7 +18,7 @@ namespace Wallet_Manager
             SetProcessDPIAware();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Dashboard());
+            Application.Run(new Login());
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
