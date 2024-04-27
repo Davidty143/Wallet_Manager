@@ -633,9 +633,29 @@ namespace Wallet_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap menu1 {
+            get {
+                object obj = ResourceManager.GetObject("menu1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap profit__1_ {
             get {
                 object obj = ResourceManager.GetObject("profit (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap profit__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("profit (1)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -656,6 +676,16 @@ namespace Wallet_Manager.Properties {
         internal static System.Drawing.Bitmap wallet_ {
             get {
                 object obj = ResourceManager.GetObject("wallet+", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wallet1 {
+            get {
+                object obj = ResourceManager.GetObject("wallet1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
