@@ -27,10 +27,10 @@ namespace Wallet_Manager.Forms
         {
 
         }
-
+    
         private void Login_Load(object sender, EventArgs e)
         {
-
+            txtPassword.PasswordChar = '*';
         }
 
         private void t_login_button_Click_1(object sender, EventArgs e)
@@ -56,6 +56,11 @@ namespace Wallet_Manager.Forms
             {
                 MessageBox.Show("Invalid email or password.");
             }
+        }
+
+        private void cb_show_pass_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPassword.PasswordChar = cb_show_pass.Checked ? '\0' : '*';
         }
     }
 }
