@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label43 = new System.Windows.Forms.Label();
             this.guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
             this.label24 = new System.Windows.Forms.Label();
@@ -64,6 +64,7 @@
             this.amountLabel3 = new System.Windows.Forms.Label();
             this.walletLabel3 = new System.Windows.Forms.Label();
             this.transactionTypeLabel3 = new System.Windows.Forms.Label();
+            this.iconPictureBox3 = new System.Windows.Forms.PictureBox();
             this.label42 = new System.Windows.Forms.Label();
             this.descriptionLabel3 = new System.Windows.Forms.Label();
             this.categoryLabel3 = new System.Windows.Forms.Label();
@@ -72,6 +73,7 @@
             this.amountLabel2 = new System.Windows.Forms.Label();
             this.walletLabel2 = new System.Windows.Forms.Label();
             this.transactionTypeLabel2 = new System.Windows.Forms.Label();
+            this.iconPictureBox2 = new System.Windows.Forms.PictureBox();
             this.label35 = new System.Windows.Forms.Label();
             this.descriptionLabel2 = new System.Windows.Forms.Label();
             this.categoryLabel2 = new System.Windows.Forms.Label();
@@ -80,6 +82,7 @@
             this.amountLabel1 = new System.Windows.Forms.Label();
             this.walletLabel1 = new System.Windows.Forms.Label();
             this.transactionTypeLabel1 = new System.Windows.Forms.Label();
+            this.iconPictureBox1 = new System.Windows.Forms.PictureBox();
             this.label28 = new System.Windows.Forms.Label();
             this.descriptionLabel1 = new System.Windows.Forms.Label();
             this.categoryLabel1 = new System.Windows.Forms.Label();
@@ -88,29 +91,28 @@
             this.label11 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.spentBudgetLabel = new System.Windows.Forms.Label();
             this.remainingBudgetLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.spentBudgetLabel = new System.Windows.Forms.Label();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.iconPictureBox3 = new System.Windows.Forms.PictureBox();
-            this.iconPictureBox2 = new System.Windows.Forms.PictureBox();
-            this.iconPictureBox1 = new System.Windows.Forms.PictureBox();
+            this.guna2CustomGradientPanel4 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.recentTransactionPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
             this.recentTransactionPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             this.recentTransactionPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.guna2CustomGradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            this.guna2CustomGradientPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label43
@@ -137,7 +139,7 @@
             this.guna2Button7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2Button7.HoverState.FillColor = System.Drawing.Color.White;
-            this.guna2Button7.Location = new System.Drawing.Point(1332, 488);
+            this.guna2Button7.Location = new System.Drawing.Point(1332, 531);
             this.guna2Button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button7.Name = "guna2Button7";
             this.guna2Button7.PressedColor = System.Drawing.Color.White;
@@ -152,7 +154,7 @@
             this.label24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label24.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(897, 480);
+            this.label24.Location = new System.Drawing.Point(897, 523);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(115, 38);
             this.label24.TabIndex = 160;
@@ -162,6 +164,7 @@
             // guna2Button6
             // 
             this.guna2Button6.BorderRadius = 5;
+            this.guna2Button6.DefaultAutoSize = true;
             this.guna2Button6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -170,11 +173,11 @@
             this.guna2Button6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2Button6.HoverState.FillColor = System.Drawing.Color.White;
-            this.guna2Button6.Location = new System.Drawing.Point(1332, 40);
+            this.guna2Button6.Location = new System.Drawing.Point(407, 9);
             this.guna2Button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button6.Name = "guna2Button6";
             this.guna2Button6.PressedColor = System.Drawing.Color.White;
-            this.guna2Button6.Size = new System.Drawing.Size(119, 28);
+            this.guna2Button6.Size = new System.Drawing.Size(107, 34);
             this.guna2Button6.TabIndex = 159;
             this.guna2Button6.Text = "See More";
             // 
@@ -519,28 +522,30 @@
             // 
             this.recentTransactionPanel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.recentTransactionPanel3.BorderRadius = 5;
+            this.recentTransactionPanel3.BorderThickness = 1;
+            this.recentTransactionPanel3.Controls.Add(this.iconPictureBox3);
             this.recentTransactionPanel3.Controls.Add(this.dateLabel3);
             this.recentTransactionPanel3.Controls.Add(this.amountLabel3);
             this.recentTransactionPanel3.Controls.Add(this.walletLabel3);
             this.recentTransactionPanel3.Controls.Add(this.transactionTypeLabel3);
-            this.recentTransactionPanel3.Controls.Add(this.iconPictureBox3);
             this.recentTransactionPanel3.Controls.Add(this.label42);
             this.recentTransactionPanel3.Controls.Add(this.descriptionLabel3);
             this.recentTransactionPanel3.Controls.Add(this.categoryLabel3);
-            this.recentTransactionPanel3.Location = new System.Drawing.Point(904, 338);
+            this.recentTransactionPanel3.Location = new System.Drawing.Point(29, 278);
             this.recentTransactionPanel3.Name = "recentTransactionPanel3";
-            this.recentTransactionPanel3.Size = new System.Drawing.Size(547, 111);
+            this.recentTransactionPanel3.Size = new System.Drawing.Size(485, 96);
             this.recentTransactionPanel3.TabIndex = 304;
             // 
             // dateLabel3
             // 
+            this.dateLabel3.AutoSize = true;
             this.dateLabel3.BackColor = System.Drawing.Color.White;
             this.dateLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dateLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLabel3.ForeColor = System.Drawing.Color.Gray;
-            this.dateLabel3.Location = new System.Drawing.Point(442, 76);
+            this.dateLabel3.Location = new System.Drawing.Point(412, 70);
             this.dateLabel3.Name = "dateLabel3";
-            this.dateLabel3.Size = new System.Drawing.Size(102, 26);
+            this.dateLabel3.Size = new System.Drawing.Size(50, 20);
             this.dateLabel3.TabIndex = 299;
             this.dateLabel3.Text = "Today";
             // 
@@ -549,11 +554,11 @@
             this.amountLabel3.AutoSize = true;
             this.amountLabel3.BackColor = System.Drawing.Color.White;
             this.amountLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.amountLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amountLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amountLabel3.ForeColor = System.Drawing.Color.Red;
-            this.amountLabel3.Location = new System.Drawing.Point(331, 35);
+            this.amountLabel3.Location = new System.Drawing.Point(333, 35);
             this.amountLabel3.Name = "amountLabel3";
-            this.amountLabel3.Size = new System.Drawing.Size(136, 41);
+            this.amountLabel3.Size = new System.Drawing.Size(129, 38);
             this.amountLabel3.TabIndex = 296;
             this.amountLabel3.Text = "₱ 20,000";
             // 
@@ -564,7 +569,7 @@
             this.walletLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.walletLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.walletLabel3.ForeColor = System.Drawing.Color.Black;
-            this.walletLabel3.Location = new System.Drawing.Point(323, 10);
+            this.walletLabel3.Location = new System.Drawing.Point(318, 12);
             this.walletLabel3.Name = "walletLabel3";
             this.walletLabel3.Size = new System.Drawing.Size(144, 23);
             this.walletLabel3.TabIndex = 295;
@@ -575,13 +580,25 @@
             this.transactionTypeLabel3.AutoSize = true;
             this.transactionTypeLabel3.BackColor = System.Drawing.Color.White;
             this.transactionTypeLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.transactionTypeLabel3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transactionTypeLabel3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transactionTypeLabel3.ForeColor = System.Drawing.Color.Gray;
-            this.transactionTypeLabel3.Location = new System.Drawing.Point(8, 8);
+            this.transactionTypeLabel3.Location = new System.Drawing.Point(15, 12);
             this.transactionTypeLabel3.Name = "transactionTypeLabel3";
-            this.transactionTypeLabel3.Size = new System.Drawing.Size(82, 25);
+            this.transactionTypeLabel3.Size = new System.Drawing.Size(74, 23);
             this.transactionTypeLabel3.TabIndex = 294;
             this.transactionTypeLabel3.Text = "Expense";
+            // 
+            // iconPictureBox3
+            // 
+            this.iconPictureBox3.BackColor = System.Drawing.Color.White;
+            this.iconPictureBox3.Image = global::Wallet_Manager.Properties.Resources._33;
+            this.iconPictureBox3.Location = new System.Drawing.Point(107, 21);
+            this.iconPictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iconPictureBox3.Name = "iconPictureBox3";
+            this.iconPictureBox3.Size = new System.Drawing.Size(60, 60);
+            this.iconPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox3.TabIndex = 285;
+            this.iconPictureBox3.TabStop = false;
             // 
             // label42
             // 
@@ -603,7 +620,7 @@
             this.descriptionLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.descriptionLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLabel3.ForeColor = System.Drawing.Color.Black;
-            this.descriptionLabel3.Location = new System.Drawing.Point(146, 35);
+            this.descriptionLabel3.Location = new System.Drawing.Point(173, 21);
             this.descriptionLabel3.Name = "descriptionLabel3";
             this.descriptionLabel3.Size = new System.Drawing.Size(111, 31);
             this.descriptionLabel3.TabIndex = 286;
@@ -616,7 +633,7 @@
             this.categoryLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.categoryLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.categoryLabel3.Location = new System.Drawing.Point(148, 68);
+            this.categoryLabel3.Location = new System.Drawing.Point(175, 54);
             this.categoryLabel3.Name = "categoryLabel3";
             this.categoryLabel3.Size = new System.Drawing.Size(44, 20);
             this.categoryLabel3.TabIndex = 287;
@@ -626,28 +643,31 @@
             // 
             this.recentTransactionPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.recentTransactionPanel2.BorderRadius = 5;
+            this.recentTransactionPanel2.BorderThickness = 1;
+            this.recentTransactionPanel2.Controls.Add(this.iconPictureBox2);
             this.recentTransactionPanel2.Controls.Add(this.dateLabel2);
             this.recentTransactionPanel2.Controls.Add(this.amountLabel2);
             this.recentTransactionPanel2.Controls.Add(this.walletLabel2);
             this.recentTransactionPanel2.Controls.Add(this.transactionTypeLabel2);
-            this.recentTransactionPanel2.Controls.Add(this.iconPictureBox2);
             this.recentTransactionPanel2.Controls.Add(this.label35);
             this.recentTransactionPanel2.Controls.Add(this.descriptionLabel2);
             this.recentTransactionPanel2.Controls.Add(this.categoryLabel2);
-            this.recentTransactionPanel2.Location = new System.Drawing.Point(904, 85);
+            this.recentTransactionPanel2.Location = new System.Drawing.Point(29, 48);
             this.recentTransactionPanel2.Name = "recentTransactionPanel2";
-            this.recentTransactionPanel2.Size = new System.Drawing.Size(547, 111);
+            this.recentTransactionPanel2.Size = new System.Drawing.Size(485, 96);
             this.recentTransactionPanel2.TabIndex = 303;
+            this.recentTransactionPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.recentTransactionPanel2_Paint);
             // 
             // dateLabel2
             // 
+            this.dateLabel2.AutoSize = true;
             this.dateLabel2.BackColor = System.Drawing.Color.White;
             this.dateLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dateLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLabel2.ForeColor = System.Drawing.Color.Gray;
-            this.dateLabel2.Location = new System.Drawing.Point(442, 76);
+            this.dateLabel2.Location = new System.Drawing.Point(412, 70);
             this.dateLabel2.Name = "dateLabel2";
-            this.dateLabel2.Size = new System.Drawing.Size(102, 26);
+            this.dateLabel2.Size = new System.Drawing.Size(50, 20);
             this.dateLabel2.TabIndex = 298;
             this.dateLabel2.Text = "Today";
             // 
@@ -656,11 +676,11 @@
             this.amountLabel2.AutoSize = true;
             this.amountLabel2.BackColor = System.Drawing.Color.White;
             this.amountLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.amountLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amountLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amountLabel2.ForeColor = System.Drawing.Color.Red;
-            this.amountLabel2.Location = new System.Drawing.Point(331, 35);
+            this.amountLabel2.Location = new System.Drawing.Point(333, 32);
             this.amountLabel2.Name = "amountLabel2";
-            this.amountLabel2.Size = new System.Drawing.Size(136, 41);
+            this.amountLabel2.Size = new System.Drawing.Size(129, 38);
             this.amountLabel2.TabIndex = 296;
             this.amountLabel2.Text = "₱ 20,000";
             // 
@@ -671,7 +691,7 @@
             this.walletLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.walletLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.walletLabel2.ForeColor = System.Drawing.Color.Black;
-            this.walletLabel2.Location = new System.Drawing.Point(323, 8);
+            this.walletLabel2.Location = new System.Drawing.Point(318, 9);
             this.walletLabel2.Name = "walletLabel2";
             this.walletLabel2.Size = new System.Drawing.Size(144, 23);
             this.walletLabel2.TabIndex = 295;
@@ -682,13 +702,25 @@
             this.transactionTypeLabel2.AutoSize = true;
             this.transactionTypeLabel2.BackColor = System.Drawing.Color.White;
             this.transactionTypeLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.transactionTypeLabel2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transactionTypeLabel2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transactionTypeLabel2.ForeColor = System.Drawing.Color.Gray;
-            this.transactionTypeLabel2.Location = new System.Drawing.Point(8, 8);
+            this.transactionTypeLabel2.Location = new System.Drawing.Point(15, 9);
             this.transactionTypeLabel2.Name = "transactionTypeLabel2";
-            this.transactionTypeLabel2.Size = new System.Drawing.Size(82, 25);
+            this.transactionTypeLabel2.Size = new System.Drawing.Size(74, 23);
             this.transactionTypeLabel2.TabIndex = 294;
             this.transactionTypeLabel2.Text = "Expense";
+            // 
+            // iconPictureBox2
+            // 
+            this.iconPictureBox2.BackColor = System.Drawing.Color.White;
+            this.iconPictureBox2.Image = global::Wallet_Manager.Properties.Resources._31;
+            this.iconPictureBox2.Location = new System.Drawing.Point(107, 22);
+            this.iconPictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iconPictureBox2.Name = "iconPictureBox2";
+            this.iconPictureBox2.Size = new System.Drawing.Size(60, 60);
+            this.iconPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox2.TabIndex = 285;
+            this.iconPictureBox2.TabStop = false;
             // 
             // label35
             // 
@@ -710,7 +742,7 @@
             this.descriptionLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.descriptionLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLabel2.ForeColor = System.Drawing.Color.Black;
-            this.descriptionLabel2.Location = new System.Drawing.Point(146, 35);
+            this.descriptionLabel2.Location = new System.Drawing.Point(173, 22);
             this.descriptionLabel2.Name = "descriptionLabel2";
             this.descriptionLabel2.Size = new System.Drawing.Size(111, 31);
             this.descriptionLabel2.TabIndex = 286;
@@ -723,7 +755,7 @@
             this.categoryLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.categoryLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.categoryLabel2.Location = new System.Drawing.Point(148, 68);
+            this.categoryLabel2.Location = new System.Drawing.Point(175, 55);
             this.categoryLabel2.Name = "categoryLabel2";
             this.categoryLabel2.Size = new System.Drawing.Size(44, 20);
             this.categoryLabel2.TabIndex = 287;
@@ -733,28 +765,30 @@
             // 
             this.recentTransactionPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.recentTransactionPanel1.BorderRadius = 5;
+            this.recentTransactionPanel1.BorderThickness = 1;
+            this.recentTransactionPanel1.Controls.Add(this.iconPictureBox1);
             this.recentTransactionPanel1.Controls.Add(this.dateLabel1);
             this.recentTransactionPanel1.Controls.Add(this.amountLabel1);
             this.recentTransactionPanel1.Controls.Add(this.walletLabel1);
             this.recentTransactionPanel1.Controls.Add(this.transactionTypeLabel1);
-            this.recentTransactionPanel1.Controls.Add(this.iconPictureBox1);
             this.recentTransactionPanel1.Controls.Add(this.label28);
             this.recentTransactionPanel1.Controls.Add(this.descriptionLabel1);
             this.recentTransactionPanel1.Controls.Add(this.categoryLabel1);
-            this.recentTransactionPanel1.Location = new System.Drawing.Point(904, 211);
+            this.recentTransactionPanel1.Location = new System.Drawing.Point(29, 163);
             this.recentTransactionPanel1.Name = "recentTransactionPanel1";
-            this.recentTransactionPanel1.Size = new System.Drawing.Size(547, 111);
+            this.recentTransactionPanel1.Size = new System.Drawing.Size(485, 96);
             this.recentTransactionPanel1.TabIndex = 302;
             // 
             // dateLabel1
             // 
+            this.dateLabel1.AutoSize = true;
             this.dateLabel1.BackColor = System.Drawing.Color.White;
             this.dateLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dateLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLabel1.ForeColor = System.Drawing.Color.Gray;
-            this.dateLabel1.Location = new System.Drawing.Point(442, 76);
+            this.dateLabel1.Location = new System.Drawing.Point(412, 68);
             this.dateLabel1.Name = "dateLabel1";
-            this.dateLabel1.Size = new System.Drawing.Size(102, 26);
+            this.dateLabel1.Size = new System.Drawing.Size(50, 20);
             this.dateLabel1.TabIndex = 297;
             this.dateLabel1.Text = "Today";
             // 
@@ -763,11 +797,11 @@
             this.amountLabel1.AutoSize = true;
             this.amountLabel1.BackColor = System.Drawing.Color.White;
             this.amountLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.amountLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amountLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amountLabel1.ForeColor = System.Drawing.Color.Red;
-            this.amountLabel1.Location = new System.Drawing.Point(331, 35);
+            this.amountLabel1.Location = new System.Drawing.Point(333, 35);
             this.amountLabel1.Name = "amountLabel1";
-            this.amountLabel1.Size = new System.Drawing.Size(136, 41);
+            this.amountLabel1.Size = new System.Drawing.Size(129, 38);
             this.amountLabel1.TabIndex = 296;
             this.amountLabel1.Text = "₱ 20,000";
             // 
@@ -778,7 +812,7 @@
             this.walletLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.walletLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.walletLabel1.ForeColor = System.Drawing.Color.Black;
-            this.walletLabel1.Location = new System.Drawing.Point(323, 12);
+            this.walletLabel1.Location = new System.Drawing.Point(318, 12);
             this.walletLabel1.Name = "walletLabel1";
             this.walletLabel1.Size = new System.Drawing.Size(144, 23);
             this.walletLabel1.TabIndex = 295;
@@ -789,13 +823,25 @@
             this.transactionTypeLabel1.AutoSize = true;
             this.transactionTypeLabel1.BackColor = System.Drawing.Color.White;
             this.transactionTypeLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.transactionTypeLabel1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transactionTypeLabel1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transactionTypeLabel1.ForeColor = System.Drawing.Color.Gray;
-            this.transactionTypeLabel1.Location = new System.Drawing.Point(8, 10);
+            this.transactionTypeLabel1.Location = new System.Drawing.Point(15, 12);
             this.transactionTypeLabel1.Name = "transactionTypeLabel1";
-            this.transactionTypeLabel1.Size = new System.Drawing.Size(82, 25);
+            this.transactionTypeLabel1.Size = new System.Drawing.Size(74, 23);
             this.transactionTypeLabel1.TabIndex = 294;
             this.transactionTypeLabel1.Text = "Expense";
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.BackColor = System.Drawing.Color.White;
+            this.iconPictureBox1.Image = global::Wallet_Manager.Properties.Resources._32;
+            this.iconPictureBox1.Location = new System.Drawing.Point(107, 24);
+            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(60, 60);
+            this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox1.TabIndex = 285;
+            this.iconPictureBox1.TabStop = false;
             // 
             // label28
             // 
@@ -817,7 +863,7 @@
             this.descriptionLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.descriptionLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLabel1.ForeColor = System.Drawing.Color.Black;
-            this.descriptionLabel1.Location = new System.Drawing.Point(146, 35);
+            this.descriptionLabel1.Location = new System.Drawing.Point(173, 24);
             this.descriptionLabel1.Name = "descriptionLabel1";
             this.descriptionLabel1.Size = new System.Drawing.Size(111, 31);
             this.descriptionLabel1.TabIndex = 286;
@@ -830,7 +876,7 @@
             this.categoryLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.categoryLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.categoryLabel1.Location = new System.Drawing.Point(148, 68);
+            this.categoryLabel1.Location = new System.Drawing.Point(175, 57);
             this.categoryLabel1.Name = "categoryLabel1";
             this.categoryLabel1.Size = new System.Drawing.Size(44, 20);
             this.categoryLabel1.TabIndex = 287;
@@ -899,6 +945,19 @@
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(709, 129);
             this.guna2CustomGradientPanel2.TabIndex = 316;
             // 
+            // remainingBudgetLabel
+            // 
+            this.remainingBudgetLabel.AutoSize = true;
+            this.remainingBudgetLabel.BackColor = System.Drawing.Color.White;
+            this.remainingBudgetLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.remainingBudgetLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.remainingBudgetLabel.ForeColor = System.Drawing.Color.Black;
+            this.remainingBudgetLabel.Location = new System.Drawing.Point(525, 87);
+            this.remainingBudgetLabel.Name = "remainingBudgetLabel";
+            this.remainingBudgetLabel.Size = new System.Drawing.Size(155, 23);
+            this.remainingBudgetLabel.TabIndex = 331;
+            this.remainingBudgetLabel.Text = "₱ 1000.00 Available";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -911,6 +970,20 @@
             this.label3.Size = new System.Drawing.Size(116, 23);
             this.label3.TabIndex = 316;
             this.label3.Text = "Budget Name";
+            // 
+            // spentBudgetLabel
+            // 
+            this.spentBudgetLabel.AutoSize = true;
+            this.spentBudgetLabel.BackColor = System.Drawing.Color.White;
+            this.spentBudgetLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.spentBudgetLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spentBudgetLabel.ForeColor = System.Drawing.Color.Black;
+            this.spentBudgetLabel.Location = new System.Drawing.Point(24, 87);
+            this.spentBudgetLabel.Name = "spentBudgetLabel";
+            this.spentBudgetLabel.Size = new System.Drawing.Size(123, 23);
+            this.spentBudgetLabel.TabIndex = 329;
+            this.spentBudgetLabel.Text = "₱ 500.00 Spent";
+            this.spentBudgetLabel.Click += new System.EventHandler(this.spentBudgetLabel_Click);
             // 
             // guna2Button2
             // 
@@ -932,53 +1005,26 @@
             this.guna2Button2.TabIndex = 328;
             this.guna2Button2.Text = "See Details";
             // 
-            // spentBudgetLabel
-            // 
-            this.spentBudgetLabel.AutoSize = true;
-            this.spentBudgetLabel.BackColor = System.Drawing.Color.White;
-            this.spentBudgetLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.spentBudgetLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.spentBudgetLabel.ForeColor = System.Drawing.Color.Black;
-            this.spentBudgetLabel.Location = new System.Drawing.Point(24, 87);
-            this.spentBudgetLabel.Name = "spentBudgetLabel";
-            this.spentBudgetLabel.Size = new System.Drawing.Size(123, 23);
-            this.spentBudgetLabel.TabIndex = 329;
-            this.spentBudgetLabel.Text = "₱ 500.00 Spent";
-            this.spentBudgetLabel.Click += new System.EventHandler(this.spentBudgetLabel_Click);
-            // 
-            // remainingBudgetLabel
-            // 
-            this.remainingBudgetLabel.AutoSize = true;
-            this.remainingBudgetLabel.BackColor = System.Drawing.Color.White;
-            this.remainingBudgetLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.remainingBudgetLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.remainingBudgetLabel.ForeColor = System.Drawing.Color.Black;
-            this.remainingBudgetLabel.Location = new System.Drawing.Point(525, 87);
-            this.remainingBudgetLabel.Name = "remainingBudgetLabel";
-            this.remainingBudgetLabel.Size = new System.Drawing.Size(155, 23);
-            this.remainingBudgetLabel.TabIndex = 331;
-            this.remainingBudgetLabel.Text = "₱ 1000.00 Available";
-            // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(29, 23);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(82)))), ((int)(((byte)(255))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(91)))), ((int)(((byte)(206)))))};
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Savings";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Expense";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Savings";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Expense";
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(496, 247);
             this.chart1.TabIndex = 329;
             this.chart1.Text = "chart1";
@@ -989,7 +1035,7 @@
             this.guna2CustomGradientPanel3.BorderRadius = 5;
             this.guna2CustomGradientPanel3.BorderThickness = 1;
             this.guna2CustomGradientPanel3.Controls.Add(this.chart1);
-            this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(904, 540);
+            this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(904, 583);
             this.guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
             this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(547, 303);
             this.guna2CustomGradientPanel3.TabIndex = 330;
@@ -1017,41 +1063,16 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // iconPictureBox3
+            // guna2CustomGradientPanel4
             // 
-            this.iconPictureBox3.BackColor = System.Drawing.Color.White;
-            this.iconPictureBox3.Image = global::Wallet_Manager.Properties.Resources._33;
-            this.iconPictureBox3.Location = new System.Drawing.Point(80, 35);
-            this.iconPictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.iconPictureBox3.Name = "iconPictureBox3";
-            this.iconPictureBox3.Size = new System.Drawing.Size(60, 60);
-            this.iconPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconPictureBox3.TabIndex = 285;
-            this.iconPictureBox3.TabStop = false;
-            // 
-            // iconPictureBox2
-            // 
-            this.iconPictureBox2.BackColor = System.Drawing.Color.White;
-            this.iconPictureBox2.Image = global::Wallet_Manager.Properties.Resources._31;
-            this.iconPictureBox2.Location = new System.Drawing.Point(80, 35);
-            this.iconPictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.iconPictureBox2.Name = "iconPictureBox2";
-            this.iconPictureBox2.Size = new System.Drawing.Size(60, 60);
-            this.iconPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconPictureBox2.TabIndex = 285;
-            this.iconPictureBox2.TabStop = false;
-            // 
-            // iconPictureBox1
-            // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.White;
-            this.iconPictureBox1.Image = global::Wallet_Manager.Properties.Resources._32;
-            this.iconPictureBox1.Location = new System.Drawing.Point(80, 35);
-            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(60, 60);
-            this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconPictureBox1.TabIndex = 285;
-            this.iconPictureBox1.TabStop = false;
+            this.guna2CustomGradientPanel4.Controls.Add(this.recentTransactionPanel3);
+            this.guna2CustomGradientPanel4.Controls.Add(this.recentTransactionPanel2);
+            this.guna2CustomGradientPanel4.Controls.Add(this.recentTransactionPanel1);
+            this.guna2CustomGradientPanel4.Controls.Add(this.guna2Button6);
+            this.guna2CustomGradientPanel4.Location = new System.Drawing.Point(904, 85);
+            this.guna2CustomGradientPanel4.Name = "guna2CustomGradientPanel4";
+            this.guna2CustomGradientPanel4.Size = new System.Drawing.Size(547, 407);
+            this.guna2CustomGradientPanel4.TabIndex = 331;
             // 
             // DashboardUC
             // 
@@ -1064,14 +1085,10 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.recentTransactionPanel3);
-            this.Controls.Add(this.recentTransactionPanel2);
-            this.Controls.Add(this.recentTransactionPanel1);
             this.Controls.Add(this.guna2Button8);
             this.Controls.Add(this.label43);
             this.Controls.Add(this.guna2Button7);
             this.Controls.Add(this.label24);
-            this.Controls.Add(this.guna2Button6);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.mostUsedWalletTypeLabel);
@@ -1094,15 +1111,19 @@
             this.Controls.Add(this.guna2Button13);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.guna2Button9);
+            this.Controls.Add(this.guna2CustomGradientPanel4);
             this.Name = "DashboardUC";
             this.Size = new System.Drawing.Size(1509, 950);
             this.Load += new System.EventHandler(this.DashboardUC_Load);
             this.recentTransactionPanel3.ResumeLayout(false);
             this.recentTransactionPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
             this.recentTransactionPanel2.ResumeLayout(false);
             this.recentTransactionPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
             this.recentTransactionPanel1.ResumeLayout(false);
             this.recentTransactionPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel2.ResumeLayout(false);
             this.guna2CustomGradientPanel2.PerformLayout();
@@ -1110,9 +1131,8 @@
             this.guna2CustomGradientPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            this.guna2CustomGradientPanel4.ResumeLayout(false);
+            this.guna2CustomGradientPanel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1187,5 +1207,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel3;
         private System.Windows.Forms.PictureBox iconPictureBox2;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel4;
     }
 }

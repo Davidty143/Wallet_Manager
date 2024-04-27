@@ -265,5 +265,10 @@ namespace Wallet_Manager.Forms
         {
 
         }
+
+        private void recentTransactionPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
