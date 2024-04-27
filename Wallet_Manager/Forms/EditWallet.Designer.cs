@@ -135,6 +135,8 @@
             // 
             // savingsAmountTextBox
             // 
+            this.savingsAmountTextBox.BorderColor = System.Drawing.Color.Black;
+            this.savingsAmountTextBox.BorderRadius = 5;
             this.savingsAmountTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.savingsAmountTextBox.DefaultText = "";
             this.savingsAmountTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -155,6 +157,8 @@
             // 
             // spendingAmountTextBox
             // 
+            this.spendingAmountTextBox.BorderColor = System.Drawing.Color.Black;
+            this.spendingAmountTextBox.BorderRadius = 5;
             this.spendingAmountTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.spendingAmountTextBox.DefaultText = "";
             this.spendingAmountTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -176,6 +180,8 @@
             // walletTypeComboBox
             // 
             this.walletTypeComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.walletTypeComboBox.BorderColor = System.Drawing.Color.Black;
+            this.walletTypeComboBox.BorderRadius = 5;
             this.walletTypeComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.walletTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.walletTypeComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -190,6 +196,8 @@
             // 
             // walletNameTextBox
             // 
+            this.walletNameTextBox.BorderColor = System.Drawing.Color.Black;
+            this.walletNameTextBox.BorderRadius = 5;
             this.walletNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.walletNameTextBox.DefaultText = "";
             this.walletNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));

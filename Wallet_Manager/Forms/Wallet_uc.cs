@@ -305,7 +305,8 @@ namespace Wallet_Manager.Forms
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            
+            AddWallet addWallet = new AddWallet();
+            addWallet.ShowDialog();
         }
 
         private void walletLabel2_Click(object sender, EventArgs e)

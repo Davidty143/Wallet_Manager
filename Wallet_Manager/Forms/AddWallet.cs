@@ -50,6 +50,21 @@ namespace Wallet_Manager.Forms
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void add_Wallet_Click(object sender, EventArgs e)
+        {
             {
                 string walletName = txtName.Text;
                 string walletType = txtType.Text;
@@ -95,11 +110,6 @@ namespace Wallet_Manager.Forms
                     MessageBox.Show("Failed to create wallet. A wallet of the same type may already exist.");
                 }
             }
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
    
