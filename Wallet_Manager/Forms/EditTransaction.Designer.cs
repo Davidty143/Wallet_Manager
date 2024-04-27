@@ -137,16 +137,20 @@
             // 
             // pictureBox6
             // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.Image = global::Wallet_Manager.Properties.Resources.edit_info;
             this.pictureBox6.Location = new System.Drawing.Point(11, 383);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox6.Size = new System.Drawing.Size(35, 30);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 181;
             this.pictureBox6.TabStop = false;
             // 
             // pictureBox5
             // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.Image = global::Wallet_Manager.Properties.Resources.menu;
             this.pictureBox5.Location = new System.Drawing.Point(11, 316);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
@@ -157,6 +161,8 @@
             // 
             // pictureBox4
             // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = global::Wallet_Manager.Properties.Resources.profit__1_1;
             this.pictureBox4.Location = new System.Drawing.Point(11, 250);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
@@ -167,6 +173,8 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = global::Wallet_Manager.Properties.Resources.wallet;
             this.pictureBox3.Location = new System.Drawing.Point(11, 164);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
@@ -177,6 +185,8 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::Wallet_Manager.Properties.Resources.calendar__1_;
             this.pictureBox2.Location = new System.Drawing.Point(11, 96);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
@@ -243,6 +253,7 @@
             // checkBoxSavings
             // 
             this.checkBoxSavings.AutoSize = true;
+            this.checkBoxSavings.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxSavings.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.checkBoxSavings.CheckedState.BorderRadius = 0;
             this.checkBoxSavings.CheckedState.BorderThickness = 0;
@@ -256,10 +267,12 @@
             this.checkBoxSavings.UncheckedState.BorderRadius = 0;
             this.checkBoxSavings.UncheckedState.BorderThickness = 0;
             this.checkBoxSavings.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.checkBoxSavings.UseVisualStyleBackColor = false;
             // 
             // checkBoxSpending
             // 
             this.checkBoxSpending.AutoSize = true;
+            this.checkBoxSpending.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxSpending.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.checkBoxSpending.CheckedState.BorderRadius = 0;
             this.checkBoxSpending.CheckedState.BorderThickness = 0;
@@ -273,6 +286,7 @@
             this.checkBoxSpending.UncheckedState.BorderRadius = 0;
             this.checkBoxSpending.UncheckedState.BorderThickness = 0;
             this.checkBoxSpending.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.checkBoxSpending.UseVisualStyleBackColor = false;
             // 
             // txtWallet
             // 
@@ -320,6 +334,8 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Wallet_Manager.Properties.Resources.menu;
             this.pictureBox1.Location = new System.Drawing.Point(11, 32);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
