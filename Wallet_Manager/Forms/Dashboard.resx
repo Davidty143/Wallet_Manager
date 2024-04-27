@@ -118,41 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="dashboardUC2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="dashboardUC2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>413, 162</value>
-  </data>
-  <data name="dashboardUC2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1509, 856</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="dashboardUC2.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;dashboardUC2.Name" xml:space="preserve">
-    <value>dashboardUC2</value>
-  </data>
-  <data name="&gt;&gt;dashboardUC2.Type" xml:space="preserve">
-    <value>Wallet_Manager.Forms.DashboardUC, Wallet_Manager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;dashboardUC2.Parent" xml:space="preserve">
-    <value>display_panel</value>
-  </data>
-  <data name="&gt;&gt;dashboardUC2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="wallet_uc2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="wallet_uc2.Location" type="System.Drawing.Point, System.Drawing">
     <value>413, 162</value>
   </data>
   <data name="wallet_uc2.Size" type="System.Drawing.Size, System.Drawing">
     <value>1509, 856</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="wallet_uc2.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
@@ -166,7 +142,7 @@
     <value>display_panel</value>
   </data>
   <data name="&gt;&gt;wallet_uc2.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="transactionHistory2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -190,7 +166,7 @@
     <value>display_panel</value>
   </data>
   <data name="&gt;&gt;transactionHistory2.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="budget1_uc1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -214,7 +190,7 @@
     <value>display_panel</value>
   </data>
   <data name="&gt;&gt;budget1_uc1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="label10.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lucida Sans, 19.8pt, style=Bold</value>
@@ -268,7 +244,7 @@
     <value>display_panel</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="button_goals.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>
@@ -699,7 +675,7 @@
     <value>display_panel</value>
   </data>
   <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="guna2Button1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
@@ -750,7 +726,7 @@
     <value>display_panel</value>
   </data>
   <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="display_panel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

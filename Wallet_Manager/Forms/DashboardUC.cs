@@ -270,5 +270,10 @@ namespace Wallet_Manager.Forms
         {
 
         }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
