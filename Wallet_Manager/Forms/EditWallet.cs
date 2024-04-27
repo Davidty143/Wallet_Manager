@@ -65,5 +65,15 @@ namespace Wallet_Manager.Forms
                 MessageBox.Show("Error updating wallet.");
             }
         }
+
+        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void spendingAmountTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
