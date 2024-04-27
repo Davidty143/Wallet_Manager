@@ -79,6 +79,7 @@
             // 
             // guna2CustomGradientPanel2
             // 
+            this.guna2CustomGradientPanel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2CustomGradientPanel2.BorderRadius = 5;
             this.guna2CustomGradientPanel2.Controls.Add(this.guna2Button1);
             this.guna2CustomGradientPanel2.Controls.Add(this.add_Wallet);
@@ -114,6 +115,7 @@
             this.guna2Button1.Size = new System.Drawing.Size(180, 45);
             this.guna2Button1.TabIndex = 160;
             this.guna2Button1.Text = "Cancel";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // add_Wallet
             // 
