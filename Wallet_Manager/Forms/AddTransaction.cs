@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.AnimatorNS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -104,6 +105,105 @@ namespace Wallet_Manager.Forms
         private void guna2CustomGradientPanel2_Paint_1(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button_income_Click(object sender, EventArgs e)
+        {
+            if (page != 1)
+            {
+                page = 1;
+
+                addIncomeUC1.BringToFront();
+                label_transaction.Text = "Income";
+                button_income.HoverState.FillColor = System.Drawing.Color.White;
+                button_expense.HoverState.FillColor = System.Drawing.Color.LightGray;
+                button_transfer.HoverState.FillColor = System.Drawing.Color.LightGray;
+
+                button_income.BorderThickness = 2;
+                button_income.BorderColor = System.Drawing.Color.Black;
+                button_income.ForeColor = System.Drawing.Color.Black;
+
+                button_expense.BorderThickness = 1;
+                button_expense.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+                button_expense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+
+
+                button_transfer.BorderThickness = 1;
+                button_transfer.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+                button_transfer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+
+            }
+
+            button_income.Cursor = Cursors.Default;
+            button_expense.Cursor = Cursors.Hand;
+            button_transfer.Cursor = Cursors.Hand;
+        }
+
+        private void button_expense_Click(object sender, EventArgs e)
+        {
+            if (page != 2)
+            {
+                page = 2;
+
+                addExpenseUC1.BringToFront();
+                label_transaction.Text = "Expense";
+
+                button_expense.HoverState.FillColor = System.Drawing.Color.White;
+                button_income.HoverState.FillColor = System.Drawing.Color.LightGray;
+                button_transfer.HoverState.FillColor = System.Drawing.Color.LightGray;
+
+                button_expense.BorderThickness = 2;
+                button_expense.BorderColor = System.Drawing.Color.Black;
+                button_expense.ForeColor = System.Drawing.Color.Black;
+
+                button_income.BorderThickness = 1;
+                button_income.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+                button_income.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+
+                button_transfer.BorderThickness = 1;
+                button_transfer.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+                button_transfer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+
+            }
+
+            button_expense.Cursor = Cursors.Default;
+            button_income.Cursor = Cursors.Hand;
+            button_transfer.Cursor = Cursors.Hand;
+        }
+
+        private void button_transfer_Click(object sender, EventArgs e)
+        {
+            if (page != 4)
+            {
+                page = 4;
+
+                addTransferUC1.BringToFront();
+
+                label_transaction.Text = "Transfer";
+
+
+                button_transfer.HoverState.FillColor = System.Drawing.Color.White;
+                button_expense.HoverState.FillColor = System.Drawing.Color.LightGray;
+                button_income.HoverState.FillColor = System.Drawing.Color.LightGray;
+
+                button_transfer.BorderThickness = 2;
+                button_transfer.BorderColor = System.Drawing.Color.Black;
+                button_transfer.ForeColor = System.Drawing.Color.Black;
+
+                button_expense.BorderThickness = 1;
+                button_expense.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+                button_expense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+
+                button_income.BorderThickness = 1;
+                button_income.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+                button_income.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+
+
+            }
+
+            button_transfer.Cursor = Cursors.Default;
+            button_expense.Cursor = Cursors.Hand;
+            button_income.Cursor = Cursors.Hand;
         }
     }
 }

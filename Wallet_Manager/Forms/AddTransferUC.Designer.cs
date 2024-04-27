@@ -60,7 +60,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(35, 291);
+            this.pictureBox5.Location = new System.Drawing.Point(34, 309);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(30, 30);
             this.pictureBox5.TabIndex = 151;
@@ -76,7 +76,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(35, 226);
+            this.pictureBox2.Location = new System.Drawing.Point(34, 243);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(30, 30);
             this.pictureBox2.TabIndex = 149;
@@ -101,7 +101,7 @@
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(160)))), ((int)(((byte)(248)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(75, 360);
+            this.guna2Button1.Location = new System.Drawing.Point(74, 378);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(160, 38);
             this.guna2Button1.TabIndex = 147;
@@ -119,7 +119,7 @@
             this.button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(160)))), ((int)(((byte)(248)))));
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(314, 360);
+            this.button1.Location = new System.Drawing.Point(313, 378);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(160, 38);
             this.button1.TabIndex = 146;
@@ -140,7 +140,7 @@
             this.txtDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDescription.Location = new System.Drawing.Point(198, 291);
+            this.txtDescription.Location = new System.Drawing.Point(197, 309);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.PasswordChar = '\0';
@@ -163,7 +163,7 @@
             this.txtAmount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAmount.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtAmount.Location = new System.Drawing.Point(198, 226);
+            this.txtAmount.Location = new System.Drawing.Point(197, 243);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.PasswordChar = '\0';
@@ -264,7 +264,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(70, 226);
+            this.label6.Location = new System.Drawing.Point(69, 243);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 28);
@@ -276,7 +276,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(70, 291);
+            this.label1.Location = new System.Drawing.Point(69, 309);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 28);
@@ -326,7 +326,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(35, 154);
+            this.pictureBox4.Location = new System.Drawing.Point(35, 163);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(30, 30);
             this.pictureBox4.TabIndex = 156;
@@ -340,7 +340,7 @@
             this.DcheckBoxSavings.CheckedState.BorderRadius = 0;
             this.DcheckBoxSavings.CheckedState.BorderThickness = 0;
             this.DcheckBoxSavings.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.DcheckBoxSavings.Location = new System.Drawing.Point(395, 196);
+            this.DcheckBoxSavings.Location = new System.Drawing.Point(395, 205);
             this.DcheckBoxSavings.Name = "DcheckBoxSavings";
             this.DcheckBoxSavings.Size = new System.Drawing.Size(78, 20);
             this.DcheckBoxSavings.TabIndex = 155;
@@ -359,7 +359,7 @@
             this.DcheckBoxSpending.CheckedState.BorderRadius = 0;
             this.DcheckBoxSpending.CheckedState.BorderThickness = 0;
             this.DcheckBoxSpending.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.DcheckBoxSpending.Location = new System.Drawing.Point(287, 196);
+            this.DcheckBoxSpending.Location = new System.Drawing.Point(287, 205);
             this.DcheckBoxSpending.Name = "DcheckBoxSpending";
             this.DcheckBoxSpending.Size = new System.Drawing.Size(87, 20);
             this.DcheckBoxSpending.TabIndex = 154;
@@ -383,7 +383,7 @@
             this.txtDestinationWallet.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtDestinationWallet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.txtDestinationWallet.ItemHeight = 30;
-            this.txtDestinationWallet.Location = new System.Drawing.Point(197, 154);
+            this.txtDestinationWallet.Location = new System.Drawing.Point(197, 163);
             this.txtDestinationWallet.Name = "txtDestinationWallet";
             this.txtDestinationWallet.Size = new System.Drawing.Size(276, 36);
             this.txtDestinationWallet.TabIndex = 153;
@@ -393,7 +393,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(70, 154);
+            this.label2.Location = new System.Drawing.Point(70, 163);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 28);

@@ -35,6 +35,9 @@
             this.button_expense = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.addExpenseUC1 = new Wallet_Manager.Forms.AddExpenseUC();
+            this.label_transaction = new System.Windows.Forms.Label();
+            this.addTransferUC1 = new Wallet_Manager.Forms.AddTransferUC();
+            this.addIncomeUC1 = new Wallet_Manager.Forms.AddIncomeUC();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.guna2CustomGradientPanel3.SuspendLayout();
@@ -44,6 +47,7 @@
             // 
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2CustomGradientPanel2);
             this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(160)))), ((int)(((byte)(248)))));
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(526, 625);
@@ -52,11 +56,13 @@
             // 
             // guna2CustomGradientPanel2
             // 
+            this.guna2CustomGradientPanel2.Controls.Add(this.label_transaction);
             this.guna2CustomGradientPanel2.Controls.Add(this.guna2CustomGradientPanel3);
             this.guna2CustomGradientPanel2.Controls.Add(this.button_transfer);
             this.guna2CustomGradientPanel2.Controls.Add(this.button_income);
             this.guna2CustomGradientPanel2.Controls.Add(this.button_expense);
             this.guna2CustomGradientPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2CustomGradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(160)))), ((int)(((byte)(248)))));
             this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(526, 625);
@@ -76,11 +82,12 @@
             this.button_transfer.FillColor = System.Drawing.Color.White;
             this.button_transfer.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_transfer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.button_transfer.Location = new System.Drawing.Point(361, 47);
+            this.button_transfer.Location = new System.Drawing.Point(361, 59);
             this.button_transfer.Name = "button_transfer";
             this.button_transfer.Size = new System.Drawing.Size(138, 38);
             this.button_transfer.TabIndex = 15;
             this.button_transfer.Text = "Transfer";
+            this.button_transfer.Click += new System.EventHandler(this.button_transfer_Click);
             // 
             // button_income
             // 
@@ -95,11 +102,12 @@
             this.button_income.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_income.ForeColor = System.Drawing.Color.Black;
             this.button_income.HoverState.FillColor = System.Drawing.Color.White;
-            this.button_income.Location = new System.Drawing.Point(34, 47);
+            this.button_income.Location = new System.Drawing.Point(34, 59);
             this.button_income.Name = "button_income";
             this.button_income.Size = new System.Drawing.Size(138, 38);
             this.button_income.TabIndex = 13;
             this.button_income.Text = "Income";
+            this.button_income.Click += new System.EventHandler(this.button_income_Click);
             // 
             // button_expense
             // 
@@ -114,16 +122,19 @@
             this.button_expense.FillColor = System.Drawing.Color.White;
             this.button_expense.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_expense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.button_expense.Location = new System.Drawing.Point(198, 47);
+            this.button_expense.Location = new System.Drawing.Point(198, 59);
             this.button_expense.Name = "button_expense";
             this.button_expense.Size = new System.Drawing.Size(135, 38);
             this.button_expense.TabIndex = 14;
             this.button_expense.Text = "Expense";
+            this.button_expense.Click += new System.EventHandler(this.button_expense_Click);
             // 
             // guna2CustomGradientPanel3
             // 
+            this.guna2CustomGradientPanel3.Controls.Add(this.addIncomeUC1);
+            this.guna2CustomGradientPanel3.Controls.Add(this.addTransferUC1);
             this.guna2CustomGradientPanel3.Controls.Add(this.addExpenseUC1);
-            this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(12, 116);
+            this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(12, 128);
             this.guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
             this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(502, 463);
             this.guna2CustomGradientPanel3.TabIndex = 16;
@@ -135,6 +146,33 @@
             this.addExpenseUC1.Name = "addExpenseUC1";
             this.addExpenseUC1.Size = new System.Drawing.Size(502, 463);
             this.addExpenseUC1.TabIndex = 0;
+            // 
+            // label_transaction
+            // 
+            this.label_transaction.AutoSize = true;
+            this.label_transaction.BackColor = System.Drawing.Color.Transparent;
+            this.label_transaction.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_transaction.Location = new System.Drawing.Point(8, 18);
+            this.label_transaction.Name = "label_transaction";
+            this.label_transaction.Size = new System.Drawing.Size(77, 23);
+            this.label_transaction.TabIndex = 17;
+            this.label_transaction.Text = "INCOME";
+            // 
+            // addTransferUC1
+            // 
+            this.addTransferUC1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addTransferUC1.Location = new System.Drawing.Point(0, 0);
+            this.addTransferUC1.Name = "addTransferUC1";
+            this.addTransferUC1.Size = new System.Drawing.Size(502, 463);
+            this.addTransferUC1.TabIndex = 1;
+            // 
+            // addIncomeUC1
+            // 
+            this.addIncomeUC1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addIncomeUC1.Location = new System.Drawing.Point(0, 0);
+            this.addIncomeUC1.Name = "addIncomeUC1";
+            this.addIncomeUC1.Size = new System.Drawing.Size(502, 463);
+            this.addIncomeUC1.TabIndex = 2;
             // 
             // AddTransaction
             // 
@@ -149,6 +187,7 @@
             this.Text = "AddTransaction";
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel2.ResumeLayout(false);
+            this.guna2CustomGradientPanel2.PerformLayout();
             this.guna2CustomGradientPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -162,5 +201,8 @@
         private Guna.UI2.WinForms.Guna2Button button_income;
         private Guna.UI2.WinForms.Guna2Button button_expense;
         private AddExpenseUC addExpenseUC1;
+        private System.Windows.Forms.Label label_transaction;
+        private AddIncomeUC addIncomeUC1;
+        private AddTransferUC addTransferUC1;
     }
 }
