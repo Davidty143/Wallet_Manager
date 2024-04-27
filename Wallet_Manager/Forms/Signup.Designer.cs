@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -43,6 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cb_show_pass = new Guna.UI2.WinForms.Guna2CheckBox();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.SuspendLayout();
             // 
             // label2
@@ -76,7 +78,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label12.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
@@ -122,13 +124,14 @@
             this.label13.Location = new System.Drawing.Point(1318, 65);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(274, 46);
+            this.label13.Size = new System.Drawing.Size(267, 45);
             this.label13.TabIndex = 52;
             this.label13.Text = "Wallet Manager";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
+            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(1441, 889);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -136,6 +139,7 @@
             this.label15.Size = new System.Drawing.Size(75, 28);
             this.label15.TabIndex = 51;
             this.label15.Text = "Sign in";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // txtLastName
             // 
@@ -302,6 +306,11 @@
             this.guna2Button2.Text = "Sign up";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
+            // guna2AnimateWindow1
+            // 
+            this.guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_BLEND;
+            this.guna2AnimateWindow1.TargetForm = this;
+            // 
             // Signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -349,5 +358,6 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2CheckBox cb_show_pass;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
     }
 }

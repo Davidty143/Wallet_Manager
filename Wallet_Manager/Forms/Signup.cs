@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Wallet_Manager.Classes;
@@ -13,12 +14,13 @@ namespace Wallet_Manager.Forms
 {
     public partial class Signup : Form
     {
+        private BusinessLogic _businessLogic;
 
         public Signup()
         {
             InitializeComponent();
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-            BusinessLogic _businessLogic = new BusinessLogic(new SqlDataAccessLayer(_connectionString));
+            _businessLogic = new BusinessLogic(new SqlDataAccessLayer(_connectionString));
         }
 
         private void t_login_button_Click(object sender, EventArgs e)   
@@ -53,10 +55,17 @@ namespace Wallet_Manager.Forms
             string email = txtEmail.Text;
             string password = txtPassword.Text;
 
-            if (!IsGmailAddress(email))
+            if (!IsValidEmail(email))
             {
                 MessageBox.Show("Please enter a valid Gmail address.");
                 txtEmail.Text = "";
+                return; // Exit the method to prevent further execution
+            }
+
+            if (!IsValidPassword(password))
+            {
+                MessageBox.Show("Please enter at least 8 characters, at least one letter.");
+                txtPassword.Text = "";
                 return; // Exit the method to prevent further execution
             }
 
@@ -81,14 +90,31 @@ namespace Wallet_Manager.Forms
             }
         }
 
-        private bool IsGmailAddress(string email)
+
+        public bool IsValidEmail(string email)
         {
-            return email.EndsWith("@gmail.com", StringComparison.OrdinalIgnoreCase);
+            // Simple regex for email validation
+            string emailPattern = @"^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$";
+            return Regex.IsMatch(email, emailPattern);
+        }
+
+        public bool IsValidPassword(string password)
+        {
+            // Regex to check if the password has at least 8 characters, at least one letter, and at least one number
+            string pattern = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$";
+            return Regex.IsMatch(password, pattern);
         }
 
         private void cb_show_pass_CheckedChanged_1(object sender, EventArgs e)
         {
             txtPassword.PasswordChar = cb_show_pass.Checked ? '\0' : '*';
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+            Login newlogin= new Login();
+            newlogin.ShowDialog();
+            this.Close();
         }
     }
 }

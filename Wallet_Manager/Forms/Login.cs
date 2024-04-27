@@ -62,5 +62,12 @@ namespace Wallet_Manager.Forms
         {
             txtPassword.PasswordChar = cb_show_pass.Checked ? '\0' : '*';
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Signup newSignup = new Signup();
+            newSignup.ShowDialog();
+            this.Hide();
+        }
     }
 }

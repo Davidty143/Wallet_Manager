@@ -200,10 +200,6 @@ namespace Wallet_Manager.Classes
         }
 
 
-
-
-
-
     }
 }
 
