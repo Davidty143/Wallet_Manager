@@ -111,6 +111,11 @@ namespace Wallet_Manager.Forms
                 }
             }
         }
+
+        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
    
 }

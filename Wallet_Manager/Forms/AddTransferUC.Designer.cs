@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.button1 = new Guna.UI2.WinForms.Guna2Button();
             this.txtDescription = new Guna.UI2.WinForms.Guna2TextBox();
@@ -45,50 +41,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.DcheckBoxSavings = new Guna.UI2.WinForms.Guna2CheckBox();
             this.DcheckBoxSpending = new Guna.UI2.WinForms.Guna2CheckBox();
             this.txtDestinationWallet = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2CustomGradientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Location = new System.Drawing.Point(34, 309);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox5.TabIndex = 151;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(35, 86);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox3.TabIndex = 149;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(34, 243);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox2.TabIndex = 149;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(35, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox1.TabIndex = 148;
-            this.pictureBox1.TabStop = false;
             // 
             // guna2Button1
             // 
@@ -297,15 +265,15 @@
             // 
             // guna2CustomGradientPanel1
             // 
-            this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox4);
+            this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox1);
+            this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox6);
+            this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox8);
+            this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox9);
+            this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox10);
             this.guna2CustomGradientPanel1.Controls.Add(this.DcheckBoxSavings);
             this.guna2CustomGradientPanel1.Controls.Add(this.DcheckBoxSpending);
             this.guna2CustomGradientPanel1.Controls.Add(this.txtDestinationWallet);
             this.guna2CustomGradientPanel1.Controls.Add(this.label2);
-            this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox5);
-            this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox3);
-            this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox2);
-            this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox1);
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2Button1);
             this.guna2CustomGradientPanel1.Controls.Add(this.button1);
             this.guna2CustomGradientPanel1.Controls.Add(this.txtDescription);
@@ -323,14 +291,6 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(502, 463);
             this.guna2CustomGradientPanel1.TabIndex = 1;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Location = new System.Drawing.Point(35, 163);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox4.TabIndex = 156;
-            this.pictureBox4.TabStop = false;
             // 
             // DcheckBoxSavings
             // 
@@ -400,6 +360,56 @@
             this.label2.TabIndex = 152;
             this.label2.Text = "Destination";
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::Wallet_Manager.Properties.Resources.edit_info;
+            this.pictureBox6.Location = new System.Drawing.Point(35, 309);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(35, 30);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 161;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::Wallet_Manager.Properties.Resources.wallet;
+            this.pictureBox8.Location = new System.Drawing.Point(35, 86);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 158;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::Wallet_Manager.Properties.Resources.profit__1_;
+            this.pictureBox9.Location = new System.Drawing.Point(35, 243);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 159;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = global::Wallet_Manager.Properties.Resources.calendar__1_;
+            this.pictureBox10.Location = new System.Drawing.Point(35, 21);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 157;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Wallet_Manager.Properties.Resources.wallet;
+            this.pictureBox1.Location = new System.Drawing.Point(35, 163);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 162;
+            this.pictureBox1.TabStop = false;
+            // 
             // AddTransferUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -407,23 +417,18 @@
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Name = "AddTransferUC";
             this.Size = new System.Drawing.Size(502, 463);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button button1;
         private Guna.UI2.WinForms.Guna2TextBox txtDescription;
@@ -437,10 +442,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private Guna.UI2.WinForms.Guna2CheckBox DcheckBoxSavings;
         private Guna.UI2.WinForms.Guna2CheckBox DcheckBoxSpending;
         private Guna.UI2.WinForms.Guna2ComboBox txtDestinationWallet;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox10;
     }
 }

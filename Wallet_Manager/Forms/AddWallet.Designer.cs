@@ -291,6 +291,7 @@
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(570, 355);
             this.guna2CustomGradientPanel2.TabIndex = 141;
+            this.guna2CustomGradientPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel2_Paint);
             // 
             // label5
             // 

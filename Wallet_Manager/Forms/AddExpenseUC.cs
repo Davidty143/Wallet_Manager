@@ -168,5 +168,10 @@ namespace Wallet_Manager.Forms
         {
             this.FindForm().Hide();
         }
+
+        private void guna2CustomGradientPanel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
