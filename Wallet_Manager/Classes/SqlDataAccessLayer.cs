@@ -1317,17 +1317,82 @@ namespace Wallet_Manager.Classes
         }
 
 
+        public SortedDictionary<DateTime, (float spending, float savings, float income)> GetFinancialSummaryForLast7Days()
+        {
+            var summary = new SortedDictionary<DateTime, (float spending, float savings, float income)>();
 
+            using (var conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                string query = @"
+                SELECT DATE(Date) as TransactionDate, TransactionType, SUM(Amount) as TotalAmount
+                FROM Transaction
+                WHERE Date >= CURDATE() - INTERVAL 6 DAY
+                GROUP BY DATE(Date), TransactionType
+                ORDER BY DATE(Date) ASC;";
 
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            DateTime date = reader.GetDateTime("TransactionDate");
+                            string type = reader.GetString("TransactionType");
+                            float amount = reader.GetFloat("TotalAmount");
 
+                            if (!summary.ContainsKey(date))
+                            {
+                                summary[date] = (0, 0, 0); // Initialize tuple if key doesn't exist
+                            }
 
+                            var currentValues = summary[date];
 
+                            switch (type.ToLower())
+                            {
+                                case "expense":
+                                    currentValues.spending += amount;
+                                    break;
+                                case "savings":
+                                    currentValues.savings += amount;
+                                    break;
+                                case "income":
+                                    currentValues.income += amount;
+                                    break;
+                            }
 
+                            summary[date] = currentValues; // Update the dictionary entry
+                        }
+                    }
+                }
+            }
 
+            // Ensure all days in the last 7 days are included in the dictionary
+            for (int i = 6; i >= 0; i--)
+            {
+                DateTime date = DateTime.Today.AddDays(-i);
+                if (!summary.ContainsKey(date))
+                {
+                    summary[date] = (0, 0, 0); // Add missing days with zero values
+                }
+            }
 
-
-
-
-
+            return summary;
+        }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
