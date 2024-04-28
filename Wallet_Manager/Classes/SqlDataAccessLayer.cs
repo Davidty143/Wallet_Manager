@@ -63,7 +63,6 @@ namespace Wallet_Manager.Classes
                             if (reader.Read())
                             {
                                 displayName = reader["FirstName"].ToString() + " " + reader["LastName"].ToString();
-                                MessageBox.Show(displayName.ToString());
                             }
                             else
                             {
@@ -114,6 +113,9 @@ namespace Wallet_Manager.Classes
                 }
             }
         }
+
+
+
 
         public Wallet GetWalletByUserIDAndType(int userID, string walletType)
         {

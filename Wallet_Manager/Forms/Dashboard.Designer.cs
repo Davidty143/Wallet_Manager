@@ -32,15 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.display_panel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.editProfile = new System.Windows.Forms.Label();
+            this.displayName = new System.Windows.Forms.Label();
+            this.profilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
-            this.guna2AnimateWindow2 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
-            this.dashboardUC1 = new Wallet_Manager.Forms.DashboardUC();
-            this.wallet_uc1 = new Wallet_Manager.Forms.Wallet_uc();
-            this.transactionHistory1 = new Wallet_Manager.Forms.TransactionHistory();
-            this.profilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.button_goals = new Guna.UI2.WinForms.Guna2Button();
             this.button_budget = new Guna.UI2.WinForms.Guna2Button();
             this.button_analytics = new Guna.UI2.WinForms.Guna2Button();
@@ -49,23 +45,25 @@
             this.button_dashboard = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.displayName = new System.Windows.Forms.Label();
-            this.dashboardUC2 = new Wallet_Manager.Forms.DashboardUC();
-            this.editProfile = new System.Windows.Forms.Label();
+            this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
+            this.guna2AnimateWindow2 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.settingsUC1 = new Wallet_Manager.Forms.SettingsUC();
             this.display_panel.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // display_panel
             // 
             this.display_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.display_panel.Controls.Add(this.dashboardUC2);
+            this.display_panel.Controls.Add(this.settingsUC1);
             this.display_panel.Controls.Add(this.panel1);
             this.display_panel.Controls.Add(this.panel4);
             this.display_panel.Controls.Add(this.panel3);
@@ -84,6 +82,29 @@
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // editProfile
+            // 
+            this.editProfile.AutoEllipsis = true;
+            resources.ApplyResources(this.editProfile, "editProfile");
+            this.editProfile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.editProfile.ForeColor = System.Drawing.Color.Black;
+            this.editProfile.Name = "editProfile";
+            // 
+            // displayName
+            // 
+            this.displayName.AutoEllipsis = true;
+            resources.ApplyResources(this.displayName, "displayName");
+            this.displayName.ForeColor = System.Drawing.Color.Black;
+            this.displayName.Name = "displayName";
+            // 
+            // profilePicture
+            // 
+            resources.ApplyResources(this.profilePicture, "profilePicture");
+            this.profilePicture.ImageRotate = 0F;
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.profilePicture.TabStop = false;
             // 
             // label10
             // 
@@ -104,39 +125,6 @@
             this.panel4.Controls.Add(this.pictureBox2);
             resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
-            this.panel3.Controls.Add(this.guna2Button1);
-            resources.ApplyResources(this.panel3, "panel3");
-            this.panel3.Name = "panel3";
-            // 
-            // dashboardUC1
-            // 
-            this.dashboardUC1.BackColor = System.Drawing.Color.WhiteSmoke;
-            resources.ApplyResources(this.dashboardUC1, "dashboardUC1");
-            this.dashboardUC1.Name = "dashboardUC1";
-            // 
-            // wallet_uc1
-            // 
-            this.wallet_uc1.BackColor = System.Drawing.Color.WhiteSmoke;
-            resources.ApplyResources(this.wallet_uc1, "wallet_uc1");
-            this.wallet_uc1.Name = "wallet_uc1";
-            // 
-            // transactionHistory1
-            // 
-            this.transactionHistory1.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.transactionHistory1, "transactionHistory1");
-            this.transactionHistory1.Name = "transactionHistory1";
-            // 
-            // profilePicture
-            // 
-            resources.ApplyResources(this.profilePicture, "profilePicture");
-            this.profilePicture.ImageRotate = 0F;
-            this.profilePicture.Name = "profilePicture";
-            this.profilePicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.profilePicture.TabStop = false;
             // 
             // button_goals
             // 
@@ -265,6 +253,13 @@
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabStop = false;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
+            this.panel3.Controls.Add(this.guna2Button1);
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.Name = "panel3";
+            // 
             // guna2Button1
             // 
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -279,26 +274,17 @@
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
-            // displayName
+            // guna2BorderlessForm1
             // 
-            this.displayName.AutoEllipsis = true;
-            resources.ApplyResources(this.displayName, "displayName");
-            this.displayName.ForeColor = System.Drawing.Color.Black;
-            this.displayName.Name = "displayName";
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
-            // dashboardUC2
+            // settingsUC1
             // 
-            this.dashboardUC2.BackColor = System.Drawing.Color.WhiteSmoke;
-            resources.ApplyResources(this.dashboardUC2, "dashboardUC2");
-            this.dashboardUC2.Name = "dashboardUC2";
-            this.dashboardUC2.Load += new System.EventHandler(this.dashboardUC2_Load_2);
-            // 
-            // editProfile
-            // 
-            this.editProfile.AutoEllipsis = true;
-            resources.ApplyResources(this.editProfile, "editProfile");
-            this.editProfile.ForeColor = System.Drawing.Color.Black;
-            this.editProfile.Name = "editProfile";
+            this.settingsUC1.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.settingsUC1, "settingsUC1");
+            this.settingsUC1.Name = "settingsUC1";
             // 
             // Dashboard
             // 
@@ -312,11 +298,11 @@
             this.display_panel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
+            this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -337,13 +323,11 @@
         private Guna.UI2.WinForms.Guna2Button button_dashboard;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
-        private DashboardUC dashboardUC1;
-        private Wallet_uc wallet_uc1;
-        private TransactionHistory transactionHistory1;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow2;
         private Guna.UI2.WinForms.Guna2CirclePictureBox profilePicture;
         private System.Windows.Forms.Label displayName;
-        private DashboardUC dashboardUC2;
         private System.Windows.Forms.Label editProfile;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
+        private SettingsUC settingsUC1;
     }
 }
