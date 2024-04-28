@@ -30,10 +30,11 @@ namespace Wallet_Manager.Forms
             InitializeComponent();
             InitializeControlArrays();
             LoadCategoryImages();
-            //LoadTransactions();
+            LoadTransactions();
             UpdateSavingsLabel();
             UpdateExpenseLabel();
             UpdateMostUsedWalletDisplay();
+           
             //SetupChart();
 
         }
@@ -72,6 +73,7 @@ namespace Wallet_Manager.Forms
         {
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+
             transactions = _dataAccessLayer.GetLatestThreeTransactions();
             UpdateTransactionDisplay();
 
@@ -112,7 +114,7 @@ namespace Wallet_Manager.Forms
         {
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
-
+            
             // Calculate the number of transactions to display (up to 3)
             int numberOfTransactionsToShow = Math.Min(3, transactions.Count);
 
@@ -152,6 +154,9 @@ namespace Wallet_Manager.Forms
                 }
             }
         }
+
+
+
 
         private void UpdateExpenseLabel()
         {

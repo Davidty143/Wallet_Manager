@@ -224,7 +224,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(961, 1080);
+            this.panel1.Size = new System.Drawing.Size(961, 1055);
             this.panel1.TabIndex = 49;
             // 
             // label7
@@ -316,7 +316,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1920, 1080);
+            this.ClientSize = new System.Drawing.Size(1920, 1055);
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.cb_show_pass);
             this.Controls.Add(this.label1);

@@ -11,6 +11,7 @@ namespace Wallet_Manager.Classes
     public static class GlobalData
     {
        public static int UserID { get; set; }
+        
         public static AddTransaction AddTransactionForm { get; set; }
 
         public static void SetAddTransactionForm(AddTransaction addTransactionForm)
@@ -25,11 +26,13 @@ namespace Wallet_Manager.Classes
 
         public static void SetUserID(int userID)
         {
+
             UserID = userID;
         }
 
         public static int GetUserID()
         {
+            UserID = 1;
             return UserID;
         }
 

@@ -8,6 +8,7 @@ using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Wallet_Manager.Classes;
 
 namespace Wallet_Manager.Forms
 {
@@ -17,6 +18,7 @@ namespace Wallet_Manager.Forms
         public Dashboard()
         {
             InitializeComponent();
+            UpdateDisplayName();
             transactionForm = new AddTransaction();
         }
 
@@ -109,6 +111,29 @@ namespace Wallet_Manager.Forms
             }
         }
 
+        private void UpdateLabelText(string newText)
+        {
+            displayName.Text = newText;
+            displayName.Location = new Point(profilePicture.Left - displayName.Width - 10, profilePicture.Top); // Recalculate position
+        }
+
+        private void UpdateDisplayName()
+        {
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+            string name = _dataAccessLayer.GetDisplayNameById();
+            displayName.Text = name; // Assuming 'displayName' is a Label control on your form
+
+            // Calculate the new location to align the label with the center of the profile picture
+            int verticalCenter = profilePicture.Top + (profilePicture.Height / 2) - (displayName.Height / 2);
+            displayName.Location = new Point(profilePicture.Left - displayName.Width - 10, verticalCenter);
+
+            // Position the editProfile label directly below the displayName label
+            editProfile.Location = new Point(displayName.Left, displayName.Bottom + 4); // 5 pixels space between labels
+        }
+
+
+
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -133,5 +158,19 @@ namespace Wallet_Manager.Forms
         {
 
         }
+
+        private void dashboardUC2_Load_1(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void dashboardUC2_Load_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                    }
     }
 }

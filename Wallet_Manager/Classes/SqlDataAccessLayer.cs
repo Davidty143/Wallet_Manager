@@ -43,6 +43,45 @@ namespace Wallet_Manager.Classes
             }
         }
 
+        public string GetDisplayNameById()
+        {
+            string displayName = "";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(_connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT FirstName, LastName FROM user WHERE UserID = @Id;";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Id", GlobalData.GetUserID());
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                displayName = reader["FirstName"].ToString() + " " + reader["LastName"].ToString();
+                                MessageBox.Show(displayName.ToString());
+                            }
+                            else
+                            {
+                                Console.WriteLine("No user found with the ID: " + GlobalData.GetUserID());
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return displayName;
+        }
+
+
         public User GetUserByEmail(string email)
         {
             using (MySqlConnection conn = new MySqlConnection(_connectionString))

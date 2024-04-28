@@ -239,7 +239,7 @@
             // 
             // guna2AnimateWindow1
             // 
-            this.guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_HOR_NEGATIVE;
+            this.guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_BLEND;
             this.guna2AnimateWindow1.TargetForm = this;
             // 
             // Login
@@ -260,6 +260,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.Text = "W";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
