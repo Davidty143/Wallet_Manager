@@ -663,7 +663,7 @@ namespace Wallet_Manager.Classes
 
         public List<Transaction> GetTransactionsByCategoryAndDate(List<int> categoryIds, DateTime startDate, DateTime endDate)
         {
-                List<Transaction> transactions = new List<Transaction>();
+            List<Transaction> transactions = new List<Transaction>();
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
@@ -1312,56 +1312,45 @@ namespace Wallet_Manager.Classes
                     }
                 }
             }
-                
+
             return dailyExpenses;
         }
 
 
-        public SortedDictionary<DateTime, (float spending, float savings, float income)> GetFinancialSummaryForLast7Days()
+        public SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> CalculateFinancialSummaryForLast7Days()
         {
-            var summary = new SortedDictionary<DateTime, (float spending, float savings, float income)>();
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> summary = new SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)>();
 
-            using (var conn = new MySqlConnection(_connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                conn.Open();
+                connection.Open();
                 string query = @"
-                SELECT DATE(Date) as TransactionDate, TransactionType, SUM(Amount) as TotalAmount
+                SELECT 
+                    DATE(Date) AS TransactionDate,
+                    SUM(CASE WHEN TransactionType = 'Income' THEN Amount ELSE 0 END) AS TotalIncome,
+                    SUM(CASE WHEN TransactionType = 'Expense' THEN Amount ELSE 0 END) AS TotalExpenses,
+                    GREATEST(0, SUM(CASE WHEN TransactionType = 'Transfer' AND CategoryID = 19 THEN Amount ELSE 0 END) +
+                             SUM(CASE WHEN TransactionType = 'Income' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END) -
+                             SUM(CASE WHEN TransactionType = 'Expense' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END)) AS TotalSavings
                 FROM Transaction
                 WHERE Date >= CURDATE() - INTERVAL 6 DAY
-                GROUP BY DATE(Date), TransactionType
-                ORDER BY DATE(Date) ASC;";
+                GROUP BY DATE(Date)
+                ORDER BY DATE(Date) ASC;
+        ";
 
-                using (var cmd = new MySqlCommand(query, conn))
+                using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    using (var reader = cmd.ExecuteReader())
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             DateTime date = reader.GetDateTime("TransactionDate");
-                            string type = reader.GetString("TransactionType");
-                            float amount = reader.GetFloat("TotalAmount");
+                            float totalIncome = reader.GetFloat("TotalIncome");
+                            float totalExpenses = reader.GetFloat("TotalExpenses");
+                            float totalSavings = reader.GetFloat("TotalSavings");
 
-                            if (!summary.ContainsKey(date))
-                            {
-                                summary[date] = (0, 0, 0); // Initialize tuple if key doesn't exist
-                            }
-
-                            var currentValues = summary[date];
-
-                            switch (type.ToLower())
-                            {
-                                case "expense":
-                                    currentValues.spending += amount;
-                                    break;
-                                case "savings":
-                                    currentValues.savings += amount;
-                                    break;
-                                case "income":
-                                    currentValues.income += amount;
-                                    break;
-                            }
-
-                            summary[date] = currentValues; // Update the dictionary entry
+                            summary[date] = (totalSavings, totalExpenses, totalIncome);
                         }
                     }
                 }
@@ -1379,20 +1368,9 @@ namespace Wallet_Manager.Classes
 
             return summary;
         }
+
+
+
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 

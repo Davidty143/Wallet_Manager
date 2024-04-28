@@ -19,7 +19,7 @@ namespace Wallet_Manager.Forms
         public InsightsUC()
         {
             InitializeComponent();
-            PopulateGunaBarDataSet();
+           // PopulateGunaBarDataSet();
             PopulateBarChart();
         }
 
@@ -27,17 +27,18 @@ namespace Wallet_Manager.Forms
         {
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
-            var financialData = dataAccessLayer.GetFinancialSummaryForLast7Days();
+            var financialData = dataAccessLayer.CalculateFinancialSummaryForLast7Days();
 
             foreach (var entry in financialData)
             {
-                chart1.Series["Income"].Points.AddXY(entry.Key.ToShortDateString(), entry.Value.income);
-                chart1.Series["Expense"].Points.AddXY(entry.Key.ToShortDateString(), entry.Value.spending);
-                chart1.Series["Savings"].Points.AddXY(entry.Key.ToShortDateString(), entry.Value.savings);
+                chart1.Series["Income"].Points.AddXY(entry.Key.ToShortDateString(), entry.Value.totalIncome);
+                chart1.Series["Expense"].Points.AddXY(entry.Key.ToShortDateString(), entry.Value.totalExpenses);
+                chart1.Series["Savings"].Points.AddXY(entry.Key.ToShortDateString(), entry.Value.totalSavings);
             }
         }
 
 
+        /*
         private void PopulateGunaBarDataSet()
         {
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
@@ -58,6 +59,8 @@ namespace Wallet_Manager.Forms
             // Refresh the chart to update the display
             barChart1.Refresh();
         }
+
+        */
 
 
 
