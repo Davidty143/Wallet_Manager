@@ -32,6 +32,7 @@
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.editProfile1 = new Wallet_Manager.Forms.EditProfile();
+            this.editPassword1 = new Wallet_Manager.Forms.EditPassword();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +68,7 @@
             // 
             // guna2CustomGradientPanel1
             // 
+            this.guna2CustomGradientPanel1.Controls.Add(this.editPassword1);
             this.guna2CustomGradientPanel1.Controls.Add(this.editProfile1);
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(398, 67);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
@@ -81,6 +83,15 @@
             this.editProfile1.Name = "editProfile1";
             this.editProfile1.Size = new System.Drawing.Size(709, 717);
             this.editProfile1.TabIndex = 0;
+            // 
+            // editPassword1
+            // 
+            this.editPassword1.BackColor = System.Drawing.Color.White;
+            this.editPassword1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editPassword1.Location = new System.Drawing.Point(0, 0);
+            this.editPassword1.Name = "editPassword1";
+            this.editPassword1.Size = new System.Drawing.Size(709, 717);
+            this.editPassword1.TabIndex = 1;
             // 
             // SettingsUC
             // 
@@ -101,6 +112,7 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
+        private EditPassword editPassword1;
         private EditProfile editProfile1;
     }
 }
