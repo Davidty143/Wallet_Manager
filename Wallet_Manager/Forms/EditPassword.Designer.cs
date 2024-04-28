@@ -53,6 +53,7 @@
             this.updatePass.Size = new System.Drawing.Size(477, 57);
             this.updatePass.TabIndex = 81;
             this.updatePass.Text = "Change Password";
+            this.updatePass.Click += new System.EventHandler(this.updatePass_Click);
             // 
             // label7
             // 
@@ -185,6 +186,7 @@
             this.Controls.Add(this.currPass);
             this.Name = "EditPassword";
             this.Size = new System.Drawing.Size(709, 717);
+            this.Load += new System.EventHandler(this.EditPassword_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

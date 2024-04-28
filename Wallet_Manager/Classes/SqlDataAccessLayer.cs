@@ -43,7 +43,44 @@ namespace Wallet_Manager.Classes
             }
         }
 
-        public string GetDisplayNameById()
+        public bool ValidateCurrentPassword(int userId, string currentPassword)
+        {
+            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                string query = "SELECT Password FROM User WHERE UserID = @UserID";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@UserID", userId);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        string storedPassword = reader["Password"].ToString();
+                        return BCrypt.Net.BCrypt.Verify(currentPassword, storedPassword);
+                    }
+                }
+            }
+            return false;
+        }
+
+        public bool UpdatePassword(int userId, string newPassword)
+        {
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(newPassword);
+
+            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                string query = "UPDATE User SET Password = @NewPassword WHERE UserID = @UserID";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@NewPassword", hashedPassword);
+                cmd.Parameters.AddWithValue("@UserID", userId);
+
+                return cmd.ExecuteNonQuery() == 1; // Check if exactly one row was updated
+            }
+        }
+
+    public string GetDisplayNameById()
         {
             string displayName = "";
 

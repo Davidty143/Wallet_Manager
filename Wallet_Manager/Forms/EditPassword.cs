@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Wallet_Manager.Classes;
 
 namespace Wallet_Manager.Forms
 {
@@ -16,5 +17,61 @@ namespace Wallet_Manager.Forms
         {
             InitializeComponent();
         }
+
+        private void EditPassword_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updatePass_Click(object sender, EventArgs e)
+        {
+
+            string currentPassword = currPass.Text;
+            string newPassword = newPass.Text;
+            string confirmPassword = confirmPass.Text;
+
+            if(currentPassword == "" || newPassword == "" || confirmPassword == "")
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
+            if(newPassword.Length < 8)
+            {
+                MessageBox.Show("Password must be at least 8 characters long.");
+                return;
+            }
+
+            if(newPassword == currentPassword)
+            {
+                MessageBox.Show("New password must be different from current password.");
+                return;
+            }
+
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+
+            if (!dataAccessLayer.ValidateCurrentPassword(GlobalData.GetUserID(), currentPassword))
+            {
+                MessageBox.Show("Current password is incorrect.");
+                return;
+            }
+
+            if (newPassword != confirmPassword)
+            {
+                MessageBox.Show("New password and confirmation do not match.");
+                return;
+            }
+
+            if (dataAccessLayer.UpdatePassword(GlobalData.GetUserID(), newPassword))
+            {
+                MessageBox.Show("Password successfully updated.");
+            }
+            else
+            {
+                MessageBox.Show("Failed to update password.");
+            }
+        }
     }
+
 }
