@@ -44,22 +44,39 @@
             Guna.Charts.WinForms.Tick tick3 = new Guna.Charts.WinForms.Tick();
             Guna.Charts.WinForms.ChartFont chartFont8 = new Guna.Charts.WinForms.ChartFont();
             Guna.Charts.WinForms.LPoint lPoint1 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.ChartFont chartFont9 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont10 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont11 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont12 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid4 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick4 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont13 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid5 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick5 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont14 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid6 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel2 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont15 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick6 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont16 = new Guna.Charts.WinForms.ChartFont();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.barChart1 = new Guna.Charts.WinForms.GunaChart();
             this.gunaBarDataset1 = new Guna.Charts.WinForms.GunaBarDataset();
             this.gunaBarDataset2 = new Guna.Charts.WinForms.GunaBarDataset();
             this.gunaBarDataset3 = new Guna.Charts.WinForms.GunaBarDataset();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.pieChart1 = new Guna.Charts.WinForms.GunaChart();
             this.timeFrame = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.gunaPieDataset1 = new Guna.Charts.WinForms.GunaPieDataset();
+            this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.pieChart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2CustomGradientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.guna2CustomGradientPanel2.SuspendLayout();
+            this.guna2CustomGradientPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pieChart2)).BeginInit();
             this.SuspendLayout();
             // 
             // barChart1
@@ -156,42 +173,51 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(654, 423);
             this.guna2CustomGradientPanel1.TabIndex = 1;
             // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(0, 0);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(82)))), ((int)(((byte)(255))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(91)))), ((int)(((byte)(206)))))};
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Income";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Expense";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Savings";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(752, 423);
-            this.chart1.TabIndex = 2;
-            this.chart1.Text = "chart1";
-            // 
             // guna2CustomGradientPanel2
             // 
-            this.guna2CustomGradientPanel2.Controls.Add(this.chart1);
+            this.guna2CustomGradientPanel2.Controls.Add(this.pieChart1);
             this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(692, 97);
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(752, 423);
             this.guna2CustomGradientPanel2.TabIndex = 3;
+            // 
+            // pieChart1
+            // 
+            this.pieChart1.Datasets.AddRange(new Guna.Charts.Interfaces.IGunaDataset[] {
+            this.gunaPieDataset1});
+            this.pieChart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            chartFont9.FontName = "Arial";
+            this.pieChart1.Legend.LabelFont = chartFont9;
+            this.pieChart1.Location = new System.Drawing.Point(0, 0);
+            this.pieChart1.Name = "pieChart1";
+            this.pieChart1.Size = new System.Drawing.Size(752, 423);
+            this.pieChart1.TabIndex = 0;
+            chartFont10.FontName = "Arial";
+            chartFont10.Size = 12;
+            chartFont10.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.pieChart1.Title.Font = chartFont10;
+            chartFont11.FontName = "Arial";
+            this.pieChart1.Tooltips.BodyFont = chartFont11;
+            chartFont12.FontName = "Arial";
+            chartFont12.Size = 9;
+            chartFont12.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.pieChart1.Tooltips.TitleFont = chartFont12;
+            this.pieChart1.XAxes.GridLines = grid4;
+            chartFont13.FontName = "Arial";
+            tick4.Font = chartFont13;
+            this.pieChart1.XAxes.Ticks = tick4;
+            this.pieChart1.YAxes.Display = false;
+            this.pieChart1.YAxes.GridLines = grid5;
+            chartFont14.FontName = "Arial";
+            tick5.Font = chartFont14;
+            this.pieChart1.YAxes.Ticks = tick5;
+            this.pieChart1.ZAxes.GridLines = grid6;
+            chartFont15.FontName = "Arial";
+            pointLabel2.Font = chartFont15;
+            this.pieChart1.ZAxes.PointLabels = pointLabel2;
+            chartFont16.FontName = "Arial";
+            tick6.Font = chartFont16;
+            this.pieChart1.ZAxes.Ticks = tick6;
             // 
             // timeFrame
             // 
@@ -203,16 +229,48 @@
             this.timeFrame.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.timeFrame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.timeFrame.ItemHeight = 30;
-            this.timeFrame.Location = new System.Drawing.Point(251, 49);
+            this.timeFrame.Location = new System.Drawing.Point(534, 31);
             this.timeFrame.Name = "timeFrame";
             this.timeFrame.Size = new System.Drawing.Size(140, 36);
             this.timeFrame.TabIndex = 4;
             this.timeFrame.SelectedIndexChanged += new System.EventHandler(this.timeFrame_SelectedIndexChanged);
             // 
+            // gunaPieDataset1
+            // 
+            this.gunaPieDataset1.Label = "Pie1";
+            this.gunaPieDataset1.TargetChart = this.pieChart1;
+            // 
+            // guna2CustomGradientPanel3
+            // 
+            this.guna2CustomGradientPanel3.Controls.Add(this.pieChart2);
+            this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(20, 553);
+            this.guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
+            this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(654, 356);
+            this.guna2CustomGradientPanel3.TabIndex = 5;
+            // 
+            // pieChart2
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.pieChart2.ChartAreas.Add(chartArea1);
+            this.pieChart2.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.pieChart2.Legends.Add(legend1);
+            this.pieChart2.Location = new System.Drawing.Point(0, 0);
+            this.pieChart2.Name = "pieChart2";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.pieChart2.Series.Add(series1);
+            this.pieChart2.Size = new System.Drawing.Size(654, 356);
+            this.pieChart2.TabIndex = 0;
+            this.pieChart2.Text = "chart1";
+            // 
             // InsightsUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.guna2CustomGradientPanel3);
             this.Controls.Add(this.timeFrame);
             this.Controls.Add(this.guna2CustomGradientPanel2);
             this.Controls.Add(this.guna2CustomGradientPanel1);
@@ -220,8 +278,9 @@
             this.Size = new System.Drawing.Size(1509, 950);
             this.Load += new System.EventHandler(this.InsightsUC_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.guna2CustomGradientPanel2.ResumeLayout(false);
+            this.guna2CustomGradientPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pieChart2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -232,8 +291,11 @@
         private Guna.Charts.WinForms.GunaBarDataset gunaBarDataset1;
         private Guna.Charts.WinForms.GunaBarDataset gunaBarDataset2;
         private Guna.Charts.WinForms.GunaBarDataset gunaBarDataset3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
         private Guna.UI2.WinForms.Guna2ComboBox timeFrame;
+        private Guna.Charts.WinForms.GunaChart pieChart1;
+        private Guna.Charts.WinForms.GunaPieDataset gunaPieDataset1;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart pieChart2;
     }
 }

@@ -1478,6 +1478,39 @@ namespace Wallet_Manager.Classes
 
             return summary;
         }
+        public Dictionary<string, float> GetExpenseCategoriesLast7Days()
+        {
+            var expenses = new Dictionary<string, float>();
+
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                string query = @"
+            SELECT c.Name AS CategoryName, SUM(t.Amount) AS TotalAmount
+            FROM Transaction t
+            JOIN Category c ON t.CategoryID = c.CategoryId
+            WHERE t.TransactionType = 'Expense' AND t.Date >= CURDATE() - INTERVAL 6 DAY
+            GROUP BY c.Name;
+        ";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string category = reader["CategoryName"].ToString();
+                            float totalAmount = float.Parse(reader["TotalAmount"].ToString());
+                            expenses[category] = totalAmount;
+                        }
+                    }
+                }
+            }
+
+            return expenses;
+        }
+
+
 
 
 
