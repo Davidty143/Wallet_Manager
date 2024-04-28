@@ -16,5 +16,10 @@ namespace Wallet_Manager.Forms
         {
             InitializeComponent();
         }
+
+        private void SettingsUC_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -90,6 +90,7 @@
             this.editProfile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editProfile.ForeColor = System.Drawing.Color.Black;
             this.editProfile.Name = "editProfile";
+            this.editProfile.Click += new System.EventHandler(this.editProfile_Click);
             // 
             // displayName
             // 
@@ -285,6 +286,7 @@
             this.settingsUC1.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.settingsUC1, "settingsUC1");
             this.settingsUC1.Name = "settingsUC1";
+            this.settingsUC1.Load += new System.EventHandler(this.settingsUC1_Load);
             // 
             // Dashboard
             // 

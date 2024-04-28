@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,7 +82,72 @@ namespace Wallet_Manager.Classes
             }
         }
 
-    public string GetDisplayNameById()
+        public void SaveProfilePicture(int userId, byte[] imageBytes)
+        {
+            string query = "UPDATE User SET ProfilePicture = @ProfilePicture WHERE UserID = @UserID";
+            using (var conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@ProfilePicture", imageBytes);
+                    cmd.Parameters.AddWithValue("@UserID", userId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void UpdateUserProfile(int userId, string firstName, string lastName, string email, byte[] profilePicture)
+        {
+            string query = "UPDATE User SET FirstName = @FirstName, LastName = @LastName, Email = @Email, ProfilePicture = @ProfilePicture WHERE UserID = @UserID";
+            using (var conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@FirstName", firstName);
+                    cmd.Parameters.AddWithValue("@LastName", lastName);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@ProfilePicture", profilePicture);
+                    cmd.Parameters.AddWithValue("@UserID", userId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public byte[] ImageToByteArray(string imagePath)
+        {
+            Image image = Image.FromFile(imagePath);
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                return ms.ToArray();
+            }
+        }
+
+        public Image GetProfilePicture(int userId)
+        {
+            string query = "SELECT ProfilePicture FROM User WHERE UserID = @UserID";
+            using (var conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", userId);
+                    byte[] imageBytes = cmd.ExecuteScalar() as byte[];
+                    if (imageBytes != null && imageBytes.Length > 0)
+                    {
+                        using (var ms = new MemoryStream(imageBytes))
+                        {
+                            return Image.FromStream(ms);
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
+        public string GetDisplayNameById()
         {
             string displayName = "";
 

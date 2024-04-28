@@ -19,6 +19,7 @@ namespace Wallet_Manager.Forms
         {
             InitializeComponent();
             UpdateDisplayName();
+            LoadUserProfilePicture();
             transactionForm = new AddTransaction();
         }
 
@@ -111,6 +112,29 @@ namespace Wallet_Manager.Forms
             }
         }
 
+        private void LoadUserProfilePicture()
+        {
+            try
+            {
+                string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+                SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+                Image profile = _dataAccessLayer.GetProfilePicture(GlobalData.GetUserID());
+                if (profile != null)
+                {
+                    profilePicture.Image = profile;
+                }
+
+                else
+                {
+                    profilePicture.Image = Properties.Resources.user;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading profile picture: " + ex.Message);
+            }
+        }
+
         private void UpdateLabelText(string newText)
         {
             displayName.Text = newText;
@@ -172,5 +196,15 @@ namespace Wallet_Manager.Forms
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
                     }
+
+        private void editProfile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void settingsUC1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

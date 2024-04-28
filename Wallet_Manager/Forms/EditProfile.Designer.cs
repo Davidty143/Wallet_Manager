@@ -37,8 +37,8 @@
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            this.profilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -174,6 +174,7 @@
             this.guna2Button2.Size = new System.Drawing.Size(477, 57);
             this.guna2Button2.TabIndex = 74;
             this.guna2Button2.Text = "Update";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // guna2Button1
             // 
@@ -191,6 +192,7 @@
             this.guna2Button1.Size = new System.Drawing.Size(243, 48);
             this.guna2Button1.TabIndex = 76;
             this.guna2Button1.Text = "Change Profile Photo";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2Button3
             // 
@@ -211,17 +213,17 @@
             this.guna2Button3.TabIndex = 77;
             this.guna2Button3.Text = "Delete Profile Photo";
             // 
-            // guna2CirclePictureBox1
+            // profilePicture
             // 
-            this.guna2CirclePictureBox1.Image = global::Wallet_Manager.Properties.Resources.pfile;
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(118, 38);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(150, 150);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox1.TabIndex = 75;
-            this.guna2CirclePictureBox1.TabStop = false;
+            this.profilePicture.Image = global::Wallet_Manager.Properties.Resources.pfile;
+            this.profilePicture.ImageRotate = 0F;
+            this.profilePicture.Location = new System.Drawing.Point(118, 38);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.profilePicture.Size = new System.Drawing.Size(150, 150);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePicture.TabIndex = 75;
+            this.profilePicture.TabStop = false;
             // 
             // EditProfile
             // 
@@ -230,7 +232,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.guna2Button3);
             this.Controls.Add(this.guna2Button1);
-            this.Controls.Add(this.guna2CirclePictureBox1);
+            this.Controls.Add(this.profilePicture);
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtEmail);
@@ -241,7 +243,7 @@
             this.Name = "EditProfile";
             this.Size = new System.Drawing.Size(709, 717);
             this.Load += new System.EventHandler(this.EditProfile_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,7 +257,7 @@
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox txtFirstName;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox profilePicture;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
     }

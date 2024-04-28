@@ -34,7 +34,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Wallet_Manager.Properties.Resources._10;
+            this.pictureBox1.Image = global::Wallet_Manager.Properties.Resources.user1;
             this.pictureBox1.Location = new System.Drawing.Point(478, 248);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 50);

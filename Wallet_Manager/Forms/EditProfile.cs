@@ -18,6 +18,7 @@ namespace Wallet_Manager.Forms
         {
             InitializeComponent();
             LoadUserProfile();
+            LoadUserProfilePicture();
         }
 
         private void LoadUserProfile()
@@ -50,9 +51,67 @@ namespace Wallet_Manager.Forms
             }
         }
 
+        private void LoadUserProfilePicture()
+        {
+            try
+            {
+                string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+                SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+                Image profile = _dataAccessLayer.GetProfilePicture(GlobalData.GetUserID());
+                if (profile != null)
+                {
+                    profilePicture.Image = profile;
+                }
+                if (profile == null)
+                {
+                    profilePicture.Image = Properties.Resources.user;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading profile picture: " + ex.Message);
+            }
+        }
+
         private void EditProfile_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image files (*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg;*.jpeg;*.gif;*.bmp;*.png";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    profilePicture.Image = Image.FromFile(openFileDialog.FileName);
+                    profilePicture.Tag = openFileDialog.FileName; // Store file path to use when saving
+                }
+            }
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+                SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+                string first = txtFirstName.Text;
+                string last = txtLastName.Text;
+                string email = txtEmail.Text;
+                byte[] imageBytes = null;
+
+                if (profilePicture.Tag != null)
+                    imageBytes = dataAccessLayer.ImageToByteArray(profilePicture.Tag.ToString());
+
+                dataAccessLayer.UpdateUserProfile(GlobalData.GetUserID(), first, last, email, imageBytes);
+                MessageBox.Show("Profile updated successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to update profile: " + ex.Message);
+            }
         }
     }
 }
