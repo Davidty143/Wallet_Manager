@@ -225,6 +225,18 @@
     <Compile Include="Forms\EditWallet.Designer.cs">
       <DependentUpon>EditWallet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Insights.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Insights.Designer.cs">
+      <DependentUpon>Insights.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InsightsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\InsightsUC.Designer.cs">
+      <DependentUpon>InsightsUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +329,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditWallet.resx">
       <DependentUpon>EditWallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Insights.resx">
+      <DependentUpon>Insights.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InsightsUC.resx">
+      <DependentUpon>InsightsUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

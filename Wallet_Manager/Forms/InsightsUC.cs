@@ -58,7 +58,6 @@ namespace Wallet_Manager.Forms
             financialDataWeek = dataAccessLayer.CalculateFinancialSummaryForLast7Days();
             financialDataMonth = dataAccessLayer.CalculateFinancialSummaryForLastMonth();
             financialDataYear = dataAccessLayer.CalculateFinancialSummaryForLastYear();
-            MessageBox.Show( financialDataYear.Count.ToString());
         }
         private void PopulateGunaBarDataSet()
         {
@@ -168,8 +167,8 @@ namespace Wallet_Manager.Forms
 
         private void timeFrame_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PopulateGunaBarDataSet();
-            PopulatePieChart();
+              PopulateGunaBarDataSet();
+              PopulatePieChart();
         }
 
         private void pieChart1_Load(object sender, EventArgs e)

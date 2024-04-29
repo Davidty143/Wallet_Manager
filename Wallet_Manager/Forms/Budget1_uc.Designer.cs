@@ -45,6 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.label6 = new System.Windows.Forms.Label();
             this.rpanel4 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label17 = new System.Windows.Forms.Label();
             this.spentLabel4 = new System.Windows.Forms.Label();
@@ -78,7 +79,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.splineDailyExpenseChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.rpanel4.SuspendLayout();
@@ -248,6 +248,20 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(718, 483);
             this.guna2CustomGradientPanel1.TabIndex = 292;
             this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.label6.Location = new System.Drawing.Point(636, 443);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(22, 23);
+            this.label6.TabIndex = 305;
+            this.label6.Text = ">";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // rpanel4
             // 
@@ -685,20 +699,7 @@
             this.splineDailyExpenseChart.Size = new System.Drawing.Size(646, 324);
             this.splineDailyExpenseChart.TabIndex = 0;
             this.splineDailyExpenseChart.Text = "chart1";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label6.Location = new System.Drawing.Point(636, 443);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(22, 23);
-            this.label6.TabIndex = 305;
-            this.label6.Text = ">";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.splineDailyExpenseChart.Click += new System.EventHandler(this.splineDailyExpenseChart_Click);
             // 
             // Budget1_uc
             // 
@@ -764,7 +765,6 @@
         private System.Windows.Forms.Label label28;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
         private System.Windows.Forms.DataVisualization.Charting.Chart doughnutCategoryChart;
-        private System.Windows.Forms.DataVisualization.Charting.Chart splineDailyExpenseChart;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel rpanel1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel rpanel4;
         private System.Windows.Forms.Label label17;
@@ -785,5 +785,6 @@
         private System.Windows.Forms.Label percentageLabel2;
         private System.Windows.Forms.Label dateLabel2;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataVisualization.Charting.Chart splineDailyExpenseChart;
     }
 }

@@ -364,5 +364,10 @@ namespace Wallet_Manager.Forms
         {
 
         }
+
+        private void splineDailyExpenseChart_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
