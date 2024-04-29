@@ -118,30 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="dashboardUC1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="wallet_uc1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="dashboardUC1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="wallet_uc1.Location" type="System.Drawing.Point, System.Drawing">
     <value>413, 162</value>
   </data>
-  <data name="dashboardUC1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="wallet_uc1.Size" type="System.Drawing.Size, System.Drawing">
     <value>1509, 856</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="dashboardUC1.TabIndex" type="System.Int32, mscorlib">
+  <data name="wallet_uc1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;dashboardUC1.Name" xml:space="preserve">
-    <value>dashboardUC1</value>
+  <data name="&gt;&gt;wallet_uc1.Name" xml:space="preserve">
+    <value>wallet_uc1</value>
   </data>
-  <data name="&gt;&gt;dashboardUC1.Type" xml:space="preserve">
-    <value>Wallet_Manager.Forms.DashboardUC, Wallet_Manager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;wallet_uc1.Type" xml:space="preserve">
+    <value>Wallet_Manager.Forms.Wallet_uc, Wallet_Manager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;dashboardUC1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;wallet_uc1.Parent" xml:space="preserve">
     <value>display_panel</value>
   </data>
-  <data name="&gt;&gt;dashboardUC1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;wallet_uc1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="editProfile.AutoSize" type="System.Boolean, mscorlib">
@@ -154,7 +154,7 @@
     <value>NoControl</value>
   </data>
   <data name="editProfile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1191, 76</value>
+    <value>1238, 76</value>
   </data>
   <data name="editProfile.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 17</value>
@@ -187,7 +187,7 @@
     <value>NoControl</value>
   </data>
   <data name="displayName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1158, 49</value>
+    <value>1205, 49</value>
   </data>
   <data name="displayName.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 31</value>
@@ -231,7 +231,7 @@
     <value>NoControl</value>
   </data>
   <data name="profilePicture.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1311, 29</value>
+    <value>1358, 29</value>
   </data>
   <data name="profilePicture.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 70</value>

@@ -1,4 +1,5 @@
-﻿using Guna.UI2.WinForms;
+﻿using Guna.Charts.WinForms;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,6 +35,7 @@ namespace Wallet_Manager.Forms
             UpdateSavingsLabel();
             UpdateExpenseLabel();
             UpdateMostUsedWalletDisplay();
+            PopulateGunaBarDataSet();
            
             //SetupChart();
 
@@ -200,6 +202,36 @@ namespace Wallet_Manager.Forms
             }
         }
 
+        private void PopulateGunaBarDataSet()
+        {
+            gunaBarDataset1.DataPoints.Clear();
+            gunaBarDataset2.DataPoints.Clear();
+            gunaBarDataset3.DataPoints.Clear();
+
+
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
+            var last7DaysTransaction = dataAccessLayer.CalculateFinancialSummaryForLast7Days();
+
+            foreach (var entry in last7DaysTransaction)
+            {
+                string dateText = entry.Key.Date == DateTime.Today ? "Today" :
+                                  entry.Key.Date == DateTime.Today.AddDays(-1) ? "Yesterday" :
+                                  entry.Key.ToString("MMMM d");
+
+                gunaBarDataset1.DataPoints.Add(dateText, entry.Value.Item1); // totalIncome
+                gunaBarDataset2.DataPoints.Add(dateText, entry.Value.Item2); // totalExpenses
+                gunaBarDataset3.DataPoints.Add(dateText, entry.Value.Item3); // totalSavings
+            }
+
+            barChart1.Refresh();
+
+        }
+
+       
+
+
+
 
 
         private void label43_Click(object sender, EventArgs e)
@@ -287,6 +319,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void descriptionLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaChart1_Load(object sender, EventArgs e)
         {
 
         }
