@@ -219,15 +219,33 @@ namespace Wallet_Manager.Forms
             }
 
             // Additional check for period types that should not have a custom range
-            if (budget.PeriodType != "Custom" && (budget.StartDate != DateTime.Today || budget.EndDate > DateTime.Today.AddDays(1)))
+            if (budget.PeriodType != "Custom")
             {
-                MessageBox.Show("Non-custom period types should have predefined date ranges.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
+                DateTime expectedEndDate = DateTime.Today;
+                switch (budget.PeriodType)
+                {
+                    case "Daily":
+                        expectedEndDate = DateTime.Today.AddDays(1).AddTicks(-1);
+                        break;
+                    case "Weekly":
+                        expectedEndDate = DateTime.Today.AddDays(7).AddTicks(-1);
+                        break;
+                    case "Monthly":
+                        expectedEndDate = DateTime.Today.AddMonths(1).AddTicks(-1);
+                        break;
+                }
+
+                if (budget.StartDate != DateTime.Today || budget.EndDate != expectedEndDate)
+                {
+                    MessageBox.Show($"{budget.PeriodType} period type should start today and end correctly based on the selected period.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
             }
 
             // If all checks pass
             return true;
         }
+
 
 
         private void txtPeriod_SelectedIndexChanged(object sender, EventArgs e)
