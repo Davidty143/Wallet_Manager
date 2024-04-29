@@ -168,15 +168,17 @@ namespace Wallet_Manager.Forms
 
         private void PopulateBudgetComboBox()
         {
-            
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
             var budgets = dataAccessLayer.GetAllBudgets();
-            budgetComboBox.DataSource = budgets;
+
+            // Filter to only include active budgets
+            var activeBudgets = budgets.Where(b => b.IsActive).ToList();
+
+            budgetComboBox.DataSource = activeBudgets;
             budgetComboBox.DisplayMember = "BudgetName";
             budgetComboBox.ValueMember = "BudgetID";
         }
-
 
 
         private void guna2ProgressBar2_ValueChanged(object sender, EventArgs e)

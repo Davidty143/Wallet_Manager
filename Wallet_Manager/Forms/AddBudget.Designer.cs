@@ -35,8 +35,8 @@
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPeriod = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.startDateLabel = new System.Windows.Forms.Label();
+            this.endDateLabel = new System.Windows.Forms.Label();
             this.txtStartDate = new System.Windows.Forms.DateTimePicker();
             this.txtEndDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -112,28 +112,29 @@
             this.txtPeriod.Name = "txtPeriod";
             this.txtPeriod.Size = new System.Drawing.Size(208, 36);
             this.txtPeriod.TabIndex = 129;
+            this.txtPeriod.SelectedIndexChanged += new System.EventHandler(this.txtPeriod_SelectedIndexChanged);
             // 
-            // label5
+            // startDateLabel
             // 
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(193, 198);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 37);
-            this.label5.TabIndex = 130;
-            this.label5.Text = "Start Date";
+            this.startDateLabel.BackColor = System.Drawing.Color.Transparent;
+            this.startDateLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startDateLabel.Location = new System.Drawing.Point(193, 198);
+            this.startDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.startDateLabel.Name = "startDateLabel";
+            this.startDateLabel.Size = new System.Drawing.Size(108, 37);
+            this.startDateLabel.TabIndex = 130;
+            this.startDateLabel.Text = "Start Date";
             // 
-            // label6
+            // endDateLabel
             // 
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(193, 248);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(108, 37);
-            this.label6.TabIndex = 131;
-            this.label6.Text = "End Date";
+            this.endDateLabel.BackColor = System.Drawing.Color.Transparent;
+            this.endDateLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endDateLabel.Location = new System.Drawing.Point(193, 248);
+            this.endDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.endDateLabel.Name = "endDateLabel";
+            this.endDateLabel.Size = new System.Drawing.Size(108, 37);
+            this.endDateLabel.TabIndex = 131;
+            this.endDateLabel.Text = "End Date";
             // 
             // txtStartDate
             // 
@@ -194,8 +195,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtEndDate);
             this.Controls.Add(this.txtStartDate);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.endDateLabel);
+            this.Controls.Add(this.startDateLabel);
             this.Controls.Add(this.txtPeriod);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtAmount);
@@ -220,8 +221,8 @@
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox txtPeriod;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label startDateLabel;
+        private System.Windows.Forms.Label endDateLabel;
         private System.Windows.Forms.DateTimePicker txtStartDate;
         private System.Windows.Forms.DateTimePicker txtEndDate;
         private System.Windows.Forms.Label label3;

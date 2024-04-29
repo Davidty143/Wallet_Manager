@@ -19,12 +19,16 @@ namespace Wallet_Manager.Forms
             InitializeComponent();
             PopulateCategories();
             PopulatePeriodTypes();
+            txtPeriod.SelectedIndex = 0; // Default to 'Daily'
+            UpdateDateVisibility();
         }
 
         private void txtWallet_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+
 
         private List<Category> categoryList = new List<Category>();
 
@@ -50,14 +54,27 @@ namespace Wallet_Manager.Forms
         {
             // Clear existing items if any
             txtPeriod.Items.Clear();
-
+                
             // Add period type choices
+            
             txtPeriod.Items.Add("Daily");
             txtPeriod.Items.Add("Weekly");
             txtPeriod.Items.Add("Monthly");
+            txtPeriod.Items.Add("Custom");
+
 
             // Optionally set a default value
             txtPeriod.SelectedIndex = 0;  // Sets the first item as the default selected item
+        }
+
+        private void UpdateDateVisibility()
+        {
+            // Hide the date pickers unless 'Custom' is selected
+            bool isCustom = txtPeriod.SelectedItem.ToString() == "Custom";
+            txtStartDate.Visible = isCustom;
+            txtEndDate.Visible = isCustom;
+            startDateLabel.Visible = isCustom;
+            endDateLabel.Visible = isCustom;
         }
 
         private List<string> GetSelectedCategories  ()
@@ -123,12 +140,32 @@ namespace Wallet_Manager.Forms
                 BudgetName = txtName.Text,
                 TotalAmount = float.Parse(txtAmount.Text),
                 PeriodType = txtPeriod.SelectedItem.ToString(),
-                StartDate = txtStartDate.Value,
-                EndDate = txtEndDate.Value,
-                IsActive = DateTime.Today >= txtStartDate.Value && DateTime.Today <= txtEndDate.Value,
                 CategoryIds = new List<int>()
             };
 
+            // Set the start and end dates based on the period type
+            switch (budget.PeriodType)
+            {
+                case "Daily":
+                    budget.StartDate = DateTime.Today; // Start of the day
+                    budget.EndDate = DateTime.Today.AddDays(1).AddTicks(-1); // End of the day
+                    break;
+                case "Weekly":
+                    budget.StartDate = DateTime.Today;
+                    budget.EndDate = DateTime.Today.AddDays(7).AddTicks(-1);
+                    break;
+                case "Monthly":
+                    budget.StartDate = DateTime.Today;
+                    budget.EndDate = DateTime.Today.AddMonths(1).AddTicks(-1);
+                    break;
+                case "Custom":
+                    budget.StartDate = txtStartDate.Value;
+                    budget.EndDate = txtEndDate.Value;
+                    break;
+            }
+
+            // Determine if the budget is currently active
+            budget.IsActive = DateTime.Today >= budget.StartDate && DateTime.Today <= budget.EndDate;
 
             // Collect category IDs from the CheckedListBox
             foreach (int index in txtCategory.CheckedIndices)
@@ -150,33 +187,41 @@ namespace Wallet_Manager.Forms
 
 
 
+
         private bool ValidateBudget(Budget budget)
         {
-            // Check if the budget name is not provided
+            // Check if the budget name is provided
             if (string.IsNullOrWhiteSpace(budget.BudgetName))
             {
                 MessageBox.Show("Budget name cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            // Check if the total amount is less than or equal to zero
+            // Check if the total amount is positive
             if (budget.TotalAmount <= 0)
             {
                 MessageBox.Show("Total amount must be greater than zero.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            // Check if no categories are selected
+            // Check if at least one category is selected
             if (budget.CategoryIds == null || budget.CategoryIds.Count == 0)
             {
                 MessageBox.Show("At least one category must be selected.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            // Check if the start date is not before the end date
+            // Check if the start date is before the end date
             if (budget.StartDate >= budget.EndDate)
             {
                 MessageBox.Show("Start date must be before the end date.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // Additional check for period types that should not have a custom range
+            if (budget.PeriodType != "Custom" && (budget.StartDate != DateTime.Today || budget.EndDate > DateTime.Today.AddDays(1)))
+            {
+                MessageBox.Show("Non-custom period types should have predefined date ranges.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -185,6 +230,9 @@ namespace Wallet_Manager.Forms
         }
 
 
-
+        private void txtPeriod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateDateVisibility();
+        }
     }
 }

@@ -550,7 +550,7 @@ namespace Wallet_Manager.Classes
                         // Retrieve the ID of the newly inserted budget
                         long budgetId = cmd.LastInsertedId;
 
-                        // Insert category associations in BudgetCategories table
+                        // Insert category associations in BudgetCategories table   
                         foreach (int categoryId in budget.CategoryIds)
                         {
                             string insertCategoryQuery = @"
@@ -1235,7 +1235,7 @@ namespace Wallet_Manager.Classes
             using (var connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                var query = "SELECT BudgetID, UserID, BudgetName, TotalAmount, PeriodType, StartDate, EndDate FROM budget";
+                var query = "SELECT BudgetID, UserID, IsActive, BudgetName, TotalAmount, PeriodType, StartDate, EndDate FROM budget";
 
                 using (var cmd = new MySqlCommand(query, connection))
                 {
@@ -1247,6 +1247,7 @@ namespace Wallet_Manager.Classes
                             {
                                 BudgetID = reader.GetInt32("BudgetID"),
                                 UserID = reader.GetInt32("UserID"),
+                                IsActive = reader.GetBoolean("IsActive"),
                                 BudgetName = reader.GetString("BudgetName"),
                                 TotalAmount = reader.GetFloat("TotalAmount"),
                                 PeriodType = reader.GetString("PeriodType"),
@@ -1261,6 +1262,41 @@ namespace Wallet_Manager.Classes
 
             return budgets;
         }
+
+        private void UpdateBudgetInDatabase(Budget budget)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                var query = "UPDATE budget SET IsActive = @IsActive WHERE BudgetID = @BudgetID";
+
+                using (var cmd = new MySqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@IsActive", budget.IsActive);
+                    cmd.Parameters.AddWithValue("@BudgetID", budget.BudgetID);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void UpdateBudgetStatuses()
+        {
+            var budgets = GetAllBudgets(); // Retrieve all budgets
+
+            foreach (var budget in budgets)
+            {
+                // Check if the current date is outside the budget timeframe
+                if (DateTime.Today < budget.StartDate || DateTime.Today > budget.EndDate)
+                {
+                    if (budget.IsActive)
+                    {
+                        budget.IsActive = false; // Set the budget to inactive
+                        UpdateBudgetInDatabase(budget); // Update the budget in the database
+                    }
+                }
+            }
+        }
+
 
 
         public Dictionary<DateTime, float> GetDailyExpensesUnderBudget(Budget budget)
