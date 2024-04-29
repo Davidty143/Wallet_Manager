@@ -534,13 +534,14 @@ namespace Wallet_Manager.Classes
                     {
                         // Insert the main budget details into the Budget table
                         string insertBudgetQuery = @"
-                        INSERT INTO Budget (UserID, BudgetName, TotalAmount, PeriodType, StartDate, EndDate) 
-                        VALUES (@UserID, @BudgetName, @TotalAmount, @PeriodType, @StartDate, @EndDate)";
+                INSERT INTO Budget (UserID, BudgetName, TotalAmount, IsActive, PeriodType, StartDate, EndDate) 
+                VALUES (@UserID, @BudgetName, @TotalAmount, @IsActive, @PeriodType, @StartDate, @EndDate)";
 
                         MySqlCommand cmd = new MySqlCommand(insertBudgetQuery, conn, transaction);
                         cmd.Parameters.AddWithValue("@UserID", budget.UserID);
                         cmd.Parameters.AddWithValue("@BudgetName", budget.BudgetName);
                         cmd.Parameters.AddWithValue("@TotalAmount", budget.TotalAmount);
+                        cmd.Parameters.AddWithValue("@IsActive", budget.IsActive); // Ensure IsActive is handled correctly
                         cmd.Parameters.AddWithValue("@PeriodType", budget.PeriodType);
                         cmd.Parameters.AddWithValue("@StartDate", budget.StartDate);
                         cmd.Parameters.AddWithValue("@EndDate", budget.EndDate);
@@ -553,8 +554,8 @@ namespace Wallet_Manager.Classes
                         foreach (int categoryId in budget.CategoryIds)
                         {
                             string insertCategoryQuery = @"
-                            INSERT INTO BudgetCategory (BudgetID, CategoryID) 
-                            VALUES (@BudgetID, @CategoryID)";
+                    INSERT INTO BudgetCategory (BudgetID, CategoryID) 
+                    VALUES (@BudgetID, @CategoryID)";
 
                             MySqlCommand categoryCmd = new MySqlCommand(insertCategoryQuery, conn, transaction);
                             categoryCmd.Parameters.AddWithValue("@BudgetID", budgetId);
@@ -569,6 +570,7 @@ namespace Wallet_Manager.Classes
                 catch (MySqlException ex)
                 {
                     Console.WriteLine("Database error: " + ex.Message);
+                    // Optionally, you might want to rollback the transaction here
                     throw;
                 }
                 catch (Exception ex)
@@ -578,6 +580,7 @@ namespace Wallet_Manager.Classes
                 }
             }
         }
+
 
 
         public void AddGoal(Goal goal)
@@ -1265,12 +1268,15 @@ namespace Wallet_Manager.Classes
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             Dictionary<DateTime, float> dailyExpenses = new Dictionary<DateTime, float>();
 
-            // Initialize all dates within the budget range with 0 expenses
-            for (DateTime date = budget.EndDate; date >= budget.StartDate; date = date.AddDays(-1))
+            // Calculate the start date as 7 days from today
+            DateTime startDate = DateTime.Today.AddDays(-7);
+            DateTime endDate = DateTime.Today; // End date is today
+
+            // Initialize all dates within the last 7 days with 0 expenses
+            for (DateTime date = endDate; date >= startDate; date = date.AddDays(-1))
             {
                 dailyExpenses[date] = 0;
             }
-
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -1284,18 +1290,18 @@ namespace Wallet_Manager.Classes
 
                 // Construct the SQL query to fetch expenses that match the budget's categories and date range
                 string query = $@"
-            SELECT Date, IFNULL(SUM(Amount), 0) AS TotalAmount
-            FROM Transaction
-            WHERE TransactionType = 'Expense' 
-                AND Date BETWEEN @StartDate AND @EndDate
-                AND CategoryID IN ({string.Join(",", budget.CategoryIds)})
-            GROUP BY Date
-            ORDER BY Date DESC";
+                SELECT Date, IFNULL(SUM(Amount), 0) AS TotalAmount
+                FROM Transaction
+                WHERE TransactionType = 'Expense' 
+                    AND Date BETWEEN @StartDate AND @EndDate
+                    AND CategoryID IN ({string.Join(",", budget.CategoryIds)})
+                GROUP BY Date
+                ORDER BY Date ASC"; // Ensure data is sorted in ascending order by date
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@StartDate", budget.StartDate);
-                    command.Parameters.AddWithValue("@EndDate", budget.EndDate);
+                    command.Parameters.AddWithValue("@StartDate", startDate);
+                    command.Parameters.AddWithValue("@EndDate", endDate);
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
@@ -1315,6 +1321,8 @@ namespace Wallet_Manager.Classes
 
             return dailyExpenses;
         }
+
+
 
 
         public SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> CalculateFinancialSummaryForLast7Days()

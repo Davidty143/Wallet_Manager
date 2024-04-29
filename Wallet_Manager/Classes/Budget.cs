@@ -16,6 +16,7 @@ namespace Wallet_Manager.Classes
         public string PeriodType { get; set; } // e.g., Monthly, Annually
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public bool IsActive { get; set; }
         public List<int> CategoryIds { get; set; } // List of category IDs
         public Budget()
         {

@@ -14,7 +14,7 @@ namespace Wallet_Manager.Forms
 {
     public partial class AddBudget : Form
     {
-        public AddBudget(int userID)
+        public AddBudget()
         {
             InitializeComponent();
             PopulateCategories();
@@ -119,12 +119,13 @@ namespace Wallet_Manager.Forms
         {
             var budget = new Budget
             {
-                UserID = 1,
+                UserID = GlobalData.GetUserID(),
                 BudgetName = txtName.Text,
                 TotalAmount = float.Parse(txtAmount.Text),
                 PeriodType = txtPeriod.SelectedItem.ToString(),
                 StartDate = txtStartDate.Value,
                 EndDate = txtEndDate.Value,
+                IsActive = DateTime.Today >= txtStartDate.Value && DateTime.Today <= txtEndDate.Value,
                 CategoryIds = new List<int>()
             };
 
@@ -146,8 +147,6 @@ namespace Wallet_Manager.Forms
 
             return budget;
         }
-
-
 
 
 

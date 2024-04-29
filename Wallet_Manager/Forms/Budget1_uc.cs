@@ -204,12 +204,44 @@ namespace Wallet_Manager.Forms
                 SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
                 selectedBudget.CategoryIds = dataAccessLayer.GetCategoryIdsByBudgetId(selectedBudget.BudgetID);
                 UpdateProgressBar(selectedBudget);
-                PopulateDoughnutChart(selectedBudget);
-                PopulateSplineChart(selectedBudget);
+                //PopulateDoughnutChart(selectedBudget);
+                // PopulateSplineChart(selectedBudget);
+                PopulateGunaDoughnutChart(selectedBudget);
+                PopulateGunaSplineChart(selectedBudget);
                 PopulatePanels(selectedBudget);
                 
             }
         }
+
+        private void PopulateGunaDoughnutChart(Budget budget)
+        {
+            // Use the category IDs and date range from the budget object
+            List<int> categoryIds = budget.CategoryIds;
+            DateTime startDate = budget.StartDate;
+            DateTime endDate = budget.EndDate;
+
+            // Create an instance of SqlDataAccessLayer and get the expenses data
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
+            var categoryExpenses = dataAccessLayer.GetCategoryExpensesByDate(categoryIds, startDate, endDate);
+
+            doughnutDataset1.DataPoints.Clear();
+
+            foreach (var expense in categoryExpenses)
+            {
+                int categoryId = expense.Key;
+                string categoryName = dataAccessLayer.GetCategoryNameById(categoryId);
+                doughnutDataset1.DataPoints.Add(categoryName, expense.Value);
+                doughnutChart1.Refresh();
+            }
+
+            // Refresh the chart to display the new data
+        }
+
+
+
+
+        /*
         private void PopulateDoughnutChart(Budget budget)
         {
             // Use the category IDs and date range from the budget object
@@ -255,8 +287,12 @@ namespace Wallet_Manager.Forms
             doughnutCategoryChart.Invalidate();
         }
 
+        */
 
 
+        /*
+         * 
+         * 
 
         private void PopulateSplineChart(Budget budget)
         {
@@ -289,6 +325,23 @@ namespace Wallet_Manager.Forms
             splineDailyExpenseChart.ChartAreas[0].AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(138, 138, 138);
             splineDailyExpenseChart.Series.Add(series);
             splineDailyExpenseChart.Invalidate(); // Refresh the chart
+        }
+        */
+
+        private void PopulateGunaSplineChart(Budget budget)
+        {
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
+            var expensesData = dataAccessLayer.GetDailyExpensesUnderBudget(budget);
+
+            // Clear existing data points before adding new ones
+            splineDataset1.DataPoints.Clear();
+
+            foreach (var item in expensesData)
+            {
+                splineDataset1.DataPoints.Add(item.Key.ToString("MMMM d"), item.Value);
+            }
+            splineChart.Refresh(); // Refresh the chart to display the new data
         }
 
 
@@ -368,6 +421,17 @@ namespace Wallet_Manager.Forms
         private void splineDailyExpenseChart_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label28_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            AddBudget budget = new AddBudget();
+            budget.ShowDialog();
         }
     }
 }
