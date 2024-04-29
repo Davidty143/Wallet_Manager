@@ -211,7 +211,9 @@ namespace Wallet_Manager.Forms
                 PopulateGunaDoughnutChart(selectedBudget);
                 PopulateGunaSplineChart(selectedBudget);
                 PopulatePanels(selectedBudget);
-                
+                dateLabel.Text = $"{selectedBudget.StartDate:MMMM d} - {selectedBudget.EndDate:MMMM d}";
+
+
             }
         }
 
@@ -434,6 +436,11 @@ namespace Wallet_Manager.Forms
         {
             AddBudget budget = new AddBudget();
             budget.ShowDialog();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -286,6 +286,7 @@
             this.budget1_uc1.BackColor = System.Drawing.Color.WhiteSmoke;
             resources.ApplyResources(this.budget1_uc1, "budget1_uc1");
             this.budget1_uc1.Name = "budget1_uc1";
+            this.budget1_uc1.Load += new System.EventHandler(this.budget1_uc1_Load);
             // 
             // Dashboard
             // 
