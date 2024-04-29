@@ -37,11 +37,54 @@ namespace Wallet_Manager.Forms
             InitializeComponent();
             initializeControlArrays();
             PopulateBudgetComboBox();
-            
+            UpdateUIVisibility();
+
+
+
+
+
 
         }
+        private void UpdateUIVisibility()
+        {
+            bool hasActiveBudgets = budgetComboBox.Items.Count > 0;
 
-        
+            // Set visibility of all related UI components based on the presence of active budgets
+
+
+            label9.Visible = hasActiveBudgets;
+            label2.Visible = hasActiveBudgets;
+            label2.Visible = hasActiveBudgets;
+            label4.Visible = hasActiveBudgets;
+            label5.Visible = hasActiveBudgets;
+            label6.Visible = hasActiveBudgets;
+            remainingBudgetLabel.Visible = hasActiveBudgets;
+            spentBudgetLabel.Visible = hasActiveBudgets;
+            dateLabel.Visible = hasActiveBudgets;
+            paginationLabel.Visible = hasActiveBudgets;
+            generalProgressBar.Visible = hasActiveBudgets;
+            nonVisibleLabel1.Visible = !hasActiveBudgets;
+            nonVisibleLabel2.Visible = !hasActiveBudgets;
+            nonVisibleLabel3.Visible = !hasActiveBudgets;
+            nonVisibleLabel4.Visible = !hasActiveBudgets;
+            doughnutChart1.Visible = hasActiveBudgets;
+            splineChart.Visible = hasActiveBudgets;
+
+
+            foreach (var panel in recordPanels)
+            {
+                panel.Visible = hasActiveBudgets;
+            }
+
+            foreach (var progressBar in progressBar)
+            {
+                progressBar.Visible = hasActiveBudgets;
+            }
+        }
+
+
+
+
         public void initializeControlArrays()
         {
             recordPanels = new Guna2CustomGradientPanel[] { rpanel1, rpanel2, rpanel3, rpanel4 };
@@ -58,6 +101,9 @@ namespace Wallet_Manager.Forms
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
             var dailyAmounts = dataAccessLayer.GetDailyExpensesUnderBudget(budget).ToList();
+
+            // Reverse the list to show the most recent dates first
+            dailyAmounts.Reverse();
 
             // Calculate the number of pages and update pagination controls
             actualRecordsCount = dailyAmounts.Count;
@@ -77,7 +123,7 @@ namespace Wallet_Manager.Forms
                 spentLabels[panelIndex].Text = $"{entry.Value:C2}";
                 float totalBudget = budget.TotalAmount;
                 float percentageSpent = (entry.Value / totalBudget) * 100;
-                progressBar[panelIndex].Value = (int)percentageSpent;
+                progressBar[panelIndex].Value = Math.Min((int)percentageSpent, 100); // Ensure the progress bar does not exceed 100%
                 percentageLabels[panelIndex].Text = $"{percentageSpent:F2}% of total budget";
                 recordPanels[panelIndex].Visible = true;
             }
@@ -212,6 +258,7 @@ namespace Wallet_Manager.Forms
                 PopulateGunaSplineChart(selectedBudget);
                 PopulatePanels(selectedBudget);
                 dateLabel.Text = $"{selectedBudget.StartDate:MMMM d} - {selectedBudget.EndDate:MMMM d}";
+                UpdateUIVisibility();
 
 
             }
@@ -434,12 +481,28 @@ namespace Wallet_Manager.Forms
 
         private void label8_Click(object sender, EventArgs e)
         {
-            AddBudget budget = new AddBudget();
-            budget.ShowDialog();
+          
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void rpanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void splineChart_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            AddBudget budget = new AddBudget();
+            budget.ShowDialog();
 
         }
     }
