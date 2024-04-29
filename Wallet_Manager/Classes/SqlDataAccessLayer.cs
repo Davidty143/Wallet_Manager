@@ -1422,28 +1422,27 @@ namespace Wallet_Manager.Classes
             return summary;
         }
 
-        public SortedDictionary<(int Year, int Month), (float totalSavings, float totalExpenses, float totalIncome)> CalculateFinancialSummaryForLastYear()
+        public SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> CalculateFinancialSummaryForLastYear()
         {
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-            SortedDictionary<(int Year, int Month), (float totalSavings, float totalExpenses, float totalIncome)> summary =
-                new SortedDictionary<(int Year, int Month), (float totalSavings, float totalExpenses, float totalIncome)>();
+            SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> summary =
+                new SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)>();
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
                 string query = @"
             SELECT 
-                YEAR(Date) AS Year,
-                MONTH(Date) AS Month,
+                DATE_FORMAT(Date, '%Y-%m-01') AS MonthStart,
                 SUM(CASE WHEN TransactionType = 'Income' THEN Amount ELSE 0 END) AS TotalIncome,
                 SUM(CASE WHEN TransactionType = 'Expense' THEN Amount ELSE 0 END) AS TotalExpenses,
                 GREATEST(0, SUM(CASE WHEN TransactionType = 'Transfer' AND CategoryID = 19 THEN Amount ELSE 0 END) +
                          SUM(CASE WHEN TransactionType = 'Income' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END) -
                          SUM(CASE WHEN TransactionType = 'Expense' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END)) AS TotalSavings
             FROM Transaction
-            WHERE Date >= CURDATE() - INTERVAL 1 YEAR
-            GROUP BY YEAR(Date), MONTH(Date)
-            ORDER BY YEAR(Date), MONTH(Date);
+            WHERE Date >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
+            GROUP BY MonthStart
+            ORDER BY MonthStart;
         ";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
@@ -1452,32 +1451,33 @@ namespace Wallet_Manager.Classes
                     {
                         while (reader.Read())
                         {
-                            int year = reader.GetInt32("Year");
-                            int month = reader.GetInt32("Month");
+                            DateTime monthStart = reader.GetDateTime("MonthStart");
                             float totalIncome = reader.GetFloat("TotalIncome");
                             float totalExpenses = reader.GetFloat("TotalExpenses");
                             float totalSavings = reader.GetFloat("TotalSavings");
 
-                            summary[(year, month)] = (totalSavings, totalExpenses, totalIncome);
+                            summary[monthStart] = (totalSavings, totalExpenses, totalIncome);
                         }
                     }
                 }
             }
 
             // Ensure all months in the last year are included in the dictionary
-            DateTime startDate = DateTime.Today.AddYears(-1).AddMonths(1);
+            DateTime startDate = DateTime.Today.AddMonths(-11).AddDays(-DateTime.Today.Day + 1);
             for (int i = 0; i < 12; i++)
             {
-                var date = startDate.AddMonths(i);
-                var yearMonthKey = (date.Year, date.Month);
-                if (!summary.ContainsKey(yearMonthKey))
+                DateTime monthStart = startDate.AddMonths(i);
+                if (!summary.ContainsKey(monthStart))
                 {
-                    summary[yearMonthKey] = (0, 0, 0); // Add missing months with zero values
+                    summary[monthStart] = (0, 0, 0); // Add missing months with zero values
                 }
             }
 
+            
+
             return summary;
         }
+
         public Dictionary<string, float> GetExpenseCategoriesLast7Days()
         {
             var expenses = new Dictionary<string, float>();

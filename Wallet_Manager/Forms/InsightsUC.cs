@@ -16,14 +16,19 @@ namespace Wallet_Manager.Forms
 {
     public partial class InsightsUC : UserControl
     {
+        private Dictionary<string, float> expensesLast7Days;
+        private Dictionary<string, float> expensesLastMonth;
+        private Dictionary<string, float> expensesLastYear;
+        dynamic financialDataWeek;
+        dynamic financialDataMonth;
+        dynamic financialDataYear;
+
         public InsightsUC()
         {
             InitializeComponent();
+            FetchAllFinancialData();
             PopulateComboBox();
-            PopulatePieChart();
-
-
-
+            
         }
 
         private void PopulateComboBox()
@@ -42,25 +47,34 @@ namespace Wallet_Manager.Forms
 
 
 
-
-        private void PopulateGunaBarDataSet()
+        private void FetchAllFinancialData()
         {
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
 
+            expensesLast7Days = dataAccessLayer.GetExpenseCategoriesLast7Days();
+            expensesLastMonth = dataAccessLayer.GetExpenseCategoriesLast30Days();
+            expensesLastYear = dataAccessLayer.GetExpenseCategoriesLastYear();
+            financialDataWeek = dataAccessLayer.CalculateFinancialSummaryForLast7Days();
+            financialDataMonth = dataAccessLayer.CalculateFinancialSummaryForLastMonth();
+            financialDataYear = dataAccessLayer.CalculateFinancialSummaryForLastYear();
+            MessageBox.Show( financialDataYear.Count.ToString());
+        }
+        private void PopulateGunaBarDataSet()
+        {
             string selectedPeriod = timeFrame.SelectedItem.ToString();
             dynamic financialData;
 
             switch (selectedPeriod)
             {
                 case "Last 7 Days":
-                    financialData = dataAccessLayer.CalculateFinancialSummaryForLast7Days();
+                    financialData = financialDataWeek;
                     break;
                 case "Last Month":
-                    financialData = dataAccessLayer.CalculateFinancialSummaryForLastMonth();
+                    financialData = financialDataMonth;
                     break;
                 case "Last Year":
-                    financialData = dataAccessLayer.CalculateFinancialSummaryForLastYear();
+                    financialData = financialDataYear;
                     break;
                 default:
                     financialData = new SortedDictionary<DateTime, (float, float, float)>();
@@ -73,60 +87,49 @@ namespace Wallet_Manager.Forms
 
             foreach (var entry in financialData)
             {
-                string label = "";
-                if (selectedPeriod == "Last 7 Days")
-                {
-                    label = entry.Key.ToString("MMMM d"); // "September 1"
-                }
-                else if (selectedPeriod == "Last Month")
-                {
-                    label = entry.Key.Day == 1 ? entry.Key.ToString("MMMM d") : entry.Key.Day.ToString(); // "September 1", "2", "3", ...
-                }
-                else if (selectedPeriod == "Last Year")
-                {
-                    // Ensure the entry.Key is a DateTime before calling ToString
-                    if (entry.Key is DateTime date)
-                    {
-                        label = date.ToString("MMM"); // "Jan", "Feb", "Mar", ...
-                    }
-                }
-
-                // Access tuple elements by Item1, Item2, Item3
+                string label = FormatLabel(entry.Key, selectedPeriod);
                 gunaBarDataset1.DataPoints.Add(label, entry.Value.Item1); // totalIncome
                 gunaBarDataset2.DataPoints.Add(label, entry.Value.Item2); // totalExpenses
                 gunaBarDataset3.DataPoints.Add(label, entry.Value.Item3); // totalSavings
             }
 
-            // Refresh the chart to update the display
             barChart1.Refresh();
         }
+
+        private string FormatLabel(DateTime date, string period)
+        {
+            if (period == "Last 7 Days")
+                return date.ToString("MMMM d");
+            else if (period == "Last Month")
+                return date.Day == 1 ? date.ToString("MMMM d") : date.Day.ToString();
+            else if (period == "Last Year")
+                return date.ToString("MMM");
+            return "";
+        }
+
+
 
 
         private void PopulatePieChart()
         {
-            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
-
             // Determine the selected time frame from the combo box
             string selectedPeriod = timeFrame.SelectedItem.ToString();
             Dictionary<string, float> expenses;
 
-            // Fetch data based on the selected time frame
-            if (selectedPeriod == "Last 7 Days")
+            switch (selectedPeriod)
             {
-                expenses = dataAccessLayer.GetExpenseCategoriesLast7Days();
-            }
-            else if (selectedPeriod == "Last Month")
-            {
-                expenses = dataAccessLayer.GetExpenseCategoriesLast30Days();
-            }
-            else if (selectedPeriod == "Last Year")
-            {
-                expenses = dataAccessLayer.GetExpenseCategoriesLastYear();
-            }
-            else
-            {
-                expenses = new Dictionary<string, float>(); // Default to empty if no valid selection
+                case "Last 7 Days":
+                    expenses = expensesLast7Days;
+                    break;
+                case "Last Month":
+                    expenses = expensesLastMonth;
+                    break;
+                case "Last Year":
+                    expenses = expensesLastYear;
+                    break;
+                default:
+                    expenses = new Dictionary<string, float>(); // Default to empty if no valid selection
+                    break;
             }
 
             // Clear existing data points
@@ -142,6 +145,7 @@ namespace Wallet_Manager.Forms
             // Refresh the chart to display the new data
             pieChart1.Refresh();
         }
+
 
 
 
@@ -165,6 +169,7 @@ namespace Wallet_Manager.Forms
         private void timeFrame_SelectedIndexChanged(object sender, EventArgs e)
         {
             PopulateGunaBarDataSet();
+            PopulatePieChart();
         }
 
         private void pieChart1_Load(object sender, EventArgs e)
