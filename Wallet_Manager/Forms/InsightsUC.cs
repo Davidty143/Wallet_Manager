@@ -23,6 +23,12 @@ namespace Wallet_Manager.Forms
         dynamic financialDataMonth;
         dynamic financialDataYear;
 
+        private SortedDictionary<DateTime, float> netWorth1MonthView;
+        private SortedDictionary<DateTime, float> netWorth1YearView;
+        private SortedDictionary<DateTime, float> netWorth7;
+
+
+
         public InsightsUC()
         {
             InitializeComponent();
@@ -58,6 +64,10 @@ namespace Wallet_Manager.Forms
             financialDataWeek = dataAccessLayer.CalculateFinancialSummaryForLast7Days();
             financialDataMonth = dataAccessLayer.CalculateFinancialSummaryForLastMonth();
             financialDataYear = dataAccessLayer.CalculateFinancialSummaryForLastYear();
+
+            netWorth1MonthView = dataAccessLayer.CalculateNetWorthOver30Days();
+            netWorth1YearView = dataAccessLayer.CalculateNetWorthOver12Months();
+            netWorth7 = dataAccessLayer.CalculateNetWorthOver7Days();
         }
         private void PopulateGunaBarDataSet()
         {
@@ -146,6 +156,43 @@ namespace Wallet_Manager.Forms
         }
 
 
+        public void PopulateSpLineChart()
+        {
+            // Determine the selected time frame from the combo box
+            string selectedPeriod = timeFrame.SelectedItem.ToString();
+            dynamic netWorth;
+
+            switch (selectedPeriod)
+            {
+                case "Last 7 Days":
+                    netWorth = netWorth7;
+                    break;
+                case "Last Month":
+                    netWorth = netWorth1MonthView;
+                    break;
+                case "Last Year":
+                    netWorth = netWorth1YearView;
+                    break;
+                default:
+                    netWorth = new Dictionary<string, float>(); // Default to empty if no valid selection
+                    break;
+            }
+
+
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
+            var netWorth7DaysView = dataAccessLayer.CalculateNetWorthOver7Days();
+            // Assuming splineAreaDataset1 is a chart component that supports adding data points.
+            splineAreaDataset1.DataPoints.Clear(); // Clear existing data points before adding new ones
+
+            foreach (var net in netWorth)
+            {
+                // Format the date as a string if necessary, depending on how the chart component expects it
+                string formattedDate = net.Key.ToString("yyyy-MM-dd"); // Format date as "Year-Month-Day"
+                splineAreaDataset1.DataPoints.Add(formattedDate, net.Value);
+            }
+        }
+
 
 
 
@@ -169,6 +216,7 @@ namespace Wallet_Manager.Forms
         {
               PopulateGunaBarDataSet();
               PopulatePieChart();
+            PopulateSpLineChart();
         }
 
         private void pieChart1_Load(object sender, EventArgs e)

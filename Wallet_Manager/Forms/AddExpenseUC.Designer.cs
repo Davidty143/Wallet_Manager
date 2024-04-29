@@ -219,7 +219,7 @@
             this.txtDate.BorderRadius = 5;
             this.txtDate.BorderThickness = 1;
             this.txtDate.Checked = true;
-            this.txtDate.FillColor = System.Drawing.Color.Transparent;
+            this.txtDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(160)))), ((int)(((byte)(248)))));
             this.txtDate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDate.ForeColor = System.Drawing.Color.White;
             this.txtDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;

@@ -425,5 +425,23 @@ private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboardParent = this.FindForm() as Dashboard;
+
+
+            if (dashboardParent.transactionForm == null || dashboardParent.transactionForm.IsDisposed)
+            {
+                dashboardParent.transactionForm = new AddTransaction();
+            }
+            dashboardParent.transactionForm.Show();
+            dashboardParent.transactionForm.BringToFront();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            LoadTransactions();
+        }
     }
 }

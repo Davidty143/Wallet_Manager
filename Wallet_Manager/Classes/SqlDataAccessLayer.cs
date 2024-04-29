@@ -1682,6 +1682,178 @@ namespace Wallet_Manager.Classes
             return summary;
         }
 
+        public SortedDictionary<DateTime, float> CalculateNetWorthOver7Days()
+        {
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SortedDictionary<DateTime, float> netWorthSummary = new SortedDictionary<DateTime, float>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = @"
+        SELECT 
+            TransactionDate,
+            SUM(TotalSavings) OVER (ORDER BY TransactionDate) AS CumulativeSavings,
+            SUM(TotalSpending) OVER (ORDER BY TransactionDate) AS CumulativeSpending
+        FROM (
+            SELECT 
+                DATE(Date) AS TransactionDate,
+                SUM(CASE WHEN TransactionType = 'Income' THEN Amount ELSE 0 END) AS TotalSavings,
+                SUM(CASE WHEN TransactionType = 'Expense' THEN Amount ELSE 0 END) AS TotalSpending
+            FROM Transaction
+            WHERE Date >= CURDATE() - INTERVAL 6 DAY
+            GROUP BY DATE(Date)
+        ) AS DailyTotals
+        ORDER BY TransactionDate ASC;
+        ";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            DateTime date = reader.GetDateTime("TransactionDate");
+                            float cumulativeSavings = reader.GetFloat("CumulativeSavings");
+                            float cumulativeSpending = reader.GetFloat("CumulativeSpending");
+
+                            float dailyNetWorth = cumulativeSavings - cumulativeSpending;
+                            netWorthSummary[date] = dailyNetWorth;
+                        }
+                    }
+                }
+            }
+
+            // Ensure all days in the last 7 days are included in the dictionary
+            for (int i = 6; i >= 0; i--)
+            {
+                DateTime date = DateTime.Today.AddDays(-i);
+                if (!netWorthSummary.ContainsKey(date))
+                {
+                    float previousNetWorth = i < 6 ? netWorthSummary[DateTime.Today.AddDays(-(i + 1))] : 0f;
+                    netWorthSummary[date] = previousNetWorth; // Add missing days with the last known net worth
+                }
+            }
+
+            return netWorthSummary;
+        }
+        public SortedDictionary<DateTime, float> CalculateNetWorthOver30Days()
+        {
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SortedDictionary<DateTime, float> netWorthSummary = new SortedDictionary<DateTime, float>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = @"
+        SELECT 
+            TransactionDate,
+            SUM(TotalSavings) OVER (ORDER BY TransactionDate) AS CumulativeSavings,
+            SUM(TotalSpending) OVER (ORDER BY TransactionDate) AS CumulativeSpending
+        FROM (
+            SELECT 
+                DATE(Date) AS TransactionDate,
+                SUM(CASE WHEN TransactionType = 'Income' THEN Amount ELSE 0 END) AS TotalSavings,
+                SUM(CASE WHEN TransactionType = 'Expense' THEN Amount ELSE 0 END) AS TotalSpending
+            FROM Transaction
+            WHERE Date >= CURDATE() - INTERVAL 29 DAY
+            GROUP BY DATE(Date)
+        ) AS DailyTotals
+        ORDER BY TransactionDate ASC;
+        ";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            DateTime date = reader.GetDateTime("TransactionDate");
+                            float cumulativeSavings = reader.GetFloat("CumulativeSavings");
+                            float cumulativeSpending = reader.GetFloat("CumulativeSpending");
+
+                            float dailyNetWorth = cumulativeSavings - cumulativeSpending;
+                            netWorthSummary[date] = dailyNetWorth;
+                        }
+                    }
+                }
+            }
+
+            // Ensure all days in the last 30 days are included in the dictionary
+            for (int i = 29; i >= 0; i--)
+            {
+                DateTime date = DateTime.Today.AddDays(-i);
+                if (!netWorthSummary.ContainsKey(date))
+                {
+                    float previousNetWorth = i < 29 ? netWorthSummary[DateTime.Today.AddDays(-(i + 1))] : 0f;
+                    netWorthSummary[date] = previousNetWorth; // Add missing days with the last known net worth
+                }
+            }
+
+            return netWorthSummary;
+        }
+
+        public SortedDictionary<DateTime, float> CalculateNetWorthOver12Months()
+        {
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SortedDictionary<DateTime, float> netWorthSummary = new SortedDictionary<DateTime, float>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = @"
+        SELECT 
+            FirstDayOfMonth,
+            SUM(TotalSavings) OVER (ORDER BY FirstDayOfMonth) AS CumulativeSavings,
+            SUM(TotalSpending) OVER (ORDER BY FirstDayOfMonth) AS CumulativeSpending
+        FROM (
+            SELECT 
+                DATE_FORMAT(Date, '%Y-%m-01') AS FirstDayOfMonth,
+                SUM(CASE WHEN TransactionType = 'Income' THEN Amount ELSE 0 END) AS TotalSavings,
+                SUM(CASE WHEN TransactionType = 'Expense' THEN Amount ELSE 0 END) AS TotalSpending
+            FROM Transaction
+            WHERE Date >= CURDATE() - INTERVAL 1 YEAR
+            GROUP BY FirstDayOfMonth
+        ) AS MonthlyTotals
+        ORDER BY FirstDayOfMonth ASC;
+        ";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            DateTime month = reader.GetDateTime("FirstDayOfMonth");
+                            float cumulativeSavings = reader.GetFloat("CumulativeSavings");
+                            float cumulativeSpending = reader.GetFloat("CumulativeSpending");
+
+                            float monthlyNetWorth = cumulativeSavings - cumulativeSpending;
+                            netWorthSummary[month] = monthlyNetWorth;
+                        }
+                    }
+                }
+            }
+
+            // Ensure all 12 months are included in the dictionary
+            DateTime startMonth = DateTime.Today.AddYears(-1).AddMonths(1);
+            startMonth = new DateTime(startMonth.Year, startMonth.Month, 1); // Normalize to the first day of the month
+            for (int i = 0; i < 12; i++)
+            {
+                DateTime month = startMonth.AddMonths(i);
+                if (!netWorthSummary.ContainsKey(month))
+                {
+                    float previousNetWorth = i > 0 ? netWorthSummary[month.AddMonths(-1)] : 0f;
+                    netWorthSummary[month] = previousNetWorth; // Add missing months with the last known net worth
+                }
+            }
+
+            return netWorthSummary;
+        }
+
+
+
+
 
 
 
