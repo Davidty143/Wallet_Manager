@@ -221,5 +221,10 @@ namespace Wallet_Manager.Forms
         {
 
         }
+
+        private void wallet_uc1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

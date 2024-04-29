@@ -286,6 +286,7 @@
             this.wallet_uc1.BackColor = System.Drawing.Color.WhiteSmoke;
             resources.ApplyResources(this.wallet_uc1, "wallet_uc1");
             this.wallet_uc1.Name = "wallet_uc1";
+            this.wallet_uc1.Load += new System.EventHandler(this.wallet_uc1_Load);
             // 
             // Dashboard
             // 
