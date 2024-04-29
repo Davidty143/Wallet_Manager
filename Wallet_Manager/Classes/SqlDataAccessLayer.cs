@@ -1304,12 +1304,12 @@ namespace Wallet_Manager.Classes
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             Dictionary<DateTime, float> dailyExpenses = new Dictionary<DateTime, float>();
 
-            // Calculate the start date as 7 days from today
-            DateTime startDate = DateTime.Today.AddDays(-7);
-            DateTime endDate = DateTime.Today; // End date is today
+            // Use the budget's start date and today's date as the end date, ensuring it does not exceed the budget's end date
+            DateTime startDate = budget.StartDate;
+            DateTime endDate = DateTime.Today > budget.EndDate ? budget.EndDate : DateTime.Today;
 
-            // Initialize all dates within the last 7 days with 0 expenses
-            for (DateTime date = endDate; date >= startDate; date = date.AddDays(-1))
+            // Initialize all dates within the budget's date range with 0 expenses
+            for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
             {
                 dailyExpenses[date] = 0;
             }
@@ -1326,13 +1326,13 @@ namespace Wallet_Manager.Classes
 
                 // Construct the SQL query to fetch expenses that match the budget's categories and date range
                 string query = $@"
-                SELECT Date, IFNULL(SUM(Amount), 0) AS TotalAmount
-                FROM Transaction
-                WHERE TransactionType = 'Expense' 
-                    AND Date BETWEEN @StartDate AND @EndDate
-                    AND CategoryID IN ({string.Join(",", budget.CategoryIds)})
-                GROUP BY Date
-                ORDER BY Date ASC"; // Ensure data is sorted in ascending order by date
+        SELECT Date, IFNULL(SUM(Amount), 0) AS TotalAmount
+        FROM Transaction
+        WHERE TransactionType = 'Expense' 
+            AND Date BETWEEN @StartDate AND @EndDate
+            AND CategoryID IN ({string.Join(",", budget.CategoryIds)})
+        GROUP BY Date
+        ORDER BY Date ASC"; // Ensure data is sorted in ascending order by date
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
@@ -1357,6 +1357,7 @@ namespace Wallet_Manager.Classes
 
             return dailyExpenses;
         }
+
 
 
 

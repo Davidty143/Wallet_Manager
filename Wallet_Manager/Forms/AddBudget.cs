@@ -147,21 +147,28 @@ namespace Wallet_Manager.Forms
             switch (budget.PeriodType)
             {
                 case "Daily":
-                    budget.StartDate = DateTime.Today; // Start of the day
-                    budget.EndDate = DateTime.Today.AddDays(1).AddTicks(-1); // End of the day
+                    budget.StartDate = DateTime.Today; // Start of the day at 00:00
+                    budget.EndDate = DateTime.Today.AddDays(1).AddTicks(-1); // End of the day at 23:59:59.9999999
                     break;
+
                 case "Weekly":
-                    budget.StartDate = DateTime.Today;
-                    budget.EndDate = DateTime.Today.AddDays(7).AddTicks(-1);
+                    budget.StartDate = DateTime.Today; // Start of the week at 00:00
+                    budget.EndDate = DateTime.Today.AddDays(7).AddTicks(-1); // End of the week at 23:59:59.9999999
                     break;
+
                 case "Monthly":
-                    budget.StartDate = DateTime.Today;
-                    budget.EndDate = DateTime.Today.AddMonths(1).AddTicks(-1);
+                    budget.StartDate = DateTime.Today; // Start of the month at 00:00
+                    budget.EndDate = DateTime.Today.AddMonths(1).AddTicks(-1); // End of the month at 23:59:59.9999999
                     break;
+
                 case "Custom":
-                    budget.StartDate = txtStartDate.Value;
-                    budget.EndDate = txtEndDate.Value;
+                    // Set the start date to the beginning of the selected day
+                    budget.StartDate = txtStartDate.Value.Date;
+
+                    // Set the end date to the end of the selected day
+                    budget.EndDate = txtEndDate.Value.Date.AddHours(23).AddMinutes(59);
                     break;
+
             }
 
             // Determine if the budget is currently active
