@@ -50,7 +50,7 @@
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.guna2AnimateWindow2 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.budget1_uc1 = new Wallet_Manager.Forms.Budget1_uc();
+            this.dashboardUC1 = new Wallet_Manager.Forms.DashboardUC();
             this.display_panel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
@@ -63,7 +63,7 @@
             // display_panel
             // 
             this.display_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.display_panel.Controls.Add(this.budget1_uc1);
+            this.display_panel.Controls.Add(this.dashboardUC1);
             this.display_panel.Controls.Add(this.panel1);
             this.display_panel.Controls.Add(this.panel4);
             this.display_panel.Controls.Add(this.panel3);
@@ -281,12 +281,12 @@
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
-            // budget1_uc1
+            // dashboardUC1
             // 
-            this.budget1_uc1.BackColor = System.Drawing.Color.WhiteSmoke;
-            resources.ApplyResources(this.budget1_uc1, "budget1_uc1");
-            this.budget1_uc1.Name = "budget1_uc1";
-            this.budget1_uc1.Load += new System.EventHandler(this.budget1_uc1_Load);
+            this.dashboardUC1.BackColor = System.Drawing.Color.WhiteSmoke;
+            resources.ApplyResources(this.dashboardUC1, "dashboardUC1");
+            this.dashboardUC1.Name = "dashboardUC1";
+            this.dashboardUC1.Load += new System.EventHandler(this.dashboardUC1_Load);
             // 
             // Dashboard
             // 
@@ -330,6 +330,6 @@
         private System.Windows.Forms.Label displayName;
         private System.Windows.Forms.Label editProfile;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
-        private Budget1_uc budget1_uc1;
+        private DashboardUC dashboardUC1;
     }
 }

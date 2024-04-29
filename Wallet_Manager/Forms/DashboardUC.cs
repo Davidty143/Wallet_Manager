@@ -219,8 +219,7 @@ namespace Wallet_Manager.Forms
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            AddWallet addWallet = new AddWallet();
-            addWallet.ShowDialog();
+            
         }
 
         private void label13_Click(object sender, EventArgs e)
@@ -277,6 +276,17 @@ namespace Wallet_Manager.Forms
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            AddWallet addWallet = new AddWallet();
+            addWallet.ShowDialog();
+        }
+
+        private void descriptionLabel3_Click(object sender, EventArgs e)
         {
 
         }

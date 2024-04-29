@@ -216,5 +216,10 @@ namespace Wallet_Manager.Forms
         {
 
         }
+
+        private void dashboardUC1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
