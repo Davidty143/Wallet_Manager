@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.Charts.WinForms.ChartFont chartFont1 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont2 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont3 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont4 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid1 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick1 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont5 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid2 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick2 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont6 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid3 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel1 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont7 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick3 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont8 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont9 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont10 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont11 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont12 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid4 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick4 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont13 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid5 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick5 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont14 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid6 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel2 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont15 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick6 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont16 = new Guna.Charts.WinForms.ChartFont();
             this.label24 = new System.Windows.Forms.Label();
             this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
             this.label23 = new System.Windows.Forms.Label();
@@ -81,15 +81,6 @@
             this.gunaBarDataset2 = new Guna.Charts.WinForms.GunaBarDataset();
             this.gunaBarDataset3 = new Guna.Charts.WinForms.GunaBarDataset();
             this.guna2CustomGradientPanel4 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.recentTransactionPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.iconPictureBox3 = new System.Windows.Forms.PictureBox();
-            this.dateLabel3 = new System.Windows.Forms.Label();
-            this.amountLabel3 = new System.Windows.Forms.Label();
-            this.walletLabel3 = new System.Windows.Forms.Label();
-            this.transactionTypeLabel3 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.descriptionLabel3 = new System.Windows.Forms.Label();
-            this.categoryLabel3 = new System.Windows.Forms.Label();
             this.recentTransactionPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.iconPictureBox2 = new System.Windows.Forms.PictureBox();
             this.dateLabel2 = new System.Windows.Forms.Label();
@@ -114,18 +105,27 @@
             this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
             this.label22 = new System.Windows.Forms.Label();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.categoryLabel3 = new System.Windows.Forms.Label();
+            this.descriptionLabel3 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.transactionTypeLabel3 = new System.Windows.Forms.Label();
+            this.walletLabel3 = new System.Windows.Forms.Label();
+            this.amountLabel3 = new System.Windows.Forms.Label();
+            this.dateLabel3 = new System.Windows.Forms.Label();
+            this.iconPictureBox3 = new System.Windows.Forms.PictureBox();
+            this.recentTransactionPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.guna2CustomGradientPanel3.SuspendLayout();
             this.guna2CustomGradientPanel4.SuspendLayout();
-            this.recentTransactionPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
             this.recentTransactionPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             this.recentTransactionPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
+            this.recentTransactionPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label24
@@ -595,38 +595,38 @@
             this.gunaBarDataset2,
             this.gunaBarDataset3});
             this.barChart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            chartFont1.FontName = "Arial";
-            this.barChart1.Legend.LabelFont = chartFont1;
+            chartFont9.FontName = "Arial";
+            this.barChart1.Legend.LabelFont = chartFont9;
             this.barChart1.Location = new System.Drawing.Point(0, 0);
             this.barChart1.Name = "barChart1";
             this.barChart1.Size = new System.Drawing.Size(547, 293);
             this.barChart1.TabIndex = 0;
-            chartFont2.FontName = "Arial";
-            chartFont2.Size = 12;
-            chartFont2.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.barChart1.Title.Font = chartFont2;
-            chartFont3.FontName = "Arial";
-            this.barChart1.Tooltips.BodyFont = chartFont3;
-            chartFont4.FontName = "Arial";
-            chartFont4.Size = 9;
-            chartFont4.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.barChart1.Tooltips.TitleFont = chartFont4;
-            this.barChart1.XAxes.GridLines = grid1;
-            chartFont5.FontName = "Arial";
-            tick1.Font = chartFont5;
-            this.barChart1.XAxes.Ticks = tick1;
-            grid2.LineWidth = 0;
-            this.barChart1.YAxes.GridLines = grid2;
-            chartFont6.FontName = "Arial";
-            tick2.Font = chartFont6;
-            this.barChart1.YAxes.Ticks = tick2;
-            this.barChart1.ZAxes.GridLines = grid3;
-            chartFont7.FontName = "Arial";
-            pointLabel1.Font = chartFont7;
-            this.barChart1.ZAxes.PointLabels = pointLabel1;
-            chartFont8.FontName = "Arial";
-            tick3.Font = chartFont8;
-            this.barChart1.ZAxes.Ticks = tick3;
+            chartFont10.FontName = "Arial";
+            chartFont10.Size = 12;
+            chartFont10.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.barChart1.Title.Font = chartFont10;
+            chartFont11.FontName = "Arial";
+            this.barChart1.Tooltips.BodyFont = chartFont11;
+            chartFont12.FontName = "Arial";
+            chartFont12.Size = 9;
+            chartFont12.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.barChart1.Tooltips.TitleFont = chartFont12;
+            this.barChart1.XAxes.GridLines = grid4;
+            chartFont13.FontName = "Arial";
+            tick4.Font = chartFont13;
+            this.barChart1.XAxes.Ticks = tick4;
+            grid5.LineWidth = 0;
+            this.barChart1.YAxes.GridLines = grid5;
+            chartFont14.FontName = "Arial";
+            tick5.Font = chartFont14;
+            this.barChart1.YAxes.Ticks = tick5;
+            this.barChart1.ZAxes.GridLines = grid6;
+            chartFont15.FontName = "Arial";
+            pointLabel2.Font = chartFont15;
+            this.barChart1.ZAxes.PointLabels = pointLabel2;
+            chartFont16.FontName = "Arial";
+            tick6.Font = chartFont16;
+            this.barChart1.ZAxes.Ticks = tick6;
             this.barChart1.Load += new System.EventHandler(this.gunaChart1_Load);
             // 
             // gunaBarDataset1
@@ -683,128 +683,6 @@
             this.guna2CustomGradientPanel4.Name = "guna2CustomGradientPanel4";
             this.guna2CustomGradientPanel4.Size = new System.Drawing.Size(547, 407);
             this.guna2CustomGradientPanel4.TabIndex = 331;
-            // 
-            // recentTransactionPanel3
-            // 
-            this.recentTransactionPanel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.recentTransactionPanel3.BorderRadius = 5;
-            this.recentTransactionPanel3.BorderThickness = 1;
-            this.recentTransactionPanel3.Controls.Add(this.iconPictureBox3);
-            this.recentTransactionPanel3.Controls.Add(this.dateLabel3);
-            this.recentTransactionPanel3.Controls.Add(this.amountLabel3);
-            this.recentTransactionPanel3.Controls.Add(this.walletLabel3);
-            this.recentTransactionPanel3.Controls.Add(this.transactionTypeLabel3);
-            this.recentTransactionPanel3.Controls.Add(this.label42);
-            this.recentTransactionPanel3.Controls.Add(this.descriptionLabel3);
-            this.recentTransactionPanel3.Controls.Add(this.categoryLabel3);
-            this.recentTransactionPanel3.Location = new System.Drawing.Point(29, 273);
-            this.recentTransactionPanel3.Name = "recentTransactionPanel3";
-            this.recentTransactionPanel3.Size = new System.Drawing.Size(485, 109);
-            this.recentTransactionPanel3.TabIndex = 336;
-            // 
-            // iconPictureBox3
-            // 
-            this.iconPictureBox3.BackColor = System.Drawing.Color.White;
-            this.iconPictureBox3.Image = global::Wallet_Manager.Properties.Resources._33;
-            this.iconPictureBox3.Location = new System.Drawing.Point(73, 35);
-            this.iconPictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.iconPictureBox3.Name = "iconPictureBox3";
-            this.iconPictureBox3.Size = new System.Drawing.Size(50, 50);
-            this.iconPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconPictureBox3.TabIndex = 285;
-            this.iconPictureBox3.TabStop = false;
-            // 
-            // dateLabel3
-            // 
-            this.dateLabel3.AutoSize = true;
-            this.dateLabel3.BackColor = System.Drawing.Color.White;
-            this.dateLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dateLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLabel3.ForeColor = System.Drawing.Color.Gray;
-            this.dateLabel3.Location = new System.Drawing.Point(396, 80);
-            this.dateLabel3.Name = "dateLabel3";
-            this.dateLabel3.Size = new System.Drawing.Size(44, 17);
-            this.dateLabel3.TabIndex = 299;
-            this.dateLabel3.Text = "Today";
-            // 
-            // amountLabel3
-            // 
-            this.amountLabel3.AutoSize = true;
-            this.amountLabel3.BackColor = System.Drawing.Color.White;
-            this.amountLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.amountLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amountLabel3.ForeColor = System.Drawing.Color.Red;
-            this.amountLabel3.Location = new System.Drawing.Point(306, 35);
-            this.amountLabel3.Name = "amountLabel3";
-            this.amountLabel3.Size = new System.Drawing.Size(129, 38);
-            this.amountLabel3.TabIndex = 296;
-            this.amountLabel3.Text = "₱ 20,000";
-            // 
-            // walletLabel3
-            // 
-            this.walletLabel3.AutoSize = true;
-            this.walletLabel3.BackColor = System.Drawing.Color.White;
-            this.walletLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.walletLabel3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.walletLabel3.ForeColor = System.Drawing.Color.Gray;
-            this.walletLabel3.Location = new System.Drawing.Point(302, 6);
-            this.walletLabel3.Name = "walletLabel3";
-            this.walletLabel3.Size = new System.Drawing.Size(133, 20);
-            this.walletLabel3.TabIndex = 295;
-            this.walletLabel3.Text = "Wallet 1 - Savings";
-            // 
-            // transactionTypeLabel3
-            // 
-            this.transactionTypeLabel3.AutoSize = true;
-            this.transactionTypeLabel3.BackColor = System.Drawing.Color.White;
-            this.transactionTypeLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.transactionTypeLabel3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.transactionTypeLabel3.ForeColor = System.Drawing.Color.Gray;
-            this.transactionTypeLabel3.Location = new System.Drawing.Point(23, 6);
-            this.transactionTypeLabel3.Name = "transactionTypeLabel3";
-            this.transactionTypeLabel3.Size = new System.Drawing.Size(66, 20);
-            this.transactionTypeLabel3.TabIndex = 294;
-            this.transactionTypeLabel3.Text = "Expense";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.BackColor = System.Drawing.Color.White;
-            this.label42.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label42.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label42.Location = new System.Drawing.Point(1220, 28);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(53, 20);
-            this.label42.TabIndex = 293;
-            this.label42.Text = "Delete";
-            // 
-            // descriptionLabel3
-            // 
-            this.descriptionLabel3.AutoSize = true;
-            this.descriptionLabel3.BackColor = System.Drawing.Color.White;
-            this.descriptionLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.descriptionLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLabel3.ForeColor = System.Drawing.Color.Black;
-            this.descriptionLabel3.Location = new System.Drawing.Point(129, 29);
-            this.descriptionLabel3.Name = "descriptionLabel3";
-            this.descriptionLabel3.Size = new System.Drawing.Size(111, 31);
-            this.descriptionLabel3.TabIndex = 286;
-            this.descriptionLabel3.Text = "Breakfast";
-            this.descriptionLabel3.Click += new System.EventHandler(this.descriptionLabel3_Click);
-            // 
-            // categoryLabel3
-            // 
-            this.categoryLabel3.AutoSize = true;
-            this.categoryLabel3.BackColor = System.Drawing.Color.White;
-            this.categoryLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.categoryLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoryLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.categoryLabel3.Location = new System.Drawing.Point(131, 60);
-            this.categoryLabel3.Name = "categoryLabel3";
-            this.categoryLabel3.Size = new System.Drawing.Size(44, 20);
-            this.categoryLabel3.TabIndex = 287;
-            this.categoryLabel3.Text = "Food";
             // 
             // recentTransactionPanel2
             // 
@@ -1145,6 +1023,128 @@
             this.guna2Button2.TabIndex = 334;
             this.guna2Button2.Text = "See More";
             // 
+            // categoryLabel3
+            // 
+            this.categoryLabel3.AutoSize = true;
+            this.categoryLabel3.BackColor = System.Drawing.Color.White;
+            this.categoryLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.categoryLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.categoryLabel3.Location = new System.Drawing.Point(131, 60);
+            this.categoryLabel3.Name = "categoryLabel3";
+            this.categoryLabel3.Size = new System.Drawing.Size(44, 20);
+            this.categoryLabel3.TabIndex = 287;
+            this.categoryLabel3.Text = "Food";
+            // 
+            // descriptionLabel3
+            // 
+            this.descriptionLabel3.AutoSize = true;
+            this.descriptionLabel3.BackColor = System.Drawing.Color.White;
+            this.descriptionLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.descriptionLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionLabel3.ForeColor = System.Drawing.Color.Black;
+            this.descriptionLabel3.Location = new System.Drawing.Point(129, 29);
+            this.descriptionLabel3.Name = "descriptionLabel3";
+            this.descriptionLabel3.Size = new System.Drawing.Size(111, 31);
+            this.descriptionLabel3.TabIndex = 286;
+            this.descriptionLabel3.Text = "Breakfast";
+            this.descriptionLabel3.Click += new System.EventHandler(this.descriptionLabel3_Click);
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.BackColor = System.Drawing.Color.White;
+            this.label42.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label42.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.label42.Location = new System.Drawing.Point(1220, 28);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(53, 20);
+            this.label42.TabIndex = 293;
+            this.label42.Text = "Delete";
+            // 
+            // transactionTypeLabel3
+            // 
+            this.transactionTypeLabel3.AutoSize = true;
+            this.transactionTypeLabel3.BackColor = System.Drawing.Color.White;
+            this.transactionTypeLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.transactionTypeLabel3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transactionTypeLabel3.ForeColor = System.Drawing.Color.Gray;
+            this.transactionTypeLabel3.Location = new System.Drawing.Point(23, 6);
+            this.transactionTypeLabel3.Name = "transactionTypeLabel3";
+            this.transactionTypeLabel3.Size = new System.Drawing.Size(66, 20);
+            this.transactionTypeLabel3.TabIndex = 294;
+            this.transactionTypeLabel3.Text = "Expense";
+            // 
+            // walletLabel3
+            // 
+            this.walletLabel3.AutoSize = true;
+            this.walletLabel3.BackColor = System.Drawing.Color.White;
+            this.walletLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.walletLabel3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.walletLabel3.ForeColor = System.Drawing.Color.Gray;
+            this.walletLabel3.Location = new System.Drawing.Point(302, 6);
+            this.walletLabel3.Name = "walletLabel3";
+            this.walletLabel3.Size = new System.Drawing.Size(133, 20);
+            this.walletLabel3.TabIndex = 295;
+            this.walletLabel3.Text = "Wallet 1 - Savings";
+            // 
+            // amountLabel3
+            // 
+            this.amountLabel3.AutoSize = true;
+            this.amountLabel3.BackColor = System.Drawing.Color.White;
+            this.amountLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.amountLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amountLabel3.ForeColor = System.Drawing.Color.Red;
+            this.amountLabel3.Location = new System.Drawing.Point(306, 35);
+            this.amountLabel3.Name = "amountLabel3";
+            this.amountLabel3.Size = new System.Drawing.Size(129, 38);
+            this.amountLabel3.TabIndex = 296;
+            this.amountLabel3.Text = "₱ 20,000";
+            // 
+            // dateLabel3
+            // 
+            this.dateLabel3.AutoSize = true;
+            this.dateLabel3.BackColor = System.Drawing.Color.White;
+            this.dateLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dateLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel3.ForeColor = System.Drawing.Color.Gray;
+            this.dateLabel3.Location = new System.Drawing.Point(396, 80);
+            this.dateLabel3.Name = "dateLabel3";
+            this.dateLabel3.Size = new System.Drawing.Size(44, 17);
+            this.dateLabel3.TabIndex = 299;
+            this.dateLabel3.Text = "Today";
+            // 
+            // iconPictureBox3
+            // 
+            this.iconPictureBox3.BackColor = System.Drawing.Color.White;
+            this.iconPictureBox3.Image = global::Wallet_Manager.Properties.Resources._33;
+            this.iconPictureBox3.Location = new System.Drawing.Point(73, 35);
+            this.iconPictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iconPictureBox3.Name = "iconPictureBox3";
+            this.iconPictureBox3.Size = new System.Drawing.Size(50, 50);
+            this.iconPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox3.TabIndex = 285;
+            this.iconPictureBox3.TabStop = false;
+            // 
+            // recentTransactionPanel3
+            // 
+            this.recentTransactionPanel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.recentTransactionPanel3.BorderRadius = 5;
+            this.recentTransactionPanel3.BorderThickness = 1;
+            this.recentTransactionPanel3.Controls.Add(this.iconPictureBox3);
+            this.recentTransactionPanel3.Controls.Add(this.dateLabel3);
+            this.recentTransactionPanel3.Controls.Add(this.amountLabel3);
+            this.recentTransactionPanel3.Controls.Add(this.walletLabel3);
+            this.recentTransactionPanel3.Controls.Add(this.transactionTypeLabel3);
+            this.recentTransactionPanel3.Controls.Add(this.label42);
+            this.recentTransactionPanel3.Controls.Add(this.descriptionLabel3);
+            this.recentTransactionPanel3.Controls.Add(this.categoryLabel3);
+            this.recentTransactionPanel3.Location = new System.Drawing.Point(29, 273);
+            this.recentTransactionPanel3.Name = "recentTransactionPanel3";
+            this.recentTransactionPanel3.Size = new System.Drawing.Size(485, 109);
+            this.recentTransactionPanel3.TabIndex = 336;
+            // 
             // DashboardUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1191,9 +1191,6 @@
             this.guna2CustomGradientPanel2.PerformLayout();
             this.guna2CustomGradientPanel3.ResumeLayout(false);
             this.guna2CustomGradientPanel4.ResumeLayout(false);
-            this.recentTransactionPanel3.ResumeLayout(false);
-            this.recentTransactionPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
             this.recentTransactionPanel2.ResumeLayout(false);
             this.recentTransactionPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
@@ -1202,6 +1199,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
+            this.recentTransactionPanel3.ResumeLayout(false);
+            this.recentTransactionPanel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1246,15 +1246,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2Button guna2Button9;
-        private Guna.UI2.WinForms.Guna2CustomGradientPanel recentTransactionPanel3;
-        private System.Windows.Forms.PictureBox iconPictureBox3;
-        private System.Windows.Forms.Label dateLabel3;
-        private System.Windows.Forms.Label amountLabel3;
-        private System.Windows.Forms.Label walletLabel3;
-        private System.Windows.Forms.Label transactionTypeLabel3;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label descriptionLabel3;
-        private System.Windows.Forms.Label categoryLabel3;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel recentTransactionPanel2;
         private System.Windows.Forms.PictureBox iconPictureBox2;
         private System.Windows.Forms.Label dateLabel2;
@@ -1279,5 +1270,14 @@
         private Guna.Charts.WinForms.GunaBarDataset gunaBarDataset1;
         private Guna.Charts.WinForms.GunaBarDataset gunaBarDataset2;
         private Guna.Charts.WinForms.GunaBarDataset gunaBarDataset3;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel recentTransactionPanel3;
+        private System.Windows.Forms.PictureBox iconPictureBox3;
+        private System.Windows.Forms.Label dateLabel3;
+        private System.Windows.Forms.Label amountLabel3;
+        private System.Windows.Forms.Label walletLabel3;
+        private System.Windows.Forms.Label transactionTypeLabel3;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label descriptionLabel3;
+        private System.Windows.Forms.Label categoryLabel3;
     }
 }

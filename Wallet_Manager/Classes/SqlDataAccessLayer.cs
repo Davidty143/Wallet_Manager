@@ -1628,7 +1628,7 @@ namespace Wallet_Manager.Classes
         }
 
 
-        public SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> GetTransactionSummaryFor7DaysByWalletId(int walletId)
+        public SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> CalculateWalletFinancialSummaryForLast7Days(int walletId)
         {
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> summary = new SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)>();
@@ -1645,7 +1645,7 @@ namespace Wallet_Manager.Classes
                      SUM(CASE WHEN TransactionType = 'Income' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END) -
                      SUM(CASE WHEN TransactionType = 'Expense' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END)) AS TotalSavings
         FROM Transaction
-        WHERE WalletId = @WalletId
+        WHERE WalletId = @WalletId AND Date >= CURDATE() - INTERVAL 6 DAY
         GROUP BY DATE(Date)
         ORDER BY DATE(Date) ASC;
         ";
@@ -1659,9 +1659,9 @@ namespace Wallet_Manager.Classes
                         while (reader.Read())
                         {
                             DateTime date = reader.GetDateTime("TransactionDate");
-                            float totalIncome = reader.GetFloat("TotalIncome");
-                            float totalExpenses = reader.GetFloat("TotalExpenses");
-                            float totalSavings = reader.GetFloat("TotalSavings");
+                            float totalIncome = reader.IsDBNull(reader.GetOrdinal("TotalIncome")) ? 0 : reader.GetFloat("TotalIncome");
+                            float totalExpenses = reader.IsDBNull(reader.GetOrdinal("TotalExpenses")) ? 0 : reader.GetFloat("TotalExpenses");
+                            float totalSavings = reader.IsDBNull(reader.GetOrdinal("TotalSavings")) ? 0 : reader.GetFloat("TotalSavings");
 
                             summary[date] = (totalSavings, totalExpenses, totalIncome);
                         }
@@ -1669,8 +1669,19 @@ namespace Wallet_Manager.Classes
                 }
             }
 
+            // Ensure all days in the last 7 days are included in the dictionary
+            for (int i = 6; i >= 0; i--)
+            {
+                DateTime date = DateTime.Today.AddDays(-i);
+                if (!summary.ContainsKey(date))
+                {
+                    summary[date] = (0, 0, 0); // Add missing days with zero values
+                }
+            }
+
             return summary;
         }
+
 
 
 
