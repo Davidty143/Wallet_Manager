@@ -48,7 +48,6 @@ namespace Wallet_Manager.Forms
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
 
-            // Assuming comboBoxPeriod is your ComboBox control with options like "Last 7 Days", "Last Month", "Last Year"
             string selectedPeriod = timeFrame.SelectedItem.ToString();
             dynamic financialData;
 
@@ -85,7 +84,11 @@ namespace Wallet_Manager.Forms
                 }
                 else if (selectedPeriod == "Last Year")
                 {
-                    label = entry.Key.ToString("MMM"); // "Jan", "Feb", "Mar", ...
+                    // Ensure the entry.Key is a DateTime before calling ToString
+                    if (entry.Key is DateTime date)
+                    {
+                        label = date.ToString("MMM"); // "Jan", "Feb", "Mar", ...
+                    }
                 }
 
                 // Access tuple elements by Item1, Item2, Item3
@@ -98,33 +101,47 @@ namespace Wallet_Manager.Forms
             barChart1.Refresh();
         }
 
+
         private void PopulatePieChart()
         {
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
-            // Fetch the data
-            Dictionary<string, float> expenses = dataAccessLayer.GetExpenseCategoriesLast7Days();
 
-            // Clear existing series and add new one
-            pieChart2.Series.Clear();
-            Series series = new Series("Expenses")
-            {
-                ChartType = SeriesChartType.Pie
-            };
-            pieChart2.Series.Add(series);
+            // Determine the selected time frame from the combo box
+            string selectedPeriod = timeFrame.SelectedItem.ToString();
+            Dictionary<string, float> expenses;
 
-            // Populate the series with data
-            foreach (var expense in expenses)
+            // Fetch data based on the selected time frame
+            if (selectedPeriod == "Last 7 Days")
             {
-                pieChart2.Series["Expenses"].Points.AddXY(expense.Key, expense.Value);
+                expenses = dataAccessLayer.GetExpenseCategoriesLast7Days();
+            }
+            else if (selectedPeriod == "Last Month")
+            {
+                expenses = dataAccessLayer.GetExpenseCategoriesLast30Days();
+            }
+            else if (selectedPeriod == "Last Year")
+            {
+                expenses = dataAccessLayer.GetExpenseCategoriesLastYear();
+            }
+            else
+            {
+                expenses = new Dictionary<string, float>(); // Default to empty if no valid selection
             }
 
-            // Optional: Configure the chart appearance
-            pieChart2.Series["Expenses"]["PieLabelStyle"] = "Inside";
-            pieChart2.Series["Expenses"].Label = "#PERCENT{P1} - #VALX";
+            // Clear existing data points
+            gunaPieDataset1.DataPoints.Clear();
+
+            // Populate the pie chart with the fetched data
+            foreach (var expense in expenses)
+            {
+                gunaPieDataset1.Label = "Spent";
+                gunaPieDataset1.DataPoints.Add(expense.Key, expense.Value);
+            }
+
+            // Refresh the chart to display the new data
+            pieChart1.Refresh();
         }
-
-
 
 
 
@@ -148,6 +165,11 @@ namespace Wallet_Manager.Forms
         private void timeFrame_SelectedIndexChanged(object sender, EventArgs e)
         {
             PopulateGunaBarDataSet();
+        }
+
+        private void pieChart1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

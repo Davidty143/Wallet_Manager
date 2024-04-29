@@ -59,6 +59,14 @@
             Guna.Charts.WinForms.ChartFont chartFont15 = new Guna.Charts.WinForms.ChartFont();
             Guna.Charts.WinForms.Tick tick6 = new Guna.Charts.WinForms.Tick();
             Guna.Charts.WinForms.ChartFont chartFont16 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.LPoint lPoint2 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint3 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint4 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint5 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint6 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint7 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint8 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint9 = new Guna.Charts.WinForms.LPoint();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -69,8 +77,8 @@
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pieChart1 = new Guna.Charts.WinForms.GunaChart();
-            this.timeFrame = new Guna.UI2.WinForms.Guna2ComboBox();
             this.gunaPieDataset1 = new Guna.Charts.WinForms.GunaPieDataset();
+            this.timeFrame = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pieChart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2CustomGradientPanel1.SuspendLayout();
@@ -190,6 +198,33 @@
             this.pieChart1.Legend.LabelFont = chartFont9;
             this.pieChart1.Location = new System.Drawing.Point(0, 0);
             this.pieChart1.Name = "pieChart1";
+            this.pieChart1.PaletteCustomColors.FillColors.AddRange(new System.Drawing.Color[] {
+            System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(67)))), ((int)(((byte)(159))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(76)))), ((int)(((byte)(204))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(91)))), ((int)(((byte)(207))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(123)))), ((int)(((byte)(189))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(154)))), ((int)(((byte)(209))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(127)))), ((int)(((byte)(205))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(68)))), ((int)(((byte)(162))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(118)))), ((int)(((byte)(255)))))});
+            this.pieChart1.PaletteCustomColors.PointBorderColors.AddRange(new System.Drawing.Color[] {
+            System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(67)))), ((int)(((byte)(159))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(76)))), ((int)(((byte)(204))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(91)))), ((int)(((byte)(207))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(123)))), ((int)(((byte)(189))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(154)))), ((int)(((byte)(209))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(127)))), ((int)(((byte)(205))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(68)))), ((int)(((byte)(162))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(118)))), ((int)(((byte)(255)))))});
+            this.pieChart1.PaletteCustomColors.PointFillColors.AddRange(new System.Drawing.Color[] {
+            System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(67)))), ((int)(((byte)(159))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(76)))), ((int)(((byte)(204))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(91)))), ((int)(((byte)(207))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(123)))), ((int)(((byte)(189))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(154)))), ((int)(((byte)(209))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(127)))), ((int)(((byte)(205))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(68)))), ((int)(((byte)(162))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(118)))), ((int)(((byte)(255)))))});
             this.pieChart1.Size = new System.Drawing.Size(752, 423);
             this.pieChart1.TabIndex = 0;
             chartFont10.FontName = "Arial";
@@ -202,6 +237,7 @@
             chartFont12.Size = 9;
             chartFont12.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
             this.pieChart1.Tooltips.TitleFont = chartFont12;
+            this.pieChart1.XAxes.Display = false;
             this.pieChart1.XAxes.GridLines = grid4;
             chartFont13.FontName = "Arial";
             tick4.Font = chartFont13;
@@ -218,6 +254,40 @@
             chartFont16.FontName = "Arial";
             tick6.Font = chartFont16;
             this.pieChart1.ZAxes.Ticks = tick6;
+            this.pieChart1.Load += new System.EventHandler(this.pieChart1_Load);
+            // 
+            // gunaPieDataset1
+            // 
+            lPoint2.Y = 0D;
+            lPoint3.Y = 0D;
+            lPoint4.Y = 0D;
+            lPoint5.Y = 0D;
+            lPoint6.Y = 0D;
+            lPoint7.Y = 0D;
+            lPoint8.Y = 0D;
+            lPoint9.Y = 0D;
+            this.gunaPieDataset1.DataPoints.AddRange(new Guna.Charts.WinForms.LPoint[] {
+            lPoint2,
+            lPoint3,
+            lPoint4,
+            lPoint5,
+            lPoint6,
+            lPoint7,
+            lPoint8,
+            lPoint9});
+            this.gunaPieDataset1.FillColors.AddRange(new System.Drawing.Color[] {
+            System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(201)))), ((int)(((byte)(255))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(255)))), ((int)(((byte)(214))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(118)))), ((int)(((byte)(255))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192))))),
+            System.Drawing.Color.MediumAquamarine,
+            System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(154)))), ((int)(((byte)(209)))))});
+            this.gunaPieDataset1.Label = "Food";
+            this.gunaPieDataset1.LegendBoxFillColor = System.Drawing.Color.White;
+            this.gunaPieDataset1.TargetChart = this.pieChart1;
             // 
             // timeFrame
             // 
@@ -234,11 +304,6 @@
             this.timeFrame.Size = new System.Drawing.Size(140, 36);
             this.timeFrame.TabIndex = 4;
             this.timeFrame.SelectedIndexChanged += new System.EventHandler(this.timeFrame_SelectedIndexChanged);
-            // 
-            // gunaPieDataset1
-            // 
-            this.gunaPieDataset1.Label = "Pie1";
-            this.gunaPieDataset1.TargetChart = this.pieChart1;
             // 
             // guna2CustomGradientPanel3
             // 
