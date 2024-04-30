@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Utilities.IO.Pem;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,9 +19,27 @@ namespace Wallet_Manager.Forms
         public AddWallet()
         {
             InitializeComponent();
+            PopulateWalletTypes();
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             _businessLogic = new BusinessLogic(new SqlDataAccessLayer(_connectionString));
         }
+
+        private void PopulateWalletTypes()
+        {
+            List<string> walletTypes = new List<string>
+            {
+                "Pocket Wallet",
+                "E-Wallet",
+                "Bank Wallet",
+                "Crypto Wallet",
+                "Travel Wallet"
+            };
+
+            txtType.DataSource = walletTypes;
+        }
+
+
+
 
         private void t_spending_TextChanged(object sender, EventArgs e)
         {
@@ -112,6 +131,16 @@ namespace Wallet_Manager.Forms
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2CustomGradientPanel1_Paint_1(object sender, PaintEventArgs e)
         {
 
         }

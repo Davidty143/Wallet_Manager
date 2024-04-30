@@ -195,10 +195,9 @@ namespace Wallet_Manager.Forms
 
             // Calculate the new location to align the label with the center of the profile picture
             int verticalCenter = profilePicture.Top + (profilePicture.Height / 2) - (displayName.Height / 2);
-            displayName.Location = new Point(profilePicture.Left - displayName.Width - 10, verticalCenter);
 
-            // Position the editProfile label directly below the displayName label
-            editProfile.Location = new Point(displayName.Left, displayName.Bottom + 4); // 5 pixels space between labels
+
+            displayName.Location = new Point(profilePicture.Left - displayName.Width - 10, verticalCenter);
         }
 
 
@@ -292,6 +291,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void dashboardUC1_Load_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void displayName_Click(object sender, EventArgs e)
         {
 
         }

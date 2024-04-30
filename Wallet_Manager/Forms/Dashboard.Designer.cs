@@ -43,7 +43,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.editProfile = new System.Windows.Forms.Label();
             this.displayName = new System.Windows.Forms.Label();
             this.profilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.pageLabel = new System.Windows.Forms.Label();
@@ -248,7 +247,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.editProfile);
             this.panel1.Controls.Add(this.displayName);
             this.panel1.Controls.Add(this.profilePicture);
             this.panel1.Controls.Add(this.pageLabel);
@@ -256,21 +254,13 @@
             this.panel1.Name = "panel1";
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // editProfile
-            // 
-            this.editProfile.AutoEllipsis = true;
-            resources.ApplyResources(this.editProfile, "editProfile");
-            this.editProfile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.editProfile.ForeColor = System.Drawing.Color.Black;
-            this.editProfile.Name = "editProfile";
-            this.editProfile.Click += new System.EventHandler(this.editProfile_Click);
-            // 
             // displayName
             // 
             this.displayName.AutoEllipsis = true;
             resources.ApplyResources(this.displayName, "displayName");
             this.displayName.ForeColor = System.Drawing.Color.Black;
             this.displayName.Name = "displayName";
+            this.displayName.Click += new System.EventHandler(this.displayName_Click);
             // 
             // profilePicture
             // 
@@ -369,7 +359,6 @@
         #endregion
         private System.Windows.Forms.Panel display_panel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label editProfile;
         private System.Windows.Forms.Label displayName;
         private Guna.UI2.WinForms.Guna2CirclePictureBox profilePicture;
         private System.Windows.Forms.Label pageLabel;

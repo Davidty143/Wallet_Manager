@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Crypto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 using Wallet_Manager.Classes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Wallet_Manager.Forms
 {
@@ -91,8 +94,34 @@ namespace Wallet_Manager.Forms
             }
         }
 
+        private bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            // Use standard email regex pattern
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
+
+            return regex.IsMatch(email);
+        }
+
+
+
+
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtFirstName.Text) || string.IsNullOrEmpty(txtLastName.Text))
+            {
+                MessageBox.Show("First and Last Name cannot be empty. Please enter valid names.");
+                return; // Stop further execution if validation fails
+            }
+
+            if (!IsValidEmail(txtEmail.Text))
+            {
+                MessageBox.Show("Please enter a valid email address.");
+                return; // Stop further execution if validation fails
+            }
             try
             {
                 string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
