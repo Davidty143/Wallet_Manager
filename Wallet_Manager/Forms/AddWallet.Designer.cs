@@ -174,7 +174,7 @@
             this.guna2CustomGradientPanel2.Controls.Add(this.pictureBox1);
             this.guna2CustomGradientPanel2.Controls.Add(this.pictureBox3);
             this.guna2CustomGradientPanel2.Controls.Add(this.label4);
-            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(26, 83);
+            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(29, 98);
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(570, 281);
             this.guna2CustomGradientPanel2.TabIndex = 141;
@@ -208,7 +208,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(20, 30);
+            this.label5.Location = new System.Drawing.Point(23, 45);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(128, 31);

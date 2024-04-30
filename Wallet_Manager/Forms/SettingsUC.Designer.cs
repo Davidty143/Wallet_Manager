@@ -48,7 +48,7 @@
             this.editProfileLabel.ForeColor = System.Drawing.Color.Black;
             this.editProfileLabel.Location = new System.Drawing.Point(42, 112);
             this.editProfileLabel.Name = "editProfileLabel";
-            this.editProfileLabel.Size = new System.Drawing.Size(191, 45);
+            this.editProfileLabel.Size = new System.Drawing.Size(238, 43);
             this.editProfileLabel.TabIndex = 2;
             this.editProfileLabel.Text = "Edit Profile";
             this.editProfileLabel.Click += new System.EventHandler(this.guna2Button1_Click);
@@ -65,7 +65,7 @@
             this.changePassLabel.ForeColor = System.Drawing.Color.Black;
             this.changePassLabel.Location = new System.Drawing.Point(26, 186);
             this.changePassLabel.Name = "changePassLabel";
-            this.changePassLabel.Size = new System.Drawing.Size(293, 45);
+            this.changePassLabel.Size = new System.Drawing.Size(254, 43);
             this.changePassLabel.TabIndex = 3;
             this.changePassLabel.Text = "Change Password";
             this.changePassLabel.Click += new System.EventHandler(this.guna2Button2_Click);

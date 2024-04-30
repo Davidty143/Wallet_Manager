@@ -95,6 +95,9 @@
             this.splineAreaChart1 = new Guna.Charts.WinForms.GunaChart();
             this.splineAreaDataset1 = new Guna.Charts.WinForms.GunaSplineAreaDataset();
             this.selecWalletComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.guna2CustomGradientPanel3.SuspendLayout();
@@ -107,12 +110,11 @@
             this.gunaBarDataset3,
             this.gunaBarDataset2,
             this.gunaBarDataset1});
-            this.barChart1.Dock = System.Windows.Forms.DockStyle.Fill;
             chartFont1.FontName = "Arial";
             this.barChart1.Legend.LabelFont = chartFont1;
-            this.barChart1.Location = new System.Drawing.Point(0, 0);
+            this.barChart1.Location = new System.Drawing.Point(3, 3);
             this.barChart1.Name = "barChart1";
-            this.barChart1.Size = new System.Drawing.Size(1424, 358);
+            this.barChart1.Size = new System.Drawing.Size(955, 580);
             this.barChart1.TabIndex = 0;
             chartFont2.FontName = "Arial";
             chartFont2.Size = 12;
@@ -128,6 +130,7 @@
             chartFont5.FontName = "Arial";
             tick1.Font = chartFont5;
             this.barChart1.XAxes.Ticks = tick1;
+            grid2.LineWidth = 0;
             this.barChart1.YAxes.GridLines = grid2;
             chartFont6.FontName = "Arial";
             tick2.Font = chartFont6;
@@ -143,6 +146,7 @@
             // 
             // gunaBarDataset3
             // 
+            this.gunaBarDataset3.CornerRadius = 5;
             this.gunaBarDataset3.FillColors.AddRange(new System.Drawing.Color[] {
             System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255))))),
             System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255))))),
@@ -157,6 +161,7 @@
             // 
             // gunaBarDataset2
             // 
+            this.gunaBarDataset2.CornerRadius = 5;
             this.gunaBarDataset2.FillColors.AddRange(new System.Drawing.Color[] {
             System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(91)))), ((int)(((byte)(206))))),
             System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(91)))), ((int)(((byte)(206))))),
@@ -171,6 +176,7 @@
             // 
             // gunaBarDataset1
             // 
+            this.gunaBarDataset1.CornerRadius = 5;
             lPoint1.Y = 0D;
             this.gunaBarDataset1.DataPoints.AddRange(new Guna.Charts.WinForms.LPoint[] {
             lPoint1});
@@ -187,29 +193,35 @@
             // 
             // guna2CustomGradientPanel1
             // 
+            this.guna2CustomGradientPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2CustomGradientPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2CustomGradientPanel1.BorderRadius = 5;
+            this.guna2CustomGradientPanel1.BorderThickness = 1;
             this.guna2CustomGradientPanel1.Controls.Add(this.barChart1);
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(42, 65);
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(366, 117);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1424, 358);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(961, 586);
             this.guna2CustomGradientPanel1.TabIndex = 1;
+            this.guna2CustomGradientPanel1.Visible = false;
             // 
             // guna2CustomGradientPanel2
             // 
+            this.guna2CustomGradientPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2CustomGradientPanel2.BorderRadius = 5;
+            this.guna2CustomGradientPanel2.BorderThickness = 1;
             this.guna2CustomGradientPanel2.Controls.Add(this.pieChart1);
-            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(793, 480);
+            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(366, 117);
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
-            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(673, 377);
+            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(961, 586);
             this.guna2CustomGradientPanel2.TabIndex = 3;
             // 
             // pieChart1
             // 
             this.pieChart1.Datasets.AddRange(new Guna.Charts.Interfaces.IGunaDataset[] {
             this.gunaPieDataset1});
-            this.pieChart1.Dock = System.Windows.Forms.DockStyle.Fill;
             chartFont9.FontName = "Arial";
             this.pieChart1.Legend.LabelFont = chartFont9;
-            this.pieChart1.Location = new System.Drawing.Point(0, 0);
+            this.pieChart1.Location = new System.Drawing.Point(138, 3);
             this.pieChart1.Name = "pieChart1";
             this.pieChart1.PaletteCustomColors.FillColors.AddRange(new System.Drawing.Color[] {
             System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(67)))), ((int)(((byte)(159))))),
@@ -238,7 +250,7 @@
             System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(127)))), ((int)(((byte)(205))))),
             System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(68)))), ((int)(((byte)(162))))),
             System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(118)))), ((int)(((byte)(255)))))});
-            this.pieChart1.Size = new System.Drawing.Size(673, 377);
+            this.pieChart1.Size = new System.Drawing.Size(820, 580);
             this.pieChart1.TabIndex = 0;
             chartFont10.FontName = "Arial";
             chartFont10.Size = 12;
@@ -305,37 +317,49 @@
             // timeFrameComboBox
             // 
             this.timeFrameComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.timeFrameComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.timeFrameComboBox.BorderRadius = 5;
             this.timeFrameComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.timeFrameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.timeFrameComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.timeFrameComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.timeFrameComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.timeFrameComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.timeFrameComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.timeFrameComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.timeFrameComboBox.ItemHeight = 30;
-            this.timeFrameComboBox.Location = new System.Drawing.Point(558, 13);
+            this.timeFrameComboBox.Location = new System.Drawing.Point(1084, 46);
             this.timeFrameComboBox.Name = "timeFrameComboBox";
-            this.timeFrameComboBox.Size = new System.Drawing.Size(140, 36);
+            this.timeFrameComboBox.Size = new System.Drawing.Size(198, 36);
             this.timeFrameComboBox.TabIndex = 4;
             this.timeFrameComboBox.SelectedIndexChanged += new System.EventHandler(this.timeFrame_SelectedIndexChanged);
             // 
             // guna2CustomGradientPanel3
             // 
+            this.guna2CustomGradientPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2CustomGradientPanel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2CustomGradientPanel3.BorderRadius = 5;
+            this.guna2CustomGradientPanel3.BorderThickness = 1;
             this.guna2CustomGradientPanel3.Controls.Add(this.splineAreaChart1);
-            this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(42, 480);
+            this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(108, 46);
             this.guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
-            this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(699, 377);
+            this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(204, 222);
             this.guna2CustomGradientPanel3.TabIndex = 5;
+            this.guna2CustomGradientPanel3.Visible = false;
             // 
             // splineAreaChart1
             // 
             this.splineAreaChart1.Datasets.AddRange(new Guna.Charts.Interfaces.IGunaDataset[] {
             this.splineAreaDataset1});
-            this.splineAreaChart1.Dock = System.Windows.Forms.DockStyle.Fill;
             chartFont17.FontName = "Arial";
             this.splineAreaChart1.Legend.LabelFont = chartFont17;
-            this.splineAreaChart1.Location = new System.Drawing.Point(0, 0);
+            this.splineAreaChart1.Location = new System.Drawing.Point(3, 3);
             this.splineAreaChart1.Name = "splineAreaChart1";
-            this.splineAreaChart1.Size = new System.Drawing.Size(699, 377);
+            this.splineAreaChart1.PaletteCustomColors.BorderColors.AddRange(new System.Drawing.Color[] {
+            System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))))});
+            this.splineAreaChart1.PaletteCustomColors.FillColors.AddRange(new System.Drawing.Color[] {
+            System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255))))),
+            System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))))});
+            this.splineAreaChart1.Size = new System.Drawing.Size(955, 580);
             this.splineAreaChart1.TabIndex = 0;
             chartFont18.FontName = "Arial";
             chartFont18.Size = 12;
@@ -347,10 +371,12 @@
             chartFont20.Size = 9;
             chartFont20.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
             this.splineAreaChart1.Tooltips.TitleFont = chartFont20;
+            grid7.LineWidth = 0;
             this.splineAreaChart1.XAxes.GridLines = grid7;
             chartFont21.FontName = "Arial";
             tick7.Font = chartFont21;
             this.splineAreaChart1.XAxes.Ticks = tick7;
+            grid8.LineWidth = 0;
             this.splineAreaChart1.YAxes.GridLines = grid8;
             chartFont22.FontName = "Arial";
             tick8.Font = chartFont22;
@@ -367,30 +393,72 @@
             // 
             this.splineAreaDataset1.BorderColor = System.Drawing.Color.Empty;
             this.splineAreaDataset1.FillColor = System.Drawing.Color.Empty;
-            this.splineAreaDataset1.Label = "SplineArea1";
+            this.splineAreaDataset1.Label = "NetWorth";
             this.splineAreaDataset1.TargetChart = this.splineAreaChart1;
             // 
             // selecWalletComboBox
             // 
             this.selecWalletComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.selecWalletComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.selecWalletComboBox.BorderRadius = 5;
             this.selecWalletComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.selecWalletComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.selecWalletComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.selecWalletComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.selecWalletComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.selecWalletComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.selecWalletComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.selecWalletComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.selecWalletComboBox.ItemHeight = 30;
-            this.selecWalletComboBox.Location = new System.Drawing.Point(334, 13);
+            this.selecWalletComboBox.Location = new System.Drawing.Point(830, 46);
             this.selecWalletComboBox.Name = "selecWalletComboBox";
-            this.selecWalletComboBox.Size = new System.Drawing.Size(140, 36);
+            this.selecWalletComboBox.Size = new System.Drawing.Size(198, 36);
             this.selecWalletComboBox.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(52, 117);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(209, 31);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Financial Overview";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Gray;
+            this.label2.Location = new System.Drawing.Point(52, 175);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(243, 31);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Spending Distribution";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Gray;
+            this.label3.Location = new System.Drawing.Point(52, 231);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(124, 31);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Net Worth";
             // 
             // InsightsUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.selecWalletComboBox);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.guna2CustomGradientPanel3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.selecWalletComboBox);
             this.Controls.Add(this.timeFrameComboBox);
             this.Controls.Add(this.guna2CustomGradientPanel2);
             this.Controls.Add(this.guna2CustomGradientPanel1);
@@ -401,6 +469,7 @@
             this.guna2CustomGradientPanel2.ResumeLayout(false);
             this.guna2CustomGradientPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -418,5 +487,8 @@
         private Guna.Charts.WinForms.GunaSplineAreaDataset splineAreaDataset1;
         private Guna.Charts.WinForms.GunaChart splineAreaChart1;
         private Guna.UI2.WinForms.Guna2ComboBox selecWalletComboBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
