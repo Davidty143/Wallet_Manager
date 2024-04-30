@@ -44,7 +44,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.DimGray;
@@ -108,7 +108,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DimGray;
@@ -122,7 +122,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DimGray;
@@ -162,7 +162,6 @@
             // 
             this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button2.BorderRadius = 5;
-            this.guna2Button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -181,7 +180,6 @@
             // 
             this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button1.BorderRadius = 5;
-            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -202,7 +200,6 @@
             this.guna2Button3.BorderColor = System.Drawing.Color.Silver;
             this.guna2Button3.BorderRadius = 5;
             this.guna2Button3.BorderThickness = 2;
-            this.guna2Button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -218,7 +215,6 @@
             // 
             // profilePicture
             // 
-            this.profilePicture.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.profilePicture.Image = global::Wallet_Manager.Properties.Resources.pfile;
             this.profilePicture.ImageRotate = 0F;
             this.profilePicture.Location = new System.Drawing.Point(118, 38);

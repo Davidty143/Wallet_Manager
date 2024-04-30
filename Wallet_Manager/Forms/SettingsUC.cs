@@ -21,5 +21,19 @@ namespace Wallet_Manager.Forms
         {
 
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            editProfile1.BringToFront();
+            editProfileLabel.Font = new Font(editProfileLabel.Font, FontStyle.Bold);
+            changePassLabel.Font = new Font(changePassLabel.Font, FontStyle.Regular);
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            editPassword1.BringToFront();
+            editProfileLabel.Font = new Font(editProfileLabel.Font, FontStyle.Regular);
+            changePassLabel.Font = new Font(changePassLabel.Font, FontStyle.Bold);
+        }
     }
 }

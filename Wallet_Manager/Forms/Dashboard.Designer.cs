@@ -30,18 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            this.display_panel = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.editProfile = new System.Windows.Forms.Label();
-            this.displayName = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.guna2AnimateWindow2 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.editProfile = new System.Windows.Forms.Label();
+            this.displayName = new System.Windows.Forms.Label();
+            this.pageLabel = new System.Windows.Forms.Label();
+            this.display_panel = new System.Windows.Forms.Panel();
             this.profilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.button_signout = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.button_profile = new Guna.UI2.WinForms.Guna2Button();
             this.button_budget = new Guna.UI2.WinForms.Guna2Button();
             this.button_analytics = new Guna.UI2.WinForms.Guna2Button();
             this.button_transaction = new Guna.UI2.WinForms.Guna2Button();
@@ -49,27 +51,48 @@
             this.button_dashboard = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.button_profile = new Guna.UI2.WinForms.Guna2Button();
-            this.display_panel.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.settingsUC1 = new Wallet_Manager.Forms.SettingsUC();
+            this.insightsUC1 = new Wallet_Manager.Forms.InsightsUC();
+            this.budget1_uc1 = new Wallet_Manager.Forms.Budget1_uc();
+            this.wallet_uc1 = new Wallet_Manager.Forms.Wallet_uc();
+            this.transactionHistory1 = new Wallet_Manager.Forms.TransactionHistory();
+            this.dashboardUC1 = new Wallet_Manager.Forms.DashboardUC();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.display_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // display_panel
+            // guna2BorderlessForm1
             // 
-            this.display_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.display_panel.Controls.Add(this.panel1);
-            this.display_panel.Controls.Add(this.panel4);
-            this.display_panel.Controls.Add(this.panel3);
-            resources.ApplyResources(this.display_panel, "display_panel");
-            this.display_panel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.display_panel.Name = "display_panel";
-            this.display_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.display_panel_Paint);
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
+            this.panel3.Controls.Add(this.guna2Button1);
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.Name = "panel3";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.button_signout);
+            this.panel4.Controls.Add(this.button_profile);
+            this.panel4.Controls.Add(this.button_budget);
+            this.panel4.Controls.Add(this.button_analytics);
+            this.panel4.Controls.Add(this.button_transaction);
+            this.panel4.Controls.Add(this.button_wallet);
+            this.panel4.Controls.Add(this.button_dashboard);
+            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Controls.Add(this.pictureBox2);
+            resources.ApplyResources(this.panel4, "panel4");
+            this.panel4.Name = "panel4";
             // 
             // panel1
             // 
@@ -77,7 +100,7 @@
             this.panel1.Controls.Add(this.editProfile);
             this.panel1.Controls.Add(this.displayName);
             this.panel1.Controls.Add(this.profilePicture);
-            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.pageLabel);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -98,39 +121,29 @@
             this.displayName.ForeColor = System.Drawing.Color.Black;
             this.displayName.Name = "displayName";
             // 
-            // label10
+            // pageLabel
             // 
-            resources.ApplyResources(this.label10, "label10");
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label10.Name = "label10";
+            resources.ApplyResources(this.pageLabel, "pageLabel");
+            this.pageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.pageLabel.Name = "pageLabel";
+            this.pageLabel.Click += new System.EventHandler(this.pageLabel_Click);
             // 
-            // panel4
+            // display_panel
             // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.button_signout);
-            this.panel4.Controls.Add(this.button_profile);
-            this.panel4.Controls.Add(this.button_budget);
-            this.panel4.Controls.Add(this.button_analytics);
-            this.panel4.Controls.Add(this.button_transaction);
-            this.panel4.Controls.Add(this.button_wallet);
-            this.panel4.Controls.Add(this.button_dashboard);
-            this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Controls.Add(this.pictureBox2);
-            resources.ApplyResources(this.panel4, "panel4");
-            this.panel4.Name = "panel4";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
-            this.panel3.Controls.Add(this.guna2Button1);
-            resources.ApplyResources(this.panel3, "panel3");
-            this.panel3.Name = "panel3";
-            // 
-            // guna2BorderlessForm1
-            // 
-            this.guna2BorderlessForm1.ContainerControl = this;
-            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            this.display_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.display_panel.Controls.Add(this.dashboardUC1);
+            this.display_panel.Controls.Add(this.transactionHistory1);
+            this.display_panel.Controls.Add(this.wallet_uc1);
+            this.display_panel.Controls.Add(this.budget1_uc1);
+            this.display_panel.Controls.Add(this.insightsUC1);
+            this.display_panel.Controls.Add(this.settingsUC1);
+            this.display_panel.Controls.Add(this.panel1);
+            this.display_panel.Controls.Add(this.panel4);
+            this.display_panel.Controls.Add(this.panel3);
+            resources.ApplyResources(this.display_panel, "display_panel");
+            this.display_panel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.display_panel.Name = "display_panel";
+            this.display_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.display_panel_Paint);
             // 
             // profilePicture
             // 
@@ -157,6 +170,39 @@
             this.button_signout.ImageSize = new System.Drawing.Size(35, 35);
             this.button_signout.Name = "button_signout";
             this.button_signout.PressedColor = System.Drawing.Color.White;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            resources.ApplyResources(this.guna2Button1, "guna2Button1");
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.ImageSize = new System.Drawing.Size(15, 15);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // button_profile
+            // 
+            this.button_profile.BorderRadius = 5;
+            this.button_profile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_profile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_profile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.button_profile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.button_profile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.button_profile.FillColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.button_profile, "button_profile");
+            this.button_profile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.button_profile.Image = ((System.Drawing.Image)(resources.GetObject("button_profile.Image")));
+            this.button_profile.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.button_profile.ImageOffset = new System.Drawing.Point(20, 0);
+            this.button_profile.ImageSize = new System.Drawing.Size(35, 35);
+            this.button_profile.Name = "button_profile";
+            this.button_profile.PressedColor = System.Drawing.Color.White;
+            this.button_profile.Click += new System.EventHandler(this.button_profile_Click);
             // 
             // button_budget
             // 
@@ -266,38 +312,41 @@
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabStop = false;
             // 
-            // guna2Button1
+            // settingsUC1
             // 
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            resources.ApplyResources(this.guna2Button1, "guna2Button1");
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.ImageSize = new System.Drawing.Size(15, 15);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.settingsUC1.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.settingsUC1, "settingsUC1");
+            this.settingsUC1.Name = "settingsUC1";
             // 
-            // button_profile
+            // insightsUC1
             // 
-            this.button_profile.BorderRadius = 5;
-            this.button_profile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_profile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.button_profile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.button_profile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.button_profile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.button_profile.FillColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.button_profile, "button_profile");
-            this.button_profile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.button_profile.Image = ((System.Drawing.Image)(resources.GetObject("button_profile.Image")));
-            this.button_profile.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.button_profile.ImageOffset = new System.Drawing.Point(20, 0);
-            this.button_profile.ImageSize = new System.Drawing.Size(35, 35);
-            this.button_profile.Name = "button_profile";
-            this.button_profile.PressedColor = System.Drawing.Color.White;
-            this.button_profile.Click += new System.EventHandler(this.button_profile_Click);
+            resources.ApplyResources(this.insightsUC1, "insightsUC1");
+            this.insightsUC1.Name = "insightsUC1";
+            // 
+            // budget1_uc1
+            // 
+            this.budget1_uc1.BackColor = System.Drawing.Color.WhiteSmoke;
+            resources.ApplyResources(this.budget1_uc1, "budget1_uc1");
+            this.budget1_uc1.Name = "budget1_uc1";
+            // 
+            // wallet_uc1
+            // 
+            this.wallet_uc1.BackColor = System.Drawing.Color.WhiteSmoke;
+            resources.ApplyResources(this.wallet_uc1, "wallet_uc1");
+            this.wallet_uc1.Name = "wallet_uc1";
+            // 
+            // transactionHistory1
+            // 
+            this.transactionHistory1.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.transactionHistory1, "transactionHistory1");
+            this.transactionHistory1.Name = "transactionHistory1";
+            // 
+            // dashboardUC1
+            // 
+            this.dashboardUC1.BackColor = System.Drawing.Color.WhiteSmoke;
+            resources.ApplyResources(this.dashboardUC1, "dashboardUC1");
+            this.dashboardUC1.Name = "dashboardUC1";
+            this.dashboardUC1.Load += new System.EventHandler(this.dashboardUC1_Load_2);
             // 
             // Dashboard
             // 
@@ -308,11 +357,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.display_panel.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            this.display_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -321,26 +370,32 @@
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
+        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow2;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private System.Windows.Forms.Panel display_panel;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label editProfile;
+        private System.Windows.Forms.Label displayName;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox profilePicture;
+        private System.Windows.Forms.Label pageLabel;
+        private System.Windows.Forms.Panel panel4;
+        private Guna.UI2.WinForms.Guna2Button button_signout;
+        private Guna.UI2.WinForms.Guna2Button button_profile;
         private Guna.UI2.WinForms.Guna2Button button_budget;
         private Guna.UI2.WinForms.Guna2Button button_analytics;
         private Guna.UI2.WinForms.Guna2Button button_transaction;
         private Guna.UI2.WinForms.Guna2Button button_wallet;
         private Guna.UI2.WinForms.Guna2Button button_dashboard;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel3;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
-        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow2;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox profilePicture;
-        private System.Windows.Forms.Label displayName;
-        private System.Windows.Forms.Label editProfile;
-        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
-        private Guna.UI2.WinForms.Guna2Button button_signout;
-        private Guna.UI2.WinForms.Guna2Button button_profile;
+        private Wallet_uc wallet_uc1;
+        private Budget1_uc budget1_uc1;
+        private InsightsUC insightsUC1;
+        private SettingsUC settingsUC1;
+        private DashboardUC dashboardUC1;
+        private TransactionHistory transactionHistory1;
     }
 }

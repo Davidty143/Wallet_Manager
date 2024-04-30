@@ -14,6 +14,8 @@ namespace Wallet_Manager.Forms
 {
     public partial class Dashboard : Form
     {
+        private Timer animationTimer;
+        private UserControl activeControl;
         public AddTransaction transactionForm = null;
         public Dashboard()
         {
@@ -51,21 +53,30 @@ namespace Wallet_Manager.Forms
         private void button_wallet_Click(object sender, EventArgs e)
         {
             UpdateButtonStyles(button_wallet);
+            pageLabel.Text = "Wallet";
+            wallet_uc1.BringToFront();
         }
 
         private void button_transaction_Click(object sender, EventArgs e)
         {
             UpdateButtonStyles(button_transaction);
+            pageLabel.Text = "Transaction";
+            transactionHistory1.BringToFront();
+
         }
 
         private void button_insights_Click(object sender, EventArgs e)
         {
             UpdateButtonStyles(button_analytics);
+            pageLabel.Text = "Analytics";
+            insightsUC1.BringToFront();
         }
 
         private void button_budget_Click(object sender, EventArgs e)
         {
             UpdateButtonStyles(button_budget);
+            pageLabel.Text = "Budget";
+            budget1_uc1.BringToFront();
         }
 
         private void button_goals_Click(object sender, EventArgs e)
@@ -76,6 +87,8 @@ namespace Wallet_Manager.Forms
         private void button_dashboard_Click(object sender, EventArgs e)
         {
             UpdateButtonStyles(button_dashboard);
+            pageLabel.Text = "Dashboard";
+            dashboardUC1.BringToFront();
 
         }
         private void UpdateButtonStyles(Guna.UI2.WinForms.Guna2Button activeButton)
@@ -230,6 +243,23 @@ namespace Wallet_Manager.Forms
         private void button_profile_Click(object sender, EventArgs e)
         {
             UpdateButtonStyles(button_profile);
+            pageLabel.Text = "Profile";
+            settingsUC1.BringToFront();
+        }
+
+        private void pageLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dashboardUC1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dashboardUC1_Load_2(object sender, EventArgs e)
+        {
+
         }
     }
 }

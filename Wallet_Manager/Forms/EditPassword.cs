@@ -72,6 +72,33 @@ namespace Wallet_Manager.Forms
                 MessageBox.Show("Failed to update password.");
             }
         }
+
+        private void currPass_TextChanged(object sender, EventArgs e)
+        {
+            currPass.PasswordChar = '*';
+        }
+
+        private void newPass_TextChanged(object sender, EventArgs e)
+        {
+            newPass.PasswordChar = '*';
+        }
+
+        private void confirmPass_TextChanged(object sender, EventArgs e)
+        {
+            confirmPass.PasswordChar = '*';
+        }
+
+        private void showPassCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            newPass.PasswordChar = showPassCheckBox.Checked ? '\0' : '*';
+            confirmPass.PasswordChar = showPassCheckBox.Checked ? '\0' : '*';
+        }
+
+        private void showPassCheckBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            currPass.PasswordChar = showPassCheckBox2.Checked ? '\0' : '*';
+        }
     }
 
 }

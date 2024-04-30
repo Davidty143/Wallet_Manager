@@ -213,6 +213,18 @@
       <DependentUpon>DashboardUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DisplayEnum.cs" />
+    <Compile Include="Forms\EditPassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\EditPassword.Designer.cs">
+      <DependentUpon>EditPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\EditProfile.Designer.cs">
+      <DependentUpon>EditProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +260,12 @@
     </Compile>
     <Compile Include="Forms\SearchFilter.Designer.cs">
       <DependentUpon>SearchFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsUC.Designer.cs">
+      <DependentUpon>SettingsUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Signup.cs">
       <SubType>Form</SubType>
@@ -324,6 +342,12 @@
     <EmbeddedResource Include="Forms\DashboardUC.resx">
       <DependentUpon>DashboardUC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditPassword.resx">
+      <DependentUpon>EditPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditProfile.resx">
+      <DependentUpon>EditProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditTransaction.resx">
       <DependentUpon>EditTransaction.cs</DependentUpon>
     </EmbeddedResource>
@@ -341,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SearchFilter.resx">
       <DependentUpon>SearchFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsUC.resx">
+      <DependentUpon>SettingsUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
