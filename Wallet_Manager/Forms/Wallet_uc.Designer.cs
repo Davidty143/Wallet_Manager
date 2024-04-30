@@ -111,9 +111,9 @@
             // label8
             // 
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label8.Location = new System.Drawing.Point(857, 408);
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(857, 421);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(448, 42);
             this.label8.TabIndex = 118;
@@ -138,7 +138,7 @@
             this.guna2CustomGradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(70)))), ((int)(((byte)(194)))));
             this.guna2CustomGradientPanel2.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(160)))), ((int)(((byte)(248)))));
             this.guna2CustomGradientPanel2.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(70)))), ((int)(((byte)(194)))));
-            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(62, 73);
+            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(62, 90);
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(1385, 297);
             this.guna2CustomGradientPanel2.TabIndex = 143;
@@ -287,7 +287,7 @@
             this.selectWalletComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.selectWalletComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.selectWalletComboBox.ItemHeight = 30;
-            this.selectWalletComboBox.Location = new System.Drawing.Point(271, 22);
+            this.selectWalletComboBox.Location = new System.Drawing.Point(271, 30);
             this.selectWalletComboBox.Name = "selectWalletComboBox";
             this.selectWalletComboBox.Size = new System.Drawing.Size(184, 36);
             this.selectWalletComboBox.TabIndex = 309;
@@ -297,11 +297,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label9.Location = new System.Drawing.Point(55, 20);
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(55, 30);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(187, 38);
+            this.label9.Size = new System.Drawing.Size(180, 38);
             this.label9.TabIndex = 310;
             this.label9.Text = "Select Wallet";
             // 
@@ -313,9 +313,9 @@
             this.guna2CustomGradientPanel4.Controls.Add(this.recentTransactionPanel1);
             this.guna2CustomGradientPanel4.Controls.Add(this.recentTransactionPanel3);
             this.guna2CustomGradientPanel4.Controls.Add(this.recentTransactionPanel2);
-            this.guna2CustomGradientPanel4.Location = new System.Drawing.Point(864, 464);
+            this.guna2CustomGradientPanel4.Location = new System.Drawing.Point(864, 478);
             this.guna2CustomGradientPanel4.Name = "guna2CustomGradientPanel4";
-            this.guna2CustomGradientPanel4.Size = new System.Drawing.Size(583, 397);
+            this.guna2CustomGradientPanel4.Size = new System.Drawing.Size(583, 383);
             this.guna2CustomGradientPanel4.TabIndex = 312;
             // 
             // recentTransactionPanel1
@@ -331,7 +331,7 @@
             this.recentTransactionPanel1.Controls.Add(this.label42);
             this.recentTransactionPanel1.Controls.Add(this.descriptionLabel1);
             this.recentTransactionPanel1.Controls.Add(this.categoryLabel1);
-            this.recentTransactionPanel1.Location = new System.Drawing.Point(22, 145);
+            this.recentTransactionPanel1.Location = new System.Drawing.Point(22, 140);
             this.recentTransactionPanel1.Name = "recentTransactionPanel1";
             this.recentTransactionPanel1.Size = new System.Drawing.Size(537, 100);
             this.recentTransactionPanel1.TabIndex = 305;
@@ -452,7 +452,7 @@
             this.recentTransactionPanel3.Controls.Add(this.label14);
             this.recentTransactionPanel3.Controls.Add(this.descriptionLabel3);
             this.recentTransactionPanel3.Controls.Add(this.categoryLabel3);
-            this.recentTransactionPanel3.Location = new System.Drawing.Point(22, 261);
+            this.recentTransactionPanel3.Location = new System.Drawing.Point(22, 260);
             this.recentTransactionPanel3.Name = "recentTransactionPanel3";
             this.recentTransactionPanel3.Size = new System.Drawing.Size(537, 100);
             this.recentTransactionPanel3.TabIndex = 306;
@@ -573,7 +573,7 @@
             this.recentTransactionPanel2.Controls.Add(this.label21);
             this.recentTransactionPanel2.Controls.Add(this.descriptionLabel2);
             this.recentTransactionPanel2.Controls.Add(this.categoryLabel2);
-            this.recentTransactionPanel2.Location = new System.Drawing.Point(22, 29);
+            this.recentTransactionPanel2.Location = new System.Drawing.Point(22, 20);
             this.recentTransactionPanel2.Name = "recentTransactionPanel2";
             this.recentTransactionPanel2.Size = new System.Drawing.Size(537, 100);
             this.recentTransactionPanel2.TabIndex = 306;
@@ -688,9 +688,9 @@
             this.guna2CustomGradientPanel3.BorderRadius = 5;
             this.guna2CustomGradientPanel3.BorderThickness = 1;
             this.guna2CustomGradientPanel3.Controls.Add(this.barChart1);
-            this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(62, 464);
+            this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(62, 478);
             this.guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
-            this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(736, 397);
+            this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(736, 383);
             this.guna2CustomGradientPanel3.TabIndex = 314;
             // 
             // barChart1
@@ -704,7 +704,7 @@
             this.barChart1.Legend.LabelFont = chartFont1;
             this.barChart1.Location = new System.Drawing.Point(0, 0);
             this.barChart1.Name = "barChart1";
-            this.barChart1.Size = new System.Drawing.Size(736, 397);
+            this.barChart1.Size = new System.Drawing.Size(736, 383);
             this.barChart1.TabIndex = 316;
             chartFont2.FontName = "Arial";
             chartFont2.Size = 12;
@@ -781,9 +781,9 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label1.Location = new System.Drawing.Point(55, 408);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(55, 421);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(448, 42);
             this.label1.TabIndex = 315;
@@ -800,7 +800,7 @@
             this.guna2Button6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2Button6.HoverState.FillColor = System.Drawing.Color.White;
-            this.guna2Button6.Location = new System.Drawing.Point(1334, 408);
+            this.guna2Button6.Location = new System.Drawing.Point(1338, 421);
             this.guna2Button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button6.Name = "guna2Button6";
             this.guna2Button6.PressedColor = System.Drawing.Color.White;
@@ -819,7 +819,7 @@
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2Button1.HoverState.FillColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(689, 408);
+            this.guna2Button1.Location = new System.Drawing.Point(689, 421);
             this.guna2Button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.PressedColor = System.Drawing.Color.White;
