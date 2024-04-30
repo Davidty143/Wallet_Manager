@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -40,6 +41,7 @@ namespace Wallet_Manager.Forms
         public TransactionHistory()
         {
             InitializeComponent();
+            SetDoubleBuffering(this, true);
             InitializeControlArrays();
             LoadCategoryImages();
             LoadTransactions();
@@ -64,6 +66,25 @@ namespace Wallet_Manager.Forms
                 UpdateTransactionDisplay();
             }
         }
+
+        public static void SetDoubleBuffering(Control control, bool value)
+        {
+            // Get the type of the control
+            Type controlType = control.GetType();
+
+            // Get the property info for the 'DoubleBuffered' property
+            PropertyInfo pi = controlType.GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
+
+            // Set the value of the DoubleBuffered property
+            pi?.SetValue(control, value, null);
+
+            // Recursively set DoubleBuffering to true for each child control
+            foreach (Control childControl in control.Controls)
+            {
+                SetDoubleBuffering(childControl, value);
+            }
+        }
+
 
 
         private void InitializeControlArrays()
@@ -333,7 +354,7 @@ namespace Wallet_Manager.Forms
 
 
 
-private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -400,15 +421,15 @@ private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
- 
+
             SearchFilter searchForm = SearchFilter.GetInstance(this);
             if (searchForm == null)
             {
                 searchForm = new SearchFilter(this);
-                searchForm.ShowDialog(); 
+                searchForm.ShowDialog();
             }
 
-            searchForm.ShowDialog(); 
+            searchForm.ShowDialog();
         }
 
         private void label7_Click(object sender, EventArgs e)

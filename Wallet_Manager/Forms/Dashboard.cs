@@ -14,8 +14,7 @@ namespace Wallet_Manager.Forms
 {
     public partial class Dashboard : Form
     {
-        private Timer animationTimer;
-        private UserControl activeControl;
+
         public AddTransaction transactionForm = null;
         public Dashboard()
         {
@@ -24,6 +23,7 @@ namespace Wallet_Manager.Forms
             LoadUserProfilePicture();
             transactionForm = new AddTransaction();
         }
+
 
         private void display_panel_Paint(object sender, PaintEventArgs e)
         {

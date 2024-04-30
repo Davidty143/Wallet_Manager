@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,6 +30,7 @@ namespace Wallet_Manager.Forms
         public DashboardUC()
         {
             InitializeComponent();
+            SetDoubleBuffering(this, true);
             InitializeControlArrays();
             LoadCategoryImages();
             LoadTransactions();
@@ -37,9 +39,29 @@ namespace Wallet_Manager.Forms
             UpdateMostUsedWalletDisplay();
             PopulateGunaBarDataSet();
            
+
             //SetupChart();
 
         }
+
+        public static void SetDoubleBuffering(Control control, bool value)
+        {
+            // Get the type of the control
+            Type controlType = control.GetType();
+
+            // Get the property info for the 'DoubleBuffered' property
+            PropertyInfo pi = controlType.GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
+
+            // Set the value of the DoubleBuffered property
+            pi?.SetValue(control, value, null);
+
+            // Recursively set DoubleBuffering to true for each child control
+            foreach (Control childControl in control.Controls)
+            {
+                SetDoubleBuffering(childControl, value);
+            }
+        }
+
 
         private void InitializeControlArrays()
         {
