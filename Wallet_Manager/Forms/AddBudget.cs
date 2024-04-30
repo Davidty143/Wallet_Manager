@@ -75,6 +75,8 @@ namespace Wallet_Manager.Forms
             txtEndDate.Visible = isCustom;
             startDateLabel.Visible = isCustom;
             endDateLabel.Visible = isCustom;
+            pictureBox10.Visible = isCustom;
+            pictureBox11.Visible = isCustom;    
         }
 
         private List<string> GetSelectedCategories  ()
@@ -99,34 +101,7 @@ namespace Wallet_Manager.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Budget budget = CollectBudgetData();
-            if (budget == null)
-            {
-                return;
-            }
 
-            // Validate the collected data
-            if (!ValidateBudget(budget))
-            {
-                // Validation failed, appropriate messages already shown
-                return;
-            }
-
-            // Setup the database connection string
-            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-            // Initialize the data access layer
-            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
-
-
-            try
-            {
-                _dataAccessLayer.SaveBudget(budget);
-                MessageBox.Show("Budget added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Failed to add budget: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
 
@@ -257,7 +232,49 @@ namespace Wallet_Manager.Forms
 
         private void txtPeriod_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Budget budget = CollectBudgetData();
+            if (budget == null)
+            {
+                return;
+            }
+
+            // Validate the collected data
+            if (!ValidateBudget(budget))
+            {
+                // Validation failed, appropriate messages already shown
+                return;
+            }
+
+            // Setup the database connection string
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            // Initialize the data access layer
+            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+
+
+            try
+            {
+                _dataAccessLayer.SaveBudget(budget);
+                MessageBox.Show("Budget added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to add budget: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtPeriod_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
             UpdateDateVisibility();
+        }
+
+        private void txtCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
