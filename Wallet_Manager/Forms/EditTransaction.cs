@@ -253,5 +253,10 @@ namespace Wallet_Manager.Forms
         {
 
         }
+
+        private void txtDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

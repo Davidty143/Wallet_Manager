@@ -291,8 +291,13 @@ namespace Wallet_Manager.Forms
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                e.Handled = true; 
+                e.Handled = true;
             }
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

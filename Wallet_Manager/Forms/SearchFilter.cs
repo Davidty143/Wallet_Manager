@@ -28,6 +28,8 @@ namespace Wallet_Manager.Forms
             PopulateWalletCategoryComboBox();
             PopulateWalletsComboBox();
             _transactionHistory = transactionHistory;
+            startDatePicker.Value = DateTime.Today;
+            endDatePicker.Value = DateTime.Today;
         }
 
         private void walletComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -164,7 +166,7 @@ namespace Wallet_Manager.Forms
 
         private void guna2Button2_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)

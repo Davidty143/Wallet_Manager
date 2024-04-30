@@ -16,11 +16,14 @@ namespace Wallet_Manager.Forms
     {
 
         public AddTransaction transactionForm = null;
+        public SearchFilter searchFilter = null;
+
         public Dashboard()
         {
             InitializeComponent();
             UpdateDisplayName();
             LoadUserProfilePicture();
+            //searchFilter = new SearchFilter();
             transactionForm = new AddTransaction();
         }
 
@@ -296,6 +299,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void displayName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dashboardUC1_Load_3(object sender, EventArgs e)
         {
 
         }

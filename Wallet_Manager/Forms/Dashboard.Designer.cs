@@ -333,6 +333,7 @@
             this.dashboardUC1.BackColor = System.Drawing.Color.WhiteSmoke;
             resources.ApplyResources(this.dashboardUC1, "dashboardUC1");
             this.dashboardUC1.Name = "dashboardUC1";
+            this.dashboardUC1.Load += new System.EventHandler(this.dashboardUC1_Load_3);
             // 
             // Dashboard
             // 
