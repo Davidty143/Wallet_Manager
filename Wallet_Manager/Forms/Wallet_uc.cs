@@ -235,7 +235,7 @@
                 SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
 
 
-                var last7DaysTransaction = dataAccessLayer.CalculateWalletFinancialSummaryForLast7Days(currentWalletID);
+                var last7DaysTransaction = dataAccessLayer.CalculateFinancialSummaryForLast7Days(currentWalletID);
 
                 foreach (var entry in last7DaysTransaction)
                 {

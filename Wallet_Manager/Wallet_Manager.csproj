@@ -597,5 +597,11 @@
   <ItemGroup>
     <None Include="Resources\plus.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_profile_inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_profile_active.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

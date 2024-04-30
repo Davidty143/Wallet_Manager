@@ -211,7 +211,7 @@ namespace Wallet_Manager.Forms
 
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
-            var last7DaysTransaction = dataAccessLayer.CalculateFinancialSummaryForLast7Days();
+            var last7DaysTransaction = dataAccessLayer.CalculateFinancialSummaryForLast7Days(0);
 
             foreach (var entry in last7DaysTransaction)
             {
@@ -324,6 +324,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void gunaChart1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button9_Click_1(object sender, EventArgs e)
         {
 
         }

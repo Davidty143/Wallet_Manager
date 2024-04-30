@@ -1362,7 +1362,7 @@ namespace Wallet_Manager.Classes
 
 
 
-        public SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> CalculateFinancialSummaryForLast7Days()
+        public SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> CalculateFinancialSummaryForLast7Days(int walletId)
         {
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> summary = new SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)>();
@@ -1370,65 +1370,7 @@ namespace Wallet_Manager.Classes
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string query = @"
-                SELECT 
-                    DATE(Date) AS TransactionDate,
-                    SUM(CASE WHEN TransactionType = 'Income' THEN Amount ELSE 0 END) AS TotalIncome,
-                    SUM(CASE WHEN TransactionType = 'Expense' THEN Amount ELSE 0 END) AS TotalExpenses,
-                    GREATEST(0, SUM(CASE WHEN TransactionType = 'Transfer' AND CategoryID = 19 THEN Amount ELSE 0 END) +
-                             SUM(CASE WHEN TransactionType = 'Income' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END) -
-                             SUM(CASE WHEN TransactionType = 'Expense' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END)) AS TotalSavings
-                FROM Transaction
-                WHERE Date >= CURDATE() - INTERVAL 6 DAY
-                GROUP BY DATE(Date)
-                ORDER BY DATE(Date) ASC;
-        ";
-
-                using (MySqlCommand command = new MySqlCommand(query, connection))
-                {
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            DateTime date = reader.GetDateTime("TransactionDate");
-                            float totalIncome = reader.GetFloat("TotalIncome");
-                            float totalExpenses = reader.GetFloat("TotalExpenses");
-                            float totalSavings = reader.GetFloat("TotalSavings");
-
-                            summary[date] = (totalSavings, totalExpenses, totalIncome);
-                        }
-                    }
-                }
-            }
-
-
-
-
-
-
-            // Ensure all days in the last 7 days are included in the dictionary
-            for (int i = 6; i >= 0; i--)
-            {
-                DateTime date = DateTime.Today.AddDays(-i);
-                if (!summary.ContainsKey(date))
-                {
-                    summary[date] = (0, 0, 0); // Add missing days with zero values
-                }
-            }
-
-            return summary;
-        }
-
-
-        public SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> CalculateFinancialSummaryForLastMonth()
-        {
-            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-            SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> summary = new SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)>();
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                connection.Open();
-                string query = @"
+                string baseQuery = @"
             SELECT 
                 DATE(Date) AS TransactionDate,
                 SUM(CASE WHEN TransactionType = 'Income' THEN Amount ELSE 0 END) AS TotalIncome,
@@ -1437,13 +1379,23 @@ namespace Wallet_Manager.Classes
                          SUM(CASE WHEN TransactionType = 'Income' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END) -
                          SUM(CASE WHEN TransactionType = 'Expense' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END)) AS TotalSavings
             FROM Transaction
-            WHERE Date >= CURDATE() - INTERVAL 1 MONTH
-            GROUP BY DATE(Date)
-            ORDER BY DATE(Date) ASC;
+            WHERE Date >= CURDATE() - INTERVAL 6 DAY
         ";
 
-                using (MySqlCommand command = new MySqlCommand(query, connection))
+                // Modify the query based on the wallet ID
+                if (walletId != 0)
                 {
+                    baseQuery += " AND WalletID = @WalletID";
+                }
+                baseQuery += " GROUP BY DATE(Date) ORDER BY DATE(Date) ASC;";
+
+                using (MySqlCommand command = new MySqlCommand(baseQuery, connection))
+                {
+                    if (walletId != 0)
+                    {
+                        command.Parameters.AddWithValue("@WalletID", walletId);
+                    }
+
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -1452,216 +1404,6 @@ namespace Wallet_Manager.Classes
                             float totalIncome = reader.GetFloat("TotalIncome");
                             float totalExpenses = reader.GetFloat("TotalExpenses");
                             float totalSavings = reader.GetFloat("TotalSavings");
-
-                            summary[date] = (totalSavings, totalExpenses, totalIncome);
-                        }
-                    }
-                }
-            }
-
-            // Ensure all days in the last month are included in the dictionary
-            DateTime startDate = DateTime.Today.AddDays(-DateTime.Today.Day + 1); // Start of the current month
-            int daysInMonth = DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month);
-            for (int i = 0; i < daysInMonth; i++)
-            {
-                DateTime date = startDate.AddDays(i);
-                if (!summary.ContainsKey(date))
-                {
-                    summary[date] = (0, 0, 0); // Add missing days with zero values
-                }
-            }
-
-            return summary;
-        }
-
-        public SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> CalculateFinancialSummaryForLastYear()
-        {
-            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-            SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> summary =
-                new SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)>();
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                connection.Open();
-                string query = @"
-            SELECT 
-                DATE_FORMAT(Date, '%Y-%m-01') AS MonthStart,
-                SUM(CASE WHEN TransactionType = 'Income' THEN Amount ELSE 0 END) AS TotalIncome,
-                SUM(CASE WHEN TransactionType = 'Expense' THEN Amount ELSE 0 END) AS TotalExpenses,
-                GREATEST(0, SUM(CASE WHEN TransactionType = 'Transfer' AND CategoryID = 19 THEN Amount ELSE 0 END) +
-                         SUM(CASE WHEN TransactionType = 'Income' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END) -
-                         SUM(CASE WHEN TransactionType = 'Expense' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END)) AS TotalSavings
-            FROM Transaction
-            WHERE Date >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
-            GROUP BY MonthStart
-            ORDER BY MonthStart;
-        ";
-
-                using (MySqlCommand command = new MySqlCommand(query, connection))
-                {
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            DateTime monthStart = reader.GetDateTime("MonthStart");
-                            float totalIncome = reader.GetFloat("TotalIncome");
-                            float totalExpenses = reader.GetFloat("TotalExpenses");
-                            float totalSavings = reader.GetFloat("TotalSavings");
-
-                            summary[monthStart] = (totalSavings, totalExpenses, totalIncome);
-                        }
-                    }
-                }
-            }
-
-            // Ensure all months in the last year are included in the dictionary
-            DateTime startDate = DateTime.Today.AddMonths(-11).AddDays(-DateTime.Today.Day + 1);
-            for (int i = 0; i < 12; i++)
-            {
-                DateTime monthStart = startDate.AddMonths(i);
-                if (!summary.ContainsKey(monthStart))
-                {
-                    summary[monthStart] = (0, 0, 0); // Add missing months with zero values
-                }
-            }
-
-            
-
-            return summary;
-        }
-
-        public Dictionary<string, float> GetExpenseCategoriesLast7Days()
-        {
-            var expenses = new Dictionary<string, float>();
-
-            using (var connection = new MySqlConnection(_connectionString))
-            {
-                connection.Open();
-                string query = @"
-            SELECT c.Name AS CategoryName, SUM(t.Amount) AS TotalAmount
-            FROM Transaction t
-            JOIN Category c ON t.CategoryID = c.CategoryId
-            WHERE t.TransactionType = 'Expense' AND t.Date >= CURDATE() - INTERVAL 6 DAY
-            GROUP BY c.Name;
-        ";
-
-                using (var command = new MySqlCommand(query, connection))
-                {
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            string category = reader["CategoryName"].ToString();
-                            float totalAmount = float.Parse(reader["TotalAmount"].ToString());
-                            expenses[category] = totalAmount;
-                        }
-                    }
-                }
-            }
-
-            return expenses;
-        }
-
-        public Dictionary<string, float> GetExpenseCategoriesLast30Days()
-        {
-            var expenses = new Dictionary<string, float>();
-
-            using (var connection = new MySqlConnection(_connectionString))
-            {
-                connection.Open();
-                string query = @"
-        SELECT c.Name AS CategoryName, SUM(t.Amount) AS TotalAmount
-        FROM Transaction t
-        JOIN Category c ON t.CategoryID = c.CategoryId
-        WHERE t.TransactionType = 'Expense' AND t.Date >= CURDATE() - INTERVAL 29 DAY
-        GROUP BY c.Name;
-    ";
-
-                using (var command = new MySqlCommand(query, connection))
-                {
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            string category = reader["CategoryName"].ToString();
-                            float totalAmount = float.Parse(reader["TotalAmount"].ToString());
-                            expenses[category] = totalAmount;
-                        }
-                    }
-                }
-            }
-
-            return expenses;
-        }
-
-
-        public Dictionary<string, float> GetExpenseCategoriesLastYear()
-        {
-            var expenses = new Dictionary<string, float>();
-
-            using (var connection = new MySqlConnection(_connectionString))
-            {
-                connection.Open();
-                string query = @"
-        SELECT c.Name AS CategoryName, SUM(t.Amount) AS TotalAmount
-        FROM Transaction t
-        JOIN Category c ON t.CategoryID = c.CategoryId
-        WHERE t.TransactionType = 'Expense' AND t.Date >= CURDATE() - INTERVAL 365 DAY
-        GROUP BY c.Name;
-    ";
-
-                using (var command = new MySqlCommand(query, connection))
-                {
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            string category = reader["CategoryName"].ToString();
-                            float totalAmount = float.Parse(reader["TotalAmount"].ToString());
-                            expenses[category] = totalAmount;
-                        }
-                    }
-                }
-            }
-
-            return expenses;
-        }
-
-
-        public SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> CalculateWalletFinancialSummaryForLast7Days(int walletId)
-        {
-            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-            SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> summary = new SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)>();
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                connection.Open();
-                string query = @"
-        SELECT 
-            DATE(Date) AS TransactionDate,
-            SUM(CASE WHEN TransactionType = 'Income' THEN Amount ELSE 0 END) AS TotalIncome,
-            SUM(CASE WHEN TransactionType = 'Expense' THEN Amount ELSE 0 END) AS TotalExpenses,
-            GREATEST(0, SUM(CASE WHEN TransactionType = 'Transfer' AND CategoryID = 19 THEN Amount ELSE 0 END) +
-                     SUM(CASE WHEN TransactionType = 'Income' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END) -
-                     SUM(CASE WHEN TransactionType = 'Expense' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END)) AS TotalSavings
-        FROM Transaction
-        WHERE WalletId = @WalletId AND Date >= CURDATE() - INTERVAL 6 DAY
-        GROUP BY DATE(Date)
-        ORDER BY DATE(Date) ASC;
-        ";
-
-                using (MySqlCommand command = new MySqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@WalletId", walletId);
-
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            DateTime date = reader.GetDateTime("TransactionDate");
-                            float totalIncome = reader.IsDBNull(reader.GetOrdinal("TotalIncome")) ? 0 : reader.GetFloat("TotalIncome");
-                            float totalExpenses = reader.IsDBNull(reader.GetOrdinal("TotalExpenses")) ? 0 : reader.GetFloat("TotalExpenses");
-                            float totalSavings = reader.IsDBNull(reader.GetOrdinal("TotalSavings")) ? 0 : reader.GetFloat("TotalSavings");
 
                             summary[date] = (totalSavings, totalExpenses, totalIncome);
                         }
@@ -1737,7 +1479,271 @@ namespace Wallet_Manager.Classes
 
             return netWorthSummary;
         }
-        public SortedDictionary<DateTime, float> CalculateNetWorthOver30Days()
+
+        public SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> CalculateFinancialSummaryForLastMonth(int walletId)
+        {
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> summary = new SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string baseQuery = @"
+            SELECT 
+                DATE(Date) AS TransactionDate,
+                SUM(CASE WHEN TransactionType = 'Income' THEN Amount ELSE 0 END) AS TotalIncome,
+                SUM(CASE WHEN TransactionType = 'Expense' THEN Amount ELSE 0 END) AS TotalExpenses,
+                GREATEST(0, SUM(CASE WHEN TransactionType = 'Transfer' AND CategoryID = 19 THEN Amount ELSE 0 END) +
+                         SUM(CASE WHEN TransactionType = 'Income' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END) -
+                         SUM(CASE WHEN TransactionType = 'Expense' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END)) AS TotalSavings
+            FROM Transaction
+            WHERE Date >= CURDATE() - INTERVAL 1 MONTH
+        ";
+
+                // Modify the query based on the wallet ID
+                if (walletId != 0)
+                {
+                    baseQuery += " AND WalletID = @WalletID";
+                }
+                baseQuery += " GROUP BY DATE(Date) ORDER BY DATE(Date) ASC;";
+
+                using (MySqlCommand command = new MySqlCommand(baseQuery, connection))
+                {
+                    if (walletId != 0)
+                    {
+                        command.Parameters.AddWithValue("@WalletID", walletId);
+                    }
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            DateTime date = reader.GetDateTime("TransactionDate");
+                            float totalIncome = reader.GetFloat("TotalIncome");
+                            float totalExpenses = reader.GetFloat("TotalExpenses");
+                            float totalSavings = reader.GetFloat("TotalSavings");
+
+                            summary[date] = (totalSavings, totalExpenses, totalIncome);
+                        }
+                    }
+                }
+            }
+
+            // Ensure all days in the last month are included in the dictionary
+            DateTime startDate = DateTime.Today.AddDays(-DateTime.Today.Day + 1); // Start of the current month
+            int daysInMonth = DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month);
+            for (int i = 0; i < daysInMonth; i++)
+            {
+                DateTime date = startDate.AddDays(i);
+                if (!summary.ContainsKey(date))
+                {
+                    summary[date] = (0, 0, 0); // Add missing days with zero values
+                }
+            }
+
+            return summary;
+        }
+
+        public SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> CalculateFinancialSummaryForLastYear(int walletId)
+        {
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)> summary =
+                new SortedDictionary<DateTime, (float totalSavings, float totalExpenses, float totalIncome)>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string baseQuery = @"
+            SELECT 
+                DATE_FORMAT(Date, '%Y-%m-01') AS MonthStart,
+                SUM(CASE WHEN TransactionType = 'Income' THEN Amount ELSE 0 END) AS TotalIncome,
+                SUM(CASE WHEN TransactionType = 'Expense' THEN Amount ELSE 0 END) AS TotalExpenses,
+                GREATEST(0, SUM(CASE WHEN TransactionType = 'Transfer' AND CategoryID = 19 THEN Amount ELSE 0 END) +
+                         SUM(CASE WHEN TransactionType = 'Income' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END) -
+                         SUM(CASE WHEN TransactionType = 'Expense' AND WalletCategory = 'Savings' THEN Amount ELSE 0 END)) AS TotalSavings
+            FROM Transaction
+            WHERE Date >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
+        ";
+
+                // Modify the query based on the wallet ID
+                if (walletId != 0)
+                {
+                    baseQuery += " AND WalletID = @WalletID";
+                }
+                baseQuery += " GROUP BY MonthStart ORDER BY MonthStart;";
+
+                using (MySqlCommand command = new MySqlCommand(baseQuery, connection))
+                {
+                    if (walletId != 0)
+                    {
+                        command.Parameters.AddWithValue("@WalletID", walletId);
+                    }
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            DateTime monthStart = reader.GetDateTime("MonthStart");
+                            float totalIncome = reader.GetFloat("TotalIncome");
+                            float totalExpenses = reader.GetFloat("TotalExpenses");
+                            float totalSavings = reader.GetFloat("TotalSavings");
+
+                            summary[monthStart] = (totalSavings, totalExpenses, totalIncome);
+                        }
+                    }
+                }
+            }
+
+            // Ensure all months in the last year are included in the dictionary
+            DateTime startDate = DateTime.Today.AddMonths(-11).AddDays(-DateTime.Today.Day + 1);
+            for (int i = 0; i < 12; i++)
+            {
+                DateTime monthStart = startDate.AddMonths(i);
+                if (!summary.ContainsKey(monthStart))
+                {
+                    summary[monthStart] = (0, 0, 0); // Add missing months with zero values
+                }
+            }
+
+            return summary;
+        }
+
+        public Dictionary<string, float> GetExpenseCategoriesLast7Days(int walletId)
+        {
+            var expenses = new Dictionary<string, float>();
+
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                string baseQuery = @"
+            SELECT c.Name AS CategoryName, SUM(t.Amount) AS TotalAmount
+            FROM Transaction t
+            JOIN Category c ON t.CategoryID = c.CategoryId
+            WHERE t.TransactionType = 'Expense' AND t.Date >= CURDATE() - INTERVAL 6 DAY
+        ";
+
+                if (walletId != 0)
+                {
+                    baseQuery += " AND t.WalletID = @WalletID";
+                }
+
+                baseQuery += " GROUP BY c.Name;";
+
+                using (var command = new MySqlCommand(baseQuery, connection))
+                {
+                    if (walletId != 0)
+                    {
+                        command.Parameters.AddWithValue("@WalletID", walletId);
+                    }
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string category = reader["CategoryName"].ToString();
+                            float totalAmount = float.Parse(reader["TotalAmount"].ToString());
+                            expenses[category] = totalAmount;
+                        }
+                    }
+                }
+            }
+
+            return expenses;
+        }
+
+
+        public Dictionary<string, float> GetExpenseCategoriesLast30Days(int walletId)
+        {
+            var expenses = new Dictionary<string, float>();
+
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                string baseQuery = @"
+            SELECT c.Name AS CategoryName, SUM(t.Amount) AS TotalAmount
+            FROM Transaction t
+            JOIN Category c ON t.CategoryID = c.CategoryId
+            WHERE t.TransactionType = 'Expense' AND t.Date >= CURDATE() - INTERVAL 29 DAY
+        ";
+
+                if (walletId != 0)
+                {
+                    baseQuery += " AND t.WalletID = @WalletID";
+                }
+
+                baseQuery += " GROUP BY c.Name;";
+
+                using (var command = new MySqlCommand(baseQuery, connection))
+                {
+                    if (walletId != 0)
+                    {
+                        command.Parameters.AddWithValue("@WalletID", walletId);
+                    }
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string category = reader["CategoryName"].ToString();
+                            float totalAmount = float.Parse(reader["TotalAmount"].ToString());
+                            expenses[category] = totalAmount;
+                        }
+                    }
+                }
+            }
+
+            return expenses;
+        }
+
+
+
+        public Dictionary<string, float> GetExpenseCategoriesLastYear(int walletId)
+        {
+            var expenses = new Dictionary<string, float>();
+
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                string baseQuery = @"
+            SELECT c.Name AS CategoryName, SUM(t.Amount) AS TotalAmount
+            FROM Transaction t
+            JOIN Category c ON t.CategoryID = c.CategoryId
+            WHERE t.TransactionType = 'Expense' AND t.Date >= CURDATE() - INTERVAL 365 DAY
+        ";
+
+                // Modify the query based on the wallet ID
+                if (walletId != 0)
+                {
+                    baseQuery += " AND t.WalletID = @WalletID";
+                }
+
+                baseQuery += " GROUP BY c.Name;";
+
+                using (var command = new MySqlCommand(baseQuery, connection))
+                {
+                    if (walletId != 0)
+                    {
+                        command.Parameters.AddWithValue("@WalletID", walletId);
+                    }
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string category = reader["CategoryName"].ToString();
+                            float totalAmount = float.Parse(reader["TotalAmount"].ToString());
+                            expenses[category] = totalAmount;
+                        }
+                    }
+                }
+            }
+
+            return expenses;
+        }
+
+
+
+        public SortedDictionary<DateTime, float> CalculateNetWorthOver7Days(int walletId)
         {
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SortedDictionary<DateTime, float> netWorthSummary = new SortedDictionary<DateTime, float>();
@@ -1745,25 +1751,100 @@ namespace Wallet_Manager.Classes
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string query = @"
-        SELECT 
-            TransactionDate,
-            SUM(TotalSavings) OVER (ORDER BY TransactionDate) AS CumulativeSavings,
-            SUM(TotalSpending) OVER (ORDER BY TransactionDate) AS CumulativeSpending
-        FROM (
+                string baseQuery = @"
             SELECT 
-                DATE(Date) AS TransactionDate,
-                SUM(CASE WHEN TransactionType = 'Income' THEN Amount ELSE 0 END) AS TotalSavings,
-                SUM(CASE WHEN TransactionType = 'Expense' THEN Amount ELSE 0 END) AS TotalSpending
-            FROM Transaction
-            WHERE Date >= CURDATE() - INTERVAL 29 DAY
-            GROUP BY DATE(Date)
-        ) AS DailyTotals
-        ORDER BY TransactionDate ASC;
+                TransactionDate,
+                SUM(TotalSavings) OVER (ORDER BY TransactionDate) AS CumulativeSavings,
+                SUM(TotalSpending) OVER (ORDER BY TransactionDate) AS CumulativeSpending
+            FROM (
+                SELECT 
+                    DATE(Date) AS TransactionDate,
+                    SUM(CASE WHEN TransactionType = 'Income' THEN Amount ELSE 0 END) AS TotalSavings,
+                    SUM(CASE WHEN TransactionType = 'Expense' THEN Amount ELSE 0 END) AS TotalSpending
+                FROM Transaction
+                WHERE Date >= CURDATE() - INTERVAL 6 DAY
         ";
 
-                using (MySqlCommand command = new MySqlCommand(query, connection))
+                if (walletId != 0)
                 {
+                    baseQuery += " AND WalletID = @WalletID";
+                }
+
+                baseQuery += " GROUP BY DATE(Date)) AS DailyTotals ORDER BY TransactionDate ASC;";
+
+                using (MySqlCommand command = new MySqlCommand(baseQuery, connection))
+                {
+                    if (walletId != 0)
+                    {
+                        command.Parameters.AddWithValue("@WalletID", walletId);
+                    }
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            DateTime date = reader.GetDateTime("TransactionDate");
+                            float cumulativeSavings = reader.GetFloat("CumulativeSavings");
+                            float cumulativeSpending = reader.GetFloat("CumulativeSpending");
+
+                            float dailyNetWorth = cumulativeSavings - cumulativeSpending;
+                            netWorthSummary[date] = dailyNetWorth;
+                        }
+                    }
+                }
+            }
+
+            // Ensure all days in the last 7 days are included in the dictionary
+            for (int i = 6; i >= 0; i--)
+            {
+                DateTime date = DateTime.Today.AddDays(-i);
+                if (!netWorthSummary.ContainsKey(date))
+                {
+                    float previousNetWorth = i < 6 ? netWorthSummary[DateTime.Today.AddDays(-(i + 1))] : 0f;
+                    netWorthSummary[date] = previousNetWorth; // Add missing days with the last known net worth
+                }
+            }
+
+            return netWorthSummary;
+        }
+
+
+        public SortedDictionary<DateTime, float> CalculateNetWorthOver1Month(int walletId)
+        {
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SortedDictionary<DateTime, float> netWorthSummary = new SortedDictionary<DateTime, float>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string baseQuery = @"
+            SELECT 
+                TransactionDate,
+                SUM(TotalSavings) OVER (ORDER BY TransactionDate) AS CumulativeSavings,
+                SUM(TotalSpending) OVER (ORDER BY TransactionDate) AS CumulativeSpending
+            FROM (
+                SELECT 
+                    DATE(Date) AS TransactionDate,
+                    SUM(CASE WHEN TransactionType = 'Income' THEN Amount ELSE 0 END) AS TotalSavings,
+                    SUM(CASE WHEN TransactionType = 'Expense' THEN Amount ELSE 0 END) AS TotalSpending
+                FROM Transaction
+                WHERE Date >= CURDATE() - INTERVAL 30 DAY
+        ";
+
+                if (walletId != 0)
+                {
+                    baseQuery += " AND WalletID = @WalletID";
+                }
+
+                baseQuery += " GROUP BY DATE(Date)) AS DailyTotals ORDER BY TransactionDate ASC;";
+
+                using (MySqlCommand command = new MySqlCommand(baseQuery, connection))
+                {
+                    if (walletId != 0)
+                    {
+                        command.Parameters.AddWithValue("@WalletID", walletId);
+                    }
+
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -1780,12 +1861,13 @@ namespace Wallet_Manager.Classes
             }
 
             // Ensure all days in the last 30 days are included in the dictionary
-            for (int i = 29; i >= 0; i--)
+            DateTime startDate = DateTime.Today.AddDays(-30);
+            for (int i = 0; i <= 30; i++)
             {
-                DateTime date = DateTime.Today.AddDays(-i);
+                DateTime date = startDate.AddDays(i);
                 if (!netWorthSummary.ContainsKey(date))
                 {
-                    float previousNetWorth = i < 29 ? netWorthSummary[DateTime.Today.AddDays(-(i + 1))] : 0f;
+                    float previousNetWorth = i > 0 ? netWorthSummary[date.AddDays(-1)] : 0f;
                     netWorthSummary[date] = previousNetWorth; // Add missing days with the last known net worth
                 }
             }
@@ -1793,7 +1875,7 @@ namespace Wallet_Manager.Classes
             return netWorthSummary;
         }
 
-        public SortedDictionary<DateTime, float> CalculateNetWorthOver12Months()
+        public SortedDictionary<DateTime, float> CalculateNetWorthOver12Months(int walletId)
         {
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SortedDictionary<DateTime, float> netWorthSummary = new SortedDictionary<DateTime, float>();
@@ -1801,25 +1883,34 @@ namespace Wallet_Manager.Classes
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string query = @"
-        SELECT 
-            FirstDayOfMonth,
-            SUM(TotalSavings) OVER (ORDER BY FirstDayOfMonth) AS CumulativeSavings,
-            SUM(TotalSpending) OVER (ORDER BY FirstDayOfMonth) AS CumulativeSpending
-        FROM (
+                string baseQuery = @"
             SELECT 
-                DATE_FORMAT(Date, '%Y-%m-01') AS FirstDayOfMonth,
-                SUM(CASE WHEN TransactionType = 'Income' THEN Amount ELSE 0 END) AS TotalSavings,
-                SUM(CASE WHEN TransactionType = 'Expense' THEN Amount ELSE 0 END) AS TotalSpending
-            FROM Transaction
-            WHERE Date >= CURDATE() - INTERVAL 1 YEAR
-            GROUP BY FirstDayOfMonth
-        ) AS MonthlyTotals
-        ORDER BY FirstDayOfMonth ASC;
+                FirstDayOfMonth,
+                SUM(TotalSavings) OVER (ORDER BY FirstDayOfMonth) AS CumulativeSavings,
+                SUM(TotalSpending) OVER (ORDER BY FirstDayOfMonth) AS CumulativeSpending
+            FROM (
+                SELECT 
+                    DATE_FORMAT(Date, '%Y-%m-01') AS FirstDayOfMonth,
+                    SUM(CASE WHEN TransactionType = 'Income' THEN Amount ELSE 0 END) AS TotalSavings,
+                    SUM(CASE WHEN TransactionType = 'Expense' THEN Amount ELSE 0 END) AS TotalSpending
+                FROM Transaction
+                WHERE Date >= CURDATE() - INTERVAL 1 YEAR
         ";
 
-                using (MySqlCommand command = new MySqlCommand(query, connection))
+                if (walletId != 0)
                 {
+                    baseQuery += " AND WalletID = @WalletID";
+                }
+
+                baseQuery += " GROUP BY FirstDayOfMonth) AS MonthlyTotals ORDER BY FirstDayOfMonth ASC;";
+
+                using (MySqlCommand command = new MySqlCommand(baseQuery, connection))
+                {
+                    if (walletId != 0)
+                    {
+                        command.Parameters.AddWithValue("@WalletID", walletId);
+                    }
+
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -1850,12 +1941,6 @@ namespace Wallet_Manager.Classes
 
             return netWorthSummary;
         }
-
-
-
-
-
-
 
 
 

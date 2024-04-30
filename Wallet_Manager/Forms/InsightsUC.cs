@@ -16,74 +16,76 @@ namespace Wallet_Manager.Forms
 {
     public partial class InsightsUC : UserControl
     {
-        private Dictionary<string, float> expensesLast7Days;
-        private Dictionary<string, float> expensesLastMonth;
-        private Dictionary<string, float> expensesLastYear;
-        dynamic financialDataWeek;
-        dynamic financialDataMonth;
-        dynamic financialDataYear;
-
-        private SortedDictionary<DateTime, float> netWorth1MonthView;
-        private SortedDictionary<DateTime, float> netWorth1YearView;
-        private SortedDictionary<DateTime, float> netWorth7;
-
 
 
         public InsightsUC()
         {
             InitializeComponent();
-            FetchAllFinancialData();
             PopulateComboBox();
-            
+            PopulateWalletsComboBox();
+
+
         }
+        private void PopulateWalletsComboBox()
+        {
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+
+            List<Wallet> wallets = _dataAccessLayer.GetWallets();
+
+            // Convert wallets to a binding-friendly format
+            var walletBindingList = wallets.Select(wallet => new
+            {
+                Text = $"{wallet.WalletName} (ID: {wallet.WalletID})",
+                Value = wallet.WalletID
+            }).ToList();
+
+            // Add an "All" option at the beginning of the list
+            walletBindingList.Insert(0, new { Text = "All Wallets", Value = 0 });
+
+            selecWalletComboBox.DisplayMember = "Text";
+            selecWalletComboBox.ValueMember = "Value";
+            selecWalletComboBox.DataSource = walletBindingList;
+
+            selecWalletComboBox.SelectedIndex = 0;
+        }
+
+
 
         private void PopulateComboBox()
         {
             // Assuming comboBoxPeriod is your ComboBox control
-            timeFrame.Items.Clear();  // Clear existing items
+            timeFrameComboBox.Items.Clear();  // Clear existing items
 
             // Add time period options to the ComboBox
-            timeFrame.Items.Add("Last 7 Days");
-            timeFrame.Items.Add("Last Month");
-            timeFrame.Items.Add("Last Year");
+            timeFrameComboBox.Items.Add("Last 7 Days");
+            timeFrameComboBox.Items.Add("Last Month");
+            timeFrameComboBox.Items.Add("Last Year");
 
             // Optionally set the default selected item
-            timeFrame.SelectedIndex = 0;  // Selects the first item by default
+            timeFrameComboBox.SelectedIndex = 0;  // Selects the first item by default
         }
 
 
-
-        private void FetchAllFinancialData()
-        {
-            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
-
-            expensesLast7Days = dataAccessLayer.GetExpenseCategoriesLast7Days();
-            expensesLastMonth = dataAccessLayer.GetExpenseCategoriesLast30Days();
-            expensesLastYear = dataAccessLayer.GetExpenseCategoriesLastYear();
-            financialDataWeek = dataAccessLayer.CalculateFinancialSummaryForLast7Days();
-            financialDataMonth = dataAccessLayer.CalculateFinancialSummaryForLastMonth();
-            financialDataYear = dataAccessLayer.CalculateFinancialSummaryForLastYear();
-
-            netWorth1MonthView = dataAccessLayer.CalculateNetWorthOver30Days();
-            netWorth1YearView = dataAccessLayer.CalculateNetWorthOver12Months();
-            netWorth7 = dataAccessLayer.CalculateNetWorthOver7Days();
-        }
         private void PopulateGunaBarDataSet()
         {
-            string selectedPeriod = timeFrame.SelectedItem.ToString();
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+
+            string selectedPeriod = timeFrameComboBox.SelectedItem.ToString();
+            int selectedWalletId = Convert.ToInt32(selecWalletComboBox.SelectedValue);
             dynamic financialData;
 
             switch (selectedPeriod)
             {
                 case "Last 7 Days":
-                    financialData = financialDataWeek;
+                    financialData = _dataAccessLayer.CalculateFinancialSummaryForLast7Days(selectedWalletId);
                     break;
                 case "Last Month":
-                    financialData = financialDataMonth;
+                    financialData = _dataAccessLayer.CalculateFinancialSummaryForLastMonth(selectedWalletId);
                     break;
                 case "Last Year":
-                    financialData = financialDataYear;
+                    financialData = _dataAccessLayer.CalculateFinancialSummaryForLastYear(selectedWalletId);
                     break;
                 default:
                     financialData = new SortedDictionary<DateTime, (float, float, float)>();
@@ -121,20 +123,24 @@ namespace Wallet_Manager.Forms
 
         private void PopulatePieChart()
         {
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+
             // Determine the selected time frame from the combo box
-            string selectedPeriod = timeFrame.SelectedItem.ToString();
+            string selectedPeriod = timeFrameComboBox.SelectedItem.ToString();
+            int selectedWalletId = Convert.ToInt32(selecWalletComboBox.SelectedValue);
             Dictionary<string, float> expenses;
 
             switch (selectedPeriod)
             {
                 case "Last 7 Days":
-                    expenses = expensesLast7Days;
+                    expenses = _dataAccessLayer.GetExpenseCategoriesLast7Days(selectedWalletId);
                     break;
                 case "Last Month":
-                    expenses = expensesLastMonth;
+                    expenses = _dataAccessLayer.GetExpenseCategoriesLast30Days(selectedWalletId);
                     break;
                 case "Last Year":
-                    expenses = expensesLastYear;
+                    expenses = _dataAccessLayer.GetExpenseCategoriesLastYear(selectedWalletId);
                     break;
                 default:
                     expenses = new Dictionary<string, float>(); // Default to empty if no valid selection
@@ -158,38 +164,36 @@ namespace Wallet_Manager.Forms
 
         public void PopulateSpLineChart()
         {
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
             // Determine the selected time frame from the combo box
-            string selectedPeriod = timeFrame.SelectedItem.ToString();
+            string selectedPeriod = timeFrameComboBox.SelectedItem.ToString();
+            int selectedWalletId = Convert.ToInt32(selecWalletComboBox.SelectedValue);
             dynamic netWorth;
 
             switch (selectedPeriod)
             {
                 case "Last 7 Days":
-                    netWorth = netWorth7;
+                    netWorth = _dataAccessLayer.CalculateNetWorthOver7Days(selectedWalletId);
                     break;
                 case "Last Month":
-                    netWorth = netWorth1MonthView;
+                    netWorth = _dataAccessLayer.CalculateNetWorthOver1Month(selectedWalletId);
                     break;
                 case "Last Year":
-                    netWorth = netWorth1YearView;
+                    netWorth = _dataAccessLayer.CalculateNetWorthOver12Months(selectedWalletId);
                     break;
                 default:
                     netWorth = new Dictionary<string, float>(); // Default to empty if no valid selection
                     break;
             }
 
-
-            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
-            var netWorth7DaysView = dataAccessLayer.CalculateNetWorthOver7Days();
-            // Assuming splineAreaDataset1 is a chart component that supports adding data points.
             splineAreaDataset1.DataPoints.Clear(); // Clear existing data points before adding new ones
 
             foreach (var net in netWorth)
             {
                 // Format the date as a string if necessary, depending on how the chart component expects it
-                string formattedDate = net.Key.ToString("yyyy-MM-dd"); // Format date as "Year-Month-Day"
-                splineAreaDataset1.DataPoints.Add(formattedDate, net.Value);
+                string label = FormatLabel(net.Key, selectedPeriod);
+                splineAreaDataset1.DataPoints.Add(label, net.Value);
             }
         }
 

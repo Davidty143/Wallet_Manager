@@ -70,7 +70,7 @@ namespace Wallet_Manager.Forms
 
         private void button_goals_Click(object sender, EventArgs e)
         {
-            UpdateButtonStyles(button_goals);
+            
         }
 
         private void button_dashboard_Click(object sender, EventArgs e)
@@ -88,7 +88,7 @@ namespace Wallet_Manager.Forms
 
             // List of all buttons
             Guna.UI2.WinForms.Guna2Button[] buttons = {
-        button_wallet, button_transaction, button_analytics, button_budget, button_goals, button_dashboard
+        button_wallet, button_transaction, button_analytics, button_budget, button_profile, button_dashboard
     };
 
             foreach (var button in buttons)
@@ -225,6 +225,11 @@ namespace Wallet_Manager.Forms
         private void wallet_uc1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_profile_Click(object sender, EventArgs e)
+        {
+            UpdateButtonStyles(button_profile);
         }
     }
 }
