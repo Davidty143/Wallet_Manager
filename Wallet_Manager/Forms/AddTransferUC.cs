@@ -20,6 +20,7 @@ namespace Wallet_Manager.Forms
             //this.addTransaction = addTransaction;
             PopulateWalletsComboBox();
             InitializeComboBoxes();
+            txtDate.Value = DateTime.Today;
         }
 
         private void PopulateWalletsComboBox()
@@ -136,6 +137,7 @@ namespace Wallet_Manager.Forms
                 if (transferSuccess)
                 {
                     MessageBox.Show("Transfer completed successfully.");
+                    GlobalEvents.OnTransactionUpdated();
                 }
                 else
                 {

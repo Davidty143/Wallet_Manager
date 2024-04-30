@@ -21,6 +21,7 @@ namespace Wallet_Manager.Forms
             //this.addTransaction = addTransaction;
             PopulateWalletsComboBox();
             PopulateIncomeCategoryComboBox();
+            txtDate.Value = DateTime.Today;
         }
 
         private void PopulateWalletsComboBox()
@@ -128,11 +129,13 @@ namespace Wallet_Manager.Forms
                 // Clear the form and show a success message
                 ClearForm();
                 MessageBox.Show("Income added successfully!");
+                GlobalEvents.OnTransactionUpdated();
             }
             else
             {
                 MessageBox.Show("An error occurred. Please try again.");
             }
+            
         }
 
         private void ClearForm()

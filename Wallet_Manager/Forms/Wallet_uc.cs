@@ -35,15 +35,19 @@ namespace Wallet_Manager.Forms
         {
             InitializeComponent();
             SetDoubleBuffering(this, true);
+            LoadCategoryImages();
             InitializeControlArrays();
             PopulateWalletsComboBox();
             UpdateWalletDisplay();
-            LoadCategoryImages();
+            
             LoadTransactions();
             PopulateGunaBarDataSet();
 
 
-
+            GlobalEvents.TransactionUpdated += UpdateWalletDisplay;
+            GlobalEvents.TransactionUpdated += LoadTransactions;
+            GlobalEvents.TransactionUpdated += PopulateGunaBarDataSet;
+            
             editPictureBox.Click += editWalletPictureBox_Click;
             deletePictureBox.Click += deleteWalletPictureBox_Click;
 
@@ -320,6 +324,7 @@ namespace Wallet_Manager.Forms
 
             UpdateWalletDisplay();
             PopulateGunaBarDataSet();
+            LoadTransactions();
 
         }
 
@@ -390,6 +395,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2CustomGradientPanel4_Paint(object sender, PaintEventArgs e)
         {
 
         }

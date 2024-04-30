@@ -38,7 +38,12 @@ namespace Wallet_Manager.Forms
             UpdateExpenseLabel();
             UpdateMostUsedWalletDisplay();
             PopulateGunaBarDataSet();
-           
+
+            GlobalEvents.TransactionUpdated += LoadTransactions;
+            GlobalEvents.TransactionUpdated += UpdateSavingsLabel;
+            GlobalEvents.TransactionUpdated += UpdateExpenseLabel;
+            GlobalEvents.TransactionUpdated += UpdateMostUsedWalletDisplay;
+            GlobalEvents.TransactionUpdated += PopulateGunaBarDataSet;
 
             //SetupChart();
 

@@ -20,7 +20,8 @@ namespace Wallet_Manager.Forms
              //this.addTransaction = addTransaction;
             PopulateWalletsComboBox();
             PopulateExpenseCategoryComboBox();
-            
+            txtDate.Value = DateTime.Today;
+
         }
 
         private void PopulateWalletsComboBox()
@@ -157,6 +158,7 @@ namespace Wallet_Manager.Forms
                 // Clear the form and show a success message
                 ClearForm();
                 MessageBox.Show("Expense added successfully!");
+                GlobalEvents.OnTransactionUpdated();
             }
             else
             {

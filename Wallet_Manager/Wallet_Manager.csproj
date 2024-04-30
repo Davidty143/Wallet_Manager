@@ -115,6 +115,7 @@
     <Compile Include="Classes\BusinessLogic.cs" />
     <Compile Include="Classes\Category.cs" />
     <Compile Include="Classes\GlobalData.cs" />
+    <Compile Include="Classes\GlobalEvent.cs" />
     <Compile Include="Classes\Goal.cs" />
     <Compile Include="Classes\SqlDataAccessLayer.cs" />
     <Compile Include="Classes\Transaction.cs" />

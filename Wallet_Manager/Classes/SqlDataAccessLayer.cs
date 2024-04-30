@@ -816,8 +816,8 @@ namespace Wallet_Manager.Classes
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                // Note the inclusion of the parameter placeholder in the SQL command
-                using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction WHERE WalletID = @WalletID ORDER BY Date DESC LIMIT 3", connection))
+                // Updated SQL command to order by Date and TransactionID
+                using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction WHERE WalletID = @WalletID ORDER BY Date DESC, TransactionID DESC LIMIT 3", connection))
                 {
                     // Adding the WalletID parameter to the command
                     command.Parameters.AddWithValue("@WalletID", walletId);
