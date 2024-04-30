@@ -252,6 +252,7 @@
             this.txtStartDate.BorderRadius = 5;
             this.txtStartDate.BorderThickness = 1;
             this.txtStartDate.Checked = true;
+            this.txtStartDate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtStartDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
             this.txtStartDate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStartDate.ForeColor = System.Drawing.Color.White;
@@ -271,6 +272,7 @@
             this.txtEndDate.BorderRadius = 5;
             this.txtEndDate.BorderThickness = 1;
             this.txtEndDate.Checked = true;
+            this.txtEndDate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtEndDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
             this.txtEndDate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEndDate.ForeColor = System.Drawing.Color.White;
@@ -301,6 +303,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.BorderRadius = 5;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -319,6 +322,7 @@
             // 
             this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button1.BorderRadius = 5;
+            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));

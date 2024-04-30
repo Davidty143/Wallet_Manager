@@ -1089,6 +1089,7 @@
             // 
             this.labelNext.AutoSize = true;
             this.labelNext.BackColor = System.Drawing.Color.White;
+            this.labelNext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelNext.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNext.ForeColor = System.Drawing.Color.Black;
@@ -1102,6 +1103,7 @@
             // 
             this.labelPrev.AutoSize = true;
             this.labelPrev.BackColor = System.Drawing.Color.White;
+            this.labelPrev.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelPrev.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrev.ForeColor = System.Drawing.Color.Black;
@@ -1136,6 +1138,7 @@
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 306;
             this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click_1);
             // 
             // label8
             // 
