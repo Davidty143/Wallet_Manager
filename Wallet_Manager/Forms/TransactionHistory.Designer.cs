@@ -110,6 +110,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -243,7 +244,7 @@
             // 
             this.label23.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(20, 8);
+            this.label23.Location = new System.Drawing.Point(63, 37);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(311, 44);
             this.label23.TabIndex = 198;
@@ -1216,6 +1217,16 @@
             this.guna2Button2.Text = "LOAD";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
+            // guna2CustomGradientPanel2
+            // 
+            this.guna2CustomGradientPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2CustomGradientPanel2.BorderRadius = 5;
+            this.guna2CustomGradientPanel2.BorderThickness = 1;
+            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(3, 3);
+            this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
+            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(1438, 871);
+            this.guna2CustomGradientPanel2.TabIndex = 300;
+            // 
             // TransactionHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1241,6 +1252,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label23);
+            this.Controls.Add(this.guna2CustomGradientPanel2);
             this.Name = "TransactionHistory";
             this.Size = new System.Drawing.Size(1509, 856);
             this.Load += new System.EventHandler(this.TransactionHistory_Load);
@@ -1350,5 +1362,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox7;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
     }
 }

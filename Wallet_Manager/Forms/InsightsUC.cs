@@ -248,5 +248,10 @@ namespace Wallet_Manager.Forms
         {
 
         }
+
+        private void splineAreaChart1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
