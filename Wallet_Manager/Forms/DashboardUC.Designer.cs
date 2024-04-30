@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.Charts.WinForms.ChartFont chartFont17 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont18 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont19 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont20 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid7 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick7 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont21 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid8 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick8 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont22 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid9 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel3 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont23 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick9 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont24 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont57 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont58 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont59 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont60 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid22 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick22 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont61 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid23 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick23 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont62 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid24 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel8 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont63 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick24 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont64 = new Guna.Charts.WinForms.ChartFont();
             this.label24 = new System.Windows.Forms.Label();
             this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
             this.label23 = new System.Windows.Forms.Label();
@@ -69,7 +69,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.label4 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label7 = new System.Windows.Forms.Label();
             this.remainingBudgetLabel = new System.Windows.Forms.Label();
@@ -114,6 +113,7 @@
             this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
             this.label22 = new System.Windows.Forms.Label();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.guna2CustomGradientPanel3.SuspendLayout();
@@ -144,6 +144,7 @@
             // guna2Button6
             // 
             this.guna2Button6.BorderRadius = 15;
+            this.guna2Button6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -159,6 +160,7 @@
             this.guna2Button6.Size = new System.Drawing.Size(109, 34);
             this.guna2Button6.TabIndex = 159;
             this.guna2Button6.Text = "See All";
+            this.guna2Button6.Click += new System.EventHandler(this.guna2Button6_Click);
             // 
             // label23
             // 
@@ -487,26 +489,12 @@
             this.guna2CustomGradientPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2CustomGradientPanel1.BorderRadius = 5;
             this.guna2CustomGradientPanel1.BorderThickness = 1;
-            this.guna2CustomGradientPanel1.Controls.Add(this.label4);
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2CustomGradientPanel2);
             this.guna2CustomGradientPanel1.Controls.Add(this.label3);
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(56, 637);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(789, 235);
             this.guna2CustomGradientPanel1.TabIndex = 327;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label4.Location = new System.Drawing.Point(640, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 25);
-            this.label4.TabIndex = 329;
-            this.label4.Text = "See Details";
             // 
             // guna2CustomGradientPanel2
             // 
@@ -594,43 +582,43 @@
             this.gunaBarDataset3,
             this.gunaBarDataset2,
             this.gunaBarDataset1});
-            this.barChart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            chartFont17.FontName = "Arial";
-            this.barChart1.Legend.LabelFont = chartFont17;
-            this.barChart1.Location = new System.Drawing.Point(0, 0);
+            chartFont57.FontName = "Arial";
+            this.barChart1.Legend.LabelFont = chartFont57;
+            this.barChart1.Location = new System.Drawing.Point(18, 3);
             this.barChart1.Name = "barChart1";
-            this.barChart1.Size = new System.Drawing.Size(547, 293);
+            this.barChart1.Size = new System.Drawing.Size(526, 287);
             this.barChart1.TabIndex = 0;
-            chartFont18.FontName = "Arial";
-            chartFont18.Size = 12;
-            chartFont18.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.barChart1.Title.Font = chartFont18;
-            chartFont19.FontName = "Arial";
-            this.barChart1.Tooltips.BodyFont = chartFont19;
-            chartFont20.FontName = "Arial";
-            chartFont20.Size = 9;
-            chartFont20.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.barChart1.Tooltips.TitleFont = chartFont20;
-            this.barChart1.XAxes.GridLines = grid7;
-            chartFont21.FontName = "Arial";
-            tick7.Font = chartFont21;
-            this.barChart1.XAxes.Ticks = tick7;
-            grid8.LineWidth = 0;
-            this.barChart1.YAxes.GridLines = grid8;
-            chartFont22.FontName = "Arial";
-            tick8.Font = chartFont22;
-            this.barChart1.YAxes.Ticks = tick8;
-            this.barChart1.ZAxes.GridLines = grid9;
-            chartFont23.FontName = "Arial";
-            pointLabel3.Font = chartFont23;
-            this.barChart1.ZAxes.PointLabels = pointLabel3;
-            chartFont24.FontName = "Arial";
-            tick9.Font = chartFont24;
-            this.barChart1.ZAxes.Ticks = tick9;
+            chartFont58.FontName = "Arial";
+            chartFont58.Size = 12;
+            chartFont58.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.barChart1.Title.Font = chartFont58;
+            chartFont59.FontName = "Arial";
+            this.barChart1.Tooltips.BodyFont = chartFont59;
+            chartFont60.FontName = "Arial";
+            chartFont60.Size = 9;
+            chartFont60.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.barChart1.Tooltips.TitleFont = chartFont60;
+            this.barChart1.XAxes.GridLines = grid22;
+            chartFont61.FontName = "Arial";
+            tick22.Font = chartFont61;
+            this.barChart1.XAxes.Ticks = tick22;
+            grid23.LineWidth = 0;
+            this.barChart1.YAxes.GridLines = grid23;
+            chartFont62.FontName = "Arial";
+            tick23.Font = chartFont62;
+            this.barChart1.YAxes.Ticks = tick23;
+            this.barChart1.ZAxes.GridLines = grid24;
+            chartFont63.FontName = "Arial";
+            pointLabel8.Font = chartFont63;
+            this.barChart1.ZAxes.PointLabels = pointLabel8;
+            chartFont64.FontName = "Arial";
+            tick24.Font = chartFont64;
+            this.barChart1.ZAxes.Ticks = tick24;
             this.barChart1.Load += new System.EventHandler(this.gunaChart1_Load);
             // 
             // gunaBarDataset1
             // 
+            this.gunaBarDataset1.CornerRadius = 5;
             this.gunaBarDataset1.FillColors.AddRange(new System.Drawing.Color[] {
             System.Drawing.Color.MediumOrchid,
             System.Drawing.Color.MediumOrchid,
@@ -645,6 +633,7 @@
             // 
             // gunaBarDataset2
             // 
+            this.gunaBarDataset2.CornerRadius = 5;
             this.gunaBarDataset2.FillColors.AddRange(new System.Drawing.Color[] {
             System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(91)))), ((int)(((byte)(206))))),
             System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(91)))), ((int)(((byte)(206))))),
@@ -659,6 +648,7 @@
             // 
             // gunaBarDataset3
             // 
+            this.gunaBarDataset3.CornerRadius = 5;
             this.gunaBarDataset3.FillColors.AddRange(new System.Drawing.Color[] {
             System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233))))),
             System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233))))),
@@ -1118,6 +1108,7 @@
             // label22
             // 
             this.label22.BackColor = System.Drawing.Color.White;
+            this.label22.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label22.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -1126,10 +1117,12 @@
             this.label22.Size = new System.Drawing.Size(75, 25);
             this.label22.TabIndex = 156;
             this.label22.Text = "See All";
+            this.label22.Click += new System.EventHandler(this.label22_Click);
             // 
             // guna2Button2
             // 
             this.guna2Button2.BorderRadius = 15;
+            this.guna2Button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -1145,12 +1138,35 @@
             this.guna2Button2.Size = new System.Drawing.Size(109, 34);
             this.guna2Button2.TabIndex = 334;
             this.guna2Button2.Text = "See More";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click_1);
+            // 
+            // guna2Button3
+            // 
+            this.guna2Button3.BorderRadius = 15;
+            this.guna2Button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button3.FillColor = System.Drawing.Color.White;
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.White;
+            this.guna2Button3.Location = new System.Drawing.Point(709, 583);
+            this.guna2Button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.PressedColor = System.Drawing.Color.White;
+            this.guna2Button3.Size = new System.Drawing.Size(118, 34);
+            this.guna2Button3.TabIndex = 335;
+            this.guna2Button3.Text = "See Details";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // DashboardUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Controls.Add(this.guna2Button3);
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.guna2CustomGradientPanel3);
@@ -1244,7 +1260,6 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel4;
         private Guna.UI2.WinForms.Guna2Button guna2Button14;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2Button guna2Button9;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel recentTransactionPanel2;
@@ -1280,5 +1295,6 @@
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label descriptionLabel3;
         private System.Windows.Forms.Label categoryLabel3;
+        private Guna.UI2.WinForms.Guna2Button guna2Button3;
     }
 }

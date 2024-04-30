@@ -48,13 +48,13 @@
             this.profilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.pageLabel = new System.Windows.Forms.Label();
             this.display_panel = new System.Windows.Forms.Panel();
-            this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.dashboardUC1 = new Wallet_Manager.Forms.DashboardUC();
             this.transactionHistory1 = new Wallet_Manager.Forms.TransactionHistory();
             this.wallet_uc1 = new Wallet_Manager.Forms.Wallet_uc();
             this.budget1_uc1 = new Wallet_Manager.Forms.Budget1_uc();
             this.insightsUC1 = new Wallet_Manager.Forms.InsightsUC();
             this.settingsUC1 = new Wallet_Manager.Forms.SettingsUC();
+            this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -304,11 +304,6 @@
             this.display_panel.Name = "display_panel";
             this.display_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.display_panel_Paint);
             // 
-            // guna2AnimateWindow1
-            // 
-            this.guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_VER_POSITIVE;
-            this.guna2AnimateWindow1.TargetForm = this;
-            // 
             // dashboardUC1
             // 
             this.dashboardUC1.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -344,6 +339,11 @@
             this.settingsUC1.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.settingsUC1, "settingsUC1");
             this.settingsUC1.Name = "settingsUC1";
+            // 
+            // guna2AnimateWindow1
+            // 
+            this.guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_VER_POSITIVE;
+            this.guna2AnimateWindow1.TargetForm = this;
             // 
             // Dashboard
             // 

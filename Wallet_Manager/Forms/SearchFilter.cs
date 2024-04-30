@@ -159,5 +159,15 @@ namespace Wallet_Manager.Forms
             this.Close(); // Optionally close the SearchFilter form
 
         }
+
+        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            this.FindForm().Close();
+        }
     }
 }

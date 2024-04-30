@@ -205,5 +205,10 @@ namespace Wallet_Manager.Forms
             button_expense.Cursor = Cursors.Hand;
             button_income.Cursor = Cursors.Hand;
         }
+
+        private void addIncomeUC1_Load_3(object sender, EventArgs e)
+        {
+
+        }
     }
 }

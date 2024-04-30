@@ -354,5 +354,35 @@ namespace Wallet_Manager.Forms
         {
 
         }
+
+        private void guna2Button6_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboardParent = this.FindForm() as Dashboard;
+            dashboardParent.clickSeeAllTransactions();
+
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboardParent = this.FindForm() as Dashboard;
+            dashboardParent.clickSeeAllWallets();
+        }
+
+        private void guna2Button2_Click_1(object sender, EventArgs e)
+        {
+            Dashboard dashboardParent = this.FindForm() as Dashboard;
+            dashboardParent.clickSeeAllAnalytics();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboardParent = this.FindForm() as Dashboard;
+            dashboardParent.clickSeeAllBudgets();
+        }
     }
 }

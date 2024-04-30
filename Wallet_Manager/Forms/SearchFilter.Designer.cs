@@ -85,6 +85,7 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(546, 578);
             this.guna2CustomGradientPanel1.TabIndex = 0;
+            this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
             // 
             // guna2Button2
             // 
@@ -101,6 +102,7 @@
             this.guna2Button2.Size = new System.Drawing.Size(180, 45);
             this.guna2Button2.TabIndex = 201;
             this.guna2Button2.Text = "Cancel";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // guna2Button1
             // 
@@ -352,6 +354,7 @@
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SearchFilter";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SearchFilter";
             this.Load += new System.EventHandler(this.SearchFilter_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);

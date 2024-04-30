@@ -559,7 +559,7 @@
     <value>25</value>
   </data>
   <data name="button_analytics.Text" xml:space="preserve">
-    <value>Analytics</value>
+    <value>      Analytics</value>
   </data>
   <data name="&gt;&gt;button_analytics.Name" xml:space="preserve">
     <value>button_analytics</value>

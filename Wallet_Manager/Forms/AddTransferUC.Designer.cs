@@ -66,7 +66,7 @@
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(160)))), ((int)(((byte)(248)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Location = new System.Drawing.Point(74, 378);
@@ -84,7 +84,7 @@
             this.button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(160)))), ((int)(((byte)(248)))));
+            this.button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(313, 378);
@@ -105,8 +105,8 @@
             this.txtDescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
+            this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDescription.Location = new System.Drawing.Point(197, 309);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -128,8 +128,8 @@
             this.txtAmount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtAmount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtAmount.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtAmount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtAmount.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtAmount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
+            this.txtAmount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAmount.Location = new System.Drawing.Point(197, 243);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -144,13 +144,14 @@
             // 
             this.ScheckBoxSavings.AutoSize = true;
             this.ScheckBoxSavings.BackColor = System.Drawing.Color.Transparent;
-            this.ScheckBoxSavings.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ScheckBoxSavings.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
             this.ScheckBoxSavings.CheckedState.BorderRadius = 0;
             this.ScheckBoxSavings.CheckedState.BorderThickness = 0;
-            this.ScheckBoxSavings.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ScheckBoxSavings.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
+            this.ScheckBoxSavings.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ScheckBoxSavings.Location = new System.Drawing.Point(395, 128);
             this.ScheckBoxSavings.Name = "ScheckBoxSavings";
-            this.ScheckBoxSavings.Size = new System.Drawing.Size(78, 20);
+            this.ScheckBoxSavings.Size = new System.Drawing.Size(74, 21);
             this.ScheckBoxSavings.TabIndex = 142;
             this.ScheckBoxSavings.Text = "Savings";
             this.ScheckBoxSavings.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -163,13 +164,14 @@
             // 
             this.ScheckBoxSpending.AutoSize = true;
             this.ScheckBoxSpending.BackColor = System.Drawing.Color.Transparent;
-            this.ScheckBoxSpending.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ScheckBoxSpending.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
             this.ScheckBoxSpending.CheckedState.BorderRadius = 0;
             this.ScheckBoxSpending.CheckedState.BorderThickness = 0;
-            this.ScheckBoxSpending.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ScheckBoxSpending.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
+            this.ScheckBoxSpending.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ScheckBoxSpending.Location = new System.Drawing.Point(287, 128);
             this.ScheckBoxSpending.Name = "ScheckBoxSpending";
-            this.ScheckBoxSpending.Size = new System.Drawing.Size(87, 20);
+            this.ScheckBoxSpending.Size = new System.Drawing.Size(85, 21);
             this.ScheckBoxSpending.TabIndex = 141;
             this.ScheckBoxSpending.Text = "Spending";
             this.ScheckBoxSpending.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -186,9 +188,9 @@
             this.txtSourceWallet.BorderRadius = 5;
             this.txtSourceWallet.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtSourceWallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtSourceWallet.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSourceWallet.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSourceWallet.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtSourceWallet.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
+            this.txtSourceWallet.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
+            this.txtSourceWallet.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSourceWallet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.txtSourceWallet.ItemHeight = 30;
             this.txtSourceWallet.Location = new System.Drawing.Point(197, 86);
@@ -199,12 +201,12 @@
             // txtDate
             // 
             this.txtDate.AllowDrop = true;
-            this.txtDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(160)))), ((int)(((byte)(248)))));
+            this.txtDate.BackColor = System.Drawing.Color.Transparent;
             this.txtDate.BorderRadius = 5;
             this.txtDate.BorderThickness = 1;
             this.txtDate.Checked = true;
-            this.txtDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(160)))), ((int)(((byte)(248)))));
-            this.txtDate.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
+            this.txtDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDate.ForeColor = System.Drawing.Color.White;
             this.txtDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.txtDate.Location = new System.Drawing.Point(198, 21);
@@ -287,6 +289,7 @@
             this.guna2CustomGradientPanel1.Controls.Add(this.label1);
             this.guna2CustomGradientPanel1.Controls.Add(this.label4);
             this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2CustomGradientPanel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(502, 463);
@@ -295,6 +298,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Wallet_Manager.Properties.Resources.wallet;
             this.pictureBox1.Location = new System.Drawing.Point(35, 163);
             this.pictureBox1.Name = "pictureBox1";
@@ -305,6 +309,7 @@
             // 
             // pictureBox6
             // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = global::Wallet_Manager.Properties.Resources.edit_info;
             this.pictureBox6.Location = new System.Drawing.Point(35, 309);
             this.pictureBox6.Name = "pictureBox6";
@@ -315,6 +320,7 @@
             // 
             // pictureBox8
             // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox8.Image = global::Wallet_Manager.Properties.Resources.wallet;
             this.pictureBox8.Location = new System.Drawing.Point(35, 86);
             this.pictureBox8.Name = "pictureBox8";
@@ -325,6 +331,7 @@
             // 
             // pictureBox9
             // 
+            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox9.Image = global::Wallet_Manager.Properties.Resources.profit__1_;
             this.pictureBox9.Location = new System.Drawing.Point(35, 243);
             this.pictureBox9.Name = "pictureBox9";
@@ -335,6 +342,7 @@
             // 
             // pictureBox10
             // 
+            this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox10.Image = global::Wallet_Manager.Properties.Resources.calendar__1_;
             this.pictureBox10.Location = new System.Drawing.Point(35, 21);
             this.pictureBox10.Name = "pictureBox10";
@@ -347,13 +355,14 @@
             // 
             this.DcheckBoxSavings.AutoSize = true;
             this.DcheckBoxSavings.BackColor = System.Drawing.Color.Transparent;
-            this.DcheckBoxSavings.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.DcheckBoxSavings.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
             this.DcheckBoxSavings.CheckedState.BorderRadius = 0;
             this.DcheckBoxSavings.CheckedState.BorderThickness = 0;
-            this.DcheckBoxSavings.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.DcheckBoxSavings.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
+            this.DcheckBoxSavings.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DcheckBoxSavings.Location = new System.Drawing.Point(395, 205);
             this.DcheckBoxSavings.Name = "DcheckBoxSavings";
-            this.DcheckBoxSavings.Size = new System.Drawing.Size(78, 20);
+            this.DcheckBoxSavings.Size = new System.Drawing.Size(74, 21);
             this.DcheckBoxSavings.TabIndex = 155;
             this.DcheckBoxSavings.Text = "Savings";
             this.DcheckBoxSavings.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -366,13 +375,14 @@
             // 
             this.DcheckBoxSpending.AutoSize = true;
             this.DcheckBoxSpending.BackColor = System.Drawing.Color.Transparent;
-            this.DcheckBoxSpending.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.DcheckBoxSpending.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
             this.DcheckBoxSpending.CheckedState.BorderRadius = 0;
             this.DcheckBoxSpending.CheckedState.BorderThickness = 0;
-            this.DcheckBoxSpending.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.DcheckBoxSpending.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
+            this.DcheckBoxSpending.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DcheckBoxSpending.Location = new System.Drawing.Point(287, 205);
             this.DcheckBoxSpending.Name = "DcheckBoxSpending";
-            this.DcheckBoxSpending.Size = new System.Drawing.Size(87, 20);
+            this.DcheckBoxSpending.Size = new System.Drawing.Size(85, 21);
             this.DcheckBoxSpending.TabIndex = 154;
             this.DcheckBoxSpending.Text = "Spending";
             this.DcheckBoxSpending.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -389,9 +399,9 @@
             this.txtDestinationWallet.BorderRadius = 5;
             this.txtDestinationWallet.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtDestinationWallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtDestinationWallet.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDestinationWallet.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDestinationWallet.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtDestinationWallet.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
+            this.txtDestinationWallet.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
+            this.txtDestinationWallet.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDestinationWallet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.txtDestinationWallet.ItemHeight = 30;
             this.txtDestinationWallet.Location = new System.Drawing.Point(197, 163);

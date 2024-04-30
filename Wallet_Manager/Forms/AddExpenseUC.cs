@@ -173,5 +173,15 @@ namespace Wallet_Manager.Forms
         {
 
         }
+
+        private void txtAmount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

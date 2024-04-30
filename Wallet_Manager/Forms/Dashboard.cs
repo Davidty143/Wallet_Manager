@@ -57,7 +57,24 @@ namespace Wallet_Manager.Forms
             wallet_uc1.BringToFront();
         }
 
+
+        internal void clickSeeAllWallets()
+        {
+            UpdateButtonStyles(button_wallet);
+            pageLabel.Text = "Wallet";
+            wallet_uc1.BringToFront();
+
+        }
+
         private void button_transaction_Click(object sender, EventArgs e)
+        {
+            UpdateButtonStyles(button_transaction);
+            pageLabel.Text = "Transaction";
+            transactionHistory1.BringToFront();
+
+        }
+
+        internal void clickSeeAllTransactions()
         {
             UpdateButtonStyles(button_transaction);
             pageLabel.Text = "Transaction";
@@ -72,11 +89,26 @@ namespace Wallet_Manager.Forms
             insightsUC1.BringToFront();
         }
 
+        internal void clickSeeAllAnalytics()
+        {
+            UpdateButtonStyles(button_analytics);
+            pageLabel.Text = "Analytics";
+            insightsUC1.BringToFront();
+
+        }
+
         private void button_budget_Click(object sender, EventArgs e)
         {
             UpdateButtonStyles(button_budget);
             pageLabel.Text = "Budget";
             budget1_uc1.BringToFront();
+        }
+        internal void clickSeeAllBudgets()
+        {
+            UpdateButtonStyles(button_budget);
+            pageLabel.Text = "Budget";
+            budget1_uc1.BringToFront();
+
         }
 
         private void button_goals_Click(object sender, EventArgs e)
@@ -212,7 +244,9 @@ namespace Wallet_Manager.Forms
 
         private void editProfile_Click(object sender, EventArgs e)
         {
-
+            UpdateButtonStyles(button_profile);
+            pageLabel.Text = "Profile";
+            settingsUC1.BringToFront();
         }
 
         private void settingsUC1_Load(object sender, EventArgs e)

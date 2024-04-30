@@ -638,7 +638,8 @@ namespace Wallet_Manager.Classes
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction", connection))
+                // Update the SQL query to order by Date and TransactionID
+                using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction ORDER BY Date DESC, TransactionID DESC", connection))
                 {
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
@@ -663,6 +664,7 @@ namespace Wallet_Manager.Classes
             }
             return transactions;
         }
+
 
         public List<Transaction> GetTransactionsByCategoryAndDate(List<int> categoryIds, DateTime startDate, DateTime endDate)
         {
@@ -780,8 +782,8 @@ namespace Wallet_Manager.Classes
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                // Modified SQL command to fetch only the latest 3 transactions
-                using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction ORDER BY Date DESC LIMIT 3", connection))
+                // Modified SQL command to fetch only the latest 3 transactions, ordered by Date and TransactionID
+                using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction ORDER BY Date DESC, TransactionID DESC LIMIT 3", connection))
                 {
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
@@ -806,6 +808,7 @@ namespace Wallet_Manager.Classes
             }
             return transactions;
         }
+
 
         public List<Transaction> GetLatestThreeWalletTransactions(int walletId)
         {

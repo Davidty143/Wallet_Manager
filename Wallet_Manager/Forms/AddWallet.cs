@@ -71,17 +71,6 @@ namespace Wallet_Manager.Forms
                 float spendingMoney;
                 float savingsMoney;
 
-                if (!float.TryParse(txtSpending.Text, out spendingMoney))
-                {
-                    MessageBox.Show("Please enter a valid number for spending money.");
-                    return;
-                }
-
-                if (!float.TryParse(txtSavings.Text, out savingsMoney))
-                {
-                    MessageBox.Show("Please enter a valid number for savings money.");
-                    return;
-                }
 
                 if (string.IsNullOrEmpty(walletName) || string.IsNullOrEmpty(walletType))
                 {
@@ -94,8 +83,8 @@ namespace Wallet_Manager.Forms
                     UserID = GlobalData.GetUserID(),
                     WalletName = walletName,
                     WalletType = walletType,
-                    SpendingMoney = spendingMoney,
-                    SavingsMoney = savingsMoney
+                    SpendingMoney = 0,
+                    SavingsMoney = 0
                 };
 
 
