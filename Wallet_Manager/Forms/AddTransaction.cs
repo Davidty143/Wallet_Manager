@@ -114,12 +114,11 @@ namespace Wallet_Manager.Forms
                 page = 1;
 
                 addIncomeUC1.BringToFront();
-                label_transaction.Text = "Income";
                 button_income.HoverState.FillColor = System.Drawing.Color.White;
                 button_expense.HoverState.FillColor = System.Drawing.Color.LightGray;
                 button_transfer.HoverState.FillColor = System.Drawing.Color.LightGray;
 
-                button_income.BorderThickness = 2;
+                button_income.BorderThickness = 1;
                 button_income.BorderColor = System.Drawing.Color.Black;
                 button_income.ForeColor = System.Drawing.Color.Black;
 
@@ -146,13 +145,12 @@ namespace Wallet_Manager.Forms
                 page = 2;
 
                 addExpenseUC1.BringToFront();
-                label_transaction.Text = "Expense";
 
                 button_expense.HoverState.FillColor = System.Drawing.Color.White;
                 button_income.HoverState.FillColor = System.Drawing.Color.LightGray;
                 button_transfer.HoverState.FillColor = System.Drawing.Color.LightGray;
 
-                button_expense.BorderThickness = 2;
+                button_expense.BorderThickness = 1;
                 button_expense.BorderColor = System.Drawing.Color.Black;
                 button_expense.ForeColor = System.Drawing.Color.Black;
 
@@ -179,14 +177,12 @@ namespace Wallet_Manager.Forms
 
                 addTransferUC1.BringToFront();
 
-                label_transaction.Text = "Transfer";
-
 
                 button_transfer.HoverState.FillColor = System.Drawing.Color.White;
                 button_expense.HoverState.FillColor = System.Drawing.Color.LightGray;
                 button_income.HoverState.FillColor = System.Drawing.Color.LightGray;
 
-                button_transfer.BorderThickness = 2;
+                button_transfer.BorderThickness = 1;
                 button_transfer.BorderColor = System.Drawing.Color.Black;
                 button_transfer.ForeColor = System.Drawing.Color.Black;
 
@@ -207,6 +203,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void addIncomeUC1_Load_3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addIncomeUC1_Load_4(object sender, EventArgs e)
         {
 
         }

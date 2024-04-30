@@ -48,6 +48,7 @@
             // guna2Button1
             // 
             this.guna2Button1.BorderRadius = 5;
+            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -65,6 +66,7 @@
             // add_Wallet
             // 
             this.add_Wallet.BorderRadius = 5;
+            this.add_Wallet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.add_Wallet.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.add_Wallet.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.add_Wallet.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));

@@ -30,7 +30,6 @@
         {
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.label_transaction = new System.Windows.Forms.Label();
             this.button_transfer = new Guna.UI2.WinForms.Guna2Button();
             this.button_income = new Guna.UI2.WinForms.Guna2Button();
             this.button_expense = new Guna.UI2.WinForms.Guna2Button();
@@ -50,35 +49,25 @@
             this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(160)))), ((int)(((byte)(248)))));
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(526, 625);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(606, 599);
             this.guna2CustomGradientPanel1.TabIndex = 8;
             this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint_1);
             // 
             // guna2CustomGradientPanel2
             // 
-            this.guna2CustomGradientPanel2.Controls.Add(this.label_transaction);
+            this.guna2CustomGradientPanel2.BackColor = System.Drawing.Color.White;
+            this.guna2CustomGradientPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2CustomGradientPanel2.BorderThickness = 1;
             this.guna2CustomGradientPanel2.Controls.Add(this.guna2CustomGradientPanel3);
             this.guna2CustomGradientPanel2.Controls.Add(this.button_transfer);
             this.guna2CustomGradientPanel2.Controls.Add(this.button_income);
             this.guna2CustomGradientPanel2.Controls.Add(this.button_expense);
             this.guna2CustomGradientPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2CustomGradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(160)))), ((int)(((byte)(248)))));
             this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
-            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(526, 625);
+            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(606, 599);
             this.guna2CustomGradientPanel2.TabIndex = 0;
             this.guna2CustomGradientPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel2_Paint_1);
-            // 
-            // label_transaction
-            // 
-            this.label_transaction.AutoSize = true;
-            this.label_transaction.BackColor = System.Drawing.Color.Transparent;
-            this.label_transaction.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_transaction.Location = new System.Drawing.Point(8, 18);
-            this.label_transaction.Name = "label_transaction";
-            this.label_transaction.Size = new System.Drawing.Size(77, 23);
-            this.label_transaction.TabIndex = 17;
-            this.label_transaction.Text = "INCOME";
             // 
             // button_transfer
             // 
@@ -93,7 +82,7 @@
             this.button_transfer.FillColor = System.Drawing.Color.White;
             this.button_transfer.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_transfer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.button_transfer.Location = new System.Drawing.Point(361, 59);
+            this.button_transfer.Location = new System.Drawing.Point(400, 25);
             this.button_transfer.Name = "button_transfer";
             this.button_transfer.Size = new System.Drawing.Size(138, 38);
             this.button_transfer.TabIndex = 15;
@@ -103,17 +92,17 @@
             // button_income
             // 
             this.button_income.BorderRadius = 5;
-            this.button_income.BorderThickness = 2;
+            this.button_income.BorderThickness = 1;
             this.button_income.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_income.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.button_income.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.button_income.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.button_income.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.button_income.FillColor = System.Drawing.Color.White;
-            this.button_income.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_income.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_income.ForeColor = System.Drawing.Color.Black;
             this.button_income.HoverState.FillColor = System.Drawing.Color.White;
-            this.button_income.Location = new System.Drawing.Point(34, 59);
+            this.button_income.Location = new System.Drawing.Point(73, 25);
             this.button_income.Name = "button_income";
             this.button_income.Size = new System.Drawing.Size(138, 38);
             this.button_income.TabIndex = 13;
@@ -133,7 +122,7 @@
             this.button_expense.FillColor = System.Drawing.Color.White;
             this.button_expense.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_expense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.button_expense.Location = new System.Drawing.Point(198, 59);
+            this.button_expense.Location = new System.Drawing.Point(237, 25);
             this.button_expense.Name = "button_expense";
             this.button_expense.Size = new System.Drawing.Size(135, 38);
             this.button_expense.TabIndex = 14;
@@ -142,10 +131,14 @@
             // 
             // guna2CustomGradientPanel3
             // 
+            this.guna2CustomGradientPanel3.BackColor = System.Drawing.Color.White;
+            this.guna2CustomGradientPanel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2CustomGradientPanel3.BorderRadius = 5;
+            this.guna2CustomGradientPanel3.BorderThickness = 1;
             this.guna2CustomGradientPanel3.Controls.Add(this.addIncomeUC1);
             this.guna2CustomGradientPanel3.Controls.Add(this.addTransferUC1);
             this.guna2CustomGradientPanel3.Controls.Add(this.addExpenseUC1);
-            this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(12, 128);
+            this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(51, 94);
             this.guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
             this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(502, 463);
             this.guna2CustomGradientPanel3.TabIndex = 16;
@@ -173,13 +166,14 @@
             this.addIncomeUC1.Name = "addIncomeUC1";
             this.addIncomeUC1.Size = new System.Drawing.Size(502, 463);
             this.addIncomeUC1.TabIndex = 2;
+            this.addIncomeUC1.Load += new System.EventHandler(this.addIncomeUC1_Load_4);
             // 
             // AddTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(526, 625);
+            this.ClientSize = new System.Drawing.Size(606, 599);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddTransaction";
@@ -187,7 +181,6 @@
             this.Text = "AddTransaction";
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel2.ResumeLayout(false);
-            this.guna2CustomGradientPanel2.PerformLayout();
             this.guna2CustomGradientPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -199,7 +192,6 @@
         private Guna.UI2.WinForms.Guna2Button button_transfer;
         private Guna.UI2.WinForms.Guna2Button button_income;
         private Guna.UI2.WinForms.Guna2Button button_expense;
-        private System.Windows.Forms.Label label_transaction;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel3;
         private AddIncomeUC addIncomeUC1;
         private AddTransferUC addTransferUC1;

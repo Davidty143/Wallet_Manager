@@ -62,6 +62,7 @@
             // 
             this.guna2Button1.AllowDrop = true;
             this.guna2Button1.BorderRadius = 5;
+            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -80,6 +81,7 @@
             // 
             this.button1.AllowDrop = true;
             this.button1.BorderRadius = 5;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -205,6 +207,7 @@
             this.txtDate.BorderRadius = 5;
             this.txtDate.BorderThickness = 1;
             this.txtDate.Checked = true;
+            this.txtDate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
             this.txtDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDate.ForeColor = System.Drawing.Color.White;
@@ -267,6 +270,9 @@
             // 
             // guna2CustomGradientPanel1
             // 
+            this.guna2CustomGradientPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2CustomGradientPanel1.BorderRadius = 5;
+            this.guna2CustomGradientPanel1.BorderThickness = 1;
             this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox1);
             this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox6);
             this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox8);
