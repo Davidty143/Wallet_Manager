@@ -36,8 +36,9 @@ namespace Wallet_Manager.Forms
         {
             InitializeComponent();
             initializeControlArrays();
-            PopulateBudgetComboBox();
             UpdateUIVisibility();
+            PopulateBudgetComboBox();
+            
 
 
 
@@ -50,10 +51,7 @@ namespace Wallet_Manager.Forms
             bool hasActiveBudgets = budgetComboBox.Items.Count > 0;
 
             // Set visibility of all related UI components based on the presence of active budgets
-
-
             label9.Visible = hasActiveBudgets;
-            label2.Visible = hasActiveBudgets;
             label2.Visible = hasActiveBudgets;
             label4.Visible = hasActiveBudgets;
             label5.Visible = hasActiveBudgets;
@@ -70,17 +68,10 @@ namespace Wallet_Manager.Forms
             doughnutChart1.Visible = hasActiveBudgets;
             splineChart.Visible = hasActiveBudgets;
 
-
-            foreach (var panel in recordPanels)
-            {
-                panel.Visible = hasActiveBudgets;
-            }
-
-            foreach (var progressBar in progressBar)
-            {
-                progressBar.Visible = hasActiveBudgets;
-            }
+            // Do not set visibility for panels and progress bars here
+            // Let PopulatePanels method handle the visibility of individual panels
         }
+
 
 
 
@@ -98,23 +89,25 @@ namespace Wallet_Manager.Forms
 
         public void PopulatePanels(Budget budget)
         {
+            // Set all panels to not visible at the beginning
+            foreach (var panel in recordPanels)
+            {
+                panel.Visible = false;
+            }
+
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
             var dailyAmounts = dataAccessLayer.GetDailyExpensesUnderBudget(budget).ToList();
-
-            // Reverse the list to show the most recent dates first
             dailyAmounts.Reverse();
 
-            // Calculate the number of pages and update pagination controls
             actualRecordsCount = dailyAmounts.Count;
             int totalPages = (int)Math.Ceiling((double)actualRecordsCount / recordsPerPage);
             UpdatePaginationLabel();
 
-            // Correct calculation for start index based on the current page
             int start = (currentRecordPage - 1) * recordsPerPage;
             int end = Math.Min(start + recordsPerPage, actualRecordsCount);
 
-            // Populate the panels with data
+            // This index tracks which panel is being populated
             int panelIndex = 0;
             for (int i = start; i < end; i++, panelIndex++)
             {
@@ -123,17 +116,20 @@ namespace Wallet_Manager.Forms
                 spentLabels[panelIndex].Text = $"{entry.Value:C2}";
                 float totalBudget = budget.TotalAmount;
                 float percentageSpent = (entry.Value / totalBudget) * 100;
-                progressBar[panelIndex].Value = Math.Min((int)percentageSpent, 100); // Ensure the progress bar does not exceed 100%
+                progressBar[panelIndex].Value = Math.Min((int)percentageSpent, 100);
                 percentageLabels[panelIndex].Text = $"{percentageSpent:F2}% of total budget";
-                recordPanels[panelIndex].Visible = true;
+                recordPanels[panelIndex].Visible = true; // Only make the panel visible if there's data to display
             }
 
-            // Hide any unused panels
-            for (int index = panelIndex; index < recordPanels.Length; index++)
+            // Hide any unused panels beyond the last populated one
+            for (int j = panelIndex; j < recordPanels.Length; j++)
             {
-                recordPanels[index].Visible = false;
+                recordPanels[j].Visible = false;
             }
         }
+
+
+
 
 
 
