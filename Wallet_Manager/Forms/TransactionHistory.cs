@@ -46,6 +46,8 @@ namespace Wallet_Manager.Forms
             LoadCategoryImages();
             LoadTransactions();
 
+            GlobalEvents.TransactionUpdated += LoadTransactions;
+
             //ConnectEventHandlers();
         }
 
@@ -463,6 +465,17 @@ namespace Wallet_Manager.Forms
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             LoadTransactions();
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            SearchFilter searchForm = SearchFilter.GetInstance(this);
+            if (searchForm == null)
+            {
+                searchForm = new SearchFilter(this);
+                searchForm.ShowDialog();
+            }
+            searchForm.ShowDialog();
         }
     }
 }

@@ -205,6 +205,7 @@
             this.guna2Button1.Size = new System.Drawing.Size(121, 36);
             this.guna2Button1.TabIndex = 316;
             this.guna2Button1.Text = "FILTER";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click_1);
             // 
             // panel6
             // 

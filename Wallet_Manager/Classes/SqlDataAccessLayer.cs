@@ -869,6 +869,9 @@ namespace Wallet_Manager.Classes
                 if (endDate.HasValue)
                     query.Append(" AND Date <= @EndDate");
 
+                // Append ORDER BY clause after all WHERE conditions
+                query.Append(" ORDER BY Date DESC, TransactionID");
+
                 using (MySqlCommand command = new MySqlCommand(query.ToString(), connection))
                 {
                     if (!string.IsNullOrEmpty(transactionType))

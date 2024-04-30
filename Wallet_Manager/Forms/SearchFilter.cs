@@ -113,6 +113,7 @@ namespace Wallet_Manager.Forms
             transactionTypeComboBox.Items.Add("Income");
             transactionTypeComboBox.Items.Add("Transfer");
             transactionTypeComboBox.SelectedIndex = 0;
+
         }
 
         public static SearchFilter GetInstance(TransactionHistory transactionHistory)
@@ -147,16 +148,7 @@ namespace Wallet_Manager.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string transactionType = transactionTypeComboBox.SelectedItem?.ToString();
-            string category = categoryComboBox.SelectedValue?.ToString();
-            string wallet = walletComboBox.SelectedValue?.ToString();
-            string walletCategory = walletCategoryComboBox.SelectedItem?.ToString();
-            DateTime startDate = startDatePicker.Value.Date;
-            DateTime endDate = endDatePicker.Value.Date.AddDays(1); // Include the end date in the search
 
-            // Call ApplyFilters on the TransactionHistory form
-            _transactionHistory.ApplyFilters(transactionType, category, wallet, walletCategory, startDate, endDate);
-            this.Close(); // Optionally close the SearchFilter form
 
         }
 
@@ -168,6 +160,35 @@ namespace Wallet_Manager.Forms
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             this.FindForm().Close();
+        }
+
+        private void guna2Button2_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            string transactionType = transactionTypeComboBox.SelectedItem?.ToString();
+            string category = categoryComboBox.SelectedValue?.ToString();
+            string wallet = walletComboBox.SelectedValue?.ToString();
+            string walletCategory = walletCategoryComboBox.SelectedItem?.ToString();
+            DateTime startDate = startDatePicker.Value.Date;
+            DateTime endDate = endDatePicker.Value.Date.AddDays(1); // Include the end date in the search
+
+            // Call ApplyFilters on the TransactionHistory form
+            _transactionHistory.ApplyFilters(transactionType, category, wallet, walletCategory, startDate, endDate);
+            this.Hide(); // Optionally close the SearchFilter form
+        }
+
+        private void transactionTypeComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            PopulateCategoryComboBox(transactionTypeComboBox.Text);
+        }
+
+        private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
