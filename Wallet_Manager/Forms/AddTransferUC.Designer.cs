@@ -110,7 +110,7 @@
             this.txtDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtDescription.Location = new System.Drawing.Point(197, 309);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescription.Name = "txtDescription";
@@ -134,7 +134,7 @@
             this.txtAmount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtAmount.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtAmount.Location = new System.Drawing.Point(197, 243);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAmount.Name = "txtAmount";
@@ -193,12 +193,14 @@
             this.txtSourceWallet.BackColor = System.Drawing.Color.Transparent;
             this.txtSourceWallet.BorderColor = System.Drawing.Color.Black;
             this.txtSourceWallet.BorderRadius = 5;
+            this.txtSourceWallet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtSourceWallet.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtSourceWallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtSourceWallet.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtSourceWallet.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtSourceWallet.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSourceWallet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSourceWallet.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtSourceWallet.ItemHeight = 30;
             this.txtSourceWallet.Location = new System.Drawing.Point(197, 86);
             this.txtSourceWallet.Name = "txtSourceWallet";
@@ -410,12 +412,14 @@
             this.txtDestinationWallet.BackColor = System.Drawing.Color.Transparent;
             this.txtDestinationWallet.BorderColor = System.Drawing.Color.Black;
             this.txtDestinationWallet.BorderRadius = 5;
+            this.txtDestinationWallet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtDestinationWallet.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtDestinationWallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtDestinationWallet.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtDestinationWallet.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtDestinationWallet.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDestinationWallet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtDestinationWallet.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtDestinationWallet.ItemHeight = 30;
             this.txtDestinationWallet.Location = new System.Drawing.Point(197, 163);
             this.txtDestinationWallet.Name = "txtDestinationWallet";
