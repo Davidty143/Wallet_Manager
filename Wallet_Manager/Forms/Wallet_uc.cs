@@ -75,9 +75,6 @@ namespace Wallet_Manager.Forms
 
 
 
-
-
-
         private void UpdateWalletDisplay(Wallet wallet)
         {
             if (wallet != null)
@@ -400,6 +397,16 @@ namespace Wallet_Manager.Forms
         }
 
         private void guna2CustomGradientPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void walletTypeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
 
         }

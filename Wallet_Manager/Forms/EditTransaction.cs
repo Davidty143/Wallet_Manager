@@ -279,5 +279,26 @@ namespace Wallet_Manager.Forms
         {
             
         }
+
+        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void checkBoxSpending_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBoxSpending.Checked)
+            {
+                checkBoxSavings.Checked = false;
+            }
+        }
+
+        private void checkBoxSavings_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (checkBoxSavings.Checked)
+            {
+                checkBoxSpending.Checked = false;
+            }
+        }
     }
 }

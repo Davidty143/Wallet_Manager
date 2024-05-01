@@ -404,6 +404,8 @@ namespace Wallet_Manager.Classes
                 {
                     checkCmd.Parameters.AddWithValue("@WalletName", wallet.WalletName);
                     checkCmd.Parameters.AddWithValue("@WalletID", wallet.WalletID);
+                    checkCmd.Parameters.AddWithValue("@WalletType", wallet.WalletType);
+
 
                     conn.Open();
                     int count = Convert.ToInt32(checkCmd.ExecuteScalar());

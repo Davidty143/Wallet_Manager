@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.Charts.WinForms.ChartFont chartFont17 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont18 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont19 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont20 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid7 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick7 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont21 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid8 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick8 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont22 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid9 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel3 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont23 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick9 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont24 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont1 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont2 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont3 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont4 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid1 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick1 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont5 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid2 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick2 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont6 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid3 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel1 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont7 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick3 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont8 = new Guna.Charts.WinForms.ChartFont();
             this.label8 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label4 = new System.Windows.Forms.Label();
@@ -169,6 +169,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::Wallet_Manager.Properties.Resources.addbutton_transparent;
             this.pictureBox2.Location = new System.Drawing.Point(1276, 185);
             this.pictureBox2.Name = "pictureBox2";
@@ -181,6 +182,7 @@
             // deleteWalletPictureBox
             // 
             this.deleteWalletPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.deleteWalletPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deleteWalletPictureBox.Image = global::Wallet_Manager.Properties.Resources.delete_button4;
             this.deleteWalletPictureBox.Location = new System.Drawing.Point(1319, 20);
             this.deleteWalletPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -194,6 +196,7 @@
             // editWalletPictureBox
             // 
             this.editWalletPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.editWalletPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editWalletPictureBox.Image = global::Wallet_Manager.Properties.Resources.edit_transparent;
             this.editWalletPictureBox.Location = new System.Drawing.Point(1276, 20);
             this.editWalletPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -210,11 +213,12 @@
             this.walletTypeLabel.BackColor = System.Drawing.Color.Transparent;
             this.walletTypeLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.walletTypeLabel.ForeColor = System.Drawing.Color.White;
-            this.walletTypeLabel.Location = new System.Drawing.Point(261, 23);
+            this.walletTypeLabel.Location = new System.Drawing.Point(329, 26);
             this.walletTypeLabel.Name = "walletTypeLabel";
             this.walletTypeLabel.Size = new System.Drawing.Size(123, 38);
             this.walletTypeLabel.TabIndex = 36;
             this.walletTypeLabel.Text = "E-Wallet";
+            this.walletTypeLabel.Click += new System.EventHandler(this.walletTypeLabel_Click);
             // 
             // spendingBalanceLabel
             // 
@@ -268,11 +272,11 @@
             // 
             this.walletNameLabel.AutoSize = true;
             this.walletNameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.walletNameLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.walletNameLabel.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.walletNameLabel.ForeColor = System.Drawing.Color.White;
             this.walletNameLabel.Location = new System.Drawing.Point(36, 20);
             this.walletNameLabel.Name = "walletNameLabel";
-            this.walletNameLabel.Size = new System.Drawing.Size(200, 41);
+            this.walletNameLabel.Size = new System.Drawing.Size(225, 46);
             this.walletNameLabel.TabIndex = 30;
             this.walletNameLabel.Text = "Wallet Name";
             this.walletNameLabel.Click += new System.EventHandler(this.walletNameLabel_Click);
@@ -701,38 +705,38 @@
             this.gunaBarDataset2,
             this.gunaBarDataset3});
             this.barChart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            chartFont17.FontName = "Arial";
-            this.barChart1.Legend.LabelFont = chartFont17;
+            chartFont1.FontName = "Arial";
+            this.barChart1.Legend.LabelFont = chartFont1;
             this.barChart1.Location = new System.Drawing.Point(0, 0);
             this.barChart1.Name = "barChart1";
             this.barChart1.Size = new System.Drawing.Size(736, 383);
             this.barChart1.TabIndex = 316;
-            chartFont18.FontName = "Arial";
-            chartFont18.Size = 12;
-            chartFont18.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.barChart1.Title.Font = chartFont18;
-            chartFont19.FontName = "Arial";
-            this.barChart1.Tooltips.BodyFont = chartFont19;
-            chartFont20.FontName = "Arial";
-            chartFont20.Size = 9;
-            chartFont20.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.barChart1.Tooltips.TitleFont = chartFont20;
-            this.barChart1.XAxes.GridLines = grid7;
-            chartFont21.FontName = "Arial";
-            tick7.Font = chartFont21;
-            this.barChart1.XAxes.Ticks = tick7;
-            grid8.LineWidth = 0;
-            this.barChart1.YAxes.GridLines = grid8;
-            chartFont22.FontName = "Arial";
-            tick8.Font = chartFont22;
-            this.barChart1.YAxes.Ticks = tick8;
-            this.barChart1.ZAxes.GridLines = grid9;
-            chartFont23.FontName = "Arial";
-            pointLabel3.Font = chartFont23;
-            this.barChart1.ZAxes.PointLabels = pointLabel3;
-            chartFont24.FontName = "Arial";
-            tick9.Font = chartFont24;
-            this.barChart1.ZAxes.Ticks = tick9;
+            chartFont2.FontName = "Arial";
+            chartFont2.Size = 12;
+            chartFont2.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.barChart1.Title.Font = chartFont2;
+            chartFont3.FontName = "Arial";
+            this.barChart1.Tooltips.BodyFont = chartFont3;
+            chartFont4.FontName = "Arial";
+            chartFont4.Size = 9;
+            chartFont4.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.barChart1.Tooltips.TitleFont = chartFont4;
+            this.barChart1.XAxes.GridLines = grid1;
+            chartFont5.FontName = "Arial";
+            tick1.Font = chartFont5;
+            this.barChart1.XAxes.Ticks = tick1;
+            grid2.LineWidth = 0;
+            this.barChart1.YAxes.GridLines = grid2;
+            chartFont6.FontName = "Arial";
+            tick2.Font = chartFont6;
+            this.barChart1.YAxes.Ticks = tick2;
+            this.barChart1.ZAxes.GridLines = grid3;
+            chartFont7.FontName = "Arial";
+            pointLabel1.Font = chartFont7;
+            this.barChart1.ZAxes.PointLabels = pointLabel1;
+            chartFont8.FontName = "Arial";
+            tick3.Font = chartFont8;
+            this.barChart1.ZAxes.Ticks = tick3;
             // 
             // gunaBarDataset1
             // 
@@ -793,6 +797,7 @@
             // guna2Button6
             // 
             this.guna2Button6.BorderRadius = 15;
+            this.guna2Button6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -812,6 +817,7 @@
             // guna2Button1
             // 
             this.guna2Button1.BorderRadius = 15;
+            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -827,6 +833,7 @@
             this.guna2Button1.Size = new System.Drawing.Size(109, 34);
             this.guna2Button1.TabIndex = 317;
             this.guna2Button1.Text = "See More";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // Wallet_uc
             // 
