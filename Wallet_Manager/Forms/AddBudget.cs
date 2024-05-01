@@ -299,5 +299,10 @@ namespace Wallet_Manager.Forms
         {
             this.Close();
         }
+
+        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

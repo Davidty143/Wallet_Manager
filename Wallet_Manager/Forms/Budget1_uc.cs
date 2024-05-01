@@ -52,7 +52,6 @@ namespace Wallet_Manager.Forms
 
             // Set visibility of all related UI components based on the presence of active budgets
             label9.Visible = hasActiveBudgets;
-            label2.Visible = hasActiveBudgets;
             label4.Visible = hasActiveBudgets;
             label5.Visible = hasActiveBudgets;
             label6.Visible = hasActiveBudgets;
@@ -119,12 +118,6 @@ namespace Wallet_Manager.Forms
                 progressBar[panelIndex].Value = Math.Min((int)percentageSpent, 100);
                 percentageLabels[panelIndex].Text = $"{percentageSpent:F2}% of total budget";
                 recordPanels[panelIndex].Visible = true; // Only make the panel visible if there's data to display
-                if (entry.Value > totalBudget)
-                {
-                    progressBar[panelIndex].ProgressColor = Color.Red;
-                    progressBar[panelIndex].ProgressColor2 = Color.Red; 
-                }
-
             }
 
             // Hide any unused panels beyond the last populated one
@@ -159,7 +152,6 @@ namespace Wallet_Manager.Forms
             // Calculate the amount spent
             float totalSpent = ComputeTotalSpendForBudget(budget);
 
-
             // Calculate the remaining budget
             float remainingBudget = budget.TotalAmount - totalSpent;
 
@@ -175,14 +167,34 @@ namespace Wallet_Manager.Forms
                 progressBarValue = generalProgressBar.Minimum;
             }
 
-            // Set the progress bar value
             generalProgressBar.Value = progressBarValue;
+
+            // Set the progress bar color based on budget comparison
+            if (totalSpent > budget.TotalAmount)
+            {
+                overSpentLabel.Visible = true;
+            }
+            else
+            {
+                overSpentLabel.Visible = false;
+            }
+
+            if (totalSpent < budget.TotalAmount && totalSpent > (budget.TotalAmount * 0.7))
+            {
+                warningLabel.Visible = true;
+            }
+
+            else
+            {
+                warningLabel.Visible = false;
+            }
+
 
             // Optionally, update a label to show the numeric value or percentage
             remainingBudgetLabel.Text = $"{remainingBudget:C}".Insert(1, " ");
             spentBudgetLabel.Text = $"{totalSpent:C}".Insert(1, " ");
-
         }
+
 
         private void UpdatePaginationLabel()
         {
@@ -505,6 +517,11 @@ namespace Wallet_Manager.Forms
         {
             AddBudget budget = new AddBudget();
             budget.ShowDialog();
+
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
 
         }
     }
