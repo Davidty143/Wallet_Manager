@@ -26,6 +26,7 @@ namespace Wallet_Manager.Forms
             SetDoubleBuffering(this, true);
             PopulateComboBox();
             PopulateWalletsComboBox();
+            guna2CustomGradientPanel1.Visible = true;
 
 
         }
@@ -257,12 +258,16 @@ namespace Wallet_Manager.Forms
 
         private void label1_Click(object sender, EventArgs e)
         {
+            // Show the relevant panel
             guna2CustomGradientPanel1.Visible = true;
             guna2CustomGradientPanel2.Visible = false;
             guna2CustomGradientPanel3.Visible = false;
             financialOverviewLabel.ForeColor = Color.Black;
             expenseCategoryLabel.ForeColor = Color.Gray;
             netWorthLabel.ForeColor = Color.Gray;
+
+            // Load data specific to this panel
+            PopulateGunaBarDataSet();
         }
 
         private void guna2CustomGradientPanel4_Paint(object sender, PaintEventArgs e)
@@ -272,29 +277,41 @@ namespace Wallet_Manager.Forms
 
         private void SpendingCategoryLabel_Click(object sender, EventArgs e)
         {
+            // Show the relevant panel
             guna2CustomGradientPanel1.Visible = false;
             guna2CustomGradientPanel2.Visible = true;
             guna2CustomGradientPanel3.Visible = false;
             expenseCategoryLabel.ForeColor = Color.Black;
             financialOverviewLabel.ForeColor = Color.Gray;
             netWorthLabel.ForeColor = Color.Gray;
+
+            // Load data specific to this panel
+            PopulatePieChart();
+
         }
 
         private void netWorthLabel_Click(object sender, EventArgs e)
         {
+            // Show only the relevant panel
             guna2CustomGradientPanel1.Visible = false;
             guna2CustomGradientPanel2.Visible = false;
             guna2CustomGradientPanel3.Visible = true;
             expenseCategoryLabel.ForeColor = Color.Gray;
             financialOverviewLabel.ForeColor = Color.Gray;
             netWorthLabel.ForeColor = Color.Black;
+
+            // Load data specific to this panel
+            PopulateSpLineChart();
         }
 
         private void selecWalletComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PopulateGunaBarDataSet();
-            PopulatePieChart();
-            PopulateSpLineChart();
+            if (guna2CustomGradientPanel1.Visible)
+                PopulateGunaBarDataSet();
+            else if (guna2CustomGradientPanel2.Visible)
+                PopulatePieChart();
+            else if (guna2CustomGradientPanel3.Visible)
+                PopulateSpLineChart();
         }
     }
 }

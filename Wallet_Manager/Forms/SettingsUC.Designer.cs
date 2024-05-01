@@ -31,9 +31,9 @@
             this.editProfileLabel = new Guna.UI2.WinForms.Guna2Button();
             this.changePassLabel = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.editProfile1 = new Wallet_Manager.Forms.EditProfile();
             this.editPassword1 = new Wallet_Manager.Forms.EditPassword();
-            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +80,16 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(709, 717);
             this.guna2CustomGradientPanel1.TabIndex = 4;
             // 
+            // guna2CustomGradientPanel2
+            // 
+            this.guna2CustomGradientPanel2.BorderRadius = 5;
+            this.guna2CustomGradientPanel2.BorderThickness = 1;
+            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(51, 42);
+            this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
+            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(1402, 796);
+            this.guna2CustomGradientPanel2.TabIndex = 5;
+            this.guna2CustomGradientPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel2_Paint);
+            // 
             // editProfile1
             // 
             this.editProfile1.BackColor = System.Drawing.Color.White;
@@ -98,15 +108,6 @@
             this.editPassword1.Name = "editPassword1";
             this.editPassword1.Size = new System.Drawing.Size(709, 717);
             this.editPassword1.TabIndex = 0;
-            // 
-            // guna2CustomGradientPanel2
-            // 
-            this.guna2CustomGradientPanel2.BorderRadius = 5;
-            this.guna2CustomGradientPanel2.BorderThickness = 1;
-            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(51, 42);
-            this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
-            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(1402, 796);
-            this.guna2CustomGradientPanel2.TabIndex = 5;
             // 
             // SettingsUC
             // 
