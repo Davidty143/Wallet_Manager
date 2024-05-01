@@ -52,8 +52,6 @@ namespace Wallet_Manager.Forms
 
             // Set visibility of all related UI components based on the presence of active budgets
             label9.Visible = hasActiveBudgets;
-            label4.Visible = hasActiveBudgets;
-            label5.Visible = hasActiveBudgets;
             label6.Visible = hasActiveBudgets;
             remainingBudgetLabel.Visible = hasActiveBudgets;
             spentBudgetLabel.Visible = hasActiveBudgets;
@@ -173,10 +171,13 @@ namespace Wallet_Manager.Forms
             if (totalSpent > budget.TotalAmount)
             {
                 overSpentLabel.Visible = true;
+                remainingBudget = remainingBudget * -1;
+                remainingBudgetLabel.Text = $"Overspent by {remainingBudget:C}";
             }
             else
             {
                 overSpentLabel.Visible = false;
+                remainingBudgetLabel.Text = $"{remainingBudget:C} Remaining";
             }
 
             if (totalSpent < budget.TotalAmount && totalSpent > (budget.TotalAmount * 0.7))
@@ -189,10 +190,11 @@ namespace Wallet_Manager.Forms
                 warningLabel.Visible = false;
             }
 
+            
 
             // Optionally, update a label to show the numeric value or percentage
-            remainingBudgetLabel.Text = $"{remainingBudget:C}".Insert(1, " ");
-            spentBudgetLabel.Text = $"{totalSpent:C}".Insert(1, " ");
+            
+            spentBudgetLabel.Text = $"{totalSpent:C} Spent";
         }
 
 
@@ -521,6 +523,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void spentBudgetLabel_Click(object sender, EventArgs e)
         {
 
         }
