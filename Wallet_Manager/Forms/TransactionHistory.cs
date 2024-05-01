@@ -478,6 +478,19 @@ namespace Wallet_Manager.Forms
             searchForm.ShowDialog();
         }
 
+        public void RemoveFilters()
+        {
+            // Reset filters if any are applied
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+
+            // Retrieve all transactions without filters
+            transactions = _dataAccessLayer.GetAllTransactions();
+            totalTransactions = transactions.Count;
+            currentPage = 0; // Reset to the first page
+            UpdateTransactionDisplay();
+        }
+
         private void pictureBox7_Click_1(object sender, EventArgs e)
         {
             Dashboard dashboardParent = this.FindForm() as Dashboard;
@@ -489,6 +502,11 @@ namespace Wallet_Manager.Forms
             }
             dashboardParent.transactionForm.Show();
             dashboardParent.transactionForm.BringToFront();
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+            RemoveFilters();
         }
     }
 }

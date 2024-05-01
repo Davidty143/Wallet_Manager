@@ -193,5 +193,21 @@ namespace Wallet_Manager.Forms
                 e.Handled = true;
             }
         }
+
+        private void checkBoxSpending_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxSpending.Checked)
+            {
+                checkBoxSavings.Checked = false;
+            }
+        }
+
+        private void checkBoxSavings_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxSavings.Checked)
+            {
+                checkBoxSpending.Checked = false;
+            }
+        }
     }
 }

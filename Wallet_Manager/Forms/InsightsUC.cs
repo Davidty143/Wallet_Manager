@@ -80,9 +80,9 @@ namespace Wallet_Manager.Forms
             timeFrameComboBox.Items.Clear();  // Clear existing items
 
             // Add time period options to the ComboBox
-            timeFrameComboBox.Items.Add("Last 7 Days");
-            timeFrameComboBox.Items.Add("Last Month");
-            timeFrameComboBox.Items.Add("Last Year");
+            timeFrameComboBox.Items.Add("1 Week");
+            timeFrameComboBox.Items.Add("1 Month");
+            timeFrameComboBox.Items.Add("1 Year");
 
             // Optionally set the default selected item
             timeFrameComboBox.SelectedIndex = 0;  // Selects the first item by default
@@ -100,13 +100,13 @@ namespace Wallet_Manager.Forms
 
             switch (selectedPeriod)
             {
-                case "Last 7 Days":
+                case "1 Week":
                     financialData = _dataAccessLayer.CalculateFinancialSummaryForLast7Days(selectedWalletId);
                     break;
-                case "Last Month":
+                case "1 Month":
                     financialData = _dataAccessLayer.CalculateFinancialSummaryForLastMonth(selectedWalletId);
                     break;
-                case "Last Year":
+                case "1 Year":
                     financialData = _dataAccessLayer.CalculateFinancialSummaryForLastYear(selectedWalletId);
                     break;
                 default:
@@ -131,11 +131,11 @@ namespace Wallet_Manager.Forms
 
         private string FormatLabel(DateTime date, string period)
         {
-            if (period == "Last 7 Days")
+            if (period == "1 Week")
                 return date.ToString("MMMM d");
-            else if (period == "Last Month")
+            else if (period == "1 Month")
                 return date.Day == 1 ? date.ToString("MMMM d") : date.Day.ToString();
-            else if (period == "Last Year")
+            else if (period == "1 Year")
                 return date.ToString("MMM");
             return "";
         }
@@ -155,13 +155,13 @@ namespace Wallet_Manager.Forms
 
             switch (selectedPeriod)
             {
-                case "Last 7 Days":
+                case "1 Week":
                     expenses = _dataAccessLayer.GetExpenseCategoriesLast7Days(selectedWalletId);
                     break;
-                case "Last Month":
+                case "1 Month":
                     expenses = _dataAccessLayer.GetExpenseCategoriesLast30Days(selectedWalletId);
                     break;
-                case "Last Year":
+                case "1 Year":
                     expenses = _dataAccessLayer.GetExpenseCategoriesLastYear(selectedWalletId);
                     break;
                 default:
@@ -195,13 +195,13 @@ namespace Wallet_Manager.Forms
 
             switch (selectedPeriod)
             {
-                case "Last 7 Days":
+                case "1 Week":
                     netWorth = _dataAccessLayer.CalculateNetWorthOver7Days(selectedWalletId);
                     break;
-                case "Last Month":
+                case "1 Month":
                     netWorth = _dataAccessLayer.CalculateNetWorthOver1Month(selectedWalletId);
                     break;
-                case "Last Year":
+                case "1 Year":
                     netWorth = _dataAccessLayer.CalculateNetWorthOver12Months(selectedWalletId);
                     break;
                 default:

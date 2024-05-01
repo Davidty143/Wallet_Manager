@@ -184,6 +184,7 @@
             this.checkBoxSavings.UncheckedState.BorderThickness = 0;
             this.checkBoxSavings.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.checkBoxSavings.UseVisualStyleBackColor = false;
+            this.checkBoxSavings.CheckedChanged += new System.EventHandler(this.checkBoxSavings_CheckedChanged);
             // 
             // checkBoxSpending
             // 
@@ -205,6 +206,7 @@
             this.checkBoxSpending.UncheckedState.BorderThickness = 0;
             this.checkBoxSpending.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.checkBoxSpending.UseVisualStyleBackColor = false;
+            this.checkBoxSpending.CheckedChanged += new System.EventHandler(this.checkBoxSpending_CheckedChanged);
             // 
             // txtWallet
             // 

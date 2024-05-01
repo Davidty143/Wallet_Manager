@@ -172,6 +172,7 @@
             this.label1.Size = new System.Drawing.Size(100, 20);
             this.label1.TabIndex = 317;
             this.label1.Text = "Remove Filter";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // guna2Button1
             // 
@@ -1131,10 +1132,10 @@
             this.pictureBox7.BackColor = System.Drawing.Color.White;
             this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox7.Image = global::Wallet_Manager.Properties.Resources.add_purple;
-            this.pictureBox7.Location = new System.Drawing.Point(609, 700);
+            this.pictureBox7.Location = new System.Drawing.Point(616, 695);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(69, 70);
+            this.pictureBox7.Size = new System.Drawing.Size(60, 60);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 306;
             this.pictureBox7.TabStop = false;

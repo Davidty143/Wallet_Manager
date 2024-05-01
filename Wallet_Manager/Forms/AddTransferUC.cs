@@ -167,5 +167,37 @@ namespace Wallet_Manager.Forms
                 e.Handled = true;
             }
         }
+
+        private void ScheckBoxSpending_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ScheckBoxSpending.Checked)
+            {
+                ScheckBoxSavings.Checked = false;
+            }
+        }
+
+        private void ScheckBoxSavings_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ScheckBoxSavings.Checked)
+            {
+                ScheckBoxSpending.Checked = false;
+            }
+        }
+
+        private void DcheckBoxSpending_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DcheckBoxSpending.Checked)
+            {
+                DcheckBoxSavings.Checked = false;
+            }
+        }
+
+        private void DcheckBoxSavings_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DcheckBoxSavings.Checked)
+            {
+                DcheckBoxSpending.Checked = false;
+            }
+        }
     }
 }

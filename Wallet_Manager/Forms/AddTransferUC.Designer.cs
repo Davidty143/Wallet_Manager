@@ -165,6 +165,7 @@
             this.ScheckBoxSavings.UncheckedState.BorderThickness = 0;
             this.ScheckBoxSavings.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.ScheckBoxSavings.UseVisualStyleBackColor = false;
+            this.ScheckBoxSavings.CheckedChanged += new System.EventHandler(this.ScheckBoxSavings_CheckedChanged);
             // 
             // ScheckBoxSpending
             // 
@@ -186,6 +187,7 @@
             this.ScheckBoxSpending.UncheckedState.BorderThickness = 0;
             this.ScheckBoxSpending.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.ScheckBoxSpending.UseVisualStyleBackColor = false;
+            this.ScheckBoxSpending.CheckedChanged += new System.EventHandler(this.ScheckBoxSpending_CheckedChanged);
             // 
             // txtSourceWallet
             // 
@@ -384,6 +386,7 @@
             this.DcheckBoxSavings.UncheckedState.BorderThickness = 0;
             this.DcheckBoxSavings.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.DcheckBoxSavings.UseVisualStyleBackColor = false;
+            this.DcheckBoxSavings.CheckedChanged += new System.EventHandler(this.DcheckBoxSavings_CheckedChanged);
             // 
             // DcheckBoxSpending
             // 
@@ -405,6 +408,7 @@
             this.DcheckBoxSpending.UncheckedState.BorderThickness = 0;
             this.DcheckBoxSpending.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.DcheckBoxSpending.UseVisualStyleBackColor = false;
+            this.DcheckBoxSpending.CheckedChanged += new System.EventHandler(this.DcheckBoxSpending_CheckedChanged);
             // 
             // txtDestinationWallet
             // 

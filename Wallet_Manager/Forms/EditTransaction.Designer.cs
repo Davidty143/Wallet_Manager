@@ -131,6 +131,7 @@
             this.guna2Button2.Size = new System.Drawing.Size(180, 45);
             this.guna2Button2.TabIndex = 183;
             this.guna2Button2.Text = "Cancel";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // guna2Button1
             // 
@@ -147,6 +148,7 @@
             this.guna2Button1.Size = new System.Drawing.Size(180, 45);
             this.guna2Button1.TabIndex = 182;
             this.guna2Button1.Text = "Confirm";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // pictureBox6
             // 
@@ -243,6 +245,7 @@
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(258, 36);
             this.txtCategory.TabIndex = 175;
+            this.txtCategory.SelectedIndexChanged += new System.EventHandler(this.txtCategory_SelectedIndexChanged);
             // 
             // txtAmount
             // 
@@ -316,6 +319,7 @@
             this.txtWallet.Name = "txtWallet";
             this.txtWallet.Size = new System.Drawing.Size(258, 36);
             this.txtWallet.TabIndex = 171;
+            this.txtWallet.SelectedIndexChanged += new System.EventHandler(this.txtWallet_SelectedIndexChanged_1);
             // 
             // txtDate
             // 
@@ -346,6 +350,7 @@
             this.txtTransactionType.Name = "txtTransactionType";
             this.txtTransactionType.Size = new System.Drawing.Size(258, 36);
             this.txtTransactionType.TabIndex = 169;
+            this.txtTransactionType.SelectedIndexChanged += new System.EventHandler(this.txtTransactionType_SelectedIndexChanged);
             // 
             // pictureBox1
             // 

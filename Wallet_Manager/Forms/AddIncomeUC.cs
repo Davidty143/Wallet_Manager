@@ -176,12 +176,18 @@ namespace Wallet_Manager.Forms
 
         private void checkBoxSavings_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (checkBoxSavings.Checked)
+            {
+                checkBoxSpending.Checked = false;
+            }
         }
 
         private void checkBoxSpending_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (checkBoxSpending.Checked)
+            {
+                checkBoxSavings.Checked = false;
+            }
         }
 
         private void txtWallet_SelectedIndexChanged(object sender, EventArgs e)

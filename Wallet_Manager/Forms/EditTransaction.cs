@@ -36,7 +36,7 @@ namespace Wallet_Manager.Forms
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PopulateCategoryComboBox(txtTransactionType.SelectedItem.ToString());
+            
         }
 
 
@@ -116,11 +116,6 @@ namespace Wallet_Manager.Forms
             }
         }
 
-
-
-
-
-
         private void EditTransaction_Load(object sender, EventArgs e)
         {
 
@@ -132,45 +127,7 @@ namespace Wallet_Manager.Forms
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Retrieve the original transaction first
-                string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-                SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
-                Transaction originalTransaction = dataAccessLayer.GetTransactionById(txtTransactionID);
 
-                Transaction updatedTransaction = new Transaction
-                {
-                    TransactionID = txtTransactionID,
-                    UserID = txtUserID,
-                    WalletID = Convert.ToInt32(txtWallet.SelectedValue),
-                    CategoryID = Convert.ToInt32(txtCategory.SelectedValue),
-                    WalletCategory = checkBoxSavings.Checked ? "Savings" : "Spending",
-                    TransactionType = txtTransactionType.Text,
-                    Amount = float.Parse(txtAmount.Text),
-                    Date = txtDate.Value,
-                    Description = txtDescription.Text
-                };
-
-                // Check for changes in the transaction that affect the wallet balance
-                if (originalTransaction.WalletID != updatedTransaction.WalletID || originalTransaction.Amount != updatedTransaction.Amount)
-                {
-                    // Adjust the original wallet balance
-                    if (!AdjustWalletBalance(originalTransaction, updatedTransaction))
-                    {
-                        MessageBox.Show("Insufficient funds to update the transaction.");
-                        return; // Stop further processing
-                    }
-                }
-
-                // Proceed to update the transaction in the database
-                dataAccessLayer.UpdateTransaction(updatedTransaction);
-                MessageBox.Show("Transaction updated successfully.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error updating transaction: " + ex.Message);
-            }
         }
 
         private bool AdjustWalletBalance(Transaction originalTransaction, Transaction updatedTransaction)
@@ -257,6 +214,70 @@ namespace Wallet_Manager.Forms
         private void txtDate_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Retrieve the original transaction first
+                string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+                SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+                Transaction originalTransaction = dataAccessLayer.GetTransactionById(txtTransactionID);
+
+                Transaction updatedTransaction = new Transaction
+                {
+                    TransactionID = txtTransactionID,
+                    UserID = txtUserID,
+                    WalletID = Convert.ToInt32(txtWallet.SelectedValue),
+                    CategoryID = Convert.ToInt32(txtCategory.SelectedValue),
+                    WalletCategory = checkBoxSavings.Checked ? "Savings" : "Spending",
+                    TransactionType = txtTransactionType.Text,
+                    Amount = float.Parse(txtAmount.Text),
+                    Date = txtDate.Value,
+                    Description = txtDescription.Text
+                };
+
+                // Check for changes in the transaction that affect the wallet balance
+                if (originalTransaction.WalletID != updatedTransaction.WalletID || originalTransaction.Amount != updatedTransaction.Amount)
+                {
+                    // Adjust the original wallet balance
+                    if (!AdjustWalletBalance(originalTransaction, updatedTransaction))
+                    {
+                        MessageBox.Show("Insufficient funds to update the transaction.");
+                        return; // Stop further processing
+                    }
+                }
+
+                // Proceed to update the transaction in the database
+                dataAccessLayer.UpdateTransaction(updatedTransaction);
+                MessageBox.Show("Transaction updated successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating transaction: " + ex.Message);
+            }
+        }
+
+        private void txtWallet_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTransactionType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PopulateCategoryComboBox(txtTransactionType.SelectedItem.ToString());
+
+        }
+
+        private void txtCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
