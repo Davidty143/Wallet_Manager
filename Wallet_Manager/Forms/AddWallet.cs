@@ -145,8 +145,8 @@ namespace Wallet_Manager.Forms
                         UserID = GlobalData.GetUserID(),
                         WalletID = newWalletId,
                         WalletCategory = "Spending",
-                        TransactionType = "Transfer",
-                        CategoryID = 19, // Assuming CategoryID is predefined
+                        TransactionType = "Income",
+                        CategoryID = 8, // Assuming CategoryID is predefined
                         Amount = spendingMoney,
                         Date = DateTime.Now,
                         Description = "Add Wallet"
@@ -161,8 +161,8 @@ namespace Wallet_Manager.Forms
                         UserID = GlobalData.GetUserID(),
                         WalletID = newWalletId,
                         WalletCategory = "Savings",
-                        TransactionType = "Transfer",
-                        CategoryID = 19, // Assuming CategoryID is predefined
+                        TransactionType = "Income",
+                        CategoryID = 8, // Assuming CategoryID is predefined
                         Amount = savingsMoney,
                         Date = DateTime.Now,
                         Description = "Add Wallet"

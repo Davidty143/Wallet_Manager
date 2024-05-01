@@ -110,39 +110,58 @@ namespace Wallet_Manager.Forms
             // Convert wallets to a binding-friendly format
             var walletBindingList = wallets.Select(wallet => new
             {
-                Text = $"{wallet.WalletName}",
+                Text = wallet.WalletName,
                 Value = wallet.WalletID
             }).ToList();
+
+            // Add an "All" option at the beginning of the list
+            walletBindingList.Insert(0, new { Text = "All", Value = 0 });
 
             selectWalletComboBox.DisplayMember = "Text";
             selectWalletComboBox.ValueMember = "Value";
             selectWalletComboBox.DataSource = walletBindingList;
         }
 
+
+
         private void UpdateWalletDisplay()
         {
-            int walletId = 0;
-            if (int.TryParse(selectWalletComboBox.SelectedValue?.ToString(), out walletId))
+            if (!int.TryParse(selectWalletComboBox.SelectedValue?.ToString(), out int walletId))
             {
-                string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-                SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
-                Wallet wallet = _dataAccessLayer.GetWalletById(walletId);
-                if (wallet != null)
-                {
-                    currentWalletID = wallet.WalletID;
-                    walletNameLabel.Text = wallet.WalletName ?? "N/A";
-                    walletTypeLabel.Text = wallet.WalletType ?? "N/A";
-                    spendingBalanceLabel.Text = wallet.SpendingMoney.ToString("C");
-                    savingBalanceLabel.Text = wallet.SavingsMoney.ToString("C");
-                    totalBalanceLabel.Text = (wallet.SavingsMoney + wallet.SpendingMoney).ToString("C");
-                }
+                MessageBox.Show("Selected wallet ID is invalid.");
+                return;
+            }
+
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+
+            Wallet wallet;
+            if (walletId == 0) // 'All' option selected
+            {
+                wallet = _dataAccessLayer.GetTotalBalancesForAllWallets();
+                walletTypeLabel.Visible = false;
+            }
+            else // Specific wallet selected
+            {
+                wallet = _dataAccessLayer.GetWalletById(walletId);
+                walletTypeLabel.Visible = true;
+            }
+
+            if (wallet != null)
+            {
+                currentWalletID = wallet.WalletID;
+                walletNameLabel.Text = wallet.WalletName ?? "N/A";
+                walletTypeLabel.Text = wallet.WalletType ?? "N/A";
+                spendingBalanceLabel.Text = wallet.SpendingMoney.ToString("C");
+                savingBalanceLabel.Text = wallet.SavingsMoney.ToString("C");
+                totalBalanceLabel.Text = (wallet.SavingsMoney + wallet.SpendingMoney).ToString("C");
             }
             else
             {
-                // Handle the case where walletId is not valid or conversion failed
-                MessageBox.Show("Selected wallet ID is invalid.");
+                MessageBox.Show("Wallet not found.");
             }
         }
+
 
         private void InitializeControlArrays()
         {
@@ -216,11 +235,20 @@ namespace Wallet_Manager.Forms
                 }
             }
         }
-
         private void UpdateTransactionDisplay()
         {
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+
+            List<Transaction> transactions;
+            if (currentWalletID == 0) // Check if 'All' wallets are selected
+            {
+                transactions = _dataAccessLayer.GetLastTransactionsForAllWallets(3);
+            }
+            else
+            {
+                transactions = _dataAccessLayer.GetTransactionsByWalletId(currentWalletID, 3);
+            }
 
             // Calculate the number of transactions to display (up to 3)
             int numberOfTransactionsToShow = Math.Min(3, transactions.Count);
@@ -261,6 +289,7 @@ namespace Wallet_Manager.Forms
                 }
             }
         }
+
 
         private void PopulateGunaBarDataSet()
         {

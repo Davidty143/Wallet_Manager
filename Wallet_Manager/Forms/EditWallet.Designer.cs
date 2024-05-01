@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.label7 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.add_Wallet = new Guna.UI2.WinForms.Guna2Button();
@@ -44,7 +45,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -65,6 +65,18 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(598, 687);
             this.guna2CustomGradientPanel1.TabIndex = 0;
             this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(21, 31);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(116, 28);
+            this.label7.TabIndex = 185;
+            this.label7.Text = "Edit Wallet";
             // 
             // guna2CustomGradientPanel2
             // 
@@ -148,6 +160,7 @@
             this.savingsAmountTextBox.SelectedText = "";
             this.savingsAmountTextBox.Size = new System.Drawing.Size(276, 36);
             this.savingsAmountTextBox.TabIndex = 172;
+            this.savingsAmountTextBox.TextChanged += new System.EventHandler(this.savingsAmountTextBox_TextChanged);
             this.savingsAmountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.savingsAmountTextBox_KeyPress);
             // 
             // spendingAmountTextBox
@@ -307,18 +320,6 @@
             this.label4.Size = new System.Drawing.Size(128, 28);
             this.label4.TabIndex = 161;
             this.label4.Text = "Wallet Name";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(21, 31);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(116, 28);
-            this.label7.TabIndex = 185;
-            this.label7.Text = "Edit Wallet";
             // 
             // EditWallet
             // 

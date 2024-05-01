@@ -101,87 +101,93 @@ namespace Wallet_Manager.Forms
             this.Close();
         }
 
-            private void add_Wallet_Click_1(object sender, EventArgs e)
-            {
+        private void add_Wallet_Click_1(object sender, EventArgs e)
+        {
             currentWallet.WalletName = walletNameTextBox.Text;
             currentWallet.WalletType = walletTypeComboBox.Text;
-                // Validate input values and parse them safely
-                if (!float.TryParse(spendingAmountTextBox.Text, out float newSpendingAmount))
+
+            // Validate input values and parse them safely
+            if (!float.TryParse(spendingAmountTextBox.Text, out float newSpendingAmount))
+            {
+                MessageBox.Show("Invalid input for spending amount.");
+                return;
+            }
+
+            if (!float.TryParse(savingsAmountTextBox.Text, out float newSavingsAmount))
+            {
+                MessageBox.Show("Invalid input for savings amount.");
+                return;
+            }
+
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+
+            // Handle spending money update
+            if (currentWallet.SpendingMoney != newSpendingAmount)
+            {
+                float amountDifference = newSpendingAmount - currentWallet.SpendingMoney;
+                string transactionType = amountDifference > 0 ? "Income" : "Expense";
+                int categoryID = amountDifference > 0 ? 8 : 17; // Income if greater, Expense if lesser
+
+                Transaction transaction = new Transaction
                 {
-                    MessageBox.Show("Invalid input for spending amount.");
+                    UserID = GlobalData.GetUserID(),
+                    WalletID = currentWallet.WalletID,
+                    WalletCategory = "Spending",
+                    TransactionType = transactionType,
+                    CategoryID = categoryID,
+                    Amount = Math.Abs(amountDifference),
+                    Date = DateTime.Now,
+                    Description = "Edit Wallet"
+                };
+                if (!_dataAccessLayer.AddTransaction(transaction))
+                {
+                    MessageBox.Show("Failed to record spending transaction.");
                     return;
-                }
-
-                if (!float.TryParse(savingsAmountTextBox.Text, out float newSavingsAmount))
-                {
-                    MessageBox.Show("Invalid input for savings amount.");
-                    return;
-                }
-
-                string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-                SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
-
-                // Handle spending money update
-                if (currentWallet.SpendingMoney != newSpendingAmount)
-                {
-                    float amountDifference = newSpendingAmount - currentWallet.SpendingMoney;
-                    Transaction transaction = new Transaction
-                    {
-                        UserID = GlobalData.GetUserID(),
-                        WalletID = currentWallet.WalletID,
-                        WalletCategory = "Spending",
-                        TransactionType = "Transfer",
-                        CategoryID = amountDifference > 0 ? 19 : 18,
-                        Amount = Math.Abs(amountDifference),
-                        Date = DateTime.Now,
-                        Description = "Edit Wallet"
-                    };
-                    if (!_dataAccessLayer.AddTransaction(transaction))
-                    {
-                        MessageBox.Show("Failed to record spending transaction.");
-                        return;
-                    }
-                }
-
-                // Handle savings money update
-                if (currentWallet.SavingsMoney != newSavingsAmount)
-                {
-                    float amountDifference = newSavingsAmount - currentWallet.SavingsMoney;
-                    Transaction transaction = new Transaction
-                    {
-                        UserID = GlobalData.GetUserID(),
-                        WalletID = currentWallet.WalletID,
-                        WalletCategory = "Savings",
-                        TransactionType = "Transfer",
-                        CategoryID = amountDifference > 0 ? 19 : 18,
-                        Amount = Math.Abs(amountDifference),
-                        Date = DateTime.Now,
-                        Description = "Edit Wallet"
-                    };
-                    if (!_dataAccessLayer.AddTransaction(transaction))
-                    {
-                        MessageBox.Show("Failed to record savings transaction.");
-                        return;
-                    }
-                }
-
-                // Update the wallet with new values
-                currentWallet.SpendingMoney = newSpendingAmount;
-                currentWallet.SavingsMoney = newSavingsAmount;
-                bool updateSuccess = _dataAccessLayer.CheckAndUpdateWallet(currentWallet);
-                _dataAccessLayer.UpdateWallet(currentWallet);
-
-
-                if (updateSuccess)
-                {
-                    MessageBox.Show("Wallet updated successfully.");
-                    this.Hide(); // Optionally close the form
-                }
-                else
-                {
-                    MessageBox.Show("Error updating wallet.");
                 }
             }
+
+            // Handle savings money update
+            if (currentWallet.SavingsMoney != newSavingsAmount)
+            {
+                float amountDifference = newSavingsAmount - currentWallet.SavingsMoney;
+                string transactionType = amountDifference > 0 ? "Income" : "Expense";
+                int categoryID = amountDifference > 0 ? 8 : 17; // Income if greater, Expense if lesser
+
+                Transaction transaction = new Transaction
+                {
+                    UserID = GlobalData.GetUserID(),
+                    WalletID = currentWallet.WalletID,
+                    WalletCategory = "Savings",
+                    TransactionType = transactionType,
+                    CategoryID = categoryID,
+                    Amount = Math.Abs(amountDifference),
+                    Date = DateTime.Now,
+                    Description = "Edit Wallet"
+                };
+                if (!_dataAccessLayer.AddTransaction(transaction))
+                {
+                    MessageBox.Show("Failed to record savings transaction.");
+                    return;
+                }
+            }
+
+            // Update the wallet with new values
+            currentWallet.SpendingMoney = newSpendingAmount;
+            currentWallet.SavingsMoney = newSavingsAmount;
+            bool updateSuccess = _dataAccessLayer.UpdateWallet(currentWallet);
+
+            if (updateSuccess)
+            {
+                MessageBox.Show("Wallet updated successfully.");
+                this.Hide(); // Optionally close the form
+            }
+            else
+            {
+                MessageBox.Show("Error updating wallet.");
+            }
+        }
+
 
         private void savingsAmountTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -205,6 +211,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void savingsAmountTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }

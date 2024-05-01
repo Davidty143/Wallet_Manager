@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.Charts.WinForms.ChartFont chartFont73 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont74 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont75 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont76 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid28 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick28 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont77 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid29 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick29 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont78 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid30 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel10 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont79 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick30 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont80 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont1 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont2 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont3 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont4 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid1 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick1 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont5 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid2 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick2 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont6 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid3 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel1 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont7 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick3 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont8 = new Guna.Charts.WinForms.ChartFont();
             this.label24 = new System.Windows.Forms.Label();
             this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
             this.label23 = new System.Windows.Forms.Label();
@@ -190,37 +190,40 @@
             // 
             // mostUsedWalletTypeLabel
             // 
+            this.mostUsedWalletTypeLabel.AutoSize = true;
             this.mostUsedWalletTypeLabel.BackColor = System.Drawing.Color.White;
             this.mostUsedWalletTypeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mostUsedWalletTypeLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mostUsedWalletTypeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.mostUsedWalletTypeLabel.Location = new System.Drawing.Point(582, 380);
+            this.mostUsedWalletTypeLabel.Location = new System.Drawing.Point(553, 380);
             this.mostUsedWalletTypeLabel.Name = "mostUsedWalletTypeLabel";
-            this.mostUsedWalletTypeLabel.Size = new System.Drawing.Size(97, 25);
+            this.mostUsedWalletTypeLabel.Size = new System.Drawing.Size(73, 23);
             this.mostUsedWalletTypeLabel.TabIndex = 145;
             this.mostUsedWalletTypeLabel.Text = "E-Wallet";
             // 
             // mostUsedSpendingLabel
             // 
+            this.mostUsedSpendingLabel.AutoSize = true;
             this.mostUsedSpendingLabel.BackColor = System.Drawing.SystemColors.Window;
             this.mostUsedSpendingLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mostUsedSpendingLabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mostUsedSpendingLabel.ForeColor = System.Drawing.Color.Black;
             this.mostUsedSpendingLabel.Location = new System.Drawing.Point(492, 437);
             this.mostUsedSpendingLabel.Name = "mostUsedSpendingLabel";
-            this.mostUsedSpendingLabel.Size = new System.Drawing.Size(122, 25);
+            this.mostUsedSpendingLabel.Size = new System.Drawing.Size(81, 23);
             this.mostUsedSpendingLabel.TabIndex = 143;
             this.mostUsedSpendingLabel.Text = "₱ 10,000";
             // 
             // mostUsedSavingsLabel
             // 
+            this.mostUsedSavingsLabel.AutoSize = true;
             this.mostUsedSavingsLabel.BackColor = System.Drawing.SystemColors.Window;
             this.mostUsedSavingsLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mostUsedSavingsLabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mostUsedSavingsLabel.ForeColor = System.Drawing.Color.Black;
             this.mostUsedSavingsLabel.Location = new System.Drawing.Point(492, 413);
             this.mostUsedSavingsLabel.Name = "mostUsedSavingsLabel";
-            this.mostUsedSavingsLabel.Size = new System.Drawing.Size(122, 25);
+            this.mostUsedSavingsLabel.Size = new System.Drawing.Size(81, 23);
             this.mostUsedSavingsLabel.TabIndex = 142;
             this.mostUsedSavingsLabel.Text = "₱ 10,000";
             // 
@@ -250,25 +253,27 @@
             // 
             // mostUsedTotalAmountLabel
             // 
+            this.mostUsedTotalAmountLabel.AutoSize = true;
             this.mostUsedTotalAmountLabel.BackColor = System.Drawing.Color.White;
             this.mostUsedTotalAmountLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mostUsedTotalAmountLabel.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mostUsedTotalAmountLabel.ForeColor = System.Drawing.Color.Black;
             this.mostUsedTotalAmountLabel.Location = new System.Drawing.Point(152, 420);
             this.mostUsedTotalAmountLabel.Name = "mostUsedTotalAmountLabel";
-            this.mostUsedTotalAmountLabel.Size = new System.Drawing.Size(283, 43);
+            this.mostUsedTotalAmountLabel.Size = new System.Drawing.Size(154, 45);
             this.mostUsedTotalAmountLabel.TabIndex = 139;
             this.mostUsedTotalAmountLabel.Text = "₱ 20,000";
             // 
             // mostUsedWalletLabel
             // 
+            this.mostUsedWalletLabel.AutoSize = true;
             this.mostUsedWalletLabel.BackColor = System.Drawing.Color.White;
             this.mostUsedWalletLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mostUsedWalletLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mostUsedWalletLabel.ForeColor = System.Drawing.Color.Black;
             this.mostUsedWalletLabel.Location = new System.Drawing.Point(136, 383);
             this.mostUsedWalletLabel.Name = "mostUsedWalletLabel";
-            this.mostUsedWalletLabel.Size = new System.Drawing.Size(207, 44);
+            this.mostUsedWalletLabel.Size = new System.Drawing.Size(109, 31);
             this.mostUsedWalletLabel.TabIndex = 138;
             this.mostUsedWalletLabel.Text = "Wallet - 1";
             // 
@@ -576,38 +581,38 @@
             this.gunaBarDataset3,
             this.gunaBarDataset2,
             this.gunaBarDataset1});
-            chartFont73.FontName = "Arial";
-            this.barChart1.Legend.LabelFont = chartFont73;
+            chartFont1.FontName = "Arial";
+            this.barChart1.Legend.LabelFont = chartFont1;
             this.barChart1.Location = new System.Drawing.Point(18, 3);
             this.barChart1.Name = "barChart1";
             this.barChart1.Size = new System.Drawing.Size(526, 287);
             this.barChart1.TabIndex = 0;
-            chartFont74.FontName = "Arial";
-            chartFont74.Size = 12;
-            chartFont74.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.barChart1.Title.Font = chartFont74;
-            chartFont75.FontName = "Arial";
-            this.barChart1.Tooltips.BodyFont = chartFont75;
-            chartFont76.FontName = "Arial";
-            chartFont76.Size = 9;
-            chartFont76.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.barChart1.Tooltips.TitleFont = chartFont76;
-            this.barChart1.XAxes.GridLines = grid28;
-            chartFont77.FontName = "Arial";
-            tick28.Font = chartFont77;
-            this.barChart1.XAxes.Ticks = tick28;
-            grid29.LineWidth = 0;
-            this.barChart1.YAxes.GridLines = grid29;
-            chartFont78.FontName = "Arial";
-            tick29.Font = chartFont78;
-            this.barChart1.YAxes.Ticks = tick29;
-            this.barChart1.ZAxes.GridLines = grid30;
-            chartFont79.FontName = "Arial";
-            pointLabel10.Font = chartFont79;
-            this.barChart1.ZAxes.PointLabels = pointLabel10;
-            chartFont80.FontName = "Arial";
-            tick30.Font = chartFont80;
-            this.barChart1.ZAxes.Ticks = tick30;
+            chartFont2.FontName = "Arial";
+            chartFont2.Size = 12;
+            chartFont2.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.barChart1.Title.Font = chartFont2;
+            chartFont3.FontName = "Arial";
+            this.barChart1.Tooltips.BodyFont = chartFont3;
+            chartFont4.FontName = "Arial";
+            chartFont4.Size = 9;
+            chartFont4.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.barChart1.Tooltips.TitleFont = chartFont4;
+            this.barChart1.XAxes.GridLines = grid1;
+            chartFont5.FontName = "Arial";
+            tick1.Font = chartFont5;
+            this.barChart1.XAxes.Ticks = tick1;
+            grid2.LineWidth = 0;
+            this.barChart1.YAxes.GridLines = grid2;
+            chartFont6.FontName = "Arial";
+            tick2.Font = chartFont6;
+            this.barChart1.YAxes.Ticks = tick2;
+            this.barChart1.ZAxes.GridLines = grid3;
+            chartFont7.FontName = "Arial";
+            pointLabel1.Font = chartFont7;
+            this.barChart1.ZAxes.PointLabels = pointLabel1;
+            chartFont8.FontName = "Arial";
+            tick3.Font = chartFont8;
+            this.barChart1.ZAxes.Ticks = tick3;
             this.barChart1.Load += new System.EventHandler(this.gunaChart1_Load);
             // 
             // gunaBarDataset3
