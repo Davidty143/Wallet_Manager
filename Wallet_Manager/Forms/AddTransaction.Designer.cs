@@ -30,13 +30,13 @@
         {
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.addIncomeUC1 = new Wallet_Manager.Forms.AddIncomeUC();
+            this.addTransferUC1 = new Wallet_Manager.Forms.AddTransferUC();
+            this.addExpenseUC1 = new Wallet_Manager.Forms.AddExpenseUC();
             this.button_transfer = new Guna.UI2.WinForms.Guna2Button();
             this.button_income = new Guna.UI2.WinForms.Guna2Button();
             this.button_expense = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.addExpenseUC1 = new Wallet_Manager.Forms.AddExpenseUC();
-            this.addTransferUC1 = new Wallet_Manager.Forms.AddTransferUC();
-            this.addIncomeUC1 = new Wallet_Manager.Forms.AddIncomeUC();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.guna2CustomGradientPanel3.SuspendLayout();
@@ -49,14 +49,14 @@
             this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(160)))), ((int)(((byte)(248)))));
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(606, 599);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(606, 666);
             this.guna2CustomGradientPanel1.TabIndex = 8;
             this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint_1);
             // 
             // guna2CustomGradientPanel2
             // 
             this.guna2CustomGradientPanel2.BackColor = System.Drawing.Color.White;
-            this.guna2CustomGradientPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2CustomGradientPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2CustomGradientPanel2.BorderThickness = 1;
             this.guna2CustomGradientPanel2.Controls.Add(this.guna2CustomGradientPanel3);
             this.guna2CustomGradientPanel2.Controls.Add(this.button_transfer);
@@ -65,9 +65,48 @@
             this.guna2CustomGradientPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
-            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(606, 599);
+            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(606, 666);
             this.guna2CustomGradientPanel2.TabIndex = 0;
             this.guna2CustomGradientPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel2_Paint_1);
+            // 
+            // guna2CustomGradientPanel3
+            // 
+            this.guna2CustomGradientPanel3.BackColor = System.Drawing.Color.White;
+            this.guna2CustomGradientPanel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2CustomGradientPanel3.BorderRadius = 5;
+            this.guna2CustomGradientPanel3.BorderThickness = 1;
+            this.guna2CustomGradientPanel3.Controls.Add(this.addIncomeUC1);
+            this.guna2CustomGradientPanel3.Controls.Add(this.addTransferUC1);
+            this.guna2CustomGradientPanel3.Controls.Add(this.addExpenseUC1);
+            this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(51, 94);
+            this.guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
+            this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(502, 463);
+            this.guna2CustomGradientPanel3.TabIndex = 16;
+            // 
+            // addIncomeUC1
+            // 
+            this.addIncomeUC1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addIncomeUC1.Location = new System.Drawing.Point(0, 0);
+            this.addIncomeUC1.Name = "addIncomeUC1";
+            this.addIncomeUC1.Size = new System.Drawing.Size(502, 463);
+            this.addIncomeUC1.TabIndex = 2;
+            this.addIncomeUC1.Load += new System.EventHandler(this.addIncomeUC1_Load_4);
+            // 
+            // addTransferUC1
+            // 
+            this.addTransferUC1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addTransferUC1.Location = new System.Drawing.Point(0, 0);
+            this.addTransferUC1.Name = "addTransferUC1";
+            this.addTransferUC1.Size = new System.Drawing.Size(502, 463);
+            this.addTransferUC1.TabIndex = 1;
+            // 
+            // addExpenseUC1
+            // 
+            this.addExpenseUC1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addExpenseUC1.Location = new System.Drawing.Point(0, 0);
+            this.addExpenseUC1.Name = "addExpenseUC1";
+            this.addExpenseUC1.Size = new System.Drawing.Size(502, 463);
+            this.addExpenseUC1.TabIndex = 0;
             // 
             // button_transfer
             // 
@@ -129,51 +168,12 @@
             this.button_expense.Text = "Expense";
             this.button_expense.Click += new System.EventHandler(this.button_expense_Click);
             // 
-            // guna2CustomGradientPanel3
-            // 
-            this.guna2CustomGradientPanel3.BackColor = System.Drawing.Color.White;
-            this.guna2CustomGradientPanel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.guna2CustomGradientPanel3.BorderRadius = 5;
-            this.guna2CustomGradientPanel3.BorderThickness = 1;
-            this.guna2CustomGradientPanel3.Controls.Add(this.addIncomeUC1);
-            this.guna2CustomGradientPanel3.Controls.Add(this.addTransferUC1);
-            this.guna2CustomGradientPanel3.Controls.Add(this.addExpenseUC1);
-            this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(51, 94);
-            this.guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
-            this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(502, 463);
-            this.guna2CustomGradientPanel3.TabIndex = 16;
-            // 
-            // addExpenseUC1
-            // 
-            this.addExpenseUC1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addExpenseUC1.Location = new System.Drawing.Point(0, 0);
-            this.addExpenseUC1.Name = "addExpenseUC1";
-            this.addExpenseUC1.Size = new System.Drawing.Size(502, 463);
-            this.addExpenseUC1.TabIndex = 0;
-            // 
-            // addTransferUC1
-            // 
-            this.addTransferUC1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addTransferUC1.Location = new System.Drawing.Point(0, 0);
-            this.addTransferUC1.Name = "addTransferUC1";
-            this.addTransferUC1.Size = new System.Drawing.Size(502, 463);
-            this.addTransferUC1.TabIndex = 1;
-            // 
-            // addIncomeUC1
-            // 
-            this.addIncomeUC1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addIncomeUC1.Location = new System.Drawing.Point(0, 0);
-            this.addIncomeUC1.Name = "addIncomeUC1";
-            this.addIncomeUC1.Size = new System.Drawing.Size(502, 463);
-            this.addIncomeUC1.TabIndex = 2;
-            this.addIncomeUC1.Load += new System.EventHandler(this.addIncomeUC1_Load_4);
-            // 
             // AddTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(606, 599);
+            this.ClientSize = new System.Drawing.Size(606, 666);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddTransaction";
