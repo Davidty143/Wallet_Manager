@@ -26,15 +26,127 @@ namespace Wallet_Manager.Forms
 
         public AddTransaction transactionForm = null;
         public SearchFilter searchFilter = null;
+        public TransactionHistory transactionHistory = null;
+        public Wallet_uc wallet = null;
+        public InsightsUC insightsUC = null;
+        public Budget1_uc budgetUC = null;
+        public DashboardUC dashboardUC = null;
+        public SettingsUC settingsUC = null;
+        public DashboardUC dashboardUC1 = null;
 
         public Dashboard()
         {
             InitializeComponent();
+
+            // Load the main dashboard component first
+            EnsureDashboardUCLoaded();
+
+            // Hook up the Load event to handle asynchronous loading of other components
+            this.Load += Dashboard_Load;
+
+            // Other initializations
             UpdateDisplayName();
             LoadUserProfilePicture();
-            //searchFilter = new SearchFilter();
             transactionForm = new AddTransaction();
         }
+
+
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            // Asynchronously load other components to keep the UI responsive
+            Task.Run(() =>
+            {
+                Invoke((MethodInvoker)delegate
+                {
+                    // Load other components
+                    EnsureSettingsUCLoaded();
+                    EnsureTransactionHistoryLoaded();
+                    EnsureWalletLoaded();
+                    EnsureInsightsUCLoaded();
+                    EnsureBudgetUCLoaded();
+
+                    // Optionally, hide these controls initially if needed
+                    settingsUC.Visible = false;
+                    transactionHistory.Visible = false;
+                    wallet.Visible = false;
+                    insightsUC.Visible = false;
+                    budgetUC.Visible = false;
+                });
+            });
+        }
+
+
+
+
+
+        private void EnsureTransactionHistoryLoaded()
+        {
+            if (transactionHistory == null)
+            {
+                transactionHistory = new TransactionHistory();
+                transactionHistory.Dock = DockStyle.Fill;
+                display_panel.Controls.Add(transactionHistory); // Assuming 'display_panel' is the container
+            }
+            transactionHistory.BringToFront();
+        }
+
+        private void EnsureWalletLoaded()
+        {
+            if (wallet == null)
+            {
+                wallet = new Wallet_uc();
+                wallet.Dock = DockStyle.Fill;
+                display_panel.Controls.Add(wallet);
+            }
+            wallet.BringToFront();
+        }
+
+        private void EnsureInsightsUCLoaded()
+        {
+            if (insightsUC == null)
+            {
+                insightsUC = new InsightsUC();
+                insightsUC.Dock = DockStyle.Fill;
+                display_panel.Controls.Add(insightsUC);
+            }
+            insightsUC.BringToFront();
+        }
+
+        private void EnsureBudgetUCLoaded()
+        {
+            if (budgetUC == null)
+            {
+                budgetUC = new Budget1_uc();
+                budgetUC.Dock = DockStyle.Fill;
+                display_panel.Controls.Add(budgetUC);
+            }
+            budgetUC.BringToFront();
+        }
+
+        private void EnsureDashboardUCLoaded()
+        {
+            if (dashboardUC == null)
+            {
+                dashboardUC = new DashboardUC();
+                dashboardUC.Dock = DockStyle.Fill;
+                display_panel.Controls.Add(dashboardUC);
+            }
+            dashboardUC.BringToFront();
+        }
+
+        private void EnsureSettingsUCLoaded()
+        {
+            if (settingsUC == null)
+            {
+                settingsUC = new SettingsUC();
+                settingsUC.Dock = DockStyle.Fill;
+                display_panel.Controls.Add(settingsUC);
+            }
+            settingsUC.BringToFront();
+        }
+
+
 
 
         private void display_panel_Paint(object sender, PaintEventArgs e)
@@ -62,11 +174,15 @@ namespace Wallet_Manager.Forms
 
         }
 
+
+
         private void button_wallet_Click(object sender, EventArgs e)
         {
             UpdateButtonStyles(button_wallet);
             pageLabel.Text = "Wallet";
-            wallet_uc1.BringToFront();
+            EnsureWalletLoaded();
+            wallet.Visible = true;
+            //wallet_uc1.BringToFront();
         }
 
 
@@ -74,7 +190,7 @@ namespace Wallet_Manager.Forms
         {
             UpdateButtonStyles(button_wallet);
             pageLabel.Text = "Wallet";
-            wallet_uc1.BringToFront();
+            //wallet_uc1.BringToFront();
 
         }
 
@@ -82,7 +198,9 @@ namespace Wallet_Manager.Forms
         {
             UpdateButtonStyles(button_transaction);
             pageLabel.Text = "Transaction";
-            transactionHistory1.BringToFront();
+            EnsureTransactionHistoryLoaded();
+            transactionHistory.Visible = true;
+            //transactionHistory1.BringToFront();
 
         }
 
@@ -90,7 +208,7 @@ namespace Wallet_Manager.Forms
         {
             UpdateButtonStyles(button_transaction);
             pageLabel.Text = "Transaction";
-            transactionHistory1.BringToFront();
+            //transactionHistory1.BringToFront();
 
         }
 
@@ -98,14 +216,16 @@ namespace Wallet_Manager.Forms
         {
             UpdateButtonStyles(button_analytics);
             pageLabel.Text = "Analytics";
-            insightsUC1.BringToFront();
+            EnsureInsightsUCLoaded();
+            insightsUC.Visible = true;
+            //insightsUC1.BringToFront();
         }
 
         internal void clickSeeAllAnalytics()
         {
             UpdateButtonStyles(button_analytics);
             pageLabel.Text = "Analytics";
-            insightsUC1.BringToFront();
+            //insightsUC1.BringToFront();
 
         }
 
@@ -113,13 +233,15 @@ namespace Wallet_Manager.Forms
         {
             UpdateButtonStyles(button_budget);
             pageLabel.Text = "Budget";
-            budget1_uc1.BringToFront();
+            EnsureBudgetUCLoaded();
+            budgetUC.Visible = true;
+            //budget1_uc1.BringToFront();
         }
         internal void clickSeeAllBudgets()
         {
             UpdateButtonStyles(button_budget);
             pageLabel.Text = "Budget";
-            budget1_uc1.BringToFront();
+            //budget1_uc1.BringToFront();
 
         }
 
@@ -132,7 +254,12 @@ namespace Wallet_Manager.Forms
         {
             UpdateButtonStyles(button_dashboard);
             pageLabel.Text = "Dashboard";
-            dashboardUC1.BringToFront();
+            EnsureDashboardUCLoaded();
+            
+            
+            
+
+            //dashboardUC1.BringToFront();
 
         }
         private void UpdateButtonStyles(Guna.UI2.WinForms.Guna2Button activeButton)
@@ -257,7 +384,7 @@ namespace Wallet_Manager.Forms
         {
             UpdateButtonStyles(button_profile);
             pageLabel.Text = "Profile";
-            settingsUC1.BringToFront();
+            //settingsUC1.BringToFront();
         }
 
         private void settingsUC1_Load(object sender, EventArgs e)
@@ -289,7 +416,9 @@ namespace Wallet_Manager.Forms
         {
             UpdateButtonStyles(button_profile);
             pageLabel.Text = "Profile";
-            settingsUC1.BringToFront();
+            EnsureSettingsUCLoaded();
+            settingsUC.Visible = true;  
+           // settingsUC1.BringToFront();
         }
 
         private void pageLabel_Click(object sender, EventArgs e)
@@ -313,6 +442,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void dashboardUC1_Load_3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dashboardUC2_Load_3(object sender, EventArgs e)
         {
 
         }

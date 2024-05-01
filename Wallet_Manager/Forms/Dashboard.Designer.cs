@@ -47,13 +47,7 @@
             this.profilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.pageLabel = new System.Windows.Forms.Label();
             this.display_panel = new System.Windows.Forms.Panel();
-            this.wallet_uc1 = new Wallet_Manager.Forms.Wallet_uc();
-            this.budget1_uc1 = new Wallet_Manager.Forms.Budget1_uc();
-            this.insightsUC1 = new Wallet_Manager.Forms.InsightsUC();
-            this.settingsUC1 = new Wallet_Manager.Forms.SettingsUC();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
-            this.transactionHistory1 = new Wallet_Manager.Forms.TransactionHistory();
-            this.dashboardUC1 = new Wallet_Manager.Forms.DashboardUC();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -280,12 +274,6 @@
             // display_panel
             // 
             this.display_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.display_panel.Controls.Add(this.dashboardUC1);
-            this.display_panel.Controls.Add(this.transactionHistory1);
-            this.display_panel.Controls.Add(this.wallet_uc1);
-            this.display_panel.Controls.Add(this.budget1_uc1);
-            this.display_panel.Controls.Add(this.insightsUC1);
-            this.display_panel.Controls.Add(this.settingsUC1);
             this.display_panel.Controls.Add(this.panel1);
             this.display_panel.Controls.Add(this.panel4);
             this.display_panel.Controls.Add(this.panel3);
@@ -294,46 +282,10 @@
             this.display_panel.Name = "display_panel";
             this.display_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.display_panel_Paint);
             // 
-            // wallet_uc1
-            // 
-            this.wallet_uc1.BackColor = System.Drawing.Color.WhiteSmoke;
-            resources.ApplyResources(this.wallet_uc1, "wallet_uc1");
-            this.wallet_uc1.Name = "wallet_uc1";
-            // 
-            // budget1_uc1
-            // 
-            this.budget1_uc1.BackColor = System.Drawing.Color.WhiteSmoke;
-            resources.ApplyResources(this.budget1_uc1, "budget1_uc1");
-            this.budget1_uc1.Name = "budget1_uc1";
-            // 
-            // insightsUC1
-            // 
-            resources.ApplyResources(this.insightsUC1, "insightsUC1");
-            this.insightsUC1.Name = "insightsUC1";
-            // 
-            // settingsUC1
-            // 
-            this.settingsUC1.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.settingsUC1, "settingsUC1");
-            this.settingsUC1.Name = "settingsUC1";
-            // 
             // guna2AnimateWindow1
             // 
             this.guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_VER_POSITIVE;
             this.guna2AnimateWindow1.TargetForm = this;
-            // 
-            // transactionHistory1
-            // 
-            this.transactionHistory1.BackColor = System.Drawing.Color.WhiteSmoke;
-            resources.ApplyResources(this.transactionHistory1, "transactionHistory1");
-            this.transactionHistory1.Name = "transactionHistory1";
-            // 
-            // dashboardUC1
-            // 
-            this.dashboardUC1.BackColor = System.Drawing.Color.WhiteSmoke;
-            resources.ApplyResources(this.dashboardUC1, "dashboardUC1");
-            this.dashboardUC1.Name = "dashboardUC1";
-            this.dashboardUC1.Load += new System.EventHandler(this.dashboardUC1_Load_3);
             // 
             // Dashboard
             // 
@@ -341,6 +293,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Controls.Add(this.display_panel);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -374,12 +327,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel3;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Wallet_uc wallet_uc1;
-        private Budget1_uc budget1_uc1;
-        private InsightsUC insightsUC1;
-        private SettingsUC settingsUC1;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
-        private DashboardUC dashboardUC1;
-        private TransactionHistory transactionHistory1;
     }
 }

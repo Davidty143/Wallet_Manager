@@ -1,5 +1,6 @@
 ﻿using Guna.Charts.WinForms;
 using Guna.UI2.WinForms;
+using Org.BouncyCastle.Asn1.Mozilla;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,6 +50,8 @@ namespace Wallet_Manager.Forms
               ControlStyles.OptimizedDoubleBuffer |
               ControlStyles.UserPaint, true);
             this.UpdateStyles();
+
+
 
             
             LoadTransactions();
@@ -246,8 +249,10 @@ namespace Wallet_Manager.Forms
             }
         }
 
-        private void PopulateGunaBarDataSet()
+        public  void PopulateGunaBarDataSet()
         {
+            
+
             gunaBarDataset1.DataPoints.Clear();
             gunaBarDataset2.DataPoints.Clear();
             gunaBarDataset3.DataPoints.Clear();
@@ -268,8 +273,7 @@ namespace Wallet_Manager.Forms
                 gunaBarDataset3.DataPoints.Add(dateText, entry.Value.Item3); // totalSavings
             }
 
-            barChart1.Refresh();
-
+            barChart1.Refresh();            
         }
 
        
@@ -290,7 +294,6 @@ namespace Wallet_Manager.Forms
 
         private void DashboardUC_Load(object sender, EventArgs e)
         {
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

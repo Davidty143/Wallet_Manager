@@ -276,7 +276,7 @@
             this.walletNameLabel.ForeColor = System.Drawing.Color.White;
             this.walletNameLabel.Location = new System.Drawing.Point(36, 20);
             this.walletNameLabel.Name = "walletNameLabel";
-            this.walletNameLabel.Size = new System.Drawing.Size(225, 46);
+            this.walletNameLabel.Size = new System.Drawing.Size(220, 45);
             this.walletNameLabel.TabIndex = 30;
             this.walletNameLabel.Text = "Wallet Name";
             this.walletNameLabel.Click += new System.EventHandler(this.walletNameLabel_Click);
@@ -849,6 +849,7 @@
             this.Controls.Add(this.guna2CustomGradientPanel2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.guna2CustomGradientPanel4);
+            this.DoubleBuffered = true;
             this.Name = "Wallet_uc";
             this.Size = new System.Drawing.Size(1509, 900);
             this.Load += new System.EventHandler(this.Wallet_uc_Load);

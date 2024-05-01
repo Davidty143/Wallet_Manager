@@ -1202,6 +1202,7 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.guna2CustomGradientPanel4);
             this.Controls.Add(this.guna2Button9);
+            this.DoubleBuffered = true;
             this.Name = "DashboardUC";
             this.Size = new System.Drawing.Size(1509, 950);
             this.Load += new System.EventHandler(this.DashboardUC_Load);

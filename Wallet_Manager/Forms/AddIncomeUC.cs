@@ -43,7 +43,7 @@ namespace Wallet_Manager.Forms
             // Convert wallets to a binding-friendly format
             var walletBindingList = wallets.Select(wallet => new
             {
-                Text = $"{wallet.WalletName} (ID: {wallet.WalletID})",
+                Text = $"{wallet.WalletName}",
                 Value = wallet.WalletID
             }).ToList();
 
