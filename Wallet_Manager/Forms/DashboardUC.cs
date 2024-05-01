@@ -59,7 +59,9 @@ namespace Wallet_Manager.Forms
             UpdateExpenseLabel();
             UpdateMostUsedWalletDisplay();
             PopulateGunaBarDataSet();
-            
+            PopulateBudgetComboBox();
+
+
             GlobalEvents.TransactionUpdated += LoadTransactions;
             GlobalEvents.TransactionUpdated += UpdateSavingsLabel;
             GlobalEvents.TransactionUpdated += UpdateExpenseLabel;
@@ -249,7 +251,7 @@ namespace Wallet_Manager.Forms
             }
         }
 
-        public  void PopulateGunaBarDataSet()
+        private  void PopulateGunaBarDataSet()
         {
             
 
@@ -276,7 +278,98 @@ namespace Wallet_Manager.Forms
             barChart1.Refresh();            
         }
 
-       
+        public void UpdateProgressBar(Budget budget)
+        {
+            generalProgressBar.Maximum = (int)(budget.TotalAmount);
+            // Calculate the amount spent
+            float totalSpent = ComputeTotalSpendForBudget(budget);
+
+            // Calculate the remaining budget
+            float remainingBudget = budget.TotalAmount - totalSpent;
+
+            // Calculate the progress bar value
+            // Ensure the value is within the bounds of the progress bar's minimum and maximum
+            int progressBarValue = (int)(totalSpent);  // Convert total spent to an integer
+            if (progressBarValue > generalProgressBar.Maximum)
+            {
+                progressBarValue = generalProgressBar.Maximum;
+            }
+            else if (progressBarValue < generalProgressBar.Minimum)
+            {
+                progressBarValue = generalProgressBar.Minimum;
+            }
+
+            generalProgressBar.Value = progressBarValue;
+
+
+
+            // Set the progress bar color based on budget comparison
+            if (totalSpent > budget.TotalAmount)
+            {
+                overSpentLabel.Visible = true;
+                generalProgressBar.ProgressColor = Color.Red;
+                generalProgressBar.ProgressColor2 = Color.Red;
+                remainingBudget = remainingBudget * -1;
+                remainingBudgetLabel.Text = $"Overspent by {remainingBudget:C}";
+            }
+            else
+            {
+                overSpentLabel.Visible = false;
+                remainingBudgetLabel.Text = $"{remainingBudget:C} Remaining";
+            }
+
+            if (totalSpent < budget.TotalAmount && totalSpent > (budget.TotalAmount * 0.7))
+            {
+                warningLabel.Visible = true;
+            }
+
+            else
+            {
+                warningLabel.Visible = false;
+            }
+
+
+            // Optionally, update a label to show the numeric value or percentage
+
+            spentBudgetLabel.Text = $"{totalSpent:C} Spent";
+        }
+
+        public float ComputeTotalSpendForBudget(Budget budget)
+        {
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
+
+            List<Transaction> transactions = dataAccessLayer.GetTransactionsByCategoryAndDate(budget.CategoryIds, budget.StartDate, budget.EndDate);
+            float totalSpend = 0;
+
+            foreach (var transaction in transactions)
+            {
+                if (transaction.TransactionType.ToLower() == "expense") // Assuming 'expense' indicates money spent
+                {
+                    totalSpend += transaction.Amount;
+                }
+            }
+
+            return totalSpend;
+        }
+
+        private void PopulateBudgetComboBox()
+        {
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
+            var budgets = dataAccessLayer.GetAllBudgets();
+
+            // Filter to only include active budgets
+            var activeBudgets = budgets.Where(b => b.IsActive).ToList();
+
+            budgetComboBox.DataSource = activeBudgets;
+            budgetComboBox.DisplayMember = "BudgetName";
+            budgetComboBox.ValueMember = "BudgetID";
+        }
+
+
+
+
 
 
 
@@ -407,12 +500,40 @@ namespace Wallet_Manager.Forms
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             Dashboard dashboardParent = this.FindForm() as Dashboard;
-            dashboardParent.clickSeeAllBudgets();
+            dashboardParent.clickSeeAllBudgets();   
         }
 
         private void guna2CustomGradientPanel4_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2CustomGradientPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (budgetComboBox.SelectedItem is Budget selectedBudget)
+            {
+                string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+                SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
+                selectedBudget.CategoryIds = dataAccessLayer.GetCategoryIdsByBudgetId(selectedBudget.BudgetID);
+                UpdateProgressBar(selectedBudget);
+                dateLabel.Text = $"{selectedBudget.StartDate:MMMM d} - {selectedBudget.EndDate:MMMM d}";
+                nameLabel.Text = selectedBudget.BudgetName;
+            }
         }
     }
 }

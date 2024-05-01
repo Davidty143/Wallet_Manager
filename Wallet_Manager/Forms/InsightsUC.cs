@@ -143,7 +143,7 @@ namespace Wallet_Manager.Forms
             if (period == "1 Week")
                 return date.ToString("MMMM d");
             else if (period == "1 Month")
-                return date.Day == 1 ? date.ToString("MMMM d") : date.Day.ToString();
+                return date.ToString("MMMM d");
             else if (period == "1 Year")
                 return date.ToString("MMM");
             return "";

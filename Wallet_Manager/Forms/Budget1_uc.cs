@@ -184,6 +184,8 @@ namespace Wallet_Manager.Forms
                 overSpentLabel.Visible = true;
                 remainingBudget = remainingBudget * -1;
                 remainingBudgetLabel.Text = $"Overspent by {remainingBudget:C}";
+                generalProgressBar.ProgressColor = Color.Red;
+                generalProgressBar.ProgressColor2 = Color.Red;
             }
             else
             {
@@ -286,8 +288,6 @@ namespace Wallet_Manager.Forms
                 PopulatePanels(selectedBudget);
                 dateLabel.Text = $"{selectedBudget.StartDate:MMMM d} - {selectedBudget.EndDate:MMMM d}";
                 UpdateUIVisibility();
-
-
             }
         }
 

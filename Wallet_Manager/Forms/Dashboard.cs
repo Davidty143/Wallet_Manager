@@ -80,7 +80,7 @@ namespace Wallet_Manager.Forms
 
 
 
-        private void EnsureTransactionHistoryLoaded()
+        public void EnsureTransactionHistoryLoaded()
         {
             if (transactionHistory == null)
             {
@@ -91,7 +91,7 @@ namespace Wallet_Manager.Forms
             transactionHistory.BringToFront();
         }
 
-        private void EnsureWalletLoaded()
+        public void EnsureWalletLoaded()
         {
             if (wallet == null)
             {
@@ -102,7 +102,7 @@ namespace Wallet_Manager.Forms
             wallet.BringToFront();
         }
 
-        private void EnsureInsightsUCLoaded()
+        public void EnsureInsightsUCLoaded()
         {
             if (insightsUC == null)
             {
@@ -113,7 +113,7 @@ namespace Wallet_Manager.Forms
             insightsUC.BringToFront();
         }
 
-        private void EnsureBudgetUCLoaded()
+        public void EnsureBudgetUCLoaded()
         {
             if (budgetUC == null)
             {
@@ -135,7 +135,7 @@ namespace Wallet_Manager.Forms
             dashboardUC.BringToFront();
         }
 
-        private void EnsureSettingsUCLoaded()
+        public void EnsureSettingsUCLoaded()
         {
             if (settingsUC == null)
             {
@@ -149,27 +149,27 @@ namespace Wallet_Manager.Forms
 
 
 
-        private void display_panel_Paint(object sender, PaintEventArgs e)
+        public void display_panel_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        public void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        public void button1_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
 
         }
@@ -188,9 +188,7 @@ namespace Wallet_Manager.Forms
 
         internal void clickSeeAllWallets()
         {
-            UpdateButtonStyles(button_wallet);
-            pageLabel.Text = "Wallet";
-            //wallet_uc1.BringToFront();
+            button_transaction_Click(this, EventArgs.Empty);
 
         }
 
@@ -208,6 +206,9 @@ namespace Wallet_Manager.Forms
         {
             UpdateButtonStyles(button_transaction);
             pageLabel.Text = "Transaction";
+            EnsureTransactionHistoryLoaded();
+            transactionHistory.Visible = true;
+            transactionHistory.BringToFront();
             //transactionHistory1.BringToFront();
 
         }
@@ -223,9 +224,7 @@ namespace Wallet_Manager.Forms
 
         internal void clickSeeAllAnalytics()
         {
-            UpdateButtonStyles(button_analytics);
-            pageLabel.Text = "Analytics";
-            //insightsUC1.BringToFront();
+            button_insights_Click(this, EventArgs.Empty);
 
         }
 
@@ -239,9 +238,7 @@ namespace Wallet_Manager.Forms
         }
         internal void clickSeeAllBudgets()
         {
-            UpdateButtonStyles(button_budget);
-            pageLabel.Text = "Budget";
-            //budget1_uc1.BringToFront();
+            button_budget_Click(this, EventArgs.Empty);
 
         }
 

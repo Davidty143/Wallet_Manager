@@ -218,5 +218,18 @@ namespace Wallet_Manager.Forms
                 checkBoxSpending.Checked = false;
             }
         }
+
+        private void txtDescription_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt.Text.Length > 13)
+            {
+                // If the text exceeds 13 characters, trim it back to 13 characters
+                txt.Text = txt.Text.Substring(0, 17);
+
+                // Optional: Move the cursor to the end of the text
+                txt.SelectionStart = txt.Text.Length;
+            }
+        }
     }
 }
