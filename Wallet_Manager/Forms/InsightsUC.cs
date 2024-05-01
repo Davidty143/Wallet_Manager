@@ -18,7 +18,15 @@ namespace Wallet_Manager.Forms
 {
     public partial class InsightsUC : UserControl
     {
-
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
 
         public InsightsUC()
         {
@@ -163,7 +171,7 @@ namespace Wallet_Manager.Forms
                     expenses = _dataAccessLayer.GetExpenseCategoriesLast30Days(selectedWalletId);
                     break;
                 case "1 Year":
-                    expenses = _dataAccessLayer.GetExpenseCategoriesLastYear(selectedWalletId);
+                    expenses = _dataAccessLayer.GetExpenseCategoriesLastYear(selectedWalletId); 
                     break;
                 default:
                     expenses = new Dictionary<string, float>(); // Default to empty if no valid selection

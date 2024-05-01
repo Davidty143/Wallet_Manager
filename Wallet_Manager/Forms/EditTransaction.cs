@@ -13,6 +13,16 @@ namespace Wallet_Manager.Forms
 {
     public partial class EditTransaction : Form
     {
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
+
         int txtTransactionID;
         int txtUserID = 1; 
         public EditTransaction(int transactionID)

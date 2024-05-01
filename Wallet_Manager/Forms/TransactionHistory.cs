@@ -15,6 +15,16 @@ namespace Wallet_Manager.Forms
 {
     public partial class TransactionHistory : UserControl
     {
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
+
         private List<Transaction> transactions = new List<Transaction>();
         private Panel[] transactionPanels;
         private PictureBox[] categoryPictureBoxes;

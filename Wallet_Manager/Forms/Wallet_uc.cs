@@ -17,6 +17,16 @@ namespace Wallet_Manager.Forms
 {
     public partial class Wallet_uc : UserControl
     {
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
+
         private int currentWalletID;
         PictureBox editPictureBox = new System.Windows.Forms.PictureBox();
         PictureBox deletePictureBox = new System.Windows.Forms.PictureBox();

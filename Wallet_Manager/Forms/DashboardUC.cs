@@ -17,6 +17,16 @@ namespace Wallet_Manager.Forms
 {
     public partial class DashboardUC : UserControl
     {
+                protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
+
         private List<Transaction> transactions = new List<Transaction>();
         private Panel[] transactionPanels;
         private PictureBox[] categoryPictureBoxes;
@@ -27,24 +37,31 @@ namespace Wallet_Manager.Forms
         private Label[] walletNameLabels;
         private Label[] dateLabels;
         private Image[] categoryImages;
+
         public DashboardUC()
         {
             InitializeComponent();
             SetDoubleBuffering(this, true);
             InitializeControlArrays();
             LoadCategoryImages();
+
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint |
+              ControlStyles.OptimizedDoubleBuffer |
+              ControlStyles.UserPaint, true);
+            this.UpdateStyles();
+
+            
             LoadTransactions();
             UpdateSavingsLabel();
             UpdateExpenseLabel();
             UpdateMostUsedWalletDisplay();
             PopulateGunaBarDataSet();
-
+            
             GlobalEvents.TransactionUpdated += LoadTransactions;
             GlobalEvents.TransactionUpdated += UpdateSavingsLabel;
             GlobalEvents.TransactionUpdated += UpdateExpenseLabel;
             GlobalEvents.TransactionUpdated += UpdateMostUsedWalletDisplay;
             GlobalEvents.TransactionUpdated += PopulateGunaBarDataSet;
-
             //SetupChart();
 
         }
@@ -388,6 +405,11 @@ namespace Wallet_Manager.Forms
         {
             Dashboard dashboardParent = this.FindForm() as Dashboard;
             dashboardParent.clickSeeAllBudgets();
+        }
+
+        private void guna2CustomGradientPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

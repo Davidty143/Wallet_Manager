@@ -20,6 +20,16 @@ namespace Wallet_Manager.Forms
 {
     public partial class Budget1_uc : UserControl
     {
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
+
         private Guna2CustomGradientPanel[] recordPanels;
         private Label[] spentLabels;
         private Label[] dateLabels;
