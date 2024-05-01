@@ -84,41 +84,90 @@ namespace Wallet_Manager.Forms
 
         private void add_Wallet_Click(object sender, EventArgs e)
         {
+            string walletName = txtName.Text;
+            string walletType = txtType.Text;
+
+            // Validate input values for wallet name and type
+            if (string.IsNullOrEmpty(walletName) || string.IsNullOrEmpty(walletType))
             {
-                string walletName = txtName.Text;
-                string walletType = txtType.Text;
-                float spendingMoney;
-                float savingsMoney;
+                MessageBox.Show("Please fill out all the fields.");
+                return;
+            }
 
+            // Safely parse spending and savings amounts
+            if (!float.TryParse(spendingAmountTextBox.Text, out float spendingMoney))
+            {
+                MessageBox.Show("Invalid input for spending amount. Please enter a valid number.");
+                return;
+            }
 
-                if (string.IsNullOrEmpty(walletName) || string.IsNullOrEmpty(walletType))
+            if (!float.TryParse(savingsAmountTextBox.Text, out float savingsMoney))
+            {
+                MessageBox.Show("Invalid input for savings amount. Please enter a valid number.");
+                return;
+            }
+
+            Wallet newWallet = new Wallet
+            {
+                UserID = GlobalData.GetUserID(),
+                WalletName = walletName,
+                WalletType = walletType,
+                SpendingMoney = spendingMoney,
+                SavingsMoney = savingsMoney
+            };
+
+            // Attempt to create the new wallet
+            bool isWalletCreated = _businessLogic.CreateWallet(newWallet);
+
+            if (isWalletCreated)
+            {
+                // Retrieve the WalletID using the wallet name and UserID
+                string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+                SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+                int newWalletId = _dataAccessLayer.GetWalletIdByUserIdAndName(GlobalData.GetUserID(), walletName);
+
+                // Record transactions if there's initial money in either account
+                if (spendingMoney > 0)
                 {
-                    MessageBox.Show("Please fill out all the fields.");
-                    return;
+                    Transaction deposit = new Transaction
+                    {
+                        UserID = GlobalData.GetUserID(),
+                        WalletID = newWalletId,
+                        WalletCategory = "Spending",
+                        TransactionType = "Transfer",
+                        CategoryID = 19, // Assuming CategoryID is predefined
+                        Amount = spendingMoney,
+                        Date = DateTime.Now,
+                        Description = "Add Wallet"
+                    };
+                    _dataAccessLayer.AddTransaction(deposit);
                 }
 
-                Wallet newWallet = new Wallet
+                if (savingsMoney > 0)
                 {
-                    UserID = GlobalData.GetUserID(),
-                    WalletName = walletName,
-                    WalletType = walletType,
-                    SpendingMoney = 0,
-                    SavingsMoney = 0
-                };
-
-
-                bool isWalletCreated = _businessLogic.CreateWallet(newWallet);
-
-                if (isWalletCreated)
-                {
-                    MessageBox.Show("Wallet created successfully.");
+                    Transaction deposit = new Transaction
+                    {
+                        UserID = GlobalData.GetUserID(),
+                        WalletID = newWalletId,
+                        WalletCategory = "Savings",
+                        TransactionType = "Transfer",
+                        CategoryID = 19, // Assuming CategoryID is predefined
+                        Amount = savingsMoney,
+                        Date = DateTime.Now,
+                        Description = "Add Wallet"
+                    };
+                    _dataAccessLayer.AddTransaction(deposit);
                 }
-                else
-                {
-                    MessageBox.Show("Failed to create wallet. A wallet of the same type may already exist.");
-                }
+
+                MessageBox.Show("Wallet created successfully.");
+            }
+            else
+            {
+                MessageBox.Show("Failed to create wallet. A wallet of the same type may already exist.");
             }
         }
+
+
 
         private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
         {
@@ -143,6 +192,27 @@ namespace Wallet_Manager.Forms
         private void guna2CustomGradientPanel1_Paint_1(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void spendingAmountTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void spendingAmountTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void savingsAmountTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
    

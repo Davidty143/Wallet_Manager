@@ -221,16 +221,17 @@ namespace Wallet_Manager.Classes
 
 
 
-        public Wallet GetWalletByUserIDAndType(int userID, string walletType)
+        public Wallet GetWalletByUserIDAndType(int userID, string walletType, string walletName)
         {
             using (MySqlConnection conn = new MySqlConnection(_connectionString))
             {
                 conn.Open();
 
-                using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM wallet WHERE UserID = @UserID AND WalletType = @WalletType", conn))
+                using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM wallet WHERE UserID = @UserID AND WalletType = @WalletType AND WalletName = @WalletName", conn))
                 {
                     cmd.Parameters.AddWithValue("@UserID", userID);
                     cmd.Parameters.AddWithValue("@WalletType", walletType);
+                    cmd.Parameters.AddWithValue("@WalletName", walletName);
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -240,6 +241,7 @@ namespace Wallet_Manager.Classes
                             {
                                 UserID = reader.GetInt32("UserID"),
                                 WalletType = reader.GetString("WalletType"),
+                                WalletName = reader.GetString("WalletName"),
                                 SpendingMoney = reader.GetFloat("SpendingMoney"),
                                 SavingsMoney = reader.GetFloat("SavingsMoney")
                             };
@@ -353,6 +355,23 @@ namespace Wallet_Manager.Classes
             }
             return wallets;
         }
+
+        public int GetWalletIdByUserIdAndName(int userId, string walletName)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                var query = "SELECT WalletID FROM Wallet WHERE UserID = @UserID AND WalletName = @WalletName";
+                using (var cmd = new MySqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", userId);
+                    cmd.Parameters.AddWithValue("@WalletName", walletName);
+                    var result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : 0;
+                }
+            }
+        }
+
 
 
         public bool UpdateWallet(Wallet wallet)

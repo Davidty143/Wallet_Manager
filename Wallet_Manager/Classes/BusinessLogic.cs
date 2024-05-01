@@ -94,11 +94,10 @@ namespace Wallet_Manager.Classes
             return -1; // or throw an exception
         }
 
-
         public bool CreateWallet(Wallet newWallet)
         {
             // Check if a wallet of the same type already exists for the user
-            Wallet existingWallet = _dataAccessLayer.GetWalletByUserIDAndType(newWallet.UserID, newWallet.WalletType);
+            Wallet existingWallet = _dataAccessLayer.GetWalletByUserIDAndType(newWallet.UserID, newWallet.WalletType, newWallet.WalletName);
             if (existingWallet != null)
             {
                 // A wallet of the same type already exists for the user

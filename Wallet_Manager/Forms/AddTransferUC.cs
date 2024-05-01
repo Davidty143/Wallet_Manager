@@ -196,7 +196,7 @@ namespace Wallet_Manager.Forms
         {
             if (DcheckBoxSavings.Checked)
             {
-                DcheckBoxSpending.Checked = false;
+                DcheckBoxSpending.Checked = false;      
             }
         }
     }

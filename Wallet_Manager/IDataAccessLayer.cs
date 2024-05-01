@@ -14,7 +14,7 @@ namespace Wallet_Manager
 
 
         bool CreateWallet(Wallet newWallet);
-        Wallet GetWalletByUserIDAndType(int userID, string walletType);
+        Wallet GetWalletByUserIDAndType(int userID, string walletType, string walletName);
         bool WalletExists(Wallet walletToCheck);
 
 
