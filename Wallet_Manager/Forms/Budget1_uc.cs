@@ -119,6 +119,12 @@ namespace Wallet_Manager.Forms
                 progressBar[panelIndex].Value = Math.Min((int)percentageSpent, 100);
                 percentageLabels[panelIndex].Text = $"{percentageSpent:F2}% of total budget";
                 recordPanels[panelIndex].Visible = true; // Only make the panel visible if there's data to display
+                if (entry.Value > totalBudget)
+                {
+                    progressBar[panelIndex].ProgressColor = Color.Red;
+                    progressBar[panelIndex].ProgressColor2 = Color.Red; 
+                }
+
             }
 
             // Hide any unused panels beyond the last populated one
