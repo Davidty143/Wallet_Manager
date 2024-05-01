@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -221,8 +222,8 @@ namespace Wallet_Manager.Forms
 
         private void txtDescription_TextChanged(object sender, EventArgs e)
         {
-            TextBox txt = sender as TextBox;
-            if (txt.Text.Length > 13)
+            Guna2TextBox txt = sender as Guna2TextBox;
+            if (txt.Text.Length > 17)
             {
                 // If the text exceeds 13 characters, trim it back to 13 characters
                 txt.Text = txt.Text.Substring(0, 17);

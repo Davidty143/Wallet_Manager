@@ -119,6 +119,7 @@
             this.txtDescription.SelectedText = "";
             this.txtDescription.Size = new System.Drawing.Size(276, 36);
             this.txtDescription.TabIndex = 145;
+            this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
             // txtAmount
             // 

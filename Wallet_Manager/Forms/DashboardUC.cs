@@ -67,6 +67,7 @@ namespace Wallet_Manager.Forms
             GlobalEvents.TransactionUpdated += UpdateExpenseLabel;
             GlobalEvents.TransactionUpdated += UpdateMostUsedWalletDisplay;
             GlobalEvents.TransactionUpdated += PopulateGunaBarDataSet;
+            GlobalEvents.TransactionUpdated += PopulateBudgetComboBox;
             //SetupChart();
 
         }
@@ -314,6 +315,8 @@ namespace Wallet_Manager.Forms
             }
             else
             {
+                generalProgressBar.ProgressColor = Color.LimeGreen;
+                generalProgressBar.ProgressColor2 = Color.LimeGreen;
                 overSpentLabel.Visible = false;
                 remainingBudgetLabel.Text = $"{remainingBudget:C} Remaining";
             }

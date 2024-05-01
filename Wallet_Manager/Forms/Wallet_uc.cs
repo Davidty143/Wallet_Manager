@@ -57,7 +57,8 @@ namespace Wallet_Manager.Forms
             GlobalEvents.TransactionUpdated += UpdateWalletDisplay;
             GlobalEvents.TransactionUpdated += LoadTransactions;
             GlobalEvents.TransactionUpdated += PopulateGunaBarDataSet;
-            
+            GlobalEvents.TransactionUpdated += PopulateWalletsComboBox;
+
             editPictureBox.Click += editWalletPictureBox_Click;
             deletePictureBox.Click += deleteWalletPictureBox_Click;
 
@@ -418,7 +419,14 @@ namespace Wallet_Manager.Forms
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            Dashboard dashboardParent = this.FindForm() as Dashboard;
+            dashboardParent.clickSeeAllAnalytics();
+        }
 
+        private void guna2Button6_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboardParent = this.FindForm() as Dashboard;
+            dashboardParent.clickSeeAllTransactions();
         }
     }
 }

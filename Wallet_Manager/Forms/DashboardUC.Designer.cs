@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.Charts.WinForms.ChartFont chartFont25 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont26 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont27 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont28 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid10 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick10 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont29 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid11 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick11 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont30 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid12 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel4 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont31 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick12 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont32 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont73 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont74 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont75 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont76 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid28 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick28 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont77 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid29 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick29 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont78 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid30 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel10 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont79 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick30 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont80 = new Guna.Charts.WinForms.ChartFont();
             this.label24 = new System.Windows.Forms.Label();
             this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
             this.label23 = new System.Windows.Forms.Label();
@@ -499,7 +499,7 @@
             this.guna2CustomGradientPanel2.Controls.Add(this.remainingBudgetLabel);
             this.guna2CustomGradientPanel2.Controls.Add(this.spentBudgetLabel);
             this.guna2CustomGradientPanel2.Controls.Add(this.generalProgressBar);
-            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(36, 60);
+            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(36, 73);
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(709, 129);
             this.guna2CustomGradientPanel2.TabIndex = 316;
@@ -552,7 +552,7 @@
             this.nameLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nameLabel.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.nameLabel.Location = new System.Drawing.Point(31, 19);
+            this.nameLabel.Location = new System.Drawing.Point(32, 25);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(129, 25);
             this.nameLabel.TabIndex = 316;
@@ -576,38 +576,38 @@
             this.gunaBarDataset3,
             this.gunaBarDataset2,
             this.gunaBarDataset1});
-            chartFont25.FontName = "Arial";
-            this.barChart1.Legend.LabelFont = chartFont25;
+            chartFont73.FontName = "Arial";
+            this.barChart1.Legend.LabelFont = chartFont73;
             this.barChart1.Location = new System.Drawing.Point(18, 3);
             this.barChart1.Name = "barChart1";
             this.barChart1.Size = new System.Drawing.Size(526, 287);
             this.barChart1.TabIndex = 0;
-            chartFont26.FontName = "Arial";
-            chartFont26.Size = 12;
-            chartFont26.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.barChart1.Title.Font = chartFont26;
-            chartFont27.FontName = "Arial";
-            this.barChart1.Tooltips.BodyFont = chartFont27;
-            chartFont28.FontName = "Arial";
-            chartFont28.Size = 9;
-            chartFont28.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.barChart1.Tooltips.TitleFont = chartFont28;
-            this.barChart1.XAxes.GridLines = grid10;
-            chartFont29.FontName = "Arial";
-            tick10.Font = chartFont29;
-            this.barChart1.XAxes.Ticks = tick10;
-            grid11.LineWidth = 0;
-            this.barChart1.YAxes.GridLines = grid11;
-            chartFont30.FontName = "Arial";
-            tick11.Font = chartFont30;
-            this.barChart1.YAxes.Ticks = tick11;
-            this.barChart1.ZAxes.GridLines = grid12;
-            chartFont31.FontName = "Arial";
-            pointLabel4.Font = chartFont31;
-            this.barChart1.ZAxes.PointLabels = pointLabel4;
-            chartFont32.FontName = "Arial";
-            tick12.Font = chartFont32;
-            this.barChart1.ZAxes.Ticks = tick12;
+            chartFont74.FontName = "Arial";
+            chartFont74.Size = 12;
+            chartFont74.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.barChart1.Title.Font = chartFont74;
+            chartFont75.FontName = "Arial";
+            this.barChart1.Tooltips.BodyFont = chartFont75;
+            chartFont76.FontName = "Arial";
+            chartFont76.Size = 9;
+            chartFont76.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.barChart1.Tooltips.TitleFont = chartFont76;
+            this.barChart1.XAxes.GridLines = grid28;
+            chartFont77.FontName = "Arial";
+            tick28.Font = chartFont77;
+            this.barChart1.XAxes.Ticks = tick28;
+            grid29.LineWidth = 0;
+            this.barChart1.YAxes.GridLines = grid29;
+            chartFont78.FontName = "Arial";
+            tick29.Font = chartFont78;
+            this.barChart1.YAxes.Ticks = tick29;
+            this.barChart1.ZAxes.GridLines = grid30;
+            chartFont79.FontName = "Arial";
+            pointLabel10.Font = chartFont79;
+            this.barChart1.ZAxes.PointLabels = pointLabel10;
+            chartFont80.FontName = "Arial";
+            tick30.Font = chartFont80;
+            this.barChart1.ZAxes.Ticks = tick30;
             this.barChart1.Load += new System.EventHandler(this.gunaChart1_Load);
             // 
             // gunaBarDataset3
@@ -1166,15 +1166,16 @@
             this.budgetComboBox.BorderRadius = 5;
             this.budgetComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.budgetComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.budgetComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.budgetComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.budgetComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.budgetComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.budgetComboBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.budgetComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.budgetComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.budgetComboBox.ItemHeight = 30;
-            this.budgetComboBox.Location = new System.Drawing.Point(586, 13);
+            this.budgetComboBox.Location = new System.Drawing.Point(595, 20);
             this.budgetComboBox.Name = "budgetComboBox";
             this.budgetComboBox.Size = new System.Drawing.Size(150, 36);
             this.budgetComboBox.TabIndex = 317;
+            this.budgetComboBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.budgetComboBox.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
             // 
             // warningLabel

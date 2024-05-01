@@ -36,6 +36,12 @@ namespace Wallet_Manager.Forms
             PopulateWalletsComboBox();
             guna2CustomGradientPanel1.Visible = true;
 
+            GlobalEvents.TransactionUpdated += PopulateWalletsComboBox;
+            GlobalEvents.TransactionUpdated += PopulateWalletsComboBox;
+            GlobalEvents.TransactionUpdated += PopulateGunaBarDataSet;
+            GlobalEvents.TransactionUpdated += PopulatePieChart;
+            GlobalEvents.TransactionUpdated += PopulateSpLineChart;
+
 
         }
 

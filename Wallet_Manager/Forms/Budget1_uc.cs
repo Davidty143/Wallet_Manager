@@ -48,7 +48,14 @@ namespace Wallet_Manager.Forms
             initializeControlArrays();
             UpdateUIVisibility();
             PopulateBudgetComboBox();
+
+
+            GlobalEvents.TransactionUpdated += UpdateUIVisibility;
+
+            GlobalEvents.TransactionUpdated += PopulateBudgetComboBox;
+
             
+
 
 
 
@@ -189,6 +196,8 @@ namespace Wallet_Manager.Forms
             }
             else
             {
+                generalProgressBar.ProgressColor = Color.LimeGreen;
+                generalProgressBar.ProgressColor2 = Color.LimeGreen;
                 overSpentLabel.Visible = false;
                 remainingBudgetLabel.Text = $"{remainingBudget:C} Remaining";
             }
@@ -273,6 +282,7 @@ namespace Wallet_Manager.Forms
 
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            currentRecordPage = 1;
             if (budgetComboBox.SelectedItem is Budget selectedBudget)
             {
                 currentBudget = selectedBudget;
@@ -288,6 +298,7 @@ namespace Wallet_Manager.Forms
                 PopulatePanels(selectedBudget);
                 dateLabel.Text = $"{selectedBudget.StartDate:MMMM d} - {selectedBudget.EndDate:MMMM d}";
                 UpdateUIVisibility();
+                
             }
         }
 

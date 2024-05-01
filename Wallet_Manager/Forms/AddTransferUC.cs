@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -206,6 +207,19 @@ namespace Wallet_Manager.Forms
             if (DcheckBoxSavings.Checked)
             {
                 DcheckBoxSpending.Checked = false;      
+            }
+        }
+
+        private void txtDescription_TextChanged(object sender, EventArgs e)
+        {
+            Guna2TextBox txt = sender as Guna2TextBox;
+            if (txt.Text.Length > 13)
+            {
+                // If the text exceeds 13 characters, trim it back to 13 characters
+                txt.Text = txt.Text.Substring(0, 17);
+
+                // Optional: Move the cursor to the end of the text
+                txt.SelectionStart = txt.Text.Length;
             }
         }
     }

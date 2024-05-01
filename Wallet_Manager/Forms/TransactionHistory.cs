@@ -56,6 +56,9 @@ namespace Wallet_Manager.Forms
             LoadCategoryImages();
             LoadTransactions();
 
+
+
+
             GlobalEvents.TransactionUpdated += LoadTransactions;
 
             //ConnectEventHandlers();
@@ -517,6 +520,11 @@ namespace Wallet_Manager.Forms
         private void label1_Click_1(object sender, EventArgs e)
         {
             RemoveFilters();
+        }
+
+        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

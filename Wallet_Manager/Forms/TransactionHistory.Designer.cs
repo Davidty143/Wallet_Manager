@@ -32,7 +32,9 @@
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.walletNameLabel6 = new System.Windows.Forms.Label();
             this.amountLabel6 = new System.Windows.Forms.Label();
@@ -44,6 +46,7 @@
             this.categoryLabel6 = new System.Windows.Forms.Label();
             this.dateLabel6 = new System.Windows.Forms.Label();
             this.transactionTypeLabel6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.walletNameLabel5 = new System.Windows.Forms.Label();
             this.amountLabel5 = new System.Windows.Forms.Label();
@@ -55,6 +58,7 @@
             this.categoryLabel5 = new System.Windows.Forms.Label();
             this.dateLabel5 = new System.Windows.Forms.Label();
             this.transactionTypeLabel5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel4 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.walletNameLabel4 = new System.Windows.Forms.Label();
             this.amountLabel4 = new System.Windows.Forms.Label();
@@ -66,6 +70,7 @@
             this.categoryLabel4 = new System.Windows.Forms.Label();
             this.dateLabel4 = new System.Windows.Forms.Label();
             this.transactionTypeLabel4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.walletNameLabel3 = new System.Windows.Forms.Label();
             this.amountLabel3 = new System.Windows.Forms.Label();
@@ -77,6 +82,7 @@
             this.categoryLabel3 = new System.Windows.Forms.Label();
             this.dateLabel3 = new System.Windows.Forms.Label();
             this.transactionTypeLabel3 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.walletNameLabel2 = new System.Windows.Forms.Label();
             this.amountLabel2 = new System.Windows.Forms.Label();
@@ -88,6 +94,7 @@
             this.categoryLabel2 = new System.Windows.Forms.Label();
             this.dateLabel2 = new System.Windows.Forms.Label();
             this.transactionTypeLabel2 = new System.Windows.Forms.Label();
+            this.paginationLabel = new System.Windows.Forms.Label();
             this.panel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.walletNameLabel1 = new System.Windows.Forms.Label();
             this.amountLabel1 = new System.Windows.Forms.Label();
@@ -99,15 +106,8 @@
             this.categoryLabel1 = new System.Windows.Forms.Label();
             this.dateLabel1 = new System.Windows.Forms.Label();
             this.transactionTypeLabel1 = new System.Windows.Forms.Label();
-            this.labelNext = new System.Windows.Forms.Label();
             this.labelPrev = new System.Windows.Forms.Label();
-            this.paginationLabel = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelNext = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -118,11 +118,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox4)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // mySqlCommand1
@@ -159,6 +159,7 @@
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(1388, 790);
             this.guna2CustomGradientPanel2.TabIndex = 300;
+            this.guna2CustomGradientPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel2_Paint);
             // 
             // label1
             // 
@@ -173,6 +174,19 @@
             this.label1.TabIndex = 317;
             this.label1.Text = "Remove Filter";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.White;
+            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.label7.Location = new System.Drawing.Point(794, 53);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 23);
+            this.label7.TabIndex = 304;
+            this.label7.Text = "Wallet";
             // 
             // guna2Button1
             // 
@@ -191,6 +205,19 @@
             this.guna2Button1.TabIndex = 316;
             this.guna2Button1.Text = "FILTER";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click_1);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.label4.Location = new System.Drawing.Point(142, 53);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 23);
+            this.label4.TabIndex = 301;
+            this.label4.Text = "Category";
             // 
             // panel6
             // 
@@ -341,6 +368,19 @@
             this.transactionTypeLabel6.TabIndex = 289;
             this.transactionTypeLabel6.Text = "Expense";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.label5.Location = new System.Drawing.Point(590, 53);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 23);
+            this.label5.TabIndex = 302;
+            this.label5.Text = "Amount";
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
@@ -489,6 +529,19 @@
             this.transactionTypeLabel5.Size = new System.Drawing.Size(99, 31);
             this.transactionTypeLabel5.TabIndex = 289;
             this.transactionTypeLabel5.Text = "Expense";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.label6.Location = new System.Drawing.Point(341, 53);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(138, 23);
+            this.label6.TabIndex = 303;
+            this.label6.Text = "Transaction Type";
             // 
             // panel4
             // 
@@ -639,6 +692,19 @@
             this.transactionTypeLabel4.TabIndex = 289;
             this.transactionTypeLabel4.Text = "Expense";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.White;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.label8.Location = new System.Drawing.Point(1029, 53);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 23);
+            this.label8.TabIndex = 305;
+            this.label8.Text = "Date";
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
@@ -787,6 +853,20 @@
             this.transactionTypeLabel3.Size = new System.Drawing.Size(99, 31);
             this.transactionTypeLabel3.TabIndex = 289;
             this.transactionTypeLabel3.Text = "Expense";
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.White;
+            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox7.Image = global::Wallet_Manager.Properties.Resources.add_purple;
+            this.pictureBox7.Location = new System.Drawing.Point(616, 695);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 306;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click_1);
             // 
             // panel2
             // 
@@ -937,6 +1017,19 @@
             this.transactionTypeLabel2.TabIndex = 289;
             this.transactionTypeLabel2.Text = "Expense";
             // 
+            // paginationLabel
+            // 
+            this.paginationLabel.AutoSize = true;
+            this.paginationLabel.BackColor = System.Drawing.Color.White;
+            this.paginationLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.paginationLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paginationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.paginationLabel.Location = new System.Drawing.Point(1266, 707);
+            this.paginationLabel.Name = "paginationLabel";
+            this.paginationLabel.Size = new System.Drawing.Size(81, 20);
+            this.paginationLabel.TabIndex = 307;
+            this.paginationLabel.Text = "Page 1 of 1";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
@@ -1086,20 +1179,6 @@
             this.transactionTypeLabel1.TabIndex = 289;
             this.transactionTypeLabel1.Text = "Expense";
             // 
-            // labelNext
-            // 
-            this.labelNext.AutoSize = true;
-            this.labelNext.BackColor = System.Drawing.Color.White;
-            this.labelNext.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelNext.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNext.ForeColor = System.Drawing.Color.Black;
-            this.labelNext.Location = new System.Drawing.Point(1322, 727);
-            this.labelNext.Name = "labelNext";
-            this.labelNext.Size = new System.Drawing.Size(26, 28);
-            this.labelNext.TabIndex = 309;
-            this.labelNext.Text = ">";
-            // 
             // labelPrev
             // 
             this.labelPrev.AutoSize = true;
@@ -1114,97 +1193,19 @@
             this.labelPrev.TabIndex = 308;
             this.labelPrev.Text = "<";
             // 
-            // paginationLabel
+            // labelNext
             // 
-            this.paginationLabel.AutoSize = true;
-            this.paginationLabel.BackColor = System.Drawing.Color.White;
-            this.paginationLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.paginationLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paginationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.paginationLabel.Location = new System.Drawing.Point(1266, 707);
-            this.paginationLabel.Name = "paginationLabel";
-            this.paginationLabel.Size = new System.Drawing.Size(81, 20);
-            this.paginationLabel.TabIndex = 307;
-            this.paginationLabel.Text = "Page 1 of 1";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.White;
-            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox7.Image = global::Wallet_Manager.Properties.Resources.add_purple;
-            this.pictureBox7.Location = new System.Drawing.Point(616, 695);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 306;
-            this.pictureBox7.TabStop = false;
-            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click_1);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label8.Location = new System.Drawing.Point(1029, 53);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 23);
-            this.label8.TabIndex = 305;
-            this.label8.Text = "Date";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label7.Location = new System.Drawing.Point(794, 53);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 23);
-            this.label7.TabIndex = 304;
-            this.label7.Text = "Wallet";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label6.Location = new System.Drawing.Point(341, 53);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(138, 23);
-            this.label6.TabIndex = 303;
-            this.label6.Text = "Transaction Type";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label5.Location = new System.Drawing.Point(590, 53);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 23);
-            this.label5.TabIndex = 302;
-            this.label5.Text = "Amount";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label4.Location = new System.Drawing.Point(142, 53);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 23);
-            this.label4.TabIndex = 301;
-            this.label4.Text = "Category";
+            this.labelNext.AutoSize = true;
+            this.labelNext.BackColor = System.Drawing.Color.White;
+            this.labelNext.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelNext.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNext.ForeColor = System.Drawing.Color.Black;
+            this.labelNext.Location = new System.Drawing.Point(1322, 727);
+            this.labelNext.Name = "labelNext";
+            this.labelNext.Size = new System.Drawing.Size(26, 28);
+            this.labelNext.TabIndex = 309;
+            this.labelNext.Text = ">";
             // 
             // label11
             // 
@@ -1242,13 +1243,13 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
