@@ -167,7 +167,7 @@
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(1225, 80);
+            this.label1.Location = new System.Drawing.Point(1227, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 20);
             this.label1.TabIndex = 317;
@@ -184,7 +184,7 @@
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(1224, 42);
+            this.guna2Button1.Location = new System.Drawing.Point(1226, 32);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(101, 35);
             this.guna2Button1.TabIndex = 316;
@@ -207,7 +207,7 @@
             this.panel6.Controls.Add(this.categoryLabel6);
             this.panel6.Controls.Add(this.dateLabel6);
             this.panel6.Controls.Add(this.transactionTypeLabel6);
-            this.panel6.Location = new System.Drawing.Point(37, 615);
+            this.panel6.Location = new System.Drawing.Point(39, 605);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1308, 84);
             this.panel6.TabIndex = 315;
@@ -356,7 +356,7 @@
             this.panel5.Controls.Add(this.categoryLabel5);
             this.panel5.Controls.Add(this.dateLabel5);
             this.panel5.Controls.Add(this.transactionTypeLabel5);
-            this.panel5.Location = new System.Drawing.Point(37, 515);
+            this.panel5.Location = new System.Drawing.Point(39, 505);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1308, 84);
             this.panel5.TabIndex = 314;
@@ -505,7 +505,7 @@
             this.panel4.Controls.Add(this.categoryLabel4);
             this.panel4.Controls.Add(this.dateLabel4);
             this.panel4.Controls.Add(this.transactionTypeLabel4);
-            this.panel4.Location = new System.Drawing.Point(37, 415);
+            this.panel4.Location = new System.Drawing.Point(39, 405);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1308, 84);
             this.panel4.TabIndex = 313;
@@ -654,7 +654,7 @@
             this.panel3.Controls.Add(this.categoryLabel3);
             this.panel3.Controls.Add(this.dateLabel3);
             this.panel3.Controls.Add(this.transactionTypeLabel3);
-            this.panel3.Location = new System.Drawing.Point(37, 315);
+            this.panel3.Location = new System.Drawing.Point(39, 305);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1308, 84);
             this.panel3.TabIndex = 312;
@@ -803,7 +803,7 @@
             this.panel2.Controls.Add(this.categoryLabel2);
             this.panel2.Controls.Add(this.dateLabel2);
             this.panel2.Controls.Add(this.transactionTypeLabel2);
-            this.panel2.Location = new System.Drawing.Point(37, 215);
+            this.panel2.Location = new System.Drawing.Point(39, 205);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1308, 84);
             this.panel2.TabIndex = 311;
@@ -952,7 +952,7 @@
             this.panel1.Controls.Add(this.categoryLabel1);
             this.panel1.Controls.Add(this.dateLabel1);
             this.panel1.Controls.Add(this.transactionTypeLabel1);
-            this.panel1.Location = new System.Drawing.Point(37, 115);
+            this.panel1.Location = new System.Drawing.Point(39, 105);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1308, 84);
             this.panel1.TabIndex = 310;
@@ -1093,7 +1093,7 @@
             this.labelNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelNext.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNext.ForeColor = System.Drawing.Color.Black;
-            this.labelNext.Location = new System.Drawing.Point(1320, 737);
+            this.labelNext.Location = new System.Drawing.Point(1322, 727);
             this.labelNext.Name = "labelNext";
             this.labelNext.Size = new System.Drawing.Size(26, 28);
             this.labelNext.TabIndex = 309;
@@ -1107,7 +1107,7 @@
             this.labelPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelPrev.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrev.ForeColor = System.Drawing.Color.Black;
-            this.labelPrev.Location = new System.Drawing.Point(1264, 737);
+            this.labelPrev.Location = new System.Drawing.Point(1266, 727);
             this.labelPrev.Name = "labelPrev";
             this.labelPrev.Size = new System.Drawing.Size(26, 28);
             this.labelPrev.TabIndex = 308;
@@ -1120,7 +1120,7 @@
             this.paginationLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.paginationLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paginationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.paginationLabel.Location = new System.Drawing.Point(1264, 717);
+            this.paginationLabel.Location = new System.Drawing.Point(1266, 707);
             this.paginationLabel.Name = "paginationLabel";
             this.paginationLabel.Size = new System.Drawing.Size(81, 20);
             this.paginationLabel.TabIndex = 307;
@@ -1131,7 +1131,7 @@
             this.pictureBox7.BackColor = System.Drawing.Color.White;
             this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox7.Image = global::Wallet_Manager.Properties.Resources.add_purple;
-            this.pictureBox7.Location = new System.Drawing.Point(607, 710);
+            this.pictureBox7.Location = new System.Drawing.Point(609, 700);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(69, 70);
@@ -1147,7 +1147,7 @@
             this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label8.Location = new System.Drawing.Point(1027, 63);
+            this.label8.Location = new System.Drawing.Point(1029, 53);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 23);
             this.label8.TabIndex = 305;
@@ -1160,7 +1160,7 @@
             this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label7.Location = new System.Drawing.Point(792, 63);
+            this.label7.Location = new System.Drawing.Point(794, 53);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 23);
             this.label7.TabIndex = 304;
@@ -1173,7 +1173,7 @@
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label6.Location = new System.Drawing.Point(339, 63);
+            this.label6.Location = new System.Drawing.Point(341, 53);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(138, 23);
             this.label6.TabIndex = 303;
@@ -1186,7 +1186,7 @@
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label5.Location = new System.Drawing.Point(588, 63);
+            this.label5.Location = new System.Drawing.Point(590, 53);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 23);
             this.label5.TabIndex = 302;
@@ -1199,7 +1199,7 @@
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label4.Location = new System.Drawing.Point(140, 63);
+            this.label4.Location = new System.Drawing.Point(142, 53);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 23);
             this.label4.TabIndex = 301;

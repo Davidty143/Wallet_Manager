@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using Wallet_Manager.Classes;
+using Wallet_Manager.Enums;
 
 namespace Wallet_Manager.Forms
 {
@@ -252,6 +253,48 @@ namespace Wallet_Manager.Forms
         private void splineAreaChart1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            guna2CustomGradientPanel1.Visible = true;
+            guna2CustomGradientPanel2.Visible = false;
+            guna2CustomGradientPanel3.Visible = false;
+            financialOverviewLabel.ForeColor = Color.Black;
+            expenseCategoryLabel.ForeColor = Color.Gray;
+            netWorthLabel.ForeColor = Color.Gray;
+        }
+
+        private void guna2CustomGradientPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void SpendingCategoryLabel_Click(object sender, EventArgs e)
+        {
+            guna2CustomGradientPanel1.Visible = false;
+            guna2CustomGradientPanel2.Visible = true;
+            guna2CustomGradientPanel3.Visible = false;
+            expenseCategoryLabel.ForeColor = Color.Black;
+            financialOverviewLabel.ForeColor = Color.Gray;
+            netWorthLabel.ForeColor = Color.Gray;
+        }
+
+        private void netWorthLabel_Click(object sender, EventArgs e)
+        {
+            guna2CustomGradientPanel1.Visible = false;
+            guna2CustomGradientPanel2.Visible = false;
+            guna2CustomGradientPanel3.Visible = true;
+            expenseCategoryLabel.ForeColor = Color.Gray;
+            financialOverviewLabel.ForeColor = Color.Gray;
+            netWorthLabel.ForeColor = Color.Black;
+        }
+
+        private void selecWalletComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PopulateGunaBarDataSet();
+            PopulatePieChart();
+            PopulateSpLineChart();
         }
     }
 }

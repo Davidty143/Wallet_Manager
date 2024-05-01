@@ -62,7 +62,8 @@ namespace Wallet_Manager.Forms
             nonVisibleLabel2.Visible = !hasActiveBudgets;
             nonVisibleLabel3.Visible = !hasActiveBudgets;
             nonVisibleLabel4.Visible = !hasActiveBudgets;
-            doughnutChart1.Visible = hasActiveBudgets;
+            doughnutCategoryChart.Visible = hasActiveBudgets;
+            //doughnutChart1.Visible = hasActiveBudgets;
             splineChart.Visible = hasActiveBudgets;
 
             // Do not set visibility for panels and progress bars here
@@ -268,9 +269,9 @@ namespace Wallet_Manager.Forms
                 SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
                 selectedBudget.CategoryIds = dataAccessLayer.GetCategoryIdsByBudgetId(selectedBudget.BudgetID);
                 UpdateProgressBar(selectedBudget);
-                //PopulateDoughnutChart(selectedBudget);
+                PopulateDoughnutChart(selectedBudget);
                 // PopulateSplineChart(selectedBudget);
-                PopulateGunaDoughnutChart(selectedBudget);
+                //PopulateGunaDoughnutChart(selectedBudget);
                 PopulateGunaSplineChart(selectedBudget);
                 PopulatePanels(selectedBudget);
                 dateLabel.Text = $"{selectedBudget.StartDate:MMMM d} - {selectedBudget.EndDate:MMMM d}";
@@ -280,6 +281,8 @@ namespace Wallet_Manager.Forms
             }
         }
 
+
+        /*
         private void PopulateGunaDoughnutChart(Budget budget)
         {
             // Use the category IDs and date range from the budget object
@@ -305,10 +308,11 @@ namespace Wallet_Manager.Forms
             // Refresh the chart to display the new data
         }
 
+        */
 
 
 
-        /*
+
         private void PopulateDoughnutChart(Budget budget)
         {
             // Use the category IDs and date range from the budget object
@@ -354,8 +358,7 @@ namespace Wallet_Manager.Forms
             doughnutCategoryChart.Invalidate();
         }
 
-        */
-
+  
 
         /*
          * 
@@ -528,6 +531,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void spentBudgetLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void doughnutCategoryChart_Click_1(object sender, EventArgs e)
         {
 
         }
