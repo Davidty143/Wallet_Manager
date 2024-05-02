@@ -503,7 +503,7 @@ namespace Wallet_Manager.Classes
                     connection.Open();
                     using (MySqlCommand command = new MySqlCommand("SELECT * FROM wallet WHERE UserID = @UserID", connection))
                     {
-                        command.Parameters.AddWithValue("@UserID", 1); // Ideally, replace 1 with a variable if needed
+                        command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID()); // Ideally, replace 1 with a variable if needed
 
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
@@ -778,27 +778,6 @@ namespace Wallet_Manager.Classes
         }
 
 
-
-        public void AddGoal(Goal goal)
-        {
-            using (var connection = new MySqlConnection(_connectionString))
-            {
-                string query = @"INSERT INTO Goal (UserID, GoalName, TargetAmount, CurrentAmount, Deadline, WalletId) 
-                             VALUES (@UserID, @GoalName, @TargetAmount, @CurrentAmount, @Deadline, @WalletId)";
-
-                MySqlCommand command = new MySqlCommand(query, connection);
-                command.Parameters.AddWithValue("@UserID", goal.UserID);
-                command.Parameters.AddWithValue("@GoalName", goal.GoalName);
-                command.Parameters.AddWithValue("@TargetAmount", goal.TargetAmount);
-                command.Parameters.AddWithValue("@CurrentAmount", goal.CurrentAmount);
-                command.Parameters.AddWithValue("@Deadline", goal.Deadline);
-                command.Parameters.AddWithValue("@WalletId", goal.WalletID);
-
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
-        }
-
         public Wallet GetWalletById(int walletId)
         {
             Wallet wallet = null;
@@ -832,9 +811,9 @@ namespace Wallet_Manager.Classes
             Wallet totalWallet = new Wallet
             {
                 WalletID = 0,
-                UserID = 0, // Assuming UserID is not relevant for the aggregated data
+                UserID = 0,
                 WalletName = "All Wallets",
-                WalletType = "Aggregate",
+                WalletType = "",
                 SpendingMoney = 0,
                 SavingsMoney = 0
             };
@@ -842,10 +821,13 @@ namespace Wallet_Manager.Classes
             using (var conn = new MySqlConnection(_connectionString))
             {
                 conn.Open();
-                var cmd = new MySqlCommand("SELECT SUM(SpendingMoney) AS TotalSpending, SUM(SavingsMoney) AS TotalSavings FROM Wallet", conn);
+                var cmd = new MySqlCommand("SELECT SUM(SpendingMoney) AS TotalSpending, SUM(SavingsMoney) AS TotalSavings FROM Wallet WHERE UserID  = @UserID", conn);
+                cmd.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
 
                 using (var reader = cmd.ExecuteReader())
                 {
+                    
+
                     if (reader.Read())
                     {
                         totalWallet.SpendingMoney = reader.IsDBNull(reader.GetOrdinal("TotalSpending")) ? 0 : reader.GetFloat("TotalSpending");
@@ -865,8 +847,9 @@ namespace Wallet_Manager.Classes
             {
                 connection.Open();
                 // Update the SQL query to order by Date and TransactionID
-                using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction ORDER BY Date DESC, TransactionID DESC", connection))
+                using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction WHERE UserID =  @UserID ORDER BY Date DESC, TransactionID DESC", connection))
                 {
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -897,7 +880,8 @@ namespace Wallet_Manager.Classes
             using (var conn = new MySqlConnection(_connectionString))
             {
                 conn.Open();
-                var cmd = new MySqlCommand($"SELECT * FROM Transaction ORDER BY Date DESC, TransactionID DESC LIMIT {count}", conn);
+                var cmd = new MySqlCommand($"SELECT * FROM Transaction WHERE UserID = @UserID ORDER BY Date DESC, TransactionID DESC LIMIT {count}", conn);
+                cmd.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -964,10 +948,11 @@ namespace Wallet_Manager.Classes
                     return transactions; // Return empty list if no categories are specified
                 }
 
-                string query = $"SELECT * FROM `Transaction` WHERE CategoryID IN ({categories}) AND `Date` >= @StartDate AND `Date` <= @EndDate";
+                string query = $"SELECT * FROM `Transaction` WHERE UserID = @UserID AND CategoryID IN ({categories}) AND `Date` >= @StartDate AND `Date` <= @EndDate";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
                     command.Parameters.AddWithValue("@StartDate", startDate);
                     command.Parameters.AddWithValue("@EndDate", endDate);
 
@@ -1033,12 +1018,11 @@ namespace Wallet_Manager.Classes
                     return categoryTotals; // Return empty dictionary if no categories are specified
                 }
 
-                string query = $"SELECT CategoryID, SUM(Amount) AS TotalAmount FROM `Transaction` " +
-                               $"WHERE CategoryID IN ({categories}) AND `Date` >= @StartDate AND `Date` <= @EndDate " +
-                               $"GROUP BY CategoryID";
+                string query = "SELECT CategoryID, SUM(Amount) AS TotalAmount FROM `Transaction` WHERE UserID = @UserID AND CategoryID IN (" + categories + ") AND `Date` >= @StartDate AND `Date` <= @EndDate GROUP BY CategoryID";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
                     command.Parameters.AddWithValue("@StartDate", startDate);
                     command.Parameters.AddWithValue("@EndDate", endDate);
 
@@ -1069,9 +1053,10 @@ namespace Wallet_Manager.Classes
             {
                 connection.Open();
                 // Modified SQL command to fetch only the latest 3 transactions, ordered by Date and TransactionID
-                using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction WHERE WalletID = @WalletID ORDER BY Date DESC, TransactionID DESC LIMIT 3", connection))
+                using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction WHERE UserID = @UserID ORDER BY Date DESC, TransactionID DESC LIMIT 3", connection))
                 {
-                    command.Parameters.AddWithValue("@WalletID", GlobalData.GetUserID());
+
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -1133,7 +1118,7 @@ namespace Wallet_Manager.Classes
             return transactions;
         }
 
-
+        //flag
 
         public List<Transaction> GetAllFilteredTransactions(string transactionType = null, string category = null, string wallet = null, string walletCategory = null, DateTime? startDate = null, DateTime? endDate = null)
         {
@@ -1523,6 +1508,8 @@ namespace Wallet_Manager.Classes
             }
         }
 
+        //flag
+
         public List<Budget> GetAllBudgets()
         {
             var budgets = new List<Classes.Budget>();
@@ -1530,10 +1517,13 @@ namespace Wallet_Manager.Classes
             using (var connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                var query = "SELECT BudgetID, UserID, IsActive, BudgetName, TotalAmount, PeriodType, StartDate, EndDate FROM budget";
+                var query = "SELECT BudgetID, UserID, IsActive, BudgetName, TotalAmount, PeriodType, StartDate, EndDate FROM budget WHERE UserID = @UserID";
+
+
 
                 using (var cmd = new MySqlCommand(query, connection))
                 {
+                    cmd.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -1629,10 +1619,13 @@ namespace Wallet_Manager.Classes
         GROUP BY Date
         ORDER BY Date ASC"; // Ensure data is sorted in ascending order by date
 
+                query += " AND UserID = @UserID;";
+
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@StartDate", startDate);
                     command.Parameters.AddWithValue("@EndDate", endDate);
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
@@ -1680,9 +1673,12 @@ namespace Wallet_Manager.Classes
                 // Modify the query based on the wallet ID
                 if (walletId != 0)
                 {
-                    baseQuery += " AND WalletID = @WalletID";
+                    baseQuery += " AND WalletID = @WalletID";   
                 }
+                baseQuery += " AND UserID = @UserID";
                 baseQuery += " GROUP BY DATE(Date) ORDER BY DATE(Date) ASC;";
+
+                
 
                 using (MySqlCommand command = new MySqlCommand(baseQuery, connection))
                 {
@@ -1690,6 +1686,8 @@ namespace Wallet_Manager.Classes
                     {
                         command.Parameters.AddWithValue("@WalletID", walletId);
                     }
+
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
@@ -1741,13 +1739,15 @@ namespace Wallet_Manager.Classes
             WHERE Date >= CURDATE() - INTERVAL 6 DAY
             GROUP BY DATE(Date)
         ) AS DailyTotals
-        ORDER BY TransactionDate ASC;
+        ORDER BY TransactionDate ASC
         ";
+                query += " AND UserID = @UserID;";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
+                        command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
                         while (reader.Read())
                         {
                             DateTime date = reader.GetDateTime("TransactionDate");
@@ -1800,6 +1800,9 @@ namespace Wallet_Manager.Classes
                 {
                     baseQuery += " AND WalletID = @WalletID";
                 }
+
+                baseQuery += " AND UserID = @UserID";
+
                 baseQuery += " GROUP BY DATE(Date) ORDER BY DATE(Date) ASC;";
 
                 using (MySqlCommand command = new MySqlCommand(baseQuery, connection))
@@ -1808,6 +1811,7 @@ namespace Wallet_Manager.Classes
                     {
                         command.Parameters.AddWithValue("@WalletID", walletId);
                     }
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
@@ -1865,6 +1869,9 @@ namespace Wallet_Manager.Classes
                 {
                     baseQuery += " AND WalletID = @WalletID";
                 }
+
+                baseQuery += " AND UserID = @UserID";
+
                 baseQuery += " GROUP BY MonthStart ORDER BY MonthStart;";
 
                 using (MySqlCommand command = new MySqlCommand(baseQuery, connection))
@@ -1873,6 +1880,8 @@ namespace Wallet_Manager.Classes
                     {
                         command.Parameters.AddWithValue("@WalletID", walletId);
                     }
+
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
@@ -1921,8 +1930,9 @@ namespace Wallet_Manager.Classes
                 {
                     baseQuery += " AND t.WalletID = @WalletID";
                 }
-
+                baseQuery += " AND UserID = @UserID";
                 baseQuery += " GROUP BY c.Name;";
+               
 
                 using (var command = new MySqlCommand(baseQuery, connection))
                 {
@@ -1930,6 +1940,7 @@ namespace Wallet_Manager.Classes
                     {
                         command.Parameters.AddWithValue("@WalletID", walletId);
                     }
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
 
                     using (var reader = command.ExecuteReader())
                     {
@@ -1966,7 +1977,10 @@ namespace Wallet_Manager.Classes
                     baseQuery += " AND t.WalletID = @WalletID";
                 }
 
+                baseQuery += " AND UserID = @UserID";
+
                 baseQuery += " GROUP BY c.Name;";
+                
 
                 using (var command = new MySqlCommand(baseQuery, connection))
                 {
@@ -1974,6 +1988,8 @@ namespace Wallet_Manager.Classes
                     {
                         command.Parameters.AddWithValue("@WalletID", walletId);
                     }
+
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
 
                     using (var reader = command.ExecuteReader())
                     {
@@ -2011,8 +2027,11 @@ namespace Wallet_Manager.Classes
                 {
                     baseQuery += " AND t.WalletID = @WalletID";
                 }
+                baseQuery += " AND UserID = @UserID";
 
                 baseQuery += " GROUP BY c.Name;";
+
+                
 
                 using (var command = new MySqlCommand(baseQuery, connection))
                 {
@@ -2020,6 +2039,7 @@ namespace Wallet_Manager.Classes
                     {
                         command.Parameters.AddWithValue("@WalletID", walletId);
                     }
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
 
                     using (var reader = command.ExecuteReader())
                     {
@@ -2056,8 +2076,10 @@ namespace Wallet_Manager.Classes
                     FROM Transaction
                     WHERE Date <= CURDATE()
                     GROUP BY DATE(Date)
-                    ORDER BY TransactionDate ASC;
+                    ORDER BY TransactionDate ASC
                 ";
+
+                    baseQuery += " AND UserID = @UserID;";
 
                     using (MySqlCommand command = new MySqlCommand(baseQuery, connection))
                     {
@@ -2065,6 +2087,8 @@ namespace Wallet_Manager.Classes
                         {
                             command.Parameters.AddWithValue("@WalletID", walletId);
                         }
+
+                        command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
 
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
@@ -2130,6 +2154,9 @@ namespace Wallet_Manager.Classes
                     baseQuery += " AND WalletID = @WalletID";
                 }
 
+                baseQuery += " AND UserID = @UserID";
+                
+
                 baseQuery += " GROUP BY DATE(Date)) AS DailyTotals ORDER BY TransactionDate ASC;";
 
                 using (MySqlCommand command = new MySqlCommand(baseQuery, connection))
@@ -2138,6 +2165,7 @@ namespace Wallet_Manager.Classes
                     {
                         command.Parameters.AddWithValue("@WalletID", walletId);
                     }
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
@@ -2191,10 +2219,12 @@ namespace Wallet_Manager.Classes
                 WHERE Date >= CURDATE() - INTERVAL 1 YEAR
         ";
 
-                if (walletId != 0)
-                {
-                    baseQuery += " AND WalletID = @WalletID";
-                }
+                baseQuery += " AND WalletID = @WalletID";
+                
+
+                baseQuery += " AND UserID = @UserID";
+
+
 
                 baseQuery += " GROUP BY FirstDayOfMonth) AS MonthlyTotals ORDER BY FirstDayOfMonth ASC;";
 
@@ -2204,6 +2234,7 @@ namespace Wallet_Manager.Classes
                     {
                         command.Parameters.AddWithValue("@WalletID", walletId);
                     }
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
