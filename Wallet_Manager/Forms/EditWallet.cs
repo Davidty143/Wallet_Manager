@@ -180,6 +180,7 @@ namespace Wallet_Manager.Forms
             if (updateSuccess)
             {
                 MessageBox.Show("Wallet updated successfully.");
+                GlobalEvents.OnTransactionUpdated();
                 this.Hide(); // Optionally close the form
             }
             else

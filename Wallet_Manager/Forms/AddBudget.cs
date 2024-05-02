@@ -269,6 +269,7 @@ namespace Wallet_Manager.Forms
             {
                 _dataAccessLayer.SaveBudget(budget);
                 MessageBox.Show("Budget added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                GlobalEvents.OnTransactionUpdated();
             }
             catch (Exception ex)
             {
@@ -312,6 +313,15 @@ namespace Wallet_Manager.Forms
         private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void txtAmount_Leave(object sender, EventArgs e)
+        {
+            if (float.Parse(txtAmount.Text) == 0)
+            {
+                MessageBox.Show("Please enter a valid amount");
+                txtAmount.Text = "";
+            }
         }
     }
 }

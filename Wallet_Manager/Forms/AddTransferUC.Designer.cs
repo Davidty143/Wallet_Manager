@@ -145,6 +145,7 @@
             this.txtAmount.Size = new System.Drawing.Size(276, 36);
             this.txtAmount.TabIndex = 143;
             this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
+            this.txtAmount.Leave += new System.EventHandler(this.txtAmount_Leave);
             // 
             // ScheckBoxSavings
             // 

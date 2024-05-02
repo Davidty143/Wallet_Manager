@@ -169,6 +169,7 @@ namespace Wallet_Manager.Forms
                     };
                     _dataAccessLayer.AddTransaction(deposit);
                 }
+                GlobalEvents.OnTransactionUpdated();
 
                 MessageBox.Show("Wallet created successfully.");
             }

@@ -222,5 +222,14 @@ namespace Wallet_Manager.Forms
                 txt.SelectionStart = txt.Text.Length;
             }
         }
+
+        private void txtAmount_Leave(object sender, EventArgs e)
+        {
+            if (float.Parse(txtAmount.Text) == 0)
+            {
+                MessageBox.Show("Please enter a valid amount");
+                txtAmount.Text = "";
+            }
+        }
     }
 }
