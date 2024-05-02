@@ -229,6 +229,7 @@
             this.savingsAmountTextBox.Size = new System.Drawing.Size(276, 36);
             this.savingsAmountTextBox.TabIndex = 178;
             this.savingsAmountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.savingsAmountTextBox_KeyPress);
+            this.savingsAmountTextBox.Leave += new System.EventHandler(this.savingsAmountTextBox_Leave);
             // 
             // spendingAmountTextBox
             // 

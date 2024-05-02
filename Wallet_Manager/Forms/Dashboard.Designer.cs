@@ -110,6 +110,7 @@
             this.button_signout.ImageSize = new System.Drawing.Size(35, 35);
             this.button_signout.Name = "button_signout";
             this.button_signout.PressedColor = System.Drawing.Color.White;
+            this.button_signout.Click += new System.EventHandler(this.button_signout_Click);
             // 
             // button_profile
             // 

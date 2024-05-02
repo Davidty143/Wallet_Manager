@@ -90,7 +90,7 @@
             this.label4.Location = new System.Drawing.Point(1314, 125);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(274, 46);
+            this.label4.Size = new System.Drawing.Size(267, 45);
             this.label4.TabIndex = 33;
             this.label4.Text = "Wallet Manager";
             // 
@@ -118,6 +118,7 @@
             this.txtEmail.SelectedText = "";
             this.txtEmail.Size = new System.Drawing.Size(477, 57);
             this.txtEmail.TabIndex = 34;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // txtPassword
             // 
@@ -178,7 +179,7 @@
             this.t_login_button.Name = "t_login_button";
             this.t_login_button.Size = new System.Drawing.Size(477, 57);
             this.t_login_button.TabIndex = 37;
-            this.t_login_button.Text = "Sign in";
+            this.t_login_button.Text = "Login";
             this.t_login_button.Click += new System.EventHandler(this.t_login_button_Click_1);
             // 
             // label7
@@ -222,6 +223,7 @@
             this.label3.Size = new System.Drawing.Size(60, 28);
             this.label3.TabIndex = 40;
             this.label3.Text = "Email";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label8
             // 

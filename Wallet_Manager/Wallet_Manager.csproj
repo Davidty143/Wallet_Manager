@@ -112,7 +112,6 @@
   <ItemGroup>
     <Compile Include="Classes\Budget.cs" />
     <Compile Include="Classes\BudgetCategory.cs" />
-    <Compile Include="Classes\BusinessLogic.cs" />
     <Compile Include="Classes\Category.cs" />
     <Compile Include="Classes\GlobalData.cs" />
     <Compile Include="Classes\GlobalEvent.cs" />
@@ -121,8 +120,6 @@
     <Compile Include="Classes\Transaction.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\Wallet.cs" />
-    <Compile Include="Enums\ExpenseCategory.cs" />
-    <Compile Include="Enums\IncomeCategory.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,35 +132,11 @@
     <Compile Include="Forms\AddBudget.Designer.cs">
       <DependentUpon>AddBudget.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddBudgetUC.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Forms\AddBudgetUC.Designer.cs">
-      <DependentUpon>AddBudgetUC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\AddExpense.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddExpense.Designer.cs">
-      <DependentUpon>AddExpense.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\AddExpenseUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Forms\AddExpenseUC.Designer.cs">
       <DependentUpon>AddExpenseUC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\AddGoal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddGoal.Designer.cs">
-      <DependentUpon>AddGoal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\AddIncome.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddIncome.Designer.cs">
-      <DependentUpon>AddIncome.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddIncomeUC.cs">
       <SubType>UserControl</SubType>
@@ -176,12 +149,6 @@
     </Compile>
     <Compile Include="Forms\AddTransaction.Designer.cs">
       <DependentUpon>AddTransaction.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\AddTransfer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddTransfer.Designer.cs">
-      <DependentUpon>AddTransfer.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddTransferUC.cs">
       <SubType>UserControl</SubType>
@@ -213,7 +180,6 @@
     <Compile Include="Forms\DashboardUC.Designer.cs">
       <DependentUpon>DashboardUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DisplayEnum.cs" />
     <Compile Include="Forms\EditPassword.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -237,12 +203,6 @@
     </Compile>
     <Compile Include="Forms\EditWallet.Designer.cs">
       <DependentUpon>EditWallet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Insights.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Insights.Designer.cs">
-      <DependentUpon>Insights.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\InsightsUC.cs">
       <SubType>UserControl</SubType>
@@ -274,18 +234,6 @@
     <Compile Include="Forms\Signup.Designer.cs">
       <DependentUpon>Signup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Test1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Test1.Designer.cs">
-      <DependentUpon>Test1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\TransactionHistory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -298,35 +246,19 @@
     <Compile Include="Forms\Wallet_uc.Designer.cs">
       <DependentUpon>Wallet_uc.cs</DependentUpon>
     </Compile>
-    <Compile Include="IDataAccessLayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AddBudget.resx">
       <DependentUpon>AddBudget.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddBudgetUC.resx">
-      <DependentUpon>AddBudgetUC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddExpense.resx">
-      <DependentUpon>AddExpense.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddExpenseUC.resx">
       <DependentUpon>AddExpenseUC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddGoal.resx">
-      <DependentUpon>AddGoal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddIncome.resx">
-      <DependentUpon>AddIncome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddIncomeUC.resx">
       <DependentUpon>AddIncomeUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddTransaction.resx">
       <DependentUpon>AddTransaction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddTransfer.resx">
-      <DependentUpon>AddTransfer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddTransferUC.resx">
       <DependentUpon>AddTransferUC.cs</DependentUpon>
@@ -355,9 +287,6 @@
     <EmbeddedResource Include="Forms\EditWallet.resx">
       <DependentUpon>EditWallet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Insights.resx">
-      <DependentUpon>Insights.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\InsightsUC.resx">
       <DependentUpon>InsightsUC.cs</DependentUpon>
     </EmbeddedResource>
@@ -372,12 +301,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Test.resx">
-      <DependentUpon>Test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Test1.resx">
-      <DependentUpon>Test1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TransactionHistory.resx">
       <DependentUpon>TransactionHistory.cs</DependentUpon>

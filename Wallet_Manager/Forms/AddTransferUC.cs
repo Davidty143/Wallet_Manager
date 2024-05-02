@@ -134,16 +134,15 @@ namespace Wallet_Manager.Forms
                 return;
             }
             string description = txtDescription.Text;
-            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
 
-            // Create a new instance of BusinessLogic
-            BusinessLogic businessLogic = new BusinessLogic(new SqlDataAccessLayer(_connectionString));
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
 
 
             // Perform the transfer
             try
             {
-                bool transferSuccess = businessLogic.Transfer(sourceWalletId, sourceCategory, targetWalletId, targetCategory, amount, 1, description);
+                bool transferSuccess = dataAccessLayer.Transfer(sourceWalletId, sourceCategory, targetWalletId, targetCategory, amount, 1, description);
                 if (transferSuccess)
                 {
                     MessageBox.Show("Transfer completed successfully.");

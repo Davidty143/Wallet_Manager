@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using Wallet_Manager.Classes;
-using Wallet_Manager.Enums;
+
 
 namespace Wallet_Manager.Forms
 {

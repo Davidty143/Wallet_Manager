@@ -23,13 +23,10 @@ namespace Wallet_Manager.Forms
                 return cp;
             }
         }
-        private BusinessLogic _businessLogic;
 
         public Signup()
         {
             InitializeComponent();
-            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-            _businessLogic = new BusinessLogic(new SqlDataAccessLayer(_connectionString));
         }
 
         private void t_login_button_Click(object sender, EventArgs e)   
@@ -85,8 +82,11 @@ namespace Wallet_Manager.Forms
                 return;
             }
 
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+
             // Call a method in your business logic to create the account
-            bool signupSuccess = _businessLogic.CreateAccount(firstName, lastName, email, password);
+            bool signupSuccess = dataAccessLayer.CreateAccount(firstName, lastName, email, password);
 
             if (signupSuccess)
             {

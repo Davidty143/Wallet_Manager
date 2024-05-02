@@ -447,5 +447,19 @@ namespace Wallet_Manager.Forms
         {
 
         }
+
+        private void button_signout_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.IsLoggedIn = false;
+            Properties.Settings.Default.Save();
+
+            // Assuming LoginForm is the form you want to show
+            Login loginForm = new Login();
+            this.Hide(); // Optionally hide the current form
+            loginForm.ShowDialog(); // Show the login form as a dialog
+
+            this.Close(); // Close the current form after the dialog is closed
+        }
+
     }
 }

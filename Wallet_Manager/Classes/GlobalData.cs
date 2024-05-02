@@ -32,7 +32,6 @@ namespace Wallet_Manager.Classes
 
         public static int GetUserID()
         {
-            UserID = 1;
             return UserID;
         }
 

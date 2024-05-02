@@ -24,8 +24,28 @@ namespace Wallet_Manager
             Application.SetCompatibleTextRenderingDefault(false);
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
-            dataAccessLayer.UpdateBudgetStatuses();
+            dataAccessLayer.UpdateBudgetStatuses(); // to update the active and inactive budgets
+
+            if (Properties.Settings.Default.IsLoggedIn)
+            {
+                ShowDashboard();
+            }
+            else
+            {
+                ShowLoginForm();
+            }
+
+            //Application.Run(new Login());
+        }
+
+        static void ShowDashboard()
+        {
             Application.Run(new Dashboard());
+        }
+
+        public static void ShowLoginForm()
+        {
+            Application.Run(new Login());
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]

@@ -53,14 +53,21 @@ namespace Wallet_Manager.Forms
                 return;
             }
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
 
-            BusinessLogic businessLogic = new BusinessLogic(new SqlDataAccessLayer(_connectionString));
-
-            if (businessLogic.LoginUser(email, password))
+            if (dataAccessLayer.LoginUser(email, password))
             {
+                Properties.Settings.Default.IsLoggedIn = true;
+                Properties.Settings.Default.Save();
+
                 MessageBox.Show("Login successful.");
-                // Navigate to main form...
+                GlobalData.SetUserID(dataAccessLayer.GetUserID(email));
+                MessageBox.Show("User ID: " + GlobalData.GetUserID());
+                Dashboard newDashboard = new Dashboard();
+                newDashboard.ShowDialog();
+                this.Close();
             }
+
             else
             {
                 MessageBox.Show("Invalid email or password.");
@@ -77,6 +84,16 @@ namespace Wallet_Manager.Forms
             Signup newSignup = new Signup();
             newSignup.ShowDialog();
             this.Hide();
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

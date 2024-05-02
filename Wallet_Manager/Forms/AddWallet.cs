@@ -26,13 +26,12 @@ namespace Wallet_Manager.Forms
         }
 
 
-        private BusinessLogic _businessLogic;
         public AddWallet()
         {
             InitializeComponent();
             PopulateWalletTypes();
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-            _businessLogic = new BusinessLogic(new SqlDataAccessLayer(_connectionString));
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
         }
 
         private void PopulateWalletTypes()
@@ -127,15 +126,15 @@ namespace Wallet_Manager.Forms
                 SavingsMoney = savingsMoney
             };
 
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+
             // Attempt to create the new wallet
-            bool isWalletCreated = _businessLogic.CreateWallet(newWallet);
+            bool isWalletCreated = dataAccessLayer.CreateWalletValidate(newWallet);
 
             if (isWalletCreated)
             {
-                // Retrieve the WalletID using the wallet name and UserID
-                string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-                SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
-                int newWalletId = _dataAccessLayer.GetWalletIdByUserIdAndName(GlobalData.GetUserID(), walletName);
+                int newWalletId = dataAccessLayer.GetWalletIdByUserIdAndName(GlobalData.GetUserID(), walletName);
 
                 // Record transactions if there's initial money in either account
                 if (spendingMoney > 0)
@@ -151,7 +150,7 @@ namespace Wallet_Manager.Forms
                         Date = DateTime.Now,
                         Description = "Add Wallet"
                     };
-                    _dataAccessLayer.AddTransaction(deposit);
+                    dataAccessLayer.AddTransaction(deposit);
                 }
 
                 if (savingsMoney > 0)
@@ -167,7 +166,7 @@ namespace Wallet_Manager.Forms
                         Date = DateTime.Now,
                         Description = "Add Wallet"
                     };
-                    _dataAccessLayer.AddTransaction(deposit);
+                    dataAccessLayer.AddTransaction(deposit);
                 }
                 GlobalEvents.OnTransactionUpdated();
 
@@ -225,6 +224,11 @@ namespace Wallet_Manager.Forms
             {
                 e.Handled = true;
             }
+        }
+
+        private void savingsAmountTextBox_Leave(object sender, EventArgs e)
+        {
+
         }
     }
    
