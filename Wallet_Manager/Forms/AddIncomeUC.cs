@@ -32,6 +32,9 @@ namespace Wallet_Manager.Forms
             PopulateWalletsComboBox();
             PopulateIncomeCategoryComboBox();
             txtDate.Value = DateTime.Today;
+
+            GlobalEvents.TransactionUpdated += PopulateWalletsComboBox;
+
         }
 
         private void PopulateWalletsComboBox()
@@ -282,6 +285,7 @@ namespace Wallet_Manager.Forms
             {
                 MessageBox.Show("Please enter a valid amount");
                 txtAmount.Text = "";
+                return;
             }
         }
     }

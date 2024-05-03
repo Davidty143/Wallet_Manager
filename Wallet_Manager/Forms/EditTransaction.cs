@@ -33,6 +33,7 @@ namespace Wallet_Manager.Forms
             populateTransactionType();
             PopulateWalletsComboBox();
             LoadTransactionDetails(txtTransactionID);
+            GlobalEvents.TransactionUpdated += PopulateWalletsComboBox;
         }
 
         private void populateTransactionType()

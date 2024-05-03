@@ -39,6 +39,8 @@ namespace Wallet_Manager.Forms
             _transactionHistory = transactionHistory;
             startDatePicker.Value = DateTime.Today;
             endDatePicker.Value = DateTime.Today;
+
+            GlobalEvents.TransactionUpdated += PopulateWalletsComboBox;
         }
 
         private void walletComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -198,6 +200,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void walletComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }

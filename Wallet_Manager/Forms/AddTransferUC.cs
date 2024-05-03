@@ -31,6 +31,8 @@ namespace Wallet_Manager.Forms
             PopulateWalletsComboBox();
             InitializeComboBoxes();
             txtDate.Value = DateTime.Today;
+
+            GlobalEvents.TransactionUpdated += PopulateWalletsComboBox;
         }
 
         private void PopulateWalletsComboBox()

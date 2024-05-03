@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.label7 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -50,7 +51,6 @@
             this.walletCategoryComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.walletComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.categoryComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -72,6 +72,18 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(615, 721);
             this.guna2CustomGradientPanel1.TabIndex = 0;
             this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(29, 18);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(145, 31);
+            this.label7.TabIndex = 141;
+            this.label7.Text = "Select Filters";
             // 
             // guna2CustomGradientPanel2
             // 
@@ -365,6 +377,7 @@
             this.walletComboBox.Name = "walletComboBox";
             this.walletComboBox.Size = new System.Drawing.Size(200, 36);
             this.walletComboBox.TabIndex = 203;
+            this.walletComboBox.SelectedIndexChanged += new System.EventHandler(this.walletComboBox_SelectedIndexChanged_1);
             // 
             // categoryComboBox
             // 
@@ -383,18 +396,6 @@
             this.categoryComboBox.Size = new System.Drawing.Size(200, 36);
             this.categoryComboBox.TabIndex = 202;
             this.categoryComboBox.SelectedIndexChanged += new System.EventHandler(this.categoryComboBox_SelectedIndexChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(29, 18);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(145, 31);
-            this.label7.TabIndex = 141;
-            this.label7.Text = "Select Filters";
             // 
             // SearchFilter
             // 
