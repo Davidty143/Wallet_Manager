@@ -51,6 +51,11 @@ namespace Wallet_Manager.Forms
             UpdateDisplayName();
             LoadUserProfilePicture();
             transactionForm = new AddTransaction();
+
+            GlobalEvents.TransactionUpdated += LoadUserProfilePicture;
+            GlobalEvents.TransactionUpdated += UpdateDisplayName;
+
+
         }
 
         private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
@@ -478,5 +483,9 @@ namespace Wallet_Manager.Forms
 
         }
 
+        private void profilePicture_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -144,12 +144,20 @@ namespace Wallet_Manager.Forms
                     imageBytes = dataAccessLayer.ImageToByteArray(profilePicture.Tag.ToString());
 
                 dataAccessLayer.UpdateUserProfile(GlobalData.GetUserID(), first, last, email, imageBytes);
+                GlobalEvents.OnTransactionUpdated();
                 MessageBox.Show("Profile updated successfully!");
+                
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Failed to update profile: " + ex.Message);
             }
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            profilePicture.Image = Properties.Resources.user;
         }
     }
 }

@@ -264,6 +264,7 @@
             this.profilePicture.Name = "profilePicture";
             this.profilePicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.profilePicture.TabStop = false;
+            this.profilePicture.Click += new System.EventHandler(this.profilePicture_Click);
             // 
             // pageLabel
             // 

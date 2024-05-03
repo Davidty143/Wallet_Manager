@@ -215,6 +215,7 @@
             this.guna2Button3.Size = new System.Drawing.Size(243, 48);
             this.guna2Button3.TabIndex = 77;
             this.guna2Button3.Text = "Delete Profile Photo";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // profilePicture
             // 
