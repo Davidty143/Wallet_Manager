@@ -1141,8 +1141,12 @@ namespace Wallet_Manager.Classes
                 if (endDate.HasValue)
                     query.Append(" AND Date <= @EndDate");
 
+                query.Append(" AND WalletID = @WalletID");
+
                 // Append ORDER BY clause after all WHERE conditions
                 query.Append(" ORDER BY Date DESC, TransactionID");
+
+                
 
                 using (MySqlCommand command = new MySqlCommand(query.ToString(), connection))
                 {
@@ -1158,6 +1162,8 @@ namespace Wallet_Manager.Classes
                         command.Parameters.AddWithValue("@StartDate", startDate.Value);
                     if (endDate.HasValue)
                         command.Parameters.AddWithValue("@EndDate", endDate.Value);
+
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
@@ -1191,9 +1197,10 @@ namespace Wallet_Manager.Classes
             using (var connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                var query = "SELECT WalletName FROM Wallet WHERE WalletID = @WalletID";
+                var query = "SELECT WalletName FROM Wallet WHERE UserID = @UserID AND WalletID = @WalletID";
                 using (var command = new MySqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
                     command.Parameters.AddWithValue("@WalletID", walletId);
                     var result = command.ExecuteScalar();
                     return result != null ? result.ToString() : "Unknown Wallet";
@@ -1239,7 +1246,6 @@ namespace Wallet_Manager.Classes
             using (MySqlConnection conn = new MySqlConnection(_connectionString))
             {
                 conn.Open();
-                // Ensure the SQL command text is correctly formatted and appropriate for MySQL
                 string sql = @"
             SELECT DATE(date) AS ExpenseDate, SUM(Amount) AS TotalSpent
             FROM Transaction
@@ -1249,8 +1255,11 @@ namespace Wallet_Manager.Classes
             GROUP BY DATE(Date)
             ORDER BY ExpenseDate;
         ";
+                sql += " AND UserID = @UserID";
+
                 using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                 {
+                    cmd.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
                     cmd.Parameters.AddWithValue("@BudgetId", budgetId);
                     cmd.Parameters.AddWithValue("@StartDate", startDate);
                     cmd.Parameters.AddWithValue("@EndDate", endDate);
@@ -1351,19 +1360,21 @@ namespace Wallet_Manager.Classes
             {
                 connection.Open();
                 string query = @"
-        SELECT GREATEST(0,
-            (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
-                WHERE TransactionType = 'Income' AND WalletCategory = 'Savings' AND Date = CURDATE()) +
-            (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
-             WHERE TransactionType = 'Transfer' AND CategoryID = 19 AND Date = CURDATE()) -
-            (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
-             WHERE TransactionType = 'Transfer' AND CategoryID = 18 AND Date = CURDATE()) -
-            (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
-             WHERE TransactionType = 'Expense' AND WalletCategory = 'Savings' AND Date = CURDATE())
-        ) AS TotalSavingsToday";
+                SELECT GREATEST(0,
+                    (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
+                        WHERE TransactionType = 'Income' AND WalletCategory = 'Savings' AND Date = CURDATE() AND UserID = @UserID) +
+                    (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
+                        WHERE TransactionType = 'Transfer' AND CategoryID = 19 AND Date = CURDATE() AND UserID = @UserID) -
+                    (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
+                        WHERE TransactionType = 'Transfer' AND CategoryID = 18 AND Date = CURDATE() AND UserID = @UserID) -
+                    (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
+                        WHERE TransactionType = 'Expense' AND WalletCategory = 'Savings' AND Date = CURDATE() AND UserID = @UserID)
+                ) AS TotalSavingsToday";
+
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
                     object result = command.ExecuteScalar();
                     if (result != DBNull.Value)
                     {
@@ -1384,10 +1395,11 @@ namespace Wallet_Manager.Classes
                 connection.Open();
                 string query = @"
                 SELECT IFNULL(SUM(Amount), 0) FROM Transaction
-                WHERE TransactionType = 'Expense' AND Date = CURDATE()";
+                WHERE TransactionType = 'Expense' AND Date = CURDATE() AND UserID = @UserID";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
                     object result = command.ExecuteScalar();
                     if (result != DBNull.Value)
                     {
@@ -1411,6 +1423,7 @@ namespace Wallet_Manager.Classes
                 string queryFindMostUsedWalletId = @"
                 SELECT WalletID
                 FROM Transaction
+                WHERE UserID = @UserID
                 GROUP BY WalletID
                 ORDER BY COUNT(*) DESC
                 LIMIT 1";
@@ -1418,6 +1431,7 @@ namespace Wallet_Manager.Classes
                 int mostUsedWalletId = 0;
                 using (MySqlCommand command = new MySqlCommand(queryFindMostUsedWalletId, connection))
                 {
+                    command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
                     object result = command.ExecuteScalar();
                     if (result != DBNull.Value)
                     {
@@ -1613,13 +1627,11 @@ namespace Wallet_Manager.Classes
                 string query = $@"
         SELECT Date, IFNULL(SUM(Amount), 0) AS TotalAmount
         FROM Transaction
-        WHERE TransactionType = 'Expense' 
+        WHERE UserID = @UserID AND TransactionType = 'Expense' 
             AND Date BETWEEN @StartDate AND @EndDate
             AND CategoryID IN ({string.Join(",", budget.CategoryIds)})
         GROUP BY Date
         ORDER BY Date ASC"; // Ensure data is sorted in ascending order by date
-
-                query += " AND UserID = @UserID;";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {

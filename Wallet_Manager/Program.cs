@@ -24,10 +24,11 @@ namespace Wallet_Manager
             Application.SetCompatibleTextRenderingDefault(false);
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
-            dataAccessLayer.UpdateBudgetStatuses(); // to update the active and inactive budgets
+            dataAccessLayer.UpdateBudgetStatuses(); // to update the a
 
             if (Properties.Settings.Default.IsLoggedIn)
             {
+                GlobalData.SetUserID(Properties.Settings.Default.LastUserID);
                 ShowDashboard();
             }
             else
@@ -35,7 +36,7 @@ namespace Wallet_Manager
                 ShowLoginForm();
             }
 
-            //Application.Run(new Login());
+            Application.Run(new Login());
         }
 
         static void ShowDashboard()
@@ -43,7 +44,7 @@ namespace Wallet_Manager
             Application.Run(new Dashboard());
         }
 
-        public static void ShowLoginForm()
+        static void ShowLoginForm()
         {
             Application.Run(new Login());
         }

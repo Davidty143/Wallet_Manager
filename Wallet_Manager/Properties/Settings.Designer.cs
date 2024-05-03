@@ -34,5 +34,17 @@ namespace Wallet_Manager.Properties {
                 this["IsLoggedIn"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int LastUserID {
+            get {
+                return ((int)(this["LastUserID"]));
+            }
+            set {
+                this["LastUserID"] = value;
+            }
+        }
     }
 }

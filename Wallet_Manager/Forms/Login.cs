@@ -25,6 +25,7 @@ namespace Wallet_Manager.Forms
         public Login()
         {
             InitializeComponent();
+
         }
 
         private void t_email_TextChanged(object sender, EventArgs e)
@@ -58,11 +59,12 @@ namespace Wallet_Manager.Forms
             if (dataAccessLayer.LoginUser(email, password))
             {
                 Properties.Settings.Default.IsLoggedIn = true;
+                Properties.Settings.Default.LastUserID = GlobalData.GetUserID(); // Save the user ID as a string
                 Properties.Settings.Default.Save();
 
                 MessageBox.Show("Login successful.");
-                GlobalData.SetUserID(dataAccessLayer.GetUserID(email));
                 MessageBox.Show("User ID: " + GlobalData.GetUserID());
+
                 Dashboard newDashboard = new Dashboard();
                 newDashboard.ShowDialog();
                 this.Close();
@@ -92,6 +94,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -245,10 +245,12 @@ namespace Wallet_Manager.Forms
             }
             else
             {
-                mostUsedWalletLabel.Text = "Most Used Wallet: Not Available";
-                mostUsedWalletTypeLabel.Text = "Type: N/A";
-                mostUsedSpendingLabel.Text = "Spending Money: N/A";
-                mostUsedSavingsLabel.Text = "Savings Money: N/A";
+                mostUsedWalletLabel.Text = "";
+                mostUsedWalletTypeLabel.Text = "";
+                mostUsedSpendingLabel.Text = "";
+                mostUsedSavingsLabel.Text = "";
+                mostUsedTotalAmountLabel.Text = "₱ 0.00";
+
             }
         }
 
