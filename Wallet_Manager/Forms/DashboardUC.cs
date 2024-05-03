@@ -68,6 +68,8 @@ namespace Wallet_Manager.Forms
             GlobalEvents.TransactionUpdated += UpdateMostUsedWalletDisplay;
             GlobalEvents.TransactionUpdated += PopulateGunaBarDataSet;
             GlobalEvents.TransactionUpdated += PopulateBudgetComboBox;
+
+
             GlobalEvents.BudgetUpdated += PopulateBudgetComboBox;
             GlobalEvents.BudgetUpdated += updateBudgetUI;
             //SetupChart();
