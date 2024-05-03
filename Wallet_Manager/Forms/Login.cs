@@ -63,6 +63,7 @@ namespace Wallet_Manager.Forms
                 Properties.Settings.Default.Save();
 
                 GlobalEvents.OnTransactionUpdated();
+                GlobalEvents.OnProfileInformationUpdated();
                 Program.ShowDashboard();
                 /*
                 Dashboard newDashboard = new Dashboard();

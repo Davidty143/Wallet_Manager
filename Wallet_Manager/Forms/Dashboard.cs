@@ -52,8 +52,8 @@ namespace Wallet_Manager.Forms
             LoadUserProfilePicture();
             transactionForm = new AddTransaction();
 
-            GlobalEvents.TransactionUpdated += LoadUserProfilePicture;
-            GlobalEvents.TransactionUpdated += UpdateDisplayName;
+            GlobalEvents.ProfileInformationUpdated += LoadUserProfilePicture;
+            GlobalEvents.ProfileInformationUpdated += UpdateDisplayName;
 
 
         }

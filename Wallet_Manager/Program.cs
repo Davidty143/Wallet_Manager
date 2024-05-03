@@ -45,12 +45,14 @@ namespace Wallet_Manager
             {
                 GlobalData.SetUserID(Properties.Settings.Default.LastUserID);
                 GlobalEvents.OnTransactionUpdated();
+                GlobalEvents.OnProfileInformationUpdated();
                 Application.Run(dashboardForm);
                 
             }
             else
             {
                 GlobalEvents.OnTransactionUpdated();
+                GlobalEvents.OnProfileInformationUpdated();
                 Application.Run(loginForm);
                 
             }

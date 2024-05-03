@@ -144,7 +144,8 @@ namespace Wallet_Manager.Forms
                     imageBytes = dataAccessLayer.ImageToByteArray(profilePicture.Tag.ToString());
 
                 dataAccessLayer.UpdateUserProfile(GlobalData.GetUserID(), first, last, email, imageBytes);
-                GlobalEvents.OnTransactionUpdated();
+                GlobalEvents.OnProfileInformationUpdated();
+
                 MessageBox.Show("Profile updated successfully!");
                 
 
