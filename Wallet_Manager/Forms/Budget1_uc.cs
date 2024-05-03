@@ -54,6 +54,10 @@ namespace Wallet_Manager.Forms
 
             GlobalEvents.TransactionUpdated += PopulateBudgetComboBox;
 
+            GlobalEvents.BudgetUpdated += PopulateBudgetComboBox;
+            GlobalEvents.BudgetUpdated += updateBudgetUI;
+
+
 
 
         }
@@ -296,6 +300,14 @@ namespace Wallet_Manager.Forms
             }
         }
 
+        private void updateBudgetUI()
+        {
+            if (budgetComboBox.SelectedItem != currentBudget)
+            {
+                budgetComboBox.SelectedItem = currentBudget; // Update the selected item
+                guna2ComboBox1_SelectedIndexChanged(budgetComboBox, EventArgs.Empty); // Manually invoke the handler if needed
+            }
+        }
 
         /*
         private void PopulateGunaDoughnutChart(Budget budget)
@@ -559,6 +571,26 @@ namespace Wallet_Manager.Forms
         {
             EditBudget editBudget = new EditBudget(currentBudget);
             editBudget.ShowDialog();
+        }
+
+        private void deleteBudgetLabel_Click(object sender, EventArgs e)
+        {
+            if (currentBudget != null)
+            {
+                var confirmResult = MessageBox.Show("Are you sure you want to delete this budget?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+                    SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
+                    dataAccessLayer.DeleteBudget(currentBudget.BudgetID);
+                    MessageBox.Show("Budget deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GlobalEvents.onBudgetUpdated();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No budget selected to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

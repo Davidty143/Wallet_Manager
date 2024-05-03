@@ -68,6 +68,8 @@ namespace Wallet_Manager.Forms
             GlobalEvents.TransactionUpdated += UpdateMostUsedWalletDisplay;
             GlobalEvents.TransactionUpdated += PopulateGunaBarDataSet;
             GlobalEvents.TransactionUpdated += PopulateBudgetComboBox;
+            GlobalEvents.BudgetUpdated += PopulateBudgetComboBox;
+            GlobalEvents.BudgetUpdated += updateBudgetUI;
             //SetupChart();
 
         }
@@ -540,5 +542,14 @@ namespace Wallet_Manager.Forms
                 nameLabel.Text = selectedBudget.BudgetName;
             }
         }
+
+        private void updateBudgetUI()
+        {
+
+                budgetComboBox.SelectedItem = budgetComboBox; // Update the selected item
+                guna2ComboBox1_SelectedIndexChanged(budgetComboBox, EventArgs.Empty); // Manually invoke the handler if needed
+        }
+
+
     }
 }

@@ -777,6 +777,48 @@ namespace Wallet_Manager.Classes
             }
         }
 
+        public void DeleteBudget(int budgetId)
+        {
+            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // Begin a transaction to ensure data integrity
+                    using (MySqlTransaction transaction = conn.BeginTransaction())
+                    {
+                        // Delete entries from BudgetCategory table first if exists
+                        string deleteCategoriesQuery = "DELETE FROM BudgetCategory WHERE BudgetID = @BudgetID";
+                        MySqlCommand categoryCmd = new MySqlCommand(deleteCategoriesQuery, conn, transaction);
+                        categoryCmd.Parameters.AddWithValue("@BudgetID", budgetId);
+                        categoryCmd.ExecuteNonQuery();
+
+                        // Now delete the budget
+                        string deleteBudgetQuery = "DELETE FROM Budget WHERE BudgetID = @BudgetID";
+                        MySqlCommand cmd = new MySqlCommand(deleteBudgetQuery, conn, transaction);
+                        cmd.Parameters.AddWithValue("@BudgetID", budgetId);
+                        cmd.ExecuteNonQuery();
+
+                        // Commit the transaction
+                        transaction.Commit();
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine("Database error: " + ex.Message);
+                    // Optionally, you might want to rollback the transaction here
+                    throw;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("General error: " + ex.Message);
+                    throw;
+                }
+            }
+        }
+
+
 
         public Wallet GetWalletById(int walletId)
         {

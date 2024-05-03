@@ -40,7 +40,6 @@ namespace Wallet_Manager.Forms
             UpdateDateVisibility();
 
             GlobalEvents.TransactionUpdated += PopulateCategories;
-            GlobalEvents.TransactionUpdated += PopulatePeriodTypes;
 
         }
 
@@ -267,10 +266,11 @@ namespace Wallet_Manager.Forms
             {
                 string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
                 SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
-                dataAccessLayer.UpdateBudget(budget);
+                dataAccessLayer.DeleteBudget(currentBudget.BudgetID);
+                dataAccessLayer.SaveBudget(budget);
                 
                 MessageBox.Show("Budget updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                GlobalEvents.OnTransactionUpdated();
+                GlobalEvents.onBudgetUpdated();
             }
         }
 

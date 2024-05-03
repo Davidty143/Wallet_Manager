@@ -14,6 +14,9 @@ namespace Wallet_Manager.Classes
         public delegate void ProfileInformationHandler();
         public static event ProfileInformationHandler ProfileInformationUpdated;
 
+        public delegate void BudgetUpdatehandler();
+        public static event BudgetUpdatehandler BudgetUpdated;
+
         // Method to call to trigger the event
         public static void OnTransactionUpdated()
         {
@@ -23,6 +26,11 @@ namespace Wallet_Manager.Classes
         public static void OnProfileInformationUpdated()
         {
             ProfileInformationUpdated?.Invoke();
+        }
+
+        public static void onBudgetUpdated()
+        {
+            BudgetUpdated?.Invoke();
         }
 
     }
