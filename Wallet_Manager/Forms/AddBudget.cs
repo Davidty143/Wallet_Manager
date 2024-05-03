@@ -14,6 +14,7 @@ namespace Wallet_Manager.Forms
 {
     public partial class AddBudget : Form
     {
+
         protected override CreateParams CreateParams
         {
             get
@@ -23,6 +24,11 @@ namespace Wallet_Manager.Forms
                 return cp;
             }
         }
+
+        
+
+        private List<Category> categoryList = new List<Category>();
+
         public AddBudget()
         {
             InitializeComponent();
@@ -30,6 +36,10 @@ namespace Wallet_Manager.Forms
             PopulatePeriodTypes();
             txtPeriod.SelectedIndex = 0; // Default to 'Daily'
             UpdateDateVisibility();
+
+            GlobalEvents.TransactionUpdated += PopulateCategories;
+            GlobalEvents.TransactionUpdated += PopulatePeriodTypes;
+
         }
 
         private void txtWallet_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,9 +47,6 @@ namespace Wallet_Manager.Forms
 
         }
 
-
-
-        private List<Category> categoryList = new List<Category>();
 
         private void PopulateCategories()
         {

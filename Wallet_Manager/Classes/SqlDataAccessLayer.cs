@@ -1578,6 +1578,26 @@ namespace Wallet_Manager.Classes
             }
         }
 
+        public void UpdateBudget(Budget budget)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                string query = "UPDATE budget SET BudgetName = @BudgetName, TotalAmount = @TotalAmount, PeriodType = @PeriodType, StartDate = @StartDate, EndDate = @EndDate WHERE BudgetID = @BudgetID";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@BudgetName", budget.BudgetName);
+                    command.Parameters.AddWithValue("@TotalAmount", budget.TotalAmount);
+                    command.Parameters.AddWithValue("@PeriodType", budget.PeriodType);
+                    command.Parameters.AddWithValue("@StartDate", budget.StartDate);
+                    command.Parameters.AddWithValue("@EndDate", budget.EndDate);
+                    command.Parameters.AddWithValue("@BudgetID", budget.BudgetID);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
         public void UpdateBudgetStatuses()
         {
             var budgets = GetAllBudgets(); // Retrieve all budgets

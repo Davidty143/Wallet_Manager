@@ -54,12 +54,6 @@ namespace Wallet_Manager.Forms
 
             GlobalEvents.TransactionUpdated += PopulateBudgetComboBox;
 
-            
-
-
-
-
-
 
 
         }
@@ -559,6 +553,12 @@ namespace Wallet_Manager.Forms
         private void doughnutCategoryChart_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void editBudgetLabel_Click(object sender, EventArgs e)
+        {
+            EditBudget editBudget = new EditBudget(currentBudget);
+            editBudget.ShowDialog();
         }
     }
 }

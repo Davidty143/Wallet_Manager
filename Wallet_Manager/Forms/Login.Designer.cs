@@ -156,10 +156,11 @@
             // cb_show_pass
             // 
             this.cb_show_pass.AutoSize = true;
-            this.cb_show_pass.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cb_show_pass.CheckedState.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.cb_show_pass.CheckedState.BorderRadius = 0;
             this.cb_show_pass.CheckedState.BorderThickness = 0;
-            this.cb_show_pass.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cb_show_pass.CheckedState.FillColor = System.Drawing.Color.MediumSlateBlue;
+            this.cb_show_pass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_show_pass.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_show_pass.Location = new System.Drawing.Point(1553, 552);
             this.cb_show_pass.Name = "cb_show_pass";

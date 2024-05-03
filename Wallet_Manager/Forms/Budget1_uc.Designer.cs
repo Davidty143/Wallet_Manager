@@ -98,9 +98,9 @@
             this.nonVisibleLabel3 = new System.Windows.Forms.Label();
             this.splineChart = new Guna.Charts.WinForms.GunaChart();
             this.splineDataset1 = new Guna.Charts.WinForms.GunaSplineDataset();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.editBudgetLabel = new System.Windows.Forms.Label();
             this.deleteBudgetLabel = new System.Windows.Forms.Label();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.rpanel4.SuspendLayout();
@@ -852,6 +852,31 @@
             this.splineDataset1.Label = "Budget Spending";
             this.splineDataset1.TargetChart = this.splineChart;
             // 
+            // editBudgetLabel
+            // 
+            this.editBudgetLabel.AutoSize = true;
+            this.editBudgetLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.editBudgetLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editBudgetLabel.ForeColor = System.Drawing.Color.Gray;
+            this.editBudgetLabel.Location = new System.Drawing.Point(528, 53);
+            this.editBudgetLabel.Name = "editBudgetLabel";
+            this.editBudgetLabel.Size = new System.Drawing.Size(99, 23);
+            this.editBudgetLabel.TabIndex = 309;
+            this.editBudgetLabel.Text = "Edit Budget";
+            this.editBudgetLabel.Click += new System.EventHandler(this.editBudgetLabel_Click);
+            // 
+            // deleteBudgetLabel
+            // 
+            this.deleteBudgetLabel.AutoSize = true;
+            this.deleteBudgetLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deleteBudgetLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteBudgetLabel.ForeColor = System.Drawing.Color.Gray;
+            this.deleteBudgetLabel.Location = new System.Drawing.Point(651, 53);
+            this.deleteBudgetLabel.Name = "deleteBudgetLabel";
+            this.deleteBudgetLabel.Size = new System.Drawing.Size(119, 23);
+            this.deleteBudgetLabel.TabIndex = 310;
+            this.deleteBudgetLabel.Text = "Delete Budget";
+            // 
             // guna2Button1
             // 
             this.guna2Button1.BorderRadius = 15;
@@ -874,30 +899,6 @@
             this.guna2Button1.Text = "Add Budget";
             this.guna2Button1.TextOffset = new System.Drawing.Point(-10, 0);
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
-            // editBudgetLabel
-            // 
-            this.editBudgetLabel.AutoSize = true;
-            this.editBudgetLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.editBudgetLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editBudgetLabel.ForeColor = System.Drawing.Color.Gray;
-            this.editBudgetLabel.Location = new System.Drawing.Point(528, 53);
-            this.editBudgetLabel.Name = "editBudgetLabel";
-            this.editBudgetLabel.Size = new System.Drawing.Size(99, 23);
-            this.editBudgetLabel.TabIndex = 309;
-            this.editBudgetLabel.Text = "Edit Budget";
-            // 
-            // deleteBudgetLabel
-            // 
-            this.deleteBudgetLabel.AutoSize = true;
-            this.deleteBudgetLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.deleteBudgetLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteBudgetLabel.ForeColor = System.Drawing.Color.Gray;
-            this.deleteBudgetLabel.Location = new System.Drawing.Point(651, 53);
-            this.deleteBudgetLabel.Name = "deleteBudgetLabel";
-            this.deleteBudgetLabel.Size = new System.Drawing.Size(119, 23);
-            this.deleteBudgetLabel.TabIndex = 310;
-            this.deleteBudgetLabel.Text = "Delete Budget";
             // 
             // Budget1_uc
             // 
