@@ -62,12 +62,16 @@ namespace Wallet_Manager.Forms
                 Properties.Settings.Default.LastUserID = GlobalData.GetUserID(); // Save the user ID as a string
                 Properties.Settings.Default.Save();
 
-                MessageBox.Show("Login successful.");
-                MessageBox.Show("User ID: " + GlobalData.GetUserID());
-
+                GlobalEvents.OnTransactionUpdated();
+                Program.ShowDashboard();
+                /*
                 Dashboard newDashboard = new Dashboard();
                 newDashboard.ShowDialog();
-                this.Close();
+                */
+                this.Hide();
+                txtEmail.Text = "";
+                txtPassword.Text = "";
+                txtPassword.Text = "";
             }
 
             else

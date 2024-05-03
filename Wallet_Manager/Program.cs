@@ -8,48 +8,68 @@ using Wallet_Manager.Forms;
 
 namespace Wallet_Manager
 {
+
     internal static class Program
     {
+        public static Login loginForm;
+        public static Dashboard dashboardForm;
+        public static Signup signupForm;
 
-
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-
-            SetProcessDPIAware();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
-            dataAccessLayer.UpdateBudgetStatuses(); // to update the a
+            SetProcessDPIAware();
 
+            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
+            dataAccessLayer.UpdateBudgetStatuses();
+
+            // Initialize forms
+            loginForm = new Login();
+            dashboardForm = new Dashboard();
+            signupForm = new Signup();
+
+
+            // Check login status and show the appropriate form
+            ShowAppropriateForm();
+
+            // Start the application with the login form as the default form
+            Application.Run();
+        }
+
+        private static void ShowAppropriateForm()
+        {
             if (Properties.Settings.Default.IsLoggedIn)
             {
                 GlobalData.SetUserID(Properties.Settings.Default.LastUserID);
-                ShowDashboard();
+                GlobalEvents.OnTransactionUpdated();
+                Application.Run(dashboardForm);
+                
             }
             else
             {
-                ShowLoginForm();
+                GlobalEvents.OnTransactionUpdated();
+                Application.Run(loginForm);
+                
             }
-
-            Application.Run(new Login());
         }
 
-        static void ShowDashboard()
+        public static void ShowDashboard()
         {
-            Application.Run(new Dashboard());
+            dashboardForm.clickDashboard();
+            dashboardForm.Visible = true;
+            dashboardForm.Activate();  // Bring the form to the front if it's already open
         }
-
-        static void ShowLoginForm()
+        public static void ShowLoginForm()
         {
-            Application.Run(new Login());
+            loginForm.Visible = true;
+            loginForm.Activate();  // Bring the form to the front if it's already open
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();
     }
+
 }

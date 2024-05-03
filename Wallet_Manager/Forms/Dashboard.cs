@@ -14,6 +14,8 @@ namespace Wallet_Manager.Forms
 {
     public partial class Dashboard : Form
     {
+        private bool isExitTriggered = false;
+
         protected override CreateParams CreateParams
         {
             get
@@ -37,6 +39,7 @@ namespace Wallet_Manager.Forms
         public Dashboard()
         {
             InitializeComponent();
+            this.FormClosing += Dashboard_FormClosing;
 
             // Load the main dashboard component first
             EnsureDashboardUCLoaded();
@@ -48,6 +51,15 @@ namespace Wallet_Manager.Forms
             UpdateDisplayName();
             LoadUserProfilePicture();
             transactionForm = new AddTransaction();
+        }
+
+        private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isExitTriggered)
+            {
+                e.Cancel = true;
+                this.Hide();
+            }
         }
 
 
@@ -236,6 +248,7 @@ namespace Wallet_Manager.Forms
             budgetUC.Visible = true;
             //budget1_uc1.BringToFront();
         }
+
         internal void clickSeeAllBudgets()
         {
             button_budget_Click(this, EventArgs.Empty);
@@ -253,12 +266,15 @@ namespace Wallet_Manager.Forms
             pageLabel.Text = "Dashboard";
             EnsureDashboardUCLoaded();
             
-            
-            
-
             //dashboardUC1.BringToFront();
 
         }
+
+        internal void clickDashboard()
+        {
+            button_dashboard_Click(this, EventArgs.Empty);
+        }
+
         private void UpdateButtonStyles(Guna.UI2.WinForms.Guna2Button activeButton)
         {
             // Define default and active styles
@@ -340,7 +356,9 @@ namespace Wallet_Manager.Forms
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            isExitTriggered = true;
             Application.Exit();
+
         }
 
         private void transactionHistory1_Load(object sender, EventArgs e)
@@ -451,14 +469,13 @@ namespace Wallet_Manager.Forms
         private void button_signout_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.IsLoggedIn = false;
+            Properties.Settings.Default.LastUserID = 0;
             Properties.Settings.Default.Save();
 
             // Assuming LoginForm is the form you want to show
-            Login loginForm = new Login();
-            this.Hide(); // Optionally hide the current form
-            loginForm.ShowDialog(); // Show the login form as a dialog
+            Program.ShowLoginForm();
+            this.Close();
 
-            this.Close(); // Close the current form after the dialog is closed
         }
 
     }
