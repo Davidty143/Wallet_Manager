@@ -180,6 +180,12 @@
     <Compile Include="Forms\DashboardUC.Designer.cs">
       <DependentUpon>DashboardUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EditBudget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditBudget.Designer.cs">
+      <DependentUpon>EditBudget.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditPassword.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -274,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DashboardUC.resx">
       <DependentUpon>DashboardUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditBudget.resx">
+      <DependentUpon>EditBudget.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditPassword.resx">
       <DependentUpon>EditPassword.cs</DependentUpon>
@@ -553,6 +562,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\button_profile_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6269576.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6269574.ai.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
