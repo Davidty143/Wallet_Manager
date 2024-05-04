@@ -2337,7 +2337,7 @@ namespace Wallet_Manager.Classes
 
             // Ensure all months in the last year are included in the dictionary
             DateTime startMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddMonths(-12);
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i <= 12; i++)
             {
                 DateTime month = startMonth.AddMonths(i);
                 if (!netWorthSummary.ContainsKey(month))
@@ -2349,6 +2349,7 @@ namespace Wallet_Manager.Classes
 
             return netWorthSummary;
         }
+
 
 
     }
