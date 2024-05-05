@@ -52,7 +52,6 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(606, 720);
             this.guna2CustomGradientPanel1.TabIndex = 8;
-            this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint_1);
             // 
             // guna2CustomGradientPanel2
             // 
@@ -69,7 +68,6 @@
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(606, 720);
             this.guna2CustomGradientPanel2.TabIndex = 0;
-            this.guna2CustomGradientPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel2_Paint_1);
             // 
             // guna2CustomGradientPanel3
             // 
@@ -92,7 +90,6 @@
             this.addIncomeUC1.Name = "addIncomeUC1";
             this.addIncomeUC1.Size = new System.Drawing.Size(502, 463);
             this.addIncomeUC1.TabIndex = 2;
-            this.addIncomeUC1.Load += new System.EventHandler(this.addIncomeUC1_Load_4);
             // 
             // addTransferUC1
             // 

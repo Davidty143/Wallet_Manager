@@ -20,16 +20,19 @@ namespace Wallet_Manager.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
-
 
         public AddWallet()
         {
             InitializeComponent();
             PopulateWalletTypes();
+            spendingAmountTextBox.MaxLength = 7;
+            savingsAmountTextBox.MaxLength = 7;
+
+
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
         }
@@ -47,49 +50,9 @@ namespace Wallet_Manager.Forms
 
             txtType.DataSource = walletTypes;
         }
-
-
-
-
         private void t_spending_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-
-        private void AddWallet_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void add_Wallet_Click(object sender, EventArgs e)
@@ -97,14 +60,12 @@ namespace Wallet_Manager.Forms
             string walletName = txtName.Text;
             string walletType = txtType.Text;
 
-            // Validate input values for wallet name and type
             if (string.IsNullOrEmpty(walletName) || string.IsNullOrEmpty(walletType))
             {
                 MessageBox.Show("Please fill out all the fields.");
                 return;
             }
 
-            // Safely parse spending and savings amounts
             if (!float.TryParse(spendingAmountTextBox.Text, out float spendingMoney))
             {
                 MessageBox.Show("Invalid input for spending amount. Please enter a valid number.");
@@ -129,14 +90,12 @@ namespace Wallet_Manager.Forms
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
 
-            // Attempt to create the new wallet
             bool isWalletCreated = dataAccessLayer.CreateWalletValidate(newWallet);
 
             if (isWalletCreated)
             {
                 int newWalletId = dataAccessLayer.GetWalletIdByUserIdAndName(GlobalData.GetUserID(), walletName);
 
-                // Record transactions if there's initial money in either account
                 if (spendingMoney > 0)
                 {
                     Transaction deposit = new Transaction
@@ -145,7 +104,7 @@ namespace Wallet_Manager.Forms
                         WalletID = newWalletId,
                         WalletCategory = "Spending",
                         TransactionType = "Income",
-                        CategoryID = 8, // Assuming CategoryID is predefined
+                        CategoryID = 8,
                         Amount = spendingMoney,
                         Date = DateTime.Now,
                         Description = "Add Wallet"
@@ -161,7 +120,7 @@ namespace Wallet_Manager.Forms
                         WalletID = newWalletId,
                         WalletCategory = "Savings",
                         TransactionType = "Income",
-                        CategoryID = 8, // Assuming CategoryID is predefined
+                        CategoryID = 8,
                         Amount = savingsMoney,
                         Date = DateTime.Now,
                         Description = "Add Wallet"
@@ -176,38 +135,6 @@ namespace Wallet_Manager.Forms
             {
                 MessageBox.Show("Failed to create wallet. A wallet of the same type may already exist.");
             }
-        }
-
-
-
-        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void spendingAmountTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void spendingAmountTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -226,9 +153,9 @@ namespace Wallet_Manager.Forms
             }
         }
 
-        private void savingsAmountTextBox_Leave(object sender, EventArgs e)
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
    

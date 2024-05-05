@@ -23,7 +23,7 @@ namespace Wallet_Manager.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
@@ -46,13 +46,6 @@ namespace Wallet_Manager.Forms
             InitializeControlArrays();
             LoadCategoryImages();
 
-            this.SetStyle(ControlStyles.AllPaintingInWmPaint |
-              ControlStyles.OptimizedDoubleBuffer |
-              ControlStyles.UserPaint, true);
-            this.UpdateStyles();
-
-
-
             
             LoadTransactions();
             UpdateSavingsLabel();
@@ -60,7 +53,6 @@ namespace Wallet_Manager.Forms
             UpdateMostUsedWalletDisplay();
             PopulateGunaBarDataSet();
             PopulateBudgetComboBox();
-
 
             GlobalEvents.TransactionUpdated += LoadTransactions;
             GlobalEvents.TransactionUpdated += UpdateSavingsLabel;
@@ -72,22 +64,17 @@ namespace Wallet_Manager.Forms
 
             GlobalEvents.BudgetUpdated += PopulateBudgetComboBox;
             GlobalEvents.BudgetUpdated += updateBudgetUI;
-            //SetupChart();
 
         }
 
         public static void SetDoubleBuffering(Control control, bool value)
         {
-            // Get the type of the control
             Type controlType = control.GetType();
 
-            // Get the property info for the 'DoubleBuffered' property
             PropertyInfo pi = controlType.GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
 
-            // Set the value of the DoubleBuffered property
             pi?.SetValue(control, value, null);
 
-            // Recursively set DoubleBuffering to true for each child control
             foreach (Control childControl in control.Controls)
             {
                 SetDoubleBuffering(childControl, value);
@@ -108,16 +95,16 @@ namespace Wallet_Manager.Forms
         }
         private void LoadCategoryImages()
         {
-            categoryImages = new Image[19]; // Create an array to hold 19 images
+            categoryImages = new Image[19];
             for (int i = 0; i < categoryImages.Length; i++)
             {
-                string imageName = (i + 1).ToString(); // This will generate "1", "2", ..., "19"
+                string imageName = (i + 1).ToString(); 
                 categoryImages[i] = (Image)Properties.Resources.ResourceManager.GetObject(imageName);
 
                 if (categoryImages[i] == null)
                 {
                     Console.WriteLine($"Image '{imageName}.png' not found for category ID: {i + 1}, using default image.");
-                    categoryImages[i] = Properties.Resources.button_budget_active; // Fallback to a default image
+                    categoryImages[i] = Properties.Resources.button_budget_active;
                     if (categoryImages[i] == null)
                     {
                         Console.WriteLine("Default image is also not found. Check resource file.");
@@ -171,14 +158,13 @@ namespace Wallet_Manager.Forms
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
             
-            // Calculate the number of transactions to display (up to 3)
             int numberOfTransactionsToShow = Math.Min(3, transactions.Count);
 
             for (int i = 0; i < transactionPanels.Length; i++)
             {
                 if (i < numberOfTransactionsToShow)
                 {
-                    var transaction = transactions[i]; // Get transaction by index
+                    var transaction = transactions[i];
                     transactionPanels[i].Visible = true;
                     descriptionLabels[i].Text = transaction.Description;
                     categoryLabels[i].Text = _dataAccessLayer.GetCategoryNameById(transaction.CategoryID);
@@ -186,18 +172,17 @@ namespace Wallet_Manager.Forms
                     amountLabels[i].Text = $"₱ {transaction.Amount}";
                     walletNameLabels[i].Text = _dataAccessLayer.GetWalletNameById(transaction.WalletID);
                     dateLabels[i].Text = transaction.Date.ToString("d");
-                    // Check for null PictureBox and Image
                     if (categoryPictureBoxes[i] == null)
                     {
                         Console.WriteLine("PictureBox at index " + i + " is null.");
-                        continue; // Skip this iteration
+                        continue; 
                     }
 
-                    int imageIndex = transaction.CategoryID - 1; // Calculate the index
+                    int imageIndex = transaction.CategoryID - 1;
                     if (imageIndex < 0 || categoryImages[imageIndex] == null)
                     {
                         Console.WriteLine("Invalid or missing image for Category ID: " + transaction.CategoryID);
-                        categoryPictureBoxes[i].Image = Properties.Resources.button_budget_active; // Use default image
+                        categoryPictureBoxes[i].Image = Properties.Resources.button_budget_active;
                     }
                     else
                     {
@@ -229,7 +214,6 @@ namespace Wallet_Manager.Forms
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
             float totalSavings = _dataAccessLayer.CalculateTotalSavingsForToday();
 
-            // Assuming labelTotalSavings is the Label control on your form
             savingsTodayLabel.Text = $"{totalSavings:C}".Insert(1, " ");
         }
 
@@ -260,12 +244,9 @@ namespace Wallet_Manager.Forms
 
         private  void PopulateGunaBarDataSet()
         {
-            
-
             gunaBarDataset1.DataPoints.Clear();
             gunaBarDataset2.DataPoints.Clear();
             gunaBarDataset3.DataPoints.Clear();
-
 
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
@@ -277,9 +258,9 @@ namespace Wallet_Manager.Forms
                                   entry.Key.Date == DateTime.Today.AddDays(-1) ? "Yesterday" :
                                   entry.Key.ToString("MMMM d");
 
-                gunaBarDataset1.DataPoints.Add(dateText, entry.Value.Item1); // totalIncome
-                gunaBarDataset2.DataPoints.Add(dateText, entry.Value.Item2); // totalExpenses
-                gunaBarDataset3.DataPoints.Add(dateText, entry.Value.Item3); // totalSavings
+                gunaBarDataset1.DataPoints.Add(dateText, entry.Value.Item1);
+                gunaBarDataset2.DataPoints.Add(dateText, entry.Value.Item2); 
+                gunaBarDataset3.DataPoints.Add(dateText, entry.Value.Item3); 
             }
 
             barChart1.Refresh();            
@@ -288,15 +269,12 @@ namespace Wallet_Manager.Forms
         public void UpdateProgressBar(Budget budget)
         {
             generalProgressBar.Maximum = (int)(budget.TotalAmount);
-            // Calculate the amount spent
-            float totalSpent = ComputeTotalSpendForBudget(budget);
 
-            // Calculate the remaining budget
+            float totalSpent = ComputeTotalSpendForBudget(budget);
             float remainingBudget = budget.TotalAmount - totalSpent;
 
-            // Calculate the progress bar value
-            // Ensure the value is within the bounds of the progress bar's minimum and maximum
-            int progressBarValue = (int)(totalSpent);  // Convert total spent to an integer
+
+            int progressBarValue = (int)(totalSpent);
             if (progressBarValue > generalProgressBar.Maximum)
             {
                 progressBarValue = generalProgressBar.Maximum;
@@ -309,8 +287,6 @@ namespace Wallet_Manager.Forms
             generalProgressBar.Value = progressBarValue;
 
 
-
-            // Set the progress bar color based on budget comparison
             if (totalSpent > budget.TotalAmount)
             {
                 overSpentLabel.Visible = true;
@@ -337,9 +313,6 @@ namespace Wallet_Manager.Forms
                 warningLabel.Visible = false;
             }
 
-
-            // Optionally, update a label to show the numeric value or percentage
-
             spentBudgetLabel.Text = $"{totalSpent:C} Spent";
         }
 
@@ -353,7 +326,7 @@ namespace Wallet_Manager.Forms
 
             foreach (var transaction in transactions)
             {
-                if (transaction.TransactionType.ToLower() == "expense") // Assuming 'expense' indicates money spent
+                if (transaction.TransactionType.ToLower() == "expense") 
                 {
                     totalSpend += transaction.Amount;
                 }
@@ -368,54 +341,10 @@ namespace Wallet_Manager.Forms
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
             var budgets = dataAccessLayer.GetAllBudgets();
 
-            // Filter to only include active budgets
             var activeBudgets = budgets.Where(b => b.IsActive).ToList();
-
             budgetComboBox.DataSource = activeBudgets;
             budgetComboBox.DisplayMember = "BudgetName";
             budgetComboBox.ValueMember = "BudgetID";
-        }
-
-
-
-
-
-
-
-
-
-        private void label43_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label25_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DashboardUC_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button16_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -431,55 +360,10 @@ namespace Wallet_Manager.Forms
             dashboardParent.transactionForm.BringToFront();
         }
 
-        private void guna2Button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label24_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void spentBudgetLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void recentTransactionPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
             AddWallet addWallet = new AddWallet();
             addWallet.ShowDialog();
-        }
-
-        private void descriptionLabel3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gunaChart1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button9_Click_1(object sender, EventArgs e)
-        {
-
         }
 
         private void guna2Button6_Click(object sender, EventArgs e)
@@ -501,37 +385,11 @@ namespace Wallet_Manager.Forms
             dashboardParent.clickSeeAllAnalytics();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             Dashboard dashboardParent = this.FindForm() as Dashboard;
             dashboardParent.clickSeeAllBudgets();   
         }
-
-        private void guna2CustomGradientPanel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (budgetComboBox.SelectedItem is Budget selectedBudget)
@@ -548,10 +406,13 @@ namespace Wallet_Manager.Forms
         private void updateBudgetUI()
         {
 
-                budgetComboBox.SelectedItem = budgetComboBox; // Update the selected item
-                guna2ComboBox1_SelectedIndexChanged(budgetComboBox, EventArgs.Empty); // Manually invoke the handler if needed
+                budgetComboBox.SelectedItem = budgetComboBox;
+                guna2ComboBox1_SelectedIndexChanged(budgetComboBox, EventArgs.Empty);
         }
 
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

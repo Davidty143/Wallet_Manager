@@ -20,7 +20,7 @@ namespace Wallet_Manager.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
@@ -42,10 +42,9 @@ namespace Wallet_Manager.Forms
 
 
         private int currentPage = 0;
-        private int transactionsPerPage = 6; // Adjust based on your UI setup
+        private int transactionsPerPage = 6;
         private int totalTransactions = 0;
 
-        //aaaaaaaaaaaaaaaprivate bool isFilterActive = false;
 
 
         public TransactionHistory()
@@ -61,7 +60,6 @@ namespace Wallet_Manager.Forms
 
             GlobalEvents.TransactionUpdated += LoadTransactions;
 
-            //ConnectEventHandlers();
         }
 
         private void labelPrev_Click(object sender, EventArgs e)
@@ -84,16 +82,12 @@ namespace Wallet_Manager.Forms
 
         public static void SetDoubleBuffering(Control control, bool value)
         {
-            // Get the type of the control
             Type controlType = control.GetType();
 
-            // Get the property info for the 'DoubleBuffered' property
             PropertyInfo pi = controlType.GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
 
-            // Set the value of the DoubleBuffered property
             pi?.SetValue(control, value, null);
 
-            // Recursively set DoubleBuffering to true for each child control
             foreach (Control childControl in control.Controls)
             {
                 SetDoubleBuffering(childControl, value);
@@ -118,12 +112,12 @@ namespace Wallet_Manager.Forms
 
             foreach (var label in editLabels)
             {
-                label.Click += editLabel_Click; // Attach the click event handler
+                label.Click += editLabel_Click;
             }
 
             foreach (var label in deleteLabels)
             {
-                label.Click += deleteLabel_Click; // Attach the click event handler
+                label.Click += deleteLabel_Click;
             }
 
             labelNext.Click += new EventHandler(labelNext_Click);
@@ -132,16 +126,16 @@ namespace Wallet_Manager.Forms
         }
         private void LoadCategoryImages()
         {
-            categoryImages = new Image[19]; // Create an array to hold 19 images
+            categoryImages = new Image[19];
             for (int i = 0; i < categoryImages.Length; i++)
             {
-                string imageName = (i + 1).ToString(); // This will generate "1", "2", ..., "19"
+                string imageName = (i + 1).ToString();
                 categoryImages[i] = (Image)Properties.Resources.ResourceManager.GetObject(imageName);
 
                 if (categoryImages[i] == null)
                 {
                     Console.WriteLine($"Image '{imageName}.png' not found for category ID: {i + 1}, using default image.");
-                    categoryImages[i] = Properties.Resources.button_budget_active; // Fallback to a default image
+                    categoryImages[i] = Properties.Resources.button_budget_active; 
                     if (categoryImages[i] == null)
                     {
                         Console.WriteLine("Default image is also not found. Check resource file.");
@@ -153,7 +147,6 @@ namespace Wallet_Manager.Forms
 
         private void LoadTransactions()
         {
-            //isFilterActive = false;
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
             transactions = _dataAccessLayer.GetAllTransactions();
@@ -177,7 +170,7 @@ namespace Wallet_Manager.Forms
                     walletNameLabels[index].Text = walletName;
                     walletTypeLabels[index].Text = transaction.WalletCategory;
                     dateLabels[index].Text = transaction.Date.ToString("d");
-                    editLabels[index].Tag = transaction.TransactionID; // Set the Tag to the transaction ID
+                    editLabels[index].Tag = transaction.TransactionID;
                     deleteLabels[index].Tag = transaction.TransactionID;
                     index++;
                 }
@@ -214,18 +207,17 @@ namespace Wallet_Manager.Forms
                     editLabels[i].Tag = transaction.TransactionID;
                     deleteLabels[i].Tag = transaction.TransactionID;
 
-                    // Check for null PictureBox and Image
                     if (categoryPictureBoxes[i] == null)
                     {
                         Console.WriteLine("PictureBox at index " + i + " is null.");
-                        continue; // Skip this iteration
+                        continue;
                     }
 
-                    int imageIndex = transaction.CategoryID - 1; // Calculate the index
+                    int imageIndex = transaction.CategoryID - 1;
                     if (imageIndex < 0 || categoryImages[imageIndex] == null)
                     {
                         Console.WriteLine("Invalid or missing image for Category ID: " + transaction.CategoryID);
-                        categoryPictureBoxes[i].Image = Properties.Resources.button_budget_active; // Use default image
+                        categoryPictureBoxes[i].Image = Properties.Resources.button_budget_active;
                     }
                     else
                     {
@@ -247,8 +239,8 @@ namespace Wallet_Manager.Forms
             if (editLabel != null && editLabel.Tag is int transactionId)
             {
                 EditTransaction editForm = new EditTransaction(transactionId);
-                editForm.ShowDialog(); // Show the form as a modal dialog
-                LoadTransactions(); // Reload transactions to reflect the change
+                editForm.ShowDialog();
+                LoadTransactions();
             }
         }
 
@@ -262,49 +254,42 @@ namespace Wallet_Manager.Forms
                     string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
                     SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
                     _dataAccessLayer.DeleteTransaction(transactionId);
-                    LoadTransactions(); // Reload transactions to reflect the change
+                    LoadTransactions();
                 }
             }
         }
 
         public void ApplyFilters(string transactionType, string category, string wallet, string walletCategory, DateTime startDate, DateTime endDate)
         {
-            // Assuming "All" is represented by "All" for string types and "0" for IDs in category and wallet
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
 
-            // Check for "All" cases and adjust parameters accordingly
             string filterTransactionType = transactionType == "All" ? null : transactionType;
             string filterCategory = (category == "0" || category == null) ? null : category;
             string filterWallet = (wallet == "0" || wallet == null) ? null : wallet;
             string filterWalletCategory = walletCategory == "All" ? null : walletCategory;
 
-            // Retrieve filtered transactions based on the adjusted parameters
             transactions = _dataAccessLayer.GetAllFilteredTransactions(filterTransactionType, filterCategory, filterWallet, filterWalletCategory, startDate, endDate);
             totalTransactions = transactions.Count;
-            currentPage = 0; // Reset to the first page
-            UpdateTransactionDisplay(); // Use the generic update method to handle both filtered and unfiltered cases
+            currentPage = 0;
+            UpdateTransactionDisplay();
         }
 
         private void UpdatePaginationLabel()
         {
-            // Calculate total pages, ensuring we handle zero transactions correctly
             int totalPages = totalTransactions > 0 ? (totalTransactions + transactionsPerPage - 1) / transactionsPerPage : 0;
 
-            // Adjust currentPage to ensure it's within the valid range
             if (totalPages == 0)
             {
-                currentPage = 0; // No pages to display
-                paginationLabel.Text = "Page 0 of 0"; // Display no pages available
+                currentPage = 0;
+                paginationLabel.Text = "Page 0 of 0";
             }
             else
             {
-                // Ensure currentPage is not out of range, which can happen with filter changes
                 if (currentPage >= totalPages)
                 {
-                    currentPage = totalPages - 1; // Adjust to the last valid page index
+                    currentPage = totalPages - 1;
                 }
-                // currentPage + 1 because pages are usually displayed as 1-based to users
                 paginationLabel.Text = $"Page {currentPage + 1} of {totalPages}";
             }
         }
@@ -314,7 +299,7 @@ namespace Wallet_Manager.Forms
 
         private void UpdateFilteredTransactionDisplay(List<Transaction> filteredTransactions)
         {
-            int start = 0; // Start from the first transaction in the filtered list
+            int start = 0;
             int end = Math.Min(transactionsPerPage, filteredTransactions.Count);
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
@@ -335,18 +320,17 @@ namespace Wallet_Manager.Forms
                     editLabels[i].Tag = transaction.TransactionID;
                     deleteLabels[i].Tag = transaction.TransactionID;
 
-                    // Check for null PictureBox and Image
                     if (categoryPictureBoxes[i] == null)
                     {
                         Console.WriteLine("PictureBox at index " + i + " is null.");
-                        continue; // Skip this iteration
+                        continue;
                     }
 
-                    int imageIndex = transaction.CategoryID - 1; // Calculate the index
+                    int imageIndex = transaction.CategoryID - 1;
                     if (imageIndex < 0 || categoryImages[imageIndex] == null)
                     {
                         Console.WriteLine("Invalid or missing image for Category ID: " + transaction.CategoryID);
-                        categoryPictureBoxes[i].Image = Properties.Resources.button_budget_active; // Use default image
+                        categoryPictureBoxes[i].Image = Properties.Resources.button_budget_active;
                     }
                     else
                     {
@@ -363,77 +347,6 @@ namespace Wallet_Manager.Forms
         }
 
 
-
-
-
-
-
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TransactionHistory_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void walletNameLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void walletNameLabel3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void walletNameLabel4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void walletNameLabel5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void walletNameLabel6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void walletNameLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void walletType5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void editLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void deleteLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void editLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void categoryPictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2Button1_Click(object sender, EventArgs e)
         {
 
@@ -447,19 +360,10 @@ namespace Wallet_Manager.Forms
             searchForm.ShowDialog();
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void label1_Click(object sender, EventArgs e)
         {
             LoadTransactions();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
@@ -493,14 +397,12 @@ namespace Wallet_Manager.Forms
 
         public void RemoveFilters()
         {
-            // Reset filters if any are applied
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
 
-            // Retrieve all transactions without filters
             transactions = _dataAccessLayer.GetAllTransactions();
             totalTransactions = transactions.Count;
-            currentPage = 0; // Reset to the first page
+            currentPage = 0;
             UpdateTransactionDisplay();
         }
 

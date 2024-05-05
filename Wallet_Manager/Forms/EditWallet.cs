@@ -20,7 +20,7 @@ namespace Wallet_Manager.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
@@ -66,34 +66,9 @@ namespace Wallet_Manager.Forms
         }
 
 
-        private void EditWallet_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void add_Wallet_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void spendingAmountTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void guna2Button1_Click_1(object sender, EventArgs e)
@@ -106,7 +81,6 @@ namespace Wallet_Manager.Forms
             currentWallet.WalletName = walletNameTextBox.Text;
             currentWallet.WalletType = walletTypeComboBox.Text;
 
-            // Validate input values and parse them safely
             if (!float.TryParse(spendingAmountTextBox.Text, out float newSpendingAmount))
             {
                 MessageBox.Show("Invalid input for spending amount.");
@@ -122,12 +96,11 @@ namespace Wallet_Manager.Forms
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
 
-            // Handle spending money update
             if (currentWallet.SpendingMoney != newSpendingAmount)
             {
                 float amountDifference = newSpendingAmount - currentWallet.SpendingMoney;
                 string transactionType = amountDifference > 0 ? "Income" : "Expense";
-                int categoryID = amountDifference > 0 ? 8 : 17; // Income if greater, Expense if lesser
+                int categoryID = amountDifference > 0 ? 8 : 17;
 
                 Transaction transaction = new Transaction
                 {
@@ -147,12 +120,11 @@ namespace Wallet_Manager.Forms
                 }
             }
 
-            // Handle savings money update
             if (currentWallet.SavingsMoney != newSavingsAmount)
             {
                 float amountDifference = newSavingsAmount - currentWallet.SavingsMoney;
                 string transactionType = amountDifference > 0 ? "Income" : "Expense";
-                int categoryID = amountDifference > 0 ? 8 : 17; // Income if greater, Expense if lesser
+                int categoryID = amountDifference > 0 ? 8 : 17;
 
                 Transaction transaction = new Transaction
                 {
@@ -172,7 +144,6 @@ namespace Wallet_Manager.Forms
                 }
             }
 
-            // Update the wallet with new values
             currentWallet.SpendingMoney = newSpendingAmount;
             currentWallet.SavingsMoney = newSavingsAmount;
             bool updateSuccess = _dataAccessLayer.UpdateWallet(currentWallet);
@@ -181,14 +152,13 @@ namespace Wallet_Manager.Forms
             {
                 MessageBox.Show("Wallet updated successfully.");
                 GlobalEvents.OnTransactionUpdated();
-                this.Hide(); // Optionally close the form
+                this.Hide();
             }
             else
             {
                 MessageBox.Show("Error updating wallet.");
             }
         }
-
 
         private void savingsAmountTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -204,21 +174,6 @@ namespace Wallet_Manager.Forms
             {
                 e.Handled = true;
             }
-        }
-
-        private void walletTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void savingsAmountTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

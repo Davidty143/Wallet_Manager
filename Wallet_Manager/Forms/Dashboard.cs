@@ -21,7 +21,7 @@ namespace Wallet_Manager.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
@@ -40,14 +40,8 @@ namespace Wallet_Manager.Forms
         {
             InitializeComponent();
             this.FormClosing += Dashboard_FormClosing;
-
-            // Load the main dashboard component first
             EnsureDashboardUCLoaded();
-
-            // Hook up the Load event to handle asynchronous loading of other components
             this.Load += Dashboard_Load;
-
-            // Other initializations
             UpdateDisplayName();
             LoadUserProfilePicture();
             transactionForm = new AddTransaction();
@@ -76,14 +70,12 @@ namespace Wallet_Manager.Forms
             {
                 Invoke((MethodInvoker)delegate
                 {
-                    // Load other components
                     EnsureSettingsUCLoaded();
                     EnsureTransactionHistoryLoaded();
                     EnsureWalletLoaded();
                     EnsureInsightsUCLoaded();
                     EnsureBudgetUCLoaded();
 
-                    // Optionally, hide these controls initially if needed
                     settingsUC.Visible = false;
                     transactionHistory.Visible = false;
                     wallet.Visible = false;
@@ -92,10 +84,6 @@ namespace Wallet_Manager.Forms
                 });
             });
         }
-
-
-
-
 
         public void EnsureTransactionHistoryLoaded()
         {
@@ -163,34 +151,10 @@ namespace Wallet_Manager.Forms
             settingsUC.BringToFront();
         }
 
-
-
-
-        public void display_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        public void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         public void button1_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-        public void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
 
         private void button_wallet_Click(object sender, EventArgs e)
@@ -199,7 +163,6 @@ namespace Wallet_Manager.Forms
             pageLabel.Text = "Wallet";
             EnsureWalletLoaded();
             wallet.Visible = true;
-            //wallet_uc1.BringToFront();
         }
 
 
@@ -215,7 +178,6 @@ namespace Wallet_Manager.Forms
             pageLabel.Text = "Transaction";
             EnsureTransactionHistoryLoaded();
             transactionHistory.Visible = true;
-            //transactionHistory1.BringToFront();
 
         }
 
@@ -226,7 +188,6 @@ namespace Wallet_Manager.Forms
             EnsureTransactionHistoryLoaded();
             transactionHistory.Visible = true;
             transactionHistory.BringToFront();
-            //transactionHistory1.BringToFront();
 
         }
 
@@ -236,7 +197,6 @@ namespace Wallet_Manager.Forms
             pageLabel.Text = "Analytics";
             EnsureInsightsUCLoaded();
             insightsUC.Visible = true;
-            //insightsUC1.BringToFront();
         }
 
         internal void clickSeeAllAnalytics()
@@ -251,7 +211,6 @@ namespace Wallet_Manager.Forms
             pageLabel.Text = "Budget";
             EnsureBudgetUCLoaded();
             budgetUC.Visible = true;
-            //budget1_uc1.BringToFront();
         }
 
         internal void clickSeeAllBudgets()
@@ -259,20 +218,11 @@ namespace Wallet_Manager.Forms
             button_budget_Click(this, EventArgs.Empty);
 
         }
-
-        private void button_goals_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void button_dashboard_Click(object sender, EventArgs e)
         {
             UpdateButtonStyles(button_dashboard);
             pageLabel.Text = "Dashboard";
             EnsureDashboardUCLoaded();
-            
-            //dashboardUC1.BringToFront();
-
         }
 
         internal void clickDashboard()
@@ -282,13 +232,11 @@ namespace Wallet_Manager.Forms
 
         private void UpdateButtonStyles(Guna.UI2.WinForms.Guna2Button activeButton)
         {
-            // Define default and active styles
             Color defaultFillColor = Color.White;
             Color activeFillColor = Color.FromArgb(121, 105, 233);
             Color defaultForeColor = Color.FromArgb(138, 138, 138);
             Color activeForeColor = Color.White;
 
-            // List of all buttons
             Guna.UI2.WinForms.Guna2Button[] buttons = {
         button_wallet, button_transaction, button_analytics, button_budget, button_profile, button_dashboard
     };
@@ -297,18 +245,14 @@ namespace Wallet_Manager.Forms
             {
                 if (button == activeButton)
                 {
-                    // Active button style
                     button.ForeColor = activeForeColor;
                     button.FillColor = activeFillColor;
-                    // Set the active image
                     button.Image = (Image)Properties.Resources.ResourceManager.GetObject(button.Name + "_active");
                 }
                 else
                 {
-                    // Default style for inactive buttons
                     button.ForeColor = defaultForeColor;
                     button.FillColor = defaultFillColor;
-                    // Set the inactive image
                     button.Image = (Image)Properties.Resources.ResourceManager.GetObject(button.Name + "_inactive");
                 }
             }
@@ -348,9 +292,8 @@ namespace Wallet_Manager.Forms
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
             string name = _dataAccessLayer.GetDisplayNameById();
-            displayName.Text = name; // Assuming 'displayName' is a Label control on your form
+            displayName.Text = name;
 
-            // Calculate the new location to align the label with the center of the profile picture
             int verticalCenter = profilePicture.Top + (profilePicture.Height / 2) - (displayName.Height / 2);
 
 
@@ -366,70 +309,10 @@ namespace Wallet_Manager.Forms
 
         }
 
-        private void transactionHistory1_Load(object sender, EventArgs e)
-        {
-         
-        
-        }
-
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dashboardUC2_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dashboardUC2_Load_1(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void dashboardUC2_Load_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-                    }
-
         private void editProfile_Click(object sender, EventArgs e)
         {
             UpdateButtonStyles(button_profile);
             pageLabel.Text = "Profile";
-            //settingsUC1.BringToFront();
-        }
-
-        private void settingsUC1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void insightsUC1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void budget1_uc1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dashboardUC1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void wallet_uc1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button_profile_Click(object sender, EventArgs e)
@@ -438,37 +321,6 @@ namespace Wallet_Manager.Forms
             pageLabel.Text = "Profile";
             EnsureSettingsUCLoaded();
             settingsUC.Visible = true;  
-           // settingsUC1.BringToFront();
-        }
-
-        private void pageLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dashboardUC1_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dashboardUC1_Load_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void displayName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dashboardUC1_Load_3(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dashboardUC2_Load_3(object sender, EventArgs e)
-        {
-
         }
 
         private void button_signout_Click(object sender, EventArgs e)
@@ -477,15 +329,8 @@ namespace Wallet_Manager.Forms
             Properties.Settings.Default.LastUserID = 0;
             Properties.Settings.Default.Save();
 
-            // Assuming LoginForm is the form you want to show
             Program.ShowLoginForm();
             this.Close();
-
-        }
-
-        private void profilePicture_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

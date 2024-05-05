@@ -238,7 +238,6 @@
             this.Controls.Add(this.currPass);
             this.Name = "EditPassword";
             this.Size = new System.Drawing.Size(709, 717);
-            this.Load += new System.EventHandler(this.EditPassword_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

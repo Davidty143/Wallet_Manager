@@ -17,7 +17,7 @@ namespace Wallet_Manager.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
@@ -26,10 +26,6 @@ namespace Wallet_Manager.Forms
             InitializeComponent();
         }
 
-        private void SettingsUC_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
@@ -45,14 +41,5 @@ namespace Wallet_Manager.Forms
             changePassLabel.Font = new Font(changePassLabel.Font, FontStyle.Bold);
         }
 
-        private void editProfile1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
-        {
-                
-        }
     }
 }

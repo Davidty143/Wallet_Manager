@@ -141,7 +141,6 @@
             this.label24.Size = new System.Drawing.Size(115, 38);
             this.label24.TabIndex = 160;
             this.label24.Text = "Statistic";
-            this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
             // guna2Button6
             // 
@@ -208,7 +207,7 @@
             this.mostUsedSpendingLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mostUsedSpendingLabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mostUsedSpendingLabel.ForeColor = System.Drawing.Color.Black;
-            this.mostUsedSpendingLabel.Location = new System.Drawing.Point(492, 437);
+            this.mostUsedSpendingLabel.Location = new System.Drawing.Point(528, 438);
             this.mostUsedSpendingLabel.Name = "mostUsedSpendingLabel";
             this.mostUsedSpendingLabel.Size = new System.Drawing.Size(81, 23);
             this.mostUsedSpendingLabel.TabIndex = 143;
@@ -221,7 +220,7 @@
             this.mostUsedSavingsLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mostUsedSavingsLabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mostUsedSavingsLabel.ForeColor = System.Drawing.Color.Black;
-            this.mostUsedSavingsLabel.Location = new System.Drawing.Point(492, 413);
+            this.mostUsedSavingsLabel.Location = new System.Drawing.Point(528, 414);
             this.mostUsedSavingsLabel.Name = "mostUsedSavingsLabel";
             this.mostUsedSavingsLabel.Size = new System.Drawing.Size(81, 23);
             this.mostUsedSavingsLabel.TabIndex = 142;
@@ -233,7 +232,7 @@
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label6.Location = new System.Drawing.Point(403, 437);
+            this.label6.Location = new System.Drawing.Point(439, 438);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(108, 25);
             this.label6.TabIndex = 141;
@@ -245,7 +244,7 @@
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.label5.Location = new System.Drawing.Point(403, 413);
+            this.label5.Location = new System.Drawing.Point(439, 414);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(108, 25);
             this.label5.TabIndex = 140;
@@ -310,6 +309,7 @@
             this.guna2Button1.PressedColor = System.Drawing.Color.White;
             this.guna2Button1.Size = new System.Drawing.Size(573, 110);
             this.guna2Button1.TabIndex = 136;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // label1
             // 
@@ -367,7 +367,6 @@
             this.guna2Button16.PressedColor = System.Drawing.Color.White;
             this.guna2Button16.Size = new System.Drawing.Size(275, 103);
             this.guna2Button16.TabIndex = 132;
-            this.guna2Button16.Click += new System.EventHandler(this.guna2Button16_Click);
             // 
             // savingsTodayLabel
             // 
@@ -380,7 +379,6 @@
             this.savingsTodayLabel.Size = new System.Drawing.Size(239, 43);
             this.savingsTodayLabel.TabIndex = 131;
             this.savingsTodayLabel.Text = "₱ 20,000";
-            this.savingsTodayLabel.Click += new System.EventHandler(this.label13_Click);
             // 
             // label12
             // 
@@ -490,7 +488,6 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(789, 235);
             this.guna2CustomGradientPanel1.TabIndex = 327;
-            this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
             // 
             // budgetComboBox
             // 
@@ -527,7 +524,6 @@
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(709, 129);
             this.guna2CustomGradientPanel2.TabIndex = 316;
-            this.guna2CustomGradientPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel2_Paint);
             // 
             // overSpentLabel
             // 
@@ -542,8 +538,11 @@
             this.overSpentLabel.FillColor = System.Drawing.Color.Transparent;
             this.overSpentLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.overSpentLabel.ForeColor = System.Drawing.Color.Red;
+            this.overSpentLabel.HoverState.BorderColor = System.Drawing.Color.White;
+            this.overSpentLabel.HoverState.FillColor = System.Drawing.Color.White;
             this.overSpentLabel.Location = new System.Drawing.Point(550, 19);
             this.overSpentLabel.Name = "overSpentLabel";
+            this.overSpentLabel.PressedColor = System.Drawing.Color.White;
             this.overSpentLabel.Size = new System.Drawing.Size(130, 23);
             this.overSpentLabel.TabIndex = 332;
             this.overSpentLabel.Text = "OverSpending";
@@ -562,8 +561,11 @@
             this.warningLabel.FillColor = System.Drawing.Color.Transparent;
             this.warningLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.warningLabel.ForeColor = System.Drawing.Color.Red;
+            this.warningLabel.HoverState.BorderColor = System.Drawing.Color.White;
+            this.warningLabel.HoverState.FillColor = System.Drawing.Color.White;
             this.warningLabel.Location = new System.Drawing.Point(510, 19);
             this.warningLabel.Name = "warningLabel";
+            this.warningLabel.PressedColor = System.Drawing.Color.White;
             this.warningLabel.Size = new System.Drawing.Size(170, 23);
             this.warningLabel.TabIndex = 318;
             this.warningLabel.Text = "Overspending Risk!";
@@ -607,7 +609,6 @@
             this.spentBudgetLabel.Size = new System.Drawing.Size(123, 23);
             this.spentBudgetLabel.TabIndex = 329;
             this.spentBudgetLabel.Text = "₱ 500.00 Spent";
-            this.spentBudgetLabel.Click += new System.EventHandler(this.spentBudgetLabel_Click);
             // 
             // nameLabel
             // 
@@ -632,7 +633,6 @@
             this.guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
             this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(547, 293);
             this.guna2CustomGradientPanel3.TabIndex = 330;
-            this.guna2CustomGradientPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel3_Paint);
             // 
             // barChart1
             // 
@@ -672,7 +672,6 @@
             chartFont16.FontName = "Arial";
             tick6.Font = chartFont16;
             this.barChart1.ZAxes.Ticks = tick6;
-            this.barChart1.Load += new System.EventHandler(this.gunaChart1_Load);
             // 
             // gunaBarDataset3
             // 
@@ -731,7 +730,6 @@
             this.guna2CustomGradientPanel4.Name = "guna2CustomGradientPanel4";
             this.guna2CustomGradientPanel4.Size = new System.Drawing.Size(547, 407);
             this.guna2CustomGradientPanel4.TabIndex = 331;
-            this.guna2CustomGradientPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel4_Paint);
             // 
             // recentTransactionPanel3
             // 
@@ -840,7 +838,6 @@
             this.descriptionLabel3.Size = new System.Drawing.Size(111, 31);
             this.descriptionLabel3.TabIndex = 286;
             this.descriptionLabel3.Text = "Breakfast";
-            this.descriptionLabel3.Click += new System.EventHandler(this.descriptionLabel3_Click);
             // 
             // categoryLabel3
             // 
@@ -1164,7 +1161,6 @@
             this.guna2Button9.PressedColor = System.Drawing.Color.White;
             this.guna2Button9.Size = new System.Drawing.Size(789, 476);
             this.guna2Button9.TabIndex = 333;
-            this.guna2Button9.Click += new System.EventHandler(this.guna2Button9_Click_1);
             // 
             // label22
             // 
@@ -1264,7 +1260,6 @@
             this.DoubleBuffered = true;
             this.Name = "DashboardUC";
             this.Size = new System.Drawing.Size(1509, 950);
-            this.Load += new System.EventHandler(this.DashboardUC_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
             this.guna2CustomGradientPanel2.ResumeLayout(false);

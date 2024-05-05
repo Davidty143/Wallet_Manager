@@ -88,7 +88,6 @@
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(1402, 796);
             this.guna2CustomGradientPanel2.TabIndex = 5;
-            this.guna2CustomGradientPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel2_Paint);
             // 
             // editProfile1
             // 
@@ -98,7 +97,6 @@
             this.editProfile1.Name = "editProfile1";
             this.editProfile1.Size = new System.Drawing.Size(709, 717);
             this.editProfile1.TabIndex = 1;
-            this.editProfile1.Load += new System.EventHandler(this.editProfile1_Load);
             // 
             // editPassword1
             // 
@@ -120,7 +118,6 @@
             this.Controls.Add(this.guna2CustomGradientPanel2);
             this.Name = "SettingsUC";
             this.Size = new System.Drawing.Size(1509, 950);
-            this.Load += new System.EventHandler(this.SettingsUC_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -19,7 +19,7 @@ namespace Wallet_Manager.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
@@ -44,14 +44,6 @@ namespace Wallet_Manager.Forms
             txtTransactionType.SelectedIndex = 0;  
         }
 
-
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-
         private void PopulateCategoryComboBox(string transactionType)
         {
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
@@ -66,10 +58,10 @@ namespace Wallet_Manager.Forms
                         categories = dataAccessLayer.GetExpenseCategories();
                         break;
                     case "Income":
-                        categories = dataAccessLayer.GetIncomeCategories();  // Assume similar method exists
+                        categories = dataAccessLayer.GetIncomeCategories();
                         break;
                     case "Transfer":
-                        categories = dataAccessLayer.GetTransferCategories();  // Assume similar method exists
+                        categories = dataAccessLayer.GetTransferCategories(); 
                         break;
                     default:
                         categories = new DataTable();
@@ -92,7 +84,6 @@ namespace Wallet_Manager.Forms
 
             List<Wallet> wallets = _dataAccessLayer.GetWallets();
 
-            // Convert wallets to a binding-friendly format
             var walletBindingList = wallets.Select(wallet => new
             {
                 Text = $"{wallet.WalletName} (ID: {wallet.WalletID})",
@@ -128,49 +119,30 @@ namespace Wallet_Manager.Forms
             }
         }
 
-        private void EditTransaction_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBoxSavings_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private bool AdjustWalletBalance(Transaction originalTransaction, Transaction updatedTransaction)
         {
-            // Determine the net effect on the wallet balance based on the transaction type
             float originalEffect = originalTransaction.TransactionType == "Income" ? originalTransaction.Amount : -originalTransaction.Amount;
             float updatedEffect = updatedTransaction.TransactionType == "Income" ? updatedTransaction.Amount : -updatedTransaction.Amount;
 
-            // Calculate the net change to apply to the wallet
             float netChange = updatedEffect - originalEffect;
 
-            // Check if the wallet ID has changed or if it's just the amount that's different
             if (originalTransaction.WalletID != updatedTransaction.WalletID)
             {
-                // Handle wallet change
                 if (!UpdateWalletBalance(originalTransaction.WalletID, -originalEffect) ||
                     !UpdateWalletBalance(updatedTransaction.WalletID, updatedEffect))
                 {
-                    return false; // Insufficient funds in one of the wallets or error in updating
+                    return false;
                 }
             }
             else
             {
-                // Only the amount or transaction type has changed
                 if (!UpdateWalletBalance(originalTransaction.WalletID, netChange))
                 {
-                    return false; // Insufficient funds or error in updating
+                    return false;
                 }
             }
 
-            return true; // Successfully adjusted wallet balances
+            return true;
         }
 
 
@@ -181,20 +153,17 @@ namespace Wallet_Manager.Forms
             Wallet wallet = dataAccessLayer.GetWallet(walletId);
             if (wallet == null)
             {
-                return false; // Wallet not found
+                return false; 
             }
 
-            // Calculate new balances
             float newSpendingMoney = wallet.SpendingMoney + amountChange;
             if (amountChange < 0 && newSpendingMoney < 0)
             {
-                return false; // Not enough funds in SpendingMoney
+                return false;
             }
 
-            // Update the wallet balance
-            wallet.SpendingMoney = newSpendingMoney; // Assuming all transactions affect SpendingMoney
+            wallet.SpendingMoney = newSpendingMoney; 
 
-            // Use the existing UpdateWallet method to update the wallet in the database
             return dataAccessLayer.UpdateWallet(wallet);
         }
 
@@ -237,7 +206,6 @@ namespace Wallet_Manager.Forms
         {
             try
             {
-                // Retrieve the original transaction first
                 string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
                 SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
                 Transaction originalTransaction = dataAccessLayer.GetTransactionById(txtTransactionID);
@@ -255,18 +223,15 @@ namespace Wallet_Manager.Forms
                     Description = txtDescription.Text
                 };
 
-                // Check for changes in the transaction that affect the wallet balance
                 if (originalTransaction.WalletID != updatedTransaction.WalletID || originalTransaction.Amount != updatedTransaction.Amount)
                 {
-                    // Adjust the original wallet balance
                     if (!AdjustWalletBalance(originalTransaction, updatedTransaction))
                     {
                         MessageBox.Show("Insufficient funds to update the transaction.");
-                        return; // Stop further processing
+                        return;
                     }
                 }
 
-                // Proceed to update the transaction in the database
                 dataAccessLayer.UpdateTransaction(updatedTransaction);
                 MessageBox.Show("Transaction updated successfully.");
                 GlobalEvents.OnTransactionUpdated();
@@ -277,24 +242,9 @@ namespace Wallet_Manager.Forms
             }
         }
 
-        private void txtWallet_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtTransactionType_SelectedIndexChanged(object sender, EventArgs e)
         {
             PopulateCategoryComboBox(txtTransactionType.SelectedItem.ToString());
-
-        }
-
-        private void txtCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
-        {
 
         }
 
@@ -319,10 +269,7 @@ namespace Wallet_Manager.Forms
             Guna2TextBox txt = sender as Guna2TextBox;
             if (txt.Text.Length > 13)
             {
-                // If the text exceeds 13 characters, trim it back to 13 characters
                 txt.Text = txt.Text.Substring(0, 17);
-
-                // Optional: Move the cursor to the end of the text
                 txt.SelectionStart = txt.Text.Length;
             }
         

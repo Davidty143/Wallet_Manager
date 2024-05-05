@@ -26,16 +26,13 @@ namespace Wallet_Manager
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
             dataAccessLayer.UpdateBudgetStatuses();
 
-            // Initialize forms
             loginForm = new Login();
             dashboardForm = new Dashboard();
             signupForm = new Signup();
 
 
-            // Check login status and show the appropriate form
             ShowAppropriateForm();
 
-            // Start the application with the login form as the default form
             Application.Run();
         }
 
@@ -62,12 +59,12 @@ namespace Wallet_Manager
         {
             dashboardForm.clickDashboard();
             dashboardForm.Visible = true;
-            dashboardForm.Activate();  // Bring the form to the front if it's already open
+            dashboardForm.Activate();
         }
         public static void ShowLoginForm()
         {
             loginForm.Visible = true;
-            loginForm.Activate();  // Bring the form to the front if it's already open
+            loginForm.Activate();
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]

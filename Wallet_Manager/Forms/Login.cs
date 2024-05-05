@@ -18,30 +18,23 @@ namespace Wallet_Manager.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
+
+
         public Login()
         {
             InitializeComponent();
 
         }
 
-        private void t_email_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void t_login_button_Click(object sender, EventArgs e)
-        {
-
-        }
-    
         private void Login_Load(object sender, EventArgs e)
         {
             txtPassword.PasswordChar = '*';
         }
+
 
         private void t_login_button_Click_1(object sender, EventArgs e)
         {
@@ -59,16 +52,12 @@ namespace Wallet_Manager.Forms
             if (dataAccessLayer.LoginUser(email, password))
             {
                 Properties.Settings.Default.IsLoggedIn = true;
-                Properties.Settings.Default.LastUserID = GlobalData.GetUserID(); // Save the user ID as a string
+                Properties.Settings.Default.LastUserID = GlobalData.GetUserID();
                 Properties.Settings.Default.Save();
 
                 GlobalEvents.OnTransactionUpdated();
                 GlobalEvents.OnProfileInformationUpdated();
                 Program.ShowDashboard();
-                /*
-                Dashboard newDashboard = new Dashboard();
-                newDashboard.ShowDialog();
-                */
                 this.Hide();
                 txtEmail.Text = "";
                 txtPassword.Text = "";
@@ -81,10 +70,12 @@ namespace Wallet_Manager.Forms
             }
         }
 
+
         private void cb_show_pass_CheckedChanged(object sender, EventArgs e)
         {
             txtPassword.PasswordChar = cb_show_pass.Checked ? '\0' : '*';
         }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -93,19 +84,5 @@ namespace Wallet_Manager.Forms
             this.Hide();
         }
 
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

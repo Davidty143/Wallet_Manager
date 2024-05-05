@@ -22,7 +22,7 @@ namespace Wallet_Manager.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
@@ -40,7 +40,6 @@ namespace Wallet_Manager.Forms
             {
                 string query = "SELECT FirstName, LastName, Email FROM User WHERE UserID = @UserID";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
-                // Assuming you have a way to get the current user's ID, such as a global variable or passed parameter
                 cmd.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
 
                 try
@@ -85,11 +84,6 @@ namespace Wallet_Manager.Forms
             }
         }
 
-        private void EditProfile_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -98,7 +92,7 @@ namespace Wallet_Manager.Forms
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     profilePicture.Image = Image.FromFile(openFileDialog.FileName);
-                    profilePicture.Tag = openFileDialog.FileName; // Store file path to use when saving
+                    profilePicture.Tag = openFileDialog.FileName;
                 }
             }
         }
@@ -108,7 +102,6 @@ namespace Wallet_Manager.Forms
             if (string.IsNullOrWhiteSpace(email))
                 return false;
 
-            // Use standard email regex pattern
             string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
 
@@ -123,13 +116,13 @@ namespace Wallet_Manager.Forms
             if (string.IsNullOrEmpty(txtFirstName.Text) || string.IsNullOrEmpty(txtLastName.Text))
             {
                 MessageBox.Show("First and Last Name cannot be empty. Please enter valid names.");
-                return; // Stop further execution if validation fails
+                return;
             }
 
             if (!IsValidEmail(txtEmail.Text))
             {
                 MessageBox.Show("Please enter a valid email address.");
-                return; // Stop further execution if validation fails
+                return;
             }
             try
             {

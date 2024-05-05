@@ -19,7 +19,7 @@ namespace Wallet_Manager.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000; 
                 return cp;
             }
         }
@@ -27,12 +27,12 @@ namespace Wallet_Manager.Forms
         public AddTransferUC()
         {
             InitializeComponent();
-            //this.addTransaction = addTransaction;
             PopulateWalletsComboBox();
             InitializeComboBoxes();
+            txtAmount.MaxLength = 7;
             txtDate.Value = DateTime.Today;
-
             GlobalEvents.TransactionUpdated += PopulateWalletsComboBox;
+            ClearForm();
         }
 
         private void PopulateWalletsComboBox()
@@ -42,14 +42,12 @@ namespace Wallet_Manager.Forms
 
             List<Wallet> wallets = _dataAccessLayer.GetWallets();
 
-            // Create a binding list for the source wallet ComboBox
             var sourceWalletBindingList = wallets.Select(wallet => new
             {
                 Text = wallet.WalletName,
                 Value = wallet.WalletID
             }).ToList();
 
-            // Create a binding list for the destination wallet ComboBox
             var destinationWalletBindingList = wallets.Select(wallet => new
             {
                 Text = wallet.WalletName,
@@ -73,20 +71,23 @@ namespace Wallet_Manager.Forms
             txtDestinationWallet.ValueMember = "Value";
         }
 
+        private void ClearForm()
+        {
+            txtAmount.Clear();
+            txtDescription.Clear();
+            txtSourceWallet.SelectedIndex = -1;
+            txtDestinationWallet.SelectedIndex = -1;
+            ScheckBoxSavings.Checked = false;
+            ScheckBoxSpending.Checked = false;
+            DcheckBoxSavings.Checked = false;
+            DcheckBoxSpending.Checked = false;
+            txtDate.Value = DateTime.Now;
+        }
+
         public class ComboBoxItem
         {
             public string Text { get; set; }
             public int Value { get; set; }
-        }
-
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
@@ -116,32 +117,31 @@ namespace Wallet_Manager.Forms
             {
                 targetCategory = "Savings";
             }
-
-            // Ensure that both categories are selected
             if (string.IsNullOrEmpty(sourceCategory) || string.IsNullOrEmpty(targetCategory))
             {
                 MessageBox.Show("Please select both source and target categories.");
                 return;
             }
 
-            // Get the selected wallets, categories, amount, and description
             int sourceWalletId = Convert.ToInt32(txtSourceWallet.SelectedValue);
             int targetWalletId = Convert.ToInt32(txtDestinationWallet.SelectedValue);
 
 
             float amount;
-            if (!float.TryParse(txtAmount.Text, out amount))
+
+            if (!float.TryParse(txtAmount.Text, out amount) || amount <= 0)
             {
                 MessageBox.Show("Please enter a valid amount.");
                 return;
             }
+
+
             string description = txtDescription.Text;
 
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
 
 
-            // Perform the transfer
             try
             {
                 bool transferSuccess = dataAccessLayer.Transfer(sourceWalletId, sourceCategory, targetWalletId, targetCategory, amount, 1, description);
@@ -164,12 +164,10 @@ namespace Wallet_Manager.Forms
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             this.FindForm().Hide();
-        }
-
-        private void guna2CustomGradientPanel1_Paint_1(object sender, PaintEventArgs e)
-        {
+            ClearForm();
 
         }
+
 
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -216,10 +214,7 @@ namespace Wallet_Manager.Forms
             Guna2TextBox txt = sender as Guna2TextBox;
             if (txt.Text.Length > 13)
             {
-                // If the text exceeds 13 characters, trim it back to 13 characters
                 txt.Text = txt.Text.Substring(0, 17);
-
-                // Optional: Move the cursor to the end of the text
                 txt.SelectionStart = txt.Text.Length;
             }
         }

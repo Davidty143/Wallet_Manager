@@ -65,7 +65,6 @@ namespace Wallet_Manager.Forms
         {
             bool hasActiveBudgets = budgetComboBox.Items.Count > 0;
 
-            // Set visibility of all related UI components based on the presence of active budgets
             label9.Visible = hasActiveBudgets;
             label6.Visible = hasActiveBudgets;
             remainingBudgetLabel.Visible = hasActiveBudgets;
@@ -78,11 +77,7 @@ namespace Wallet_Manager.Forms
             nonVisibleLabel3.Visible = !hasActiveBudgets;
             nonVisibleLabel4.Visible = !hasActiveBudgets;
             doughnutCategoryChart.Visible = hasActiveBudgets;
-            //doughnutChart1.Visible = hasActiveBudgets;
             splineChart.Visible = hasActiveBudgets;
-
-            // Do not set visibility for panels and progress bars here
-            // Let PopulatePanels method handle the visibility of individual panels
         }
 
 
@@ -102,7 +97,6 @@ namespace Wallet_Manager.Forms
 
         public void PopulatePanels(Budget budget)
         {
-            // Set all panels to not visible at the beginning
             foreach (var panel in recordPanels)
             {
                 panel.Visible = false;
@@ -120,7 +114,6 @@ namespace Wallet_Manager.Forms
             int start = (currentRecordPage - 1) * recordsPerPage;
             int end = Math.Min(start + recordsPerPage, actualRecordsCount);
 
-            // This index tracks which panel is being populated
             int panelIndex = 0;
             for (int i = start; i < end; i++, panelIndex++)
             {
@@ -131,21 +124,14 @@ namespace Wallet_Manager.Forms
                 float percentageSpent = (entry.Value / totalBudget) * 100;
                 progressBar[panelIndex].Value = Math.Min((int)percentageSpent, 100);
                 percentageLabels[panelIndex].Text = $"{percentageSpent:F2}% of total budget";
-                recordPanels[panelIndex].Visible = true; // Only make the panel visible if there's data to display
+                recordPanels[panelIndex].Visible = true;
             }
 
-            // Hide any unused panels beyond the last populated one
             for (int j = panelIndex; j < recordPanels.Length; j++)
             {
                 recordPanels[j].Visible = false;
             }
         }
-
-
-
-
-
-
 
         private string FormatDate(DateTime date)
         {
@@ -157,21 +143,14 @@ namespace Wallet_Manager.Forms
                 return date.ToString("yyyy-MM-dd");
         }
 
-
-
-
         public void UpdateProgressBar(Budget budget)
         {
             generalProgressBar.Maximum = (int)(budget.TotalAmount);
-            // Calculate the amount spent
             float totalSpent = ComputeTotalSpendForBudget(budget);
-
-            // Calculate the remaining budget
             float remainingBudget = budget.TotalAmount - totalSpent;
+            int progressBarValue = (int)(totalSpent);
+            generalProgressBar.Value = progressBarValue;
 
-            // Calculate the progress bar value
-            // Ensure the value is within the bounds of the progress bar's minimum and maximum
-            int progressBarValue = (int)(totalSpent);  // Convert total spent to an integer
             if (progressBarValue > generalProgressBar.Maximum)
             {
                 progressBarValue = generalProgressBar.Maximum;
@@ -181,9 +160,8 @@ namespace Wallet_Manager.Forms
                 progressBarValue = generalProgressBar.Minimum;
             }
 
-            generalProgressBar.Value = progressBarValue;
+            
 
-            // Set the progress bar color based on budget comparison
             if (totalSpent > budget.TotalAmount)
             {
                 overSpentLabel.Visible = true;
@@ -209,10 +187,6 @@ namespace Wallet_Manager.Forms
             {
                 warningLabel.Visible = false;
             }
-
-            
-
-            // Optionally, update a label to show the numeric value or percentage
             
             spentBudgetLabel.Text = $"{totalSpent:C} Spent";
         }
@@ -237,7 +211,7 @@ namespace Wallet_Manager.Forms
 
             foreach (var transaction in transactions)
             {
-                if (transaction.TransactionType.ToLower() == "expense") // Assuming 'expense' indicates money spent
+                if (transaction.TransactionType.ToLower() == "expense")
                 {
                     totalSpend += transaction.Amount;
                 }
@@ -263,21 +237,6 @@ namespace Wallet_Manager.Forms
         }
 
 
-        private void guna2ProgressBar2_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Budget1_uc_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentRecordPage = 1;
@@ -290,8 +249,6 @@ namespace Wallet_Manager.Forms
                 selectedBudget.CategoryIds = dataAccessLayer.GetCategoryIdsByBudgetId(selectedBudget.BudgetID);
                 UpdateProgressBar(selectedBudget);
                 PopulateDoughnutChart(selectedBudget);
-                // PopulateSplineChart(selectedBudget);
-                //PopulateGunaDoughnutChart(selectedBudget);
                 PopulateGunaSplineChart(selectedBudget);
                 PopulatePanels(selectedBudget);
                 dateLabel.Text = $"{selectedBudget.StartDate:MMMM d} - {selectedBudget.EndDate:MMMM d}";
@@ -304,55 +261,22 @@ namespace Wallet_Manager.Forms
         {
             if (budgetComboBox.SelectedItem != currentBudget)
             {
-                budgetComboBox.SelectedItem = currentBudget; // Update the selected item
-                guna2ComboBox1_SelectedIndexChanged(budgetComboBox, EventArgs.Empty); // Manually invoke the handler if needed
+                budgetComboBox.SelectedItem = currentBudget;
+                guna2ComboBox1_SelectedIndexChanged(budgetComboBox, EventArgs.Empty); 
             }
         }
-
-        /*
-        private void PopulateGunaDoughnutChart(Budget budget)
-        {
-            // Use the category IDs and date range from the budget object
-            List<int> categoryIds = budget.CategoryIds;
-            DateTime startDate = budget.StartDate;
-            DateTime endDate = budget.EndDate;
-
-            // Create an instance of SqlDataAccessLayer and get the expenses data
-            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
-            var categoryExpenses = dataAccessLayer.GetCategoryExpensesByDate(categoryIds, startDate, endDate);
-
-            doughnutDataset1.DataPoints.Clear();
-
-            foreach (var expense in categoryExpenses)
-            {
-                int categoryId = expense.Key;
-                string categoryName = dataAccessLayer.GetCategoryNameById(categoryId);
-                doughnutDataset1.DataPoints.Add(categoryName, expense.Value);
-                doughnutChart1.Refresh();
-            }
-
-            // Refresh the chart to display the new data
-        }
-
-        */
-
-
 
 
         private void PopulateDoughnutChart(Budget budget)
         {
-            // Use the category IDs and date range from the budget object
             List<int> categoryIds = budget.CategoryIds;
             DateTime startDate = budget.StartDate;
             DateTime endDate = budget.EndDate;
 
-            // Create an instance of SqlDataAccessLayer and get the expenses data
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
             var categoryExpenses = dataAccessLayer.GetCategoryExpensesByDate(categoryIds, startDate, endDate);
 
-            // Assuming 'doughnutCategoryChart' is your System.Windows.Forms.DataVisualization.Charting.Chart control
             doughnutCategoryChart.Series.Clear();
             var series = new System.Windows.Forms.DataVisualization.Charting.Series
             {
@@ -360,7 +284,6 @@ namespace Wallet_Manager.Forms
                 ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
             };
 
-            // Add data points to the series
             foreach (var expense in categoryExpenses)
             {
                 int categoryId = expense.Key;
@@ -368,128 +291,29 @@ namespace Wallet_Manager.Forms
                 series.Points.AddXY(categoryName, expense.Value);
             }
 
-            // Add the series to the chart
             doughnutCategoryChart.Series.Add(series);
-
-            // Customize the chart: Hide labels around the doughnut, show them in the legend
-            doughnutCategoryChart.Series["Expenses"]["PieLabelStyle"] = "Disabled"; // Disable the labels on the slices
-            series.IsValueShownAsLabel = false; // Ensure values are not shown as labels on the chart
-            doughnutCategoryChart.Legends[0].Font = new Font("Segoe UI", 8, FontStyle.Bold); // Customize the legend font
-           // doughnutCategoryChart.Legends[0].ForeColor = Color.DarkGray; // Customize the legend font color
-            doughnutCategoryChart.Legends[0].Enabled = true; // Ensure the legend is enabled
-
-            // Optional: Further customize the chart, e.g., colors, labels, etc.
+            doughnutCategoryChart.Series["Expenses"]["PieLabelStyle"] = "Disabled";
+            series.IsValueShownAsLabel = false; 
+            doughnutCategoryChart.Legends[0].Font = new Font("Segoe UI", 8, FontStyle.Bold); 
+            doughnutCategoryChart.Legends[0].Enabled = true; 
             doughnutCategoryChart.ChartAreas[0].RecalculateAxesScale();
-
-            // Refresh the chart to display the new data
             doughnutCategoryChart.Invalidate();
         }
 
   
-
-        /*
-         * 
-         * 
-
-        private void PopulateSplineChart(Budget budget)
-        {
-            string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
-            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
-            var expensesData = dataAccessLayer.GetDailyExpensesUnderBudget(budget);
-
-            splineDailyExpenseChart.Series.Clear();
-            var series = new System.Windows.Forms.DataVisualization.Charting.Series
-            {
-                Name = "Spending Trend",
-                ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline,
-                LabelFormat = $"{0:C}".Insert(1, " "),
-                BorderWidth = 2, // Increase the line thicknes
-                BorderColor = Color.FromArgb(151, 91, 206) // Change the line color
-            };
-
-            foreach (var item in expensesData)
-            {
-                // Format the date as "Month Day"
-                string formattedDate = item.Key.ToString("MMMM d");
-                series.Points.AddXY(formattedDate, item.Value);
-                series.Points.Last().Label = $"{item.Value:C}".Insert(1, " ");
-        }
-            splineDailyExpenseChart.ChartAreas[0].AxisY.LabelStyle.Format = $"{0:C}".Insert(1, " ");
-            splineDailyExpenseChart.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Segoe UI", 8, FontStyle.Bold);
-
-            splineDailyExpenseChart.ChartAreas[0].AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(138, 138, 138);
-            splineDailyExpenseChart.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Segoe UI", 8, FontStyle.Bold);
-            splineDailyExpenseChart.ChartAreas[0].AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(138, 138, 138);
-            splineDailyExpenseChart.Series.Add(series);
-            splineDailyExpenseChart.Invalidate(); // Refresh the chart
-        }
-        */
-
         private void PopulateGunaSplineChart(Budget budget)
         {
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
             var expensesData = dataAccessLayer.GetDailyExpensesUnderBudget(budget);
 
-            // Clear existing data points before adding new ones
             splineDataset1.DataPoints.Clear();
 
             foreach (var item in expensesData)
             {
                 splineDataset1.DataPoints.Add(item.Key.ToString("MMMM d"), item.Value);
             }
-            splineChart.Refresh(); // Refresh the chart to display the new data
-        }
-
-
-
-
-
-
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void doughnutCategoryChart_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gunaChart1_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label27_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void generalProgressBar_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateLabel1_Click(object sender, EventArgs e)
-        {
-
+            splineChart.Refresh(); 
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -497,7 +321,7 @@ namespace Wallet_Manager.Forms
             if (currentRecordPage * recordsPerPage < actualRecordsCount)
             {
                 currentRecordPage++;
-                PopulatePanels(currentBudget); // Assuming currentBudget is accessible
+                PopulatePanels(currentBudget);
             }
         }
 
@@ -510,40 +334,6 @@ namespace Wallet_Manager.Forms
             }
         }
 
-        private void paginationLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splineDailyExpenseChart_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label28_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rpanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void splineChart_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
@@ -552,20 +342,6 @@ namespace Wallet_Manager.Forms
 
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void spentBudgetLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void doughnutCategoryChart_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void editBudgetLabel_Click(object sender, EventArgs e)
         {

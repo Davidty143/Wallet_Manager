@@ -71,7 +71,6 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(615, 721);
             this.guna2CustomGradientPanel1.TabIndex = 0;
-            this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
             // 
             // label7
             // 
@@ -377,7 +376,6 @@
             this.walletComboBox.Name = "walletComboBox";
             this.walletComboBox.Size = new System.Drawing.Size(200, 36);
             this.walletComboBox.TabIndex = 203;
-            this.walletComboBox.SelectedIndexChanged += new System.EventHandler(this.walletComboBox_SelectedIndexChanged_1);
             // 
             // categoryComboBox
             // 
@@ -395,7 +393,6 @@
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(200, 36);
             this.categoryComboBox.TabIndex = 202;
-            this.categoryComboBox.SelectedIndexChanged += new System.EventHandler(this.categoryComboBox_SelectedIndexChanged);
             // 
             // SearchFilter
             // 
@@ -407,7 +404,6 @@
             this.Name = "SearchFilter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SearchFilter";
-            this.Load += new System.EventHandler(this.SearchFilter_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
             this.guna2CustomGradientPanel2.ResumeLayout(false);

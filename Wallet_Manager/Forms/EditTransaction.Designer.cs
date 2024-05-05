@@ -120,7 +120,6 @@
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(520, 544);
             this.guna2CustomGradientPanel2.TabIndex = 0;
-            this.guna2CustomGradientPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel2_Paint);
             // 
             // guna2Button2
             // 
@@ -258,7 +257,6 @@
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(276, 36);
             this.txtCategory.TabIndex = 175;
-            this.txtCategory.SelectedIndexChanged += new System.EventHandler(this.txtCategory_SelectedIndexChanged);
             // 
             // txtAmount
             // 
@@ -342,7 +340,6 @@
             this.txtWallet.Name = "txtWallet";
             this.txtWallet.Size = new System.Drawing.Size(276, 36);
             this.txtWallet.TabIndex = 171;
-            this.txtWallet.SelectedIndexChanged += new System.EventHandler(this.txtWallet_SelectedIndexChanged_1);
             // 
             // txtDate
             // 
@@ -476,7 +473,6 @@
             this.Name = "EditTransaction";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditTransaction";
-            this.Load += new System.EventHandler(this.EditTransaction_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
             this.guna2CustomGradientPanel2.ResumeLayout(false);

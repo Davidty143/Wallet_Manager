@@ -19,7 +19,7 @@ namespace Wallet_Manager.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
@@ -27,12 +27,12 @@ namespace Wallet_Manager.Forms
         public AddExpenseUC()
         {
             InitializeComponent();
-             //this.addTransaction = addTransaction;
             PopulateWalletsComboBox();
             PopulateExpenseCategoryComboBox();
+            txtAmount.MaxLength = 7;
             txtDate.Value = DateTime.Today;
-
             GlobalEvents.TransactionUpdated += PopulateWalletsComboBox;
+            ClearForm();
 
         }
 
@@ -43,7 +43,6 @@ namespace Wallet_Manager.Forms
 
             List<Wallet> wallets = _dataAccessLayer.GetWallets();
 
-            // Convert wallets to a binding-friendly format
             var walletBindingList = wallets.Select(wallet => new
             {
                 Text = $"{wallet.WalletName}",
@@ -85,16 +84,6 @@ namespace Wallet_Manager.Forms
         }
 
 
-        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             this.FindForm().Hide();
@@ -102,14 +91,13 @@ namespace Wallet_Manager.Forms
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            // Parse the amount from the text box
-            if (!float.TryParse(txtAmount.Text, out float amount))
+            if (!float.TryParse(txtAmount.Text, out float amount) || amount <= 0)
             {
                 MessageBox.Show("Please enter a valid number for the amount.");
                 return;
             }
 
-            // Determine the wallet category based on checkbox selection
+
             string walletCategory = checkBoxSpending.Checked ? "Spending" : checkBoxSavings.Checked ? "Savings" : string.Empty;
             if (string.IsNullOrEmpty(walletCategory))
             {
@@ -117,7 +105,6 @@ namespace Wallet_Manager.Forms
                 return;
             }
 
-            // Ensure a category is selected
             if (txtCategory.SelectedItem == null)
             {
                 MessageBox.Show("Please select a category.");
@@ -125,10 +112,9 @@ namespace Wallet_Manager.Forms
             }
             int categoryId = Convert.ToInt32(txtCategory.SelectedValue);
 
-            // Create a new Transaction object
             Transaction newExpense = new Transaction
             {
-                UserID = 1, // Assuming a static user ID for simplicity
+                UserID = GlobalData.GetUserID(),
                 WalletID = Convert.ToInt32(txtWallet.SelectedValue),
                 WalletCategory = walletCategory,
                 TransactionType = "Expense",
@@ -138,11 +124,9 @@ namespace Wallet_Manager.Forms
                 Description = txtDescription.Text
             };
 
-            // Initialize the data access layer
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
 
-            // Check if the wallet has enough balance before adding the expense
             Wallet wallet = dataAccessLayer.GetWallet(newExpense.WalletID);
             if ((walletCategory == "Spending" && wallet.SpendingMoney < amount) ||
                 (walletCategory == "Savings" && wallet.SavingsMoney < amount))
@@ -151,11 +135,9 @@ namespace Wallet_Manager.Forms
                 return;
             }
 
-            // Add the new expense to the database
             bool isExpenseAdded = dataAccessLayer.AddTransaction(newExpense);
             if (isExpenseAdded)
             {
-                // Update the wallet balance
                 if (walletCategory == "Spending")
                 {
                     wallet.SpendingMoney -= amount;
@@ -167,7 +149,6 @@ namespace Wallet_Manager.Forms
 
                 dataAccessLayer.UpdateWallet(wallet);
 
-                // Clear the form and show a success message
                 ClearForm();
                 MessageBox.Show("Expense added successfully!");
                 GlobalEvents.OnTransactionUpdated();
@@ -181,21 +162,7 @@ namespace Wallet_Manager.Forms
         private void guna2Button1_Click_1(object sender, EventArgs e)
         {
             this.FindForm().Hide();
-        }
-
-        private void guna2CustomGradientPanel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtAmount_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDate_ValueChanged(object sender, EventArgs e)
-        {
-
+            ClearForm();
         }
 
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
@@ -227,21 +194,11 @@ namespace Wallet_Manager.Forms
             Guna2TextBox txt = sender as Guna2TextBox;
             if (txt.Text.Length > 17)
             {
-                // If the text exceeds 13 characters, trim it back to 13 characters
-                txt.Text = txt.Text.Substring(0, 17);
-
-                // Optional: Move the cursor to the end of the text
+                txt.Text = txt.Text.Substring(0, 13);
                 txt.SelectionStart = txt.Text.Length;
             }
         }
 
-        private void txtAmount_Leave(object sender, EventArgs e)
-        {
-            if (float.Parse(txtAmount.Text) == 0)
-            {
-                MessageBox.Show("Please enter a valid amount");
-                txtAmount.Text = "";
-            }
-        }
+
     }
 }

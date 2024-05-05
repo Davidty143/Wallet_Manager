@@ -31,11 +31,17 @@
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.txtCategory = new System.Windows.Forms.CheckedListBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.txtEndDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.txtStartDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtPeriod = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtAmount = new Guna.UI2.WinForms.Guna2TextBox();
@@ -45,12 +51,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -72,7 +72,6 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(604, 735);
             this.guna2CustomGradientPanel1.TabIndex = 0;
-            this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
             // 
             // label5
             // 
@@ -116,7 +115,28 @@
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(554, 597);
             this.guna2CustomGradientPanel2.TabIndex = 0;
-            this.guna2CustomGradientPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel2_Paint);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::Wallet_Manager.Properties.Resources.menu;
+            this.pictureBox2.Location = new System.Drawing.Point(31, 319);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 168;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox7.Image = global::Wallet_Manager.Properties.Resources.menu;
+            this.pictureBox7.Location = new System.Drawing.Point(31, 156);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 165;
+            this.pictureBox7.TabStop = false;
             // 
             // label3
             // 
@@ -130,6 +150,17 @@
             this.label3.TabIndex = 149;
             this.label3.Text = "Select Category";
             // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox11.Image = global::Wallet_Manager.Properties.Resources.calendar__1_;
+            this.pictureBox11.Location = new System.Drawing.Point(31, 439);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 167;
+            this.pictureBox11.TabStop = false;
+            // 
             // txtCategory
             // 
             this.txtCategory.BackColor = System.Drawing.SystemColors.Window;
@@ -142,7 +173,17 @@
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(276, 125);
             this.txtCategory.TabIndex = 157;
-            this.txtCategory.SelectedIndexChanged += new System.EventHandler(this.txtCategory_SelectedIndexChanged);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.Image = global::Wallet_Manager.Properties.Resources.edit_info;
+            this.pictureBox6.Location = new System.Drawing.Point(26, 36);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(35, 30);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 166;
+            this.pictureBox6.TabStop = false;
             // 
             // guna2Button1
             // 
@@ -182,6 +223,17 @@
             this.button1.Text = "Add";
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox9.Image = global::Wallet_Manager.Properties.Resources.profit__1_;
+            this.pictureBox9.Location = new System.Drawing.Point(31, 96);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 164;
+            this.pictureBox9.TabStop = false;
+            // 
             // txtEndDate
             // 
             this.txtEndDate.BackColor = System.Drawing.Color.Transparent;
@@ -201,6 +253,17 @@
             this.txtEndDate.Size = new System.Drawing.Size(276, 36);
             this.txtEndDate.TabIndex = 156;
             this.txtEndDate.Value = new System.DateTime(2024, 5, 1, 0, 12, 11, 54);
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox10.Image = global::Wallet_Manager.Properties.Resources.calendar__1_;
+            this.pictureBox10.Location = new System.Drawing.Point(31, 379);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 162;
+            this.pictureBox10.TabStop = false;
             // 
             // txtStartDate
             // 
@@ -290,6 +353,7 @@
             this.txtName.SelectedText = "";
             this.txtName.Size = new System.Drawing.Size(276, 36);
             this.txtName.TabIndex = 152;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // endDateLabel
             // 
@@ -351,72 +415,6 @@
             this.label4.TabIndex = 138;
             this.label4.Text = "Budget Name";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::Wallet_Manager.Properties.Resources.menu;
-            this.pictureBox2.Location = new System.Drawing.Point(31, 319);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 168;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox7.Image = global::Wallet_Manager.Properties.Resources.menu;
-            this.pictureBox7.Location = new System.Drawing.Point(31, 156);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 165;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox11.Image = global::Wallet_Manager.Properties.Resources.calendar__1_;
-            this.pictureBox11.Location = new System.Drawing.Point(31, 439);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 167;
-            this.pictureBox11.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.Image = global::Wallet_Manager.Properties.Resources.edit_info;
-            this.pictureBox6.Location = new System.Drawing.Point(26, 36);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(35, 30);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 166;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox9.Image = global::Wallet_Manager.Properties.Resources.profit__1_;
-            this.pictureBox9.Location = new System.Drawing.Point(31, 96);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 164;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox10.Image = global::Wallet_Manager.Properties.Resources.calendar__1_;
-            this.pictureBox10.Location = new System.Drawing.Point(31, 379);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox10.TabIndex = 162;
-            this.pictureBox10.TabStop = false;
-            // 
             // AddBudget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -427,7 +425,6 @@
             this.Name = "AddBudget";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddBudget";
-            this.Load += new System.EventHandler(this.AddBudget_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
             this.guna2CustomGradientPanel2.ResumeLayout(false);

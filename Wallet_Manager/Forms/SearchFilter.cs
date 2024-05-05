@@ -20,7 +20,7 @@ namespace Wallet_Manager.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
@@ -41,11 +41,6 @@ namespace Wallet_Manager.Forms
             endDatePicker.Value = DateTime.Today;
 
             GlobalEvents.TransactionUpdated += PopulateWalletsComboBox;
-        }
-
-        private void walletComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         public void PopulateWalletCategoryComboBox()
@@ -73,10 +68,10 @@ namespace Wallet_Manager.Forms
                         categories = dataAccessLayer.GetExpenseCategories();
                         break;
                     case "Income":
-                        categories = dataAccessLayer.GetIncomeCategories();  // Assume similar method exists
+                        categories = dataAccessLayer.GetIncomeCategories();
                         break;
                     case "Transfer":
-                        categories = dataAccessLayer.GetTransferCategories();  // Assume similar method exists
+                        categories = dataAccessLayer.GetTransferCategories();
                         break;
                     default:
                         categories = new DataTable();
@@ -84,9 +79,9 @@ namespace Wallet_Manager.Forms
                 }
 
                 DataRow newRow = categories.NewRow();
-                newRow["CategoryId"] = DBNull.Value; // Or use 0 or another special value
+                newRow["CategoryId"] = DBNull.Value;
                 newRow["Name"] = "All";
-                categories.Rows.InsertAt(newRow, 0); // Insert at the top of the list
+                categories.Rows.InsertAt(newRow, 0);
 
                 categoryComboBox.DisplayMember = "Name";
                 categoryComboBox.ValueMember = "CategoryId";
@@ -105,7 +100,6 @@ namespace Wallet_Manager.Forms
 
             List<Wallet> wallets = _dataAccessLayer.GetWallets();
 
-            // Convert wallets to a binding-friendly format
             var walletBindingList = wallets.Select(wallet => new
             {
                 Text = $"{wallet.WalletName}",
@@ -138,12 +132,6 @@ namespace Wallet_Manager.Forms
             return instance;
         }
 
-
-        private void SearchFilter_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void transactionTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             PopulateCategoryComboBox(transactionTypeComboBox.Text);
@@ -152,22 +140,6 @@ namespace Wallet_Manager.Forms
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-        }
-
-        private void walletTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
@@ -187,11 +159,10 @@ namespace Wallet_Manager.Forms
             string wallet = walletComboBox.SelectedValue?.ToString();
             string walletCategory = walletCategoryComboBox.SelectedItem?.ToString();
             DateTime startDate = startDatePicker.Value.Date;
-            DateTime endDate = endDatePicker.Value.Date.AddDays(1); // Include the end date in the search
+            DateTime endDate = endDatePicker.Value.Date.AddDays(1);
 
-            // Call ApplyFilters on the TransactionHistory form
             _transactionHistory.ApplyFilters(transactionType, category, wallet, walletCategory, startDate, endDate);
-            this.Hide(); // Optionally close the SearchFilter form
+            this.Hide();
         }
 
         private void transactionTypeComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -199,14 +170,5 @@ namespace Wallet_Manager.Forms
             PopulateCategoryComboBox(transactionTypeComboBox.Text);
         }
 
-        private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void walletComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

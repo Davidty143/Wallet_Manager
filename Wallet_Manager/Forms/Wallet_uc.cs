@@ -67,16 +67,10 @@ namespace Wallet_Manager.Forms
 
         public static void SetDoubleBuffering(Control control, bool value)
         {
-            // Get the type of the control
             Type controlType = control.GetType();
-
-            // Get the property info for the 'DoubleBuffered' property
             PropertyInfo pi = controlType.GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
-
-            // Set the value of the DoubleBuffered property
             pi?.SetValue(control, value, null);
 
-            // Recursively set DoubleBuffering to true for each child control
             foreach (Control childControl in control.Controls)
             {
                 SetDoubleBuffering(childControl, value);
@@ -92,8 +86,8 @@ namespace Wallet_Manager.Forms
             {
                 walletNameLabel.Text = wallet.WalletName ?? "N/A";
                 walletTypeLabel.Text = wallet.WalletType ?? "N/A";
-                spendingBalanceLabel.Text = wallet.SpendingMoney.ToString("C"); // Assuming currency format
-                savingBalanceLabel.Text = wallet.SavingsMoney.ToString("C"); // Assuming currency format
+                spendingBalanceLabel.Text = wallet.SpendingMoney.ToString("C");
+                savingBalanceLabel.Text = wallet.SavingsMoney.ToString("C"); 
             }
         }
 
@@ -107,14 +101,12 @@ namespace Wallet_Manager.Forms
 
             List<Wallet> wallets = _dataAccessLayer.GetWallets();
 
-            // Convert wallets to a binding-friendly format
             var walletBindingList = wallets.Select(wallet => new
             {
                 Text = wallet.WalletName,
                 Value = wallet.WalletID
             }).ToList();
 
-            // Add an "All" option at the beginning of the list
             walletBindingList.Insert(0, new { Text = "All", Value = 0 });
 
             selectWalletComboBox.DisplayMember = "Text";
@@ -136,12 +128,12 @@ namespace Wallet_Manager.Forms
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
 
             Wallet wallet;
-            if (walletId == 0) // 'All' option selected
+            if (walletId == 0) 
             {
                 wallet = _dataAccessLayer.GetTotalBalancesForAllWallets();
                 walletTypeLabel.Visible = false;
             }
-            else // Specific wallet selected
+            else 
             {
                 wallet = _dataAccessLayer.GetWalletById(walletId);
                 walletTypeLabel.Visible = true;
@@ -177,16 +169,16 @@ namespace Wallet_Manager.Forms
 
         private void LoadCategoryImages()
         {
-            categoryImages = new Image[19]; // Create an array to hold 19 images
+            categoryImages = new Image[19];
             for (int i = 0; i < categoryImages.Length; i++)
             {
-                string imageName = (i + 1).ToString(); // This will generate "1", "2", ..., "19"
+                string imageName = (i + 1).ToString();
                 categoryImages[i] = (Image)Properties.Resources.ResourceManager.GetObject(imageName);
 
                 if (categoryImages[i] == null)
                 {
                     Console.WriteLine($"Image '{imageName}.png' not found for category ID: {i + 1}, using default image.");
-                    categoryImages[i] = Properties.Resources.button_budget_active; // Fallback to a default image
+                    categoryImages[i] = Properties.Resources.button_budget_active; 
                     if (categoryImages[i] == null)
                     {
                         Console.WriteLine("Default image is also not found. Check resource file.");
@@ -241,7 +233,7 @@ namespace Wallet_Manager.Forms
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
 
             List<Transaction> transactions;
-            if (currentWalletID == 0) // Check if 'All' wallets are selected
+            if (currentWalletID == 0)
             {
                 transactions = _dataAccessLayer.GetLastTransactionsForAllWallets(3);
             }
@@ -250,14 +242,13 @@ namespace Wallet_Manager.Forms
                 transactions = _dataAccessLayer.GetTransactionsByWalletId(currentWalletID, 3);
             }
 
-            // Calculate the number of transactions to display (up to 3)
             int numberOfTransactionsToShow = Math.Min(3, transactions.Count);
 
             for (int i = 0; i < transactionPanels.Length; i++)
             {
                 if (i < numberOfTransactionsToShow)
                 {
-                    var transaction = transactions[i]; // Get transaction by index
+                    var transaction = transactions[i];
                     transactionPanels[i].Visible = true;
                     descriptionLabels[i].Text = transaction.Description;
                     categoryLabels[i].Text = _dataAccessLayer.GetCategoryNameById(transaction.CategoryID);
@@ -265,18 +256,18 @@ namespace Wallet_Manager.Forms
                     amountLabels[i].Text = $"₱ {transaction.Amount}";
                     walletNameLabels[i].Text = _dataAccessLayer.GetWalletNameById(transaction.WalletID);
                     dateLabels[i].Text = transaction.Date.ToString("d");
-                    // Check for null PictureBox and Image
+
                     if (categoryPictureBoxes[i] == null)
                     {
                         Console.WriteLine("PictureBox at index " + i + " is null.");
-                        continue; // Skip this iteration
+                        continue; 
                     }
 
-                    int imageIndex = transaction.CategoryID - 1; // Calculate the index
+                    int imageIndex = transaction.CategoryID - 1;
                     if (imageIndex < 0 || categoryImages[imageIndex] == null)
                     {
                         Console.WriteLine("Invalid or missing image for Category ID: " + transaction.CategoryID);
-                        categoryPictureBoxes[i].Image = Properties.Resources.button_budget_active; // Use default image
+                        categoryPictureBoxes[i].Image = Properties.Resources.button_budget_active;
                     }
                     else
                     {
@@ -310,50 +301,12 @@ namespace Wallet_Manager.Forms
                                   entry.Key.Date == DateTime.Today.AddDays(-1) ? "Yesterday" :
                                   entry.Key.ToString("MMMM d");
 
-                gunaBarDataset1.DataPoints.Add(dateText, entry.Value.totalIncome); // totalIncome
-                gunaBarDataset2.DataPoints.Add(dateText, entry.Value.totalExpenses); // totalExpenses
-                gunaBarDataset3.DataPoints.Add(dateText, entry.Value.totalSavings); // totalSavings
+                gunaBarDataset1.DataPoints.Add(dateText, entry.Value.totalIncome);
+                gunaBarDataset2.DataPoints.Add(dateText, entry.Value.totalExpenses);
+                gunaBarDataset3.DataPoints.Add(dateText, entry.Value.totalSavings); 
             }
 
             barChart1.Refresh();
-        }
-
-
-
-
-
-
-
-
-
-
-        private void EditPictureBox_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-
-
-        private void Wallet_uc_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label27_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void selectWalletComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -373,7 +326,6 @@ namespace Wallet_Manager.Forms
             Wallet wallet = _dataAccessLayer.GetWalletById(currentWalletID);
             if (wallet != null)
             {
-                // Open an edit form and pass the wallet object
                 EditWallet editForm = new EditWallet(wallet);
                 editForm.ShowDialog();
                 UpdateWalletDisplay();
@@ -395,7 +347,7 @@ namespace Wallet_Manager.Forms
                 if (success)
                 {
                     MessageBox.Show("Wallet deleted successfully.");
-                    UpdateWalletDisplay(); // Refresh the display
+                    UpdateWalletDisplay();
                     PopulateWalletsComboBox();
                 }
                 else
@@ -405,45 +357,11 @@ namespace Wallet_Manager.Forms
             }
         }
 
-        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             AddWallet addWallet = new AddWallet();
             addWallet.ShowDialog();
-        }
-
-        private void walletLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void walletNameLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void walletTypeLabel_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -457,5 +375,6 @@ namespace Wallet_Manager.Forms
             Dashboard dashboardParent = this.FindForm() as Dashboard;
             dashboardParent.clickSeeAllTransactions();
         }
+
     }
 }

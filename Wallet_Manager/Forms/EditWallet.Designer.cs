@@ -64,7 +64,6 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(598, 687);
             this.guna2CustomGradientPanel1.TabIndex = 0;
-            this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
             // 
             // label7
             // 
@@ -102,7 +101,6 @@
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(542, 451);
             this.guna2CustomGradientPanel2.TabIndex = 141;
-            this.guna2CustomGradientPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel2_Paint);
             // 
             // guna2Button1
             // 
@@ -160,7 +158,6 @@
             this.savingsAmountTextBox.SelectedText = "";
             this.savingsAmountTextBox.Size = new System.Drawing.Size(276, 36);
             this.savingsAmountTextBox.TabIndex = 172;
-            this.savingsAmountTextBox.TextChanged += new System.EventHandler(this.savingsAmountTextBox_TextChanged);
             this.savingsAmountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.savingsAmountTextBox_KeyPress);
             // 
             // spendingAmountTextBox
@@ -203,7 +200,6 @@
             this.walletTypeComboBox.Name = "walletTypeComboBox";
             this.walletTypeComboBox.Size = new System.Drawing.Size(276, 36);
             this.walletTypeComboBox.TabIndex = 170;
-            this.walletTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.walletTypeComboBox_SelectedIndexChanged);
             // 
             // walletNameTextBox
             // 
@@ -307,7 +303,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 162;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // label4
             // 
@@ -332,7 +327,6 @@
             this.Name = "EditWallet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditWallet";
-            this.Load += new System.EventHandler(this.EditWallet_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
             this.guna2CustomGradientPanel2.ResumeLayout(false);

@@ -19,7 +19,7 @@ namespace Wallet_Manager.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
@@ -29,30 +29,12 @@ namespace Wallet_Manager.Forms
             InitializeComponent();
         }
 
-        private void t_login_button_Click(object sender, EventArgs e)   
-        {
-
-        }
 
         private void Signup_Load(object sender, EventArgs e)
         {
             txtPassword.PasswordChar = '*';
         }
 
-        private void txtLastName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cb_show_pass_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
@@ -65,17 +47,16 @@ namespace Wallet_Manager.Forms
             {
                 MessageBox.Show("Please enter a valid Gmail address.");
                 txtEmail.Text = "";
-                return; // Exit the method to prevent further execution
+                return; 
             }
 
             if (!IsValidPassword(password))
             {
                 MessageBox.Show("Please enter at least 8 characters, at least one letter.");
                 txtPassword.Text = "";
-                return; // Exit the method to prevent further execution
+                return; 
             }
 
-            // Perform input validation
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Please fill out all the fields.");
@@ -85,13 +66,11 @@ namespace Wallet_Manager.Forms
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
 
-            // Call a method in your business logic to create the account
             bool signupSuccess = dataAccessLayer.CreateAccount(firstName, lastName, email, password);
 
             if (signupSuccess)
             {
                 MessageBox.Show("Account created successfully. You can now log in.");
-                // Optionally, navigate to the login form
             }
             else
             {
@@ -102,14 +81,12 @@ namespace Wallet_Manager.Forms
 
         public bool IsValidEmail(string email)
         {
-            // Simple regex for email validation
             string emailPattern = @"^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$";
             return Regex.IsMatch(email, emailPattern);
         }
 
         public bool IsValidPassword(string password)
         {
-            // Regex to check if the password has at least 8 characters, at least one letter, and at least one number
             string pattern = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$";
             return Regex.IsMatch(password, pattern);
         }
@@ -124,11 +101,6 @@ namespace Wallet_Manager.Forms
             Login newlogin= new Login();
             newlogin.ShowDialog();
             this.Close();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

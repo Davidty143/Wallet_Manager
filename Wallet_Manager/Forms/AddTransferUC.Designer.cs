@@ -70,7 +70,7 @@
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(74, 378);
+            this.guna2Button1.Location = new System.Drawing.Point(75, 390);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(160, 38);
             this.guna2Button1.TabIndex = 147;
@@ -89,7 +89,7 @@
             this.button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(313, 378);
+            this.button1.Location = new System.Drawing.Point(292, 390);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(160, 38);
             this.button1.TabIndex = 146;
@@ -111,7 +111,7 @@
             this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtDescription.Location = new System.Drawing.Point(197, 309);
+            this.txtDescription.Location = new System.Drawing.Point(198, 308);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.PasswordChar = '\0';
@@ -136,7 +136,7 @@
             this.txtAmount.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtAmount.Location = new System.Drawing.Point(197, 243);
+            this.txtAmount.Location = new System.Drawing.Point(197, 244);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.PasswordChar = '\0';
@@ -157,7 +157,7 @@
             this.ScheckBoxSavings.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
             this.ScheckBoxSavings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ScheckBoxSavings.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ScheckBoxSavings.Location = new System.Drawing.Point(395, 128);
+            this.ScheckBoxSavings.Location = new System.Drawing.Point(395, 129);
             this.ScheckBoxSavings.Name = "ScheckBoxSavings";
             this.ScheckBoxSavings.Size = new System.Drawing.Size(74, 21);
             this.ScheckBoxSavings.TabIndex = 142;
@@ -179,7 +179,7 @@
             this.ScheckBoxSpending.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
             this.ScheckBoxSpending.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ScheckBoxSpending.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ScheckBoxSpending.Location = new System.Drawing.Point(287, 128);
+            this.ScheckBoxSpending.Location = new System.Drawing.Point(287, 129);
             this.ScheckBoxSpending.Name = "ScheckBoxSpending";
             this.ScheckBoxSpending.Size = new System.Drawing.Size(85, 21);
             this.ScheckBoxSpending.TabIndex = 141;
@@ -311,7 +311,6 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(502, 463);
             this.guna2CustomGradientPanel1.TabIndex = 1;
-            this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint_1);
             // 
             // pictureBox1
             // 
@@ -378,7 +377,7 @@
             this.DcheckBoxSavings.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
             this.DcheckBoxSavings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DcheckBoxSavings.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DcheckBoxSavings.Location = new System.Drawing.Point(395, 205);
+            this.DcheckBoxSavings.Location = new System.Drawing.Point(395, 206);
             this.DcheckBoxSavings.Name = "DcheckBoxSavings";
             this.DcheckBoxSavings.Size = new System.Drawing.Size(74, 21);
             this.DcheckBoxSavings.TabIndex = 155;
@@ -400,7 +399,7 @@
             this.DcheckBoxSpending.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
             this.DcheckBoxSpending.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DcheckBoxSpending.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DcheckBoxSpending.Location = new System.Drawing.Point(287, 205);
+            this.DcheckBoxSpending.Location = new System.Drawing.Point(287, 206);
             this.DcheckBoxSpending.Name = "DcheckBoxSpending";
             this.DcheckBoxSpending.Size = new System.Drawing.Size(85, 21);
             this.DcheckBoxSpending.TabIndex = 154;

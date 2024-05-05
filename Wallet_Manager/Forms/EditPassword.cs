@@ -29,11 +29,6 @@ namespace Wallet_Manager.Forms
             InitializeComponent();
         }
 
-        private void EditPassword_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void updatePass_Click(object sender, EventArgs e)
         {
 

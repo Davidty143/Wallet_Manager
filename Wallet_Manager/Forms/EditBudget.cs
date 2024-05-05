@@ -20,7 +20,7 @@ namespace Wallet_Manager.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
@@ -62,24 +62,18 @@ namespace Wallet_Manager.Forms
 
         private void PopulatePeriodTypes()
         {
-            // Clear existing items if any
             txtPeriod.Items.Clear();
-
-            // Add period type choices
-
             txtPeriod.Items.Add("Daily");
             txtPeriod.Items.Add("Weekly");
             txtPeriod.Items.Add("Monthly");
             txtPeriod.Items.Add("Custom");
 
 
-            // Optionally set a default value
-            txtPeriod.SelectedIndex = 0;  // Sets the first item as the default selected item
+            txtPeriod.SelectedIndex = 0; 
         }
 
         private void UpdateDateVisibility()
         {
-            // Hide the date pickers unless 'Custom' is selected
             bool isCustom = txtPeriod.SelectedItem.ToString() == "Custom";
             txtStartDate.Visible = isCustom;
             txtEndDate.Visible = isCustom;
@@ -110,44 +104,39 @@ namespace Wallet_Manager.Forms
                 CategoryIds = new List<int>()
             };
 
-            // Set the start and end dates based on the period type
             switch (budget.PeriodType)
             {
                 case "Daily":
-                    budget.StartDate = DateTime.Today; // Start of the day at 00:00
-                    budget.EndDate = DateTime.Today.AddDays(1).AddTicks(-1); // End of the day at 23:59:59.9999999
+                    budget.StartDate = DateTime.Today;
+                    budget.EndDate = DateTime.Today.AddDays(1).AddTicks(-1); 
                     break;
 
                 case "Weekly":
-                    budget.StartDate = DateTime.Today; // Start of the week at 00:00
-                    budget.EndDate = DateTime.Today.AddDays(7).AddTicks(-1); // End of the week at 23:59:59.9999999
+                    budget.StartDate = DateTime.Today;
+                    budget.EndDate = DateTime.Today.AddDays(7).AddTicks(-1);
                     break;
 
                 case "Monthly":
-                    budget.StartDate = DateTime.Today; // Start of the month at 00:00
-                    budget.EndDate = DateTime.Today.AddMonths(1).AddTicks(-1); // End of the month at 23:59:59.9999999
+                    budget.StartDate = DateTime.Today; 
+                    budget.EndDate = DateTime.Today.AddMonths(1).AddTicks(-1); 
                     break;
 
                 case "Custom":
-                    // Set the start date to the beginning of the selected day
                     budget.StartDate = txtStartDate.Value.Date;
 
-                    // Set the end date to the end of the selected day
                     budget.EndDate = txtEndDate.Value.Date.AddHours(23).AddMinutes(59);
                     break;
 
             }
 
-            // Determine if the budget is currently active
             budget.IsActive = DateTime.Today >= budget.StartDate && DateTime.Today <= budget.EndDate;
 
-            // Collect category IDs from the CheckedListBox
             foreach (int index in txtCategory.CheckedIndices)
             {
-                var category = categoryList[index]; // Directly access by index if aligned with CheckedListBox items
+                var category = categoryList[index]; 
                 if (category != null)
                 {
-                    budget.CategoryIds.Add(category.CategoryID); // Use the Id property of the Category class
+                    budget.CategoryIds.Add(category.CategoryID);
                 }
                 else
                 {
@@ -164,35 +153,29 @@ namespace Wallet_Manager.Forms
 
         private bool ValidateBudget(Budget budget)
         {
-            // Check if the budget name is provided
             if (string.IsNullOrWhiteSpace(budget.BudgetName))
             {
                 MessageBox.Show("Budget name cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            // Check if the total amount is positive
             if (budget.TotalAmount <= 0)
             {
                 MessageBox.Show("Total amount must be greater than zero.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            // Check if at least one category is selected
             if (budget.CategoryIds == null || budget.CategoryIds.Count == 0)
             {
                 MessageBox.Show("At least one category must be selected.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            // Check if the start date is before the end date
             if (budget.StartDate >= budget.EndDate)
             {
                 MessageBox.Show("Start date must be before the end date.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-
-            // Additional check for period types that should not have a custom range
             if (budget.PeriodType != "Custom")
             {
                 DateTime expectedEndDate = DateTime.Today;
@@ -215,8 +198,6 @@ namespace Wallet_Manager.Forms
                     return false;
                 }
             }
-
-            // If all checks pass
             return true;
         }
 
@@ -237,28 +218,6 @@ namespace Wallet_Manager.Forms
                 }
             }
         }
-
-
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Budget budget = CollectBudgetData();

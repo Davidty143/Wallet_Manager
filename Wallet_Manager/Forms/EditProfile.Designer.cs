@@ -247,7 +247,6 @@
             this.Controls.Add(this.txtFirstName);
             this.Name = "EditProfile";
             this.Size = new System.Drawing.Size(709, 717);
-            this.Load += new System.EventHandler(this.EditProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

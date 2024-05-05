@@ -233,7 +233,6 @@
             this.panel1.Controls.Add(this.pageLabel);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // displayName
             // 
@@ -241,7 +240,6 @@
             resources.ApplyResources(this.displayName, "displayName");
             this.displayName.ForeColor = System.Drawing.Color.Black;
             this.displayName.Name = "displayName";
-            this.displayName.Click += new System.EventHandler(this.displayName_Click);
             // 
             // profilePicture
             // 
@@ -250,14 +248,12 @@
             this.profilePicture.Name = "profilePicture";
             this.profilePicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.profilePicture.TabStop = false;
-            this.profilePicture.Click += new System.EventHandler(this.profilePicture_Click);
             // 
             // pageLabel
             // 
             resources.ApplyResources(this.pageLabel, "pageLabel");
             this.pageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.pageLabel.Name = "pageLabel";
-            this.pageLabel.Click += new System.EventHandler(this.pageLabel_Click);
             // 
             // display_panel
             // 
@@ -268,7 +264,6 @@
             resources.ApplyResources(this.display_panel, "display_panel");
             this.display_panel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.display_panel.Name = "display_panel";
-            this.display_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.display_panel_Paint);
             // 
             // guna2AnimateWindow1
             // 

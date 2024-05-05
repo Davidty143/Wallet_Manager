@@ -105,7 +105,6 @@
             this.txtType.Name = "txtType";
             this.txtType.Size = new System.Drawing.Size(276, 36);
             this.txtType.TabIndex = 156;
-            this.txtType.SelectedIndexChanged += new System.EventHandler(this.txtType_SelectedIndexChanged);
             // 
             // txtName
             // 
@@ -166,7 +165,6 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(601, 652);
             this.guna2CustomGradientPanel1.TabIndex = 1;
-            this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint_1);
             // 
             // label7
             // 
@@ -204,7 +202,6 @@
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(535, 441);
             this.guna2CustomGradientPanel2.TabIndex = 141;
-            this.guna2CustomGradientPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel2_Paint);
             // 
             // savingsAmountTextBox
             // 
@@ -229,7 +226,6 @@
             this.savingsAmountTextBox.Size = new System.Drawing.Size(276, 36);
             this.savingsAmountTextBox.TabIndex = 178;
             this.savingsAmountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.savingsAmountTextBox_KeyPress);
-            this.savingsAmountTextBox.Leave += new System.EventHandler(this.savingsAmountTextBox_Leave);
             // 
             // spendingAmountTextBox
             // 
@@ -253,7 +249,6 @@
             this.spendingAmountTextBox.SelectedText = "";
             this.spendingAmountTextBox.Size = new System.Drawing.Size(276, 36);
             this.spendingAmountTextBox.TabIndex = 177;
-            this.spendingAmountTextBox.TextChanged += new System.EventHandler(this.spendingAmountTextBox_TextChanged);
             this.spendingAmountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.spendingAmountTextBox_KeyPress);
             // 
             // pictureBox4
@@ -312,7 +307,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 149;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox3
             // 
@@ -335,7 +329,6 @@
             this.Name = "AddWallet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddWallet";
-            this.Load += new System.EventHandler(this.AddWallet_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
             this.guna2CustomGradientPanel2.ResumeLayout(false);

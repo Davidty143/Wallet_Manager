@@ -18,7 +18,7 @@ namespace Wallet_Manager.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
@@ -26,7 +26,6 @@ namespace Wallet_Manager.Forms
         public AddTransaction()
         {
             InitializeComponent();
-            //addIncomeUC1.BringToFront();
         }
 
         private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
@@ -39,66 +38,20 @@ namespace Wallet_Manager.Forms
             this.Hide();
         }
 
-        private void guna2GradientButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2GradientButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2GradientButton3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addIncomeUC1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void addIncomeUC1_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addTransferUC1_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addIncomeUC1_Load_2(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2GradientButton1_Click_1(object sender, EventArgs e)
         {
             if (page != 1)
             {
                 page = 1;
-               // addIncomeUC1.BringToFront();
             }
         }
 
-        private void guna2CustomGradientPanel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void guna2GradientButton3_Click_1(object sender, EventArgs e)
         {
             if (page != 3)
             {
                 page = 3;
-                //addTransferUC1.BringToFront();
             }
         }
 
@@ -107,13 +60,7 @@ namespace Wallet_Manager.Forms
             if (page != 2)
             {
                 page = 2;
-                //addExpenseUC1.BringToFront();
             }
-        }
-
-        private void guna2CustomGradientPanel2_Paint_1(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void button_income_Click(object sender, EventArgs e)
@@ -211,14 +158,5 @@ namespace Wallet_Manager.Forms
             button_income.Cursor = Cursors.Hand;
         }
 
-        private void addIncomeUC1_Load_3(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addIncomeUC1_Load_4(object sender, EventArgs e)
-        {
-
-        }
     }
 }
