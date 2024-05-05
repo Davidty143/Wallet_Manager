@@ -254,7 +254,7 @@ namespace Wallet_Manager.Forms
                     categoryLabels[i].Text = _dataAccessLayer.GetCategoryNameById(transaction.CategoryID);
                     transactionTypeLabels[i].Text = transaction.TransactionType;
                     amountLabels[i].Text = $"₱ {transaction.Amount}";
-                    walletNameLabels[i].Text = _dataAccessLayer.GetWalletNameById(transaction.WalletID);
+                    walletNameLabels[i].Text = _dataAccessLayer.GetWalletNameById(transaction.WalletID) + " - " + transaction.WalletCategory.ToString();
                     dateLabels[i].Text = transaction.Date.ToString("d");
 
                     if (categoryPictureBoxes[i] == null)
@@ -376,5 +376,19 @@ namespace Wallet_Manager.Forms
             dashboardParent.clickSeeAllTransactions();
         }
 
+        private void walletLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void amountLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void walletLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

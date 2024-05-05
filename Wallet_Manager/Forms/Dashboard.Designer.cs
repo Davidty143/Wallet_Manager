@@ -33,6 +33,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.button_signout = new Guna.UI2.WinForms.Guna2Button();
             this.button_profile = new Guna.UI2.WinForms.Guna2Button();
             this.button_budget = new Guna.UI2.WinForms.Guna2Button();
@@ -40,19 +42,17 @@
             this.button_transaction = new Guna.UI2.WinForms.Guna2Button();
             this.button_wallet = new Guna.UI2.WinForms.Guna2Button();
             this.button_dashboard = new Guna.UI2.WinForms.Guna2Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.displayName = new System.Windows.Forms.Label();
             this.profilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.pageLabel = new System.Windows.Forms.Label();
             this.display_panel = new System.Windows.Forms.Panel();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.display_panel.SuspendLayout();
+            this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -90,6 +90,18 @@
             this.panel4.Controls.Add(this.button_dashboard);
             resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Name = "label2";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Name = "label1";
             // 
             // button_signout
             // 
@@ -225,24 +237,18 @@
             this.button_dashboard.PressedColor = System.Drawing.Color.White;
             this.button_dashboard.Click += new System.EventHandler(this.button_dashboard_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.displayName);
-            this.panel1.Controls.Add(this.profilePicture);
-            this.panel1.Controls.Add(this.pageLabel);
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Name = "panel1";
-            // 
             // displayName
             // 
             this.displayName.AutoEllipsis = true;
             resources.ApplyResources(this.displayName, "displayName");
+            this.displayName.BackColor = System.Drawing.Color.White;
             this.displayName.ForeColor = System.Drawing.Color.Black;
             this.displayName.Name = "displayName";
+            this.displayName.Click += new System.EventHandler(this.displayName_Click);
             // 
             // profilePicture
             // 
+            this.profilePicture.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.profilePicture, "profilePicture");
             this.profilePicture.ImageRotate = 0F;
             this.profilePicture.Name = "profilePicture";
@@ -252,13 +258,14 @@
             // pageLabel
             // 
             resources.ApplyResources(this.pageLabel, "pageLabel");
+            this.pageLabel.BackColor = System.Drawing.Color.White;
             this.pageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.pageLabel.Name = "pageLabel";
             // 
             // display_panel
             // 
             this.display_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.display_panel.Controls.Add(this.panel1);
+            this.display_panel.Controls.Add(this.guna2CustomGradientPanel1);
             this.display_panel.Controls.Add(this.panel4);
             this.display_panel.Controls.Add(this.panel3);
             resources.ApplyResources(this.display_panel, "display_panel");
@@ -270,17 +277,13 @@
             this.guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_VER_POSITIVE;
             this.guna2AnimateWindow1.TargetForm = this;
             // 
-            // label1
+            // guna2CustomGradientPanel1
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Name = "label1";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Name = "label2";
+            this.guna2CustomGradientPanel1.Controls.Add(this.pageLabel);
+            this.guna2CustomGradientPanel1.Controls.Add(this.displayName);
+            this.guna2CustomGradientPanel1.Controls.Add(this.profilePicture);
+            resources.ApplyResources(this.guna2CustomGradientPanel1, "guna2CustomGradientPanel1");
+            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             // 
             // Dashboard
             // 
@@ -295,17 +298,16 @@
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.display_panel.ResumeLayout(false);
+            this.guna2CustomGradientPanel1.ResumeLayout(false);
+            this.guna2CustomGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Panel display_panel;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label displayName;
         private Guna.UI2.WinForms.Guna2CirclePictureBox profilePicture;
         private System.Windows.Forms.Label pageLabel;
@@ -322,5 +324,6 @@
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
     }
 }

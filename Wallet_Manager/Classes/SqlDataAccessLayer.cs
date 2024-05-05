@@ -933,6 +933,7 @@ namespace Wallet_Manager.Classes
                             TransactionID = reader.GetInt32("TransactionID"),
                             WalletID = reader.GetInt32("WalletID"),
                             CategoryID = reader.GetInt32("CategoryID"),
+                            WalletCategory = reader.GetString("WalletCategory"),
                             Amount = reader.GetFloat("Amount"),
                             Description = reader.GetString("Description"),
                             TransactionType = reader.GetString("TransactionType"),

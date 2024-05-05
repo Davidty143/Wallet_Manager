@@ -31,6 +31,7 @@ namespace Wallet_Manager.Forms
             PopulateWalletTypes();
             spendingAmountTextBox.MaxLength = 7;
             savingsAmountTextBox.MaxLength = 7;
+            txtName.MaxLength = 13;
 
 
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";

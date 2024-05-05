@@ -332,5 +332,10 @@ namespace Wallet_Manager.Forms
             Program.ShowLoginForm();
             this.Close();
         }
+
+        private void displayName_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
