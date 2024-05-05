@@ -1928,19 +1928,19 @@ namespace Wallet_Manager.Classes
             return summary;
         }
 
-        public Dictionary<string, float> GetExpenseCategoriesLast7Days(int walletId)
+        public SortedDictionary<string, float> GetExpenseCategoriesLast7Days(int walletId)
         {
-            var expenses = new Dictionary<string, float>();
+            var expenses = new SortedDictionary<string, float>();
 
             using (var connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
                 string baseQuery = @"
-            SELECT c.Name AS CategoryName, SUM(t.Amount) AS TotalAmount
-            FROM Transaction t
-            JOIN Category c ON t.CategoryID = c.CategoryId
-            WHERE t.TransactionType = 'Expense' AND t.Date >= CURDATE() - INTERVAL 6 DAY
-        ";
+        SELECT c.Name AS CategoryName, SUM(t.Amount) AS TotalAmount
+        FROM Transaction t
+        JOIN Category c ON t.CategoryID = c.CategoryId
+        WHERE t.TransactionType = 'Expense' AND t.Date >= CURDATE() - INTERVAL 6 DAY
+    ";
 
                 if (walletId != 0)
                 {
@@ -1948,7 +1948,6 @@ namespace Wallet_Manager.Classes
                 }
                 baseQuery += " AND UserID = @UserID";
                 baseQuery += " GROUP BY c.Name;";
-               
 
                 using (var command = new MySqlCommand(baseQuery, connection))
                 {
@@ -1974,19 +1973,20 @@ namespace Wallet_Manager.Classes
         }
 
 
-        public Dictionary<string, float> GetExpenseCategoriesLast30Days(int walletId)
+
+        public SortedDictionary<string, float> GetExpenseCategoriesLast30Days(int walletId)
         {
-            var expenses = new Dictionary<string, float>();
+            var expenses = new SortedDictionary<string, float>();
 
             using (var connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
                 string baseQuery = @"
-            SELECT c.Name AS CategoryName, SUM(t.Amount) AS TotalAmount
-            FROM Transaction t
-            JOIN Category c ON t.CategoryID = c.CategoryId
-            WHERE t.TransactionType = 'Expense' AND t.Date >= CURDATE() - INTERVAL 29 DAY
-        ";
+        SELECT c.Name AS CategoryName, SUM(t.Amount) AS TotalAmount
+        FROM Transaction t
+        JOIN Category c ON t.CategoryID = c.CategoryId
+        WHERE t.TransactionType = 'Expense' AND t.Date >= CURDATE() - INTERVAL 29 DAY
+    ";
 
                 if (walletId != 0)
                 {
@@ -1994,9 +1994,7 @@ namespace Wallet_Manager.Classes
                 }
 
                 baseQuery += " AND UserID = @UserID";
-
                 baseQuery += " GROUP BY c.Name;";
-                
 
                 using (var command = new MySqlCommand(baseQuery, connection))
                 {
@@ -2024,30 +2022,26 @@ namespace Wallet_Manager.Classes
 
 
 
-        public Dictionary<string, float> GetExpenseCategoriesLastYear(int walletId)
+        public SortedDictionary<string, float> GetExpenseCategoriesLastYear(int walletId)
         {
-            var expenses = new Dictionary<string, float>();
+            var expenses = new SortedDictionary<string, float>();
 
             using (var connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
                 string baseQuery = @"
-            SELECT c.Name AS CategoryName, SUM(t.Amount) AS TotalAmount
-            FROM Transaction t
-            JOIN Category c ON t.CategoryID = c.CategoryId
-            WHERE t.TransactionType = 'Expense' AND t.Date >= CURDATE() - INTERVAL 365 DAY
-        ";
+        SELECT c.Name AS CategoryName, SUM(t.Amount) AS TotalAmount
+        FROM Transaction t
+        JOIN Category c ON t.CategoryID = c.CategoryId
+        WHERE t.TransactionType = 'Expense' AND t.Date >= CURDATE() - INTERVAL 365 DAY
+    ";
 
-                // Modify the query based on the wallet ID
                 if (walletId != 0)
                 {
                     baseQuery += " AND t.WalletID = @WalletID";
                 }
                 baseQuery += " AND UserID = @UserID";
-
                 baseQuery += " GROUP BY c.Name;";
-
-                
 
                 using (var command = new MySqlCommand(baseQuery, connection))
                 {
@@ -2071,6 +2065,7 @@ namespace Wallet_Manager.Classes
 
             return expenses;
         }
+
 
         public SortedDictionary<DateTime, float> CalculateNetWorthOver7Days()
         {

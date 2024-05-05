@@ -39,7 +39,6 @@
             this.walletNameLabel6 = new System.Windows.Forms.Label();
             this.amountLabel6 = new System.Windows.Forms.Label();
             this.walletType6 = new System.Windows.Forms.Label();
-            this.categoryPictureBox6 = new System.Windows.Forms.PictureBox();
             this.deleteLabel6 = new System.Windows.Forms.Label();
             this.descriptionLabel6 = new System.Windows.Forms.Label();
             this.editLabel6 = new System.Windows.Forms.Label();
@@ -51,7 +50,6 @@
             this.walletNameLabel5 = new System.Windows.Forms.Label();
             this.amountLabel5 = new System.Windows.Forms.Label();
             this.walletType5 = new System.Windows.Forms.Label();
-            this.categoryPictureBox5 = new System.Windows.Forms.PictureBox();
             this.deleteLabel5 = new System.Windows.Forms.Label();
             this.descriptionLabel5 = new System.Windows.Forms.Label();
             this.editLabel5 = new System.Windows.Forms.Label();
@@ -63,7 +61,6 @@
             this.walletNameLabel4 = new System.Windows.Forms.Label();
             this.amountLabel4 = new System.Windows.Forms.Label();
             this.walletType4 = new System.Windows.Forms.Label();
-            this.categoryPictureBox4 = new System.Windows.Forms.PictureBox();
             this.deleteLabel4 = new System.Windows.Forms.Label();
             this.descriptionLabel4 = new System.Windows.Forms.Label();
             this.editLabel4 = new System.Windows.Forms.Label();
@@ -75,19 +72,16 @@
             this.walletNameLabel3 = new System.Windows.Forms.Label();
             this.amountLabel3 = new System.Windows.Forms.Label();
             this.walletType3 = new System.Windows.Forms.Label();
-            this.categoryPictureBox3 = new System.Windows.Forms.PictureBox();
             this.deleteLabel3 = new System.Windows.Forms.Label();
             this.descriptionLabel3 = new System.Windows.Forms.Label();
             this.editLabel3 = new System.Windows.Forms.Label();
             this.categoryLabel3 = new System.Windows.Forms.Label();
             this.dateLabel3 = new System.Windows.Forms.Label();
             this.transactionTypeLabel3 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.walletNameLabel2 = new System.Windows.Forms.Label();
             this.amountLabel2 = new System.Windows.Forms.Label();
             this.walletType2 = new System.Windows.Forms.Label();
-            this.categoryPictureBox2 = new System.Windows.Forms.PictureBox();
             this.deleteLabel2 = new System.Windows.Forms.Label();
             this.descriptionLabel2 = new System.Windows.Forms.Label();
             this.editLabel2 = new System.Windows.Forms.Label();
@@ -99,7 +93,6 @@
             this.walletNameLabel1 = new System.Windows.Forms.Label();
             this.amountLabel1 = new System.Windows.Forms.Label();
             this.walletType1 = new System.Windows.Forms.Label();
-            this.categoryPictureBox1 = new System.Windows.Forms.PictureBox();
             this.deleteLabel1 = new System.Windows.Forms.Label();
             this.descriptionLabel1 = new System.Windows.Forms.Label();
             this.editLabel1 = new System.Windows.Forms.Label();
@@ -109,19 +102,26 @@
             this.labelPrev = new System.Windows.Forms.Label();
             this.labelNext = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.categoryPictureBox6 = new System.Windows.Forms.PictureBox();
+            this.categoryPictureBox5 = new System.Windows.Forms.PictureBox();
+            this.categoryPictureBox4 = new System.Windows.Forms.PictureBox();
+            this.categoryPictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.categoryPictureBox2 = new System.Windows.Forms.PictureBox();
+            this.categoryPictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox6)).BeginInit();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox5)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox4)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox2)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -280,18 +280,6 @@
             this.walletType6.TabIndex = 294;
             this.walletType6.Text = "Spending";
             // 
-            // categoryPictureBox6
-            // 
-            this.categoryPictureBox6.BackColor = System.Drawing.Color.White;
-            this.categoryPictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("categoryPictureBox6.Image")));
-            this.categoryPictureBox6.Location = new System.Drawing.Point(36, 12);
-            this.categoryPictureBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.categoryPictureBox6.Name = "categoryPictureBox6";
-            this.categoryPictureBox6.Size = new System.Drawing.Size(60, 60);
-            this.categoryPictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.categoryPictureBox6.TabIndex = 285;
-            this.categoryPictureBox6.TabStop = false;
-            // 
             // deleteLabel6
             // 
             this.deleteLabel6.AutoSize = true;
@@ -364,7 +352,7 @@
             this.transactionTypeLabel6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.transactionTypeLabel6.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transactionTypeLabel6.ForeColor = System.Drawing.Color.Black;
-            this.transactionTypeLabel6.Location = new System.Drawing.Point(337, 19);
+            this.transactionTypeLabel6.Location = new System.Drawing.Point(360, 19);
             this.transactionTypeLabel6.Name = "transactionTypeLabel6";
             this.transactionTypeLabel6.Size = new System.Drawing.Size(99, 31);
             this.transactionTypeLabel6.TabIndex = 289;
@@ -377,7 +365,7 @@
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(590, 41);
+            this.label5.Location = new System.Drawing.Point(612, 41);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 23);
             this.label5.TabIndex = 302;
@@ -441,18 +429,6 @@
             this.walletType5.Size = new System.Drawing.Size(82, 23);
             this.walletType5.TabIndex = 294;
             this.walletType5.Text = "Spending";
-            // 
-            // categoryPictureBox5
-            // 
-            this.categoryPictureBox5.BackColor = System.Drawing.Color.White;
-            this.categoryPictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("categoryPictureBox5.Image")));
-            this.categoryPictureBox5.Location = new System.Drawing.Point(36, 12);
-            this.categoryPictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.categoryPictureBox5.Name = "categoryPictureBox5";
-            this.categoryPictureBox5.Size = new System.Drawing.Size(60, 60);
-            this.categoryPictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.categoryPictureBox5.TabIndex = 285;
-            this.categoryPictureBox5.TabStop = false;
             // 
             // deleteLabel5
             // 
@@ -526,7 +502,7 @@
             this.transactionTypeLabel5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.transactionTypeLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transactionTypeLabel5.ForeColor = System.Drawing.Color.Black;
-            this.transactionTypeLabel5.Location = new System.Drawing.Point(337, 19);
+            this.transactionTypeLabel5.Location = new System.Drawing.Point(360, 19);
             this.transactionTypeLabel5.Name = "transactionTypeLabel5";
             this.transactionTypeLabel5.Size = new System.Drawing.Size(99, 31);
             this.transactionTypeLabel5.TabIndex = 289;
@@ -539,7 +515,7 @@
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(350, 41);
+            this.label6.Location = new System.Drawing.Point(370, 41);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(138, 23);
             this.label6.TabIndex = 303;
@@ -603,18 +579,6 @@
             this.walletType4.Size = new System.Drawing.Size(82, 23);
             this.walletType4.TabIndex = 294;
             this.walletType4.Text = "Spending";
-            // 
-            // categoryPictureBox4
-            // 
-            this.categoryPictureBox4.BackColor = System.Drawing.Color.White;
-            this.categoryPictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("categoryPictureBox4.Image")));
-            this.categoryPictureBox4.Location = new System.Drawing.Point(36, 12);
-            this.categoryPictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.categoryPictureBox4.Name = "categoryPictureBox4";
-            this.categoryPictureBox4.Size = new System.Drawing.Size(60, 60);
-            this.categoryPictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.categoryPictureBox4.TabIndex = 285;
-            this.categoryPictureBox4.TabStop = false;
             // 
             // deleteLabel4
             // 
@@ -688,7 +652,7 @@
             this.transactionTypeLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.transactionTypeLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transactionTypeLabel4.ForeColor = System.Drawing.Color.Black;
-            this.transactionTypeLabel4.Location = new System.Drawing.Point(337, 19);
+            this.transactionTypeLabel4.Location = new System.Drawing.Point(360, 19);
             this.transactionTypeLabel4.Name = "transactionTypeLabel4";
             this.transactionTypeLabel4.Size = new System.Drawing.Size(99, 31);
             this.transactionTypeLabel4.TabIndex = 289;
@@ -766,18 +730,6 @@
             this.walletType3.TabIndex = 294;
             this.walletType3.Text = "Spending";
             // 
-            // categoryPictureBox3
-            // 
-            this.categoryPictureBox3.BackColor = System.Drawing.Color.White;
-            this.categoryPictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("categoryPictureBox3.Image")));
-            this.categoryPictureBox3.Location = new System.Drawing.Point(36, 12);
-            this.categoryPictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.categoryPictureBox3.Name = "categoryPictureBox3";
-            this.categoryPictureBox3.Size = new System.Drawing.Size(60, 60);
-            this.categoryPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.categoryPictureBox3.TabIndex = 285;
-            this.categoryPictureBox3.TabStop = false;
-            // 
             // deleteLabel3
             // 
             this.deleteLabel3.AutoSize = true;
@@ -850,25 +802,11 @@
             this.transactionTypeLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.transactionTypeLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transactionTypeLabel3.ForeColor = System.Drawing.Color.Black;
-            this.transactionTypeLabel3.Location = new System.Drawing.Point(337, 19);
+            this.transactionTypeLabel3.Location = new System.Drawing.Point(360, 19);
             this.transactionTypeLabel3.Name = "transactionTypeLabel3";
             this.transactionTypeLabel3.Size = new System.Drawing.Size(99, 31);
             this.transactionTypeLabel3.TabIndex = 289;
             this.transactionTypeLabel3.Text = "Expense";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.White;
-            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox7.Image = global::Wallet_Manager.Properties.Resources.add_purple;
-            this.pictureBox7.Location = new System.Drawing.Point(616, 695);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 306;
-            this.pictureBox7.TabStop = false;
-            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click_1);
             // 
             // panel2
             // 
@@ -928,18 +866,6 @@
             this.walletType2.Size = new System.Drawing.Size(82, 23);
             this.walletType2.TabIndex = 294;
             this.walletType2.Text = "Spending";
-            // 
-            // categoryPictureBox2
-            // 
-            this.categoryPictureBox2.BackColor = System.Drawing.Color.White;
-            this.categoryPictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("categoryPictureBox2.Image")));
-            this.categoryPictureBox2.Location = new System.Drawing.Point(36, 12);
-            this.categoryPictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.categoryPictureBox2.Name = "categoryPictureBox2";
-            this.categoryPictureBox2.Size = new System.Drawing.Size(60, 60);
-            this.categoryPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.categoryPictureBox2.TabIndex = 285;
-            this.categoryPictureBox2.TabStop = false;
             // 
             // deleteLabel2
             // 
@@ -1013,7 +939,7 @@
             this.transactionTypeLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.transactionTypeLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transactionTypeLabel2.ForeColor = System.Drawing.Color.Black;
-            this.transactionTypeLabel2.Location = new System.Drawing.Point(337, 19);
+            this.transactionTypeLabel2.Location = new System.Drawing.Point(360, 19);
             this.transactionTypeLabel2.Name = "transactionTypeLabel2";
             this.transactionTypeLabel2.Size = new System.Drawing.Size(99, 31);
             this.transactionTypeLabel2.TabIndex = 289;
@@ -1091,18 +1017,6 @@
             this.walletType1.TabIndex = 294;
             this.walletType1.Text = "Spending";
             // 
-            // categoryPictureBox1
-            // 
-            this.categoryPictureBox1.BackColor = System.Drawing.Color.White;
-            this.categoryPictureBox1.Image = global::Wallet_Manager.Properties.Resources._9;
-            this.categoryPictureBox1.Location = new System.Drawing.Point(36, 12);
-            this.categoryPictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.categoryPictureBox1.Name = "categoryPictureBox1";
-            this.categoryPictureBox1.Size = new System.Drawing.Size(60, 60);
-            this.categoryPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.categoryPictureBox1.TabIndex = 285;
-            this.categoryPictureBox1.TabStop = false;
-            // 
             // deleteLabel1
             // 
             this.deleteLabel1.AutoSize = true;
@@ -1175,7 +1089,7 @@
             this.transactionTypeLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.transactionTypeLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transactionTypeLabel1.ForeColor = System.Drawing.Color.Black;
-            this.transactionTypeLabel1.Location = new System.Drawing.Point(337, 19);
+            this.transactionTypeLabel1.Location = new System.Drawing.Point(360, 19);
             this.transactionTypeLabel1.Name = "transactionTypeLabel1";
             this.transactionTypeLabel1.Size = new System.Drawing.Size(99, 31);
             this.transactionTypeLabel1.TabIndex = 289;
@@ -1221,6 +1135,92 @@
             this.label11.TabIndex = 301;
             this.label11.Text = "Recent Transactions";
             // 
+            // categoryPictureBox6
+            // 
+            this.categoryPictureBox6.BackColor = System.Drawing.Color.White;
+            this.categoryPictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("categoryPictureBox6.Image")));
+            this.categoryPictureBox6.Location = new System.Drawing.Point(36, 12);
+            this.categoryPictureBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.categoryPictureBox6.Name = "categoryPictureBox6";
+            this.categoryPictureBox6.Size = new System.Drawing.Size(60, 60);
+            this.categoryPictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.categoryPictureBox6.TabIndex = 285;
+            this.categoryPictureBox6.TabStop = false;
+            // 
+            // categoryPictureBox5
+            // 
+            this.categoryPictureBox5.BackColor = System.Drawing.Color.White;
+            this.categoryPictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("categoryPictureBox5.Image")));
+            this.categoryPictureBox5.Location = new System.Drawing.Point(36, 12);
+            this.categoryPictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.categoryPictureBox5.Name = "categoryPictureBox5";
+            this.categoryPictureBox5.Size = new System.Drawing.Size(60, 60);
+            this.categoryPictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.categoryPictureBox5.TabIndex = 285;
+            this.categoryPictureBox5.TabStop = false;
+            // 
+            // categoryPictureBox4
+            // 
+            this.categoryPictureBox4.BackColor = System.Drawing.Color.White;
+            this.categoryPictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("categoryPictureBox4.Image")));
+            this.categoryPictureBox4.Location = new System.Drawing.Point(36, 12);
+            this.categoryPictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.categoryPictureBox4.Name = "categoryPictureBox4";
+            this.categoryPictureBox4.Size = new System.Drawing.Size(60, 60);
+            this.categoryPictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.categoryPictureBox4.TabIndex = 285;
+            this.categoryPictureBox4.TabStop = false;
+            // 
+            // categoryPictureBox3
+            // 
+            this.categoryPictureBox3.BackColor = System.Drawing.Color.White;
+            this.categoryPictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("categoryPictureBox3.Image")));
+            this.categoryPictureBox3.Location = new System.Drawing.Point(36, 12);
+            this.categoryPictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.categoryPictureBox3.Name = "categoryPictureBox3";
+            this.categoryPictureBox3.Size = new System.Drawing.Size(60, 60);
+            this.categoryPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.categoryPictureBox3.TabIndex = 285;
+            this.categoryPictureBox3.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.White;
+            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox7.Image = global::Wallet_Manager.Properties.Resources.add_purple;
+            this.pictureBox7.Location = new System.Drawing.Point(616, 695);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 306;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click_1);
+            // 
+            // categoryPictureBox2
+            // 
+            this.categoryPictureBox2.BackColor = System.Drawing.Color.White;
+            this.categoryPictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("categoryPictureBox2.Image")));
+            this.categoryPictureBox2.Location = new System.Drawing.Point(36, 12);
+            this.categoryPictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.categoryPictureBox2.Name = "categoryPictureBox2";
+            this.categoryPictureBox2.Size = new System.Drawing.Size(60, 60);
+            this.categoryPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.categoryPictureBox2.TabIndex = 285;
+            this.categoryPictureBox2.TabStop = false;
+            // 
+            // categoryPictureBox1
+            // 
+            this.categoryPictureBox1.BackColor = System.Drawing.Color.White;
+            this.categoryPictureBox1.Image = global::Wallet_Manager.Properties.Resources._9;
+            this.categoryPictureBox1.Location = new System.Drawing.Point(36, 12);
+            this.categoryPictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.categoryPictureBox1.Name = "categoryPictureBox1";
+            this.categoryPictureBox1.Size = new System.Drawing.Size(60, 60);
+            this.categoryPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.categoryPictureBox1.TabIndex = 285;
+            this.categoryPictureBox1.TabStop = false;
+            // 
             // TransactionHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1234,22 +1234,22 @@
             this.guna2CustomGradientPanel2.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox6)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox5)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox4)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox1)).EndInit();
             this.ResumeLayout(false);
 

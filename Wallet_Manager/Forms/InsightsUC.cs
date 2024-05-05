@@ -23,7 +23,7 @@ namespace Wallet_Manager.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
@@ -34,7 +34,11 @@ namespace Wallet_Manager.Forms
             SetDoubleBuffering(this, true);
             PopulateComboBox();
             PopulateWalletsComboBox();
+            PopulateGunaBarDataSet();
             guna2CustomGradientPanel1.Visible = true;
+
+            initializeCategoryLegend();
+
 
             GlobalEvents.TransactionUpdated += PopulateWalletsComboBox;
             GlobalEvents.TransactionUpdated += PopulateWalletsComboBox;
@@ -45,18 +49,25 @@ namespace Wallet_Manager.Forms
 
         }
 
+        public void initializeCategoryLegend()
+        {
+            CategoryLegendUserControl categoryLegend = new CategoryLegendUserControl();
+            categoryLegend.Location = new Point(30, 20);
+            guna2CustomGradientPanel2.Controls.Add(categoryLegend);
+            categoryLegend.Visible = true;
+            categoryLegend.BringToFront();
+        }
+
+
+
+
         public static void SetDoubleBuffering(Control control, bool value)
         {
-            // Get the type of the control
             Type controlType = control.GetType();
 
-            // Get the property info for the 'DoubleBuffered' property
             PropertyInfo pi = controlType.GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
-
-            // Set the value of the DoubleBuffered property
             pi?.SetValue(control, value, null);
 
-            // Recursively set DoubleBuffering to true for each child control
             foreach (Control childControl in control.Controls)
             {
                 SetDoubleBuffering(childControl, value);
@@ -70,14 +81,12 @@ namespace Wallet_Manager.Forms
 
             List<Wallet> wallets = _dataAccessLayer.GetWallets();
 
-            // Convert wallets to a binding-friendly format
             var walletBindingList = wallets.Select(wallet => new
             {
                 Text = $"{wallet.WalletName}",
                 Value = wallet.WalletID
             }).ToList();
 
-            // Add an "All" option at the beginning of the list
             walletBindingList.Insert(0, new { Text = "All Wallets", Value = 0 });
 
             selecWalletComboBox.DisplayMember = "Text";
@@ -91,16 +100,13 @@ namespace Wallet_Manager.Forms
 
         private void PopulateComboBox()
         {
-            // Assuming comboBoxPeriod is your ComboBox control
-            timeFrameComboBox.Items.Clear();  // Clear existing items
+            timeFrameComboBox.Items.Clear();
 
-            // Add time period options to the ComboBox
             timeFrameComboBox.Items.Add("1 Week");
             timeFrameComboBox.Items.Add("1 Month");
             timeFrameComboBox.Items.Add("1 Year");
 
-            // Optionally set the default selected item
-            timeFrameComboBox.SelectedIndex = 0;  // Selects the first item by default
+            timeFrameComboBox.SelectedIndex = 0;
         }
 
 
@@ -163,10 +169,9 @@ namespace Wallet_Manager.Forms
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
 
-            // Determine the selected time frame from the combo box
             string selectedPeriod = timeFrameComboBox.SelectedItem.ToString();
             int selectedWalletId = Convert.ToInt32(selecWalletComboBox.SelectedValue);
-            Dictionary<string, float> expenses;
+            SortedDictionary<string, float> expenses;
 
             switch (selectedPeriod)
             {
@@ -180,21 +185,19 @@ namespace Wallet_Manager.Forms
                     expenses = _dataAccessLayer.GetExpenseCategoriesLastYear(selectedWalletId); 
                     break;
                 default:
-                    expenses = new Dictionary<string, float>(); // Default to empty if no valid selection
+                    expenses = new SortedDictionary<string, float>(); // Default to empty if no valid selection
                     break;
             }
 
             // Clear existing data points
             gunaPieDataset1.DataPoints.Clear();
 
-            // Populate the pie chart with the fetched data
             foreach (var expense in expenses)
             {
                 gunaPieDataset1.Label = "Spent";
                 gunaPieDataset1.DataPoints.Add(expense.Key, expense.Value);
             }
 
-            // Refresh the chart to display the new data
             pieChart1.Refresh();
         }
 
@@ -255,9 +258,13 @@ namespace Wallet_Manager.Forms
 
         private void timeFrame_SelectedIndexChanged(object sender, EventArgs e)
         {
-              PopulateGunaBarDataSet();
-              PopulatePieChart();
-            PopulateSpLineChart();
+
+            if (guna2CustomGradientPanel1.Visible)
+                PopulateGunaBarDataSet();
+            else if (guna2CustomGradientPanel2.Visible)
+                PopulatePieChart();
+            else if (guna2CustomGradientPanel3.Visible)
+                PopulateSpLineChart();
         }
 
         private void pieChart1_Load(object sender, EventArgs e)
@@ -272,7 +279,6 @@ namespace Wallet_Manager.Forms
 
         private void label1_Click(object sender, EventArgs e)
         {
-            // Show the relevant panel
             guna2CustomGradientPanel1.Visible = true;
             guna2CustomGradientPanel2.Visible = false;
             guna2CustomGradientPanel3.Visible = false;
@@ -280,7 +286,6 @@ namespace Wallet_Manager.Forms
             expenseCategoryLabel.ForeColor = Color.Gray;
             netWorthLabel.ForeColor = Color.Gray;
 
-            // Load data specific to this panel
             PopulateGunaBarDataSet();
         }
 
@@ -298,8 +303,9 @@ namespace Wallet_Manager.Forms
             expenseCategoryLabel.ForeColor = Color.Black;
             financialOverviewLabel.ForeColor = Color.Gray;
             netWorthLabel.ForeColor = Color.Gray;
+        
+            
 
-            // Load data specific to this panel
             PopulatePieChart();
 
         }
