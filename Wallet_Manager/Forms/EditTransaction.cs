@@ -33,6 +33,7 @@ namespace Wallet_Manager.Forms
             populateTransactionType();
             PopulateWalletsComboBox();
             LoadTransactionDetails(txtTransactionID);
+            txtAmount.MaxLength = 7;
             GlobalEvents.TransactionUpdated += PopulateWalletsComboBox;
         }
 
@@ -206,6 +207,8 @@ namespace Wallet_Manager.Forms
         {
             try
             {
+
+
                 string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
                 SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
                 Transaction originalTransaction = dataAccessLayer.GetTransactionById(txtTransactionID);

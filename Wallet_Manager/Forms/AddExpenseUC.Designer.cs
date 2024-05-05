@@ -194,7 +194,7 @@
             // 
             this.txtDate.AllowDrop = true;
             this.txtDate.BackColor = System.Drawing.Color.Transparent;
-            this.txtDate.BorderColor = System.Drawing.Color.Transparent;
+            this.txtDate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtDate.BorderRadius = 5;
             this.txtDate.BorderThickness = 1;
             this.txtDate.Checked = true;

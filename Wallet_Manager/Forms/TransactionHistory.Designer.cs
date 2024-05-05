@@ -168,7 +168,7 @@
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(1215, 69);
+            this.label1.Location = new System.Drawing.Point(1219, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 17);
             this.label1.TabIndex = 317;
@@ -197,11 +197,11 @@
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(1209, 41);
+            this.guna2Button1.Location = new System.Drawing.Point(1209, 37);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(101, 25);
+            this.guna2Button1.Size = new System.Drawing.Size(110, 29);
             this.guna2Button1.TabIndex = 316;
             this.guna2Button1.Text = "FILTER";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click_1);
@@ -282,7 +282,7 @@
             // 
             this.categoryPictureBox6.BackColor = System.Drawing.Color.White;
             this.categoryPictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("categoryPictureBox6.Image")));
-            this.categoryPictureBox6.Location = new System.Drawing.Point(22, 12);
+            this.categoryPictureBox6.Location = new System.Drawing.Point(36, 12);
             this.categoryPictureBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.categoryPictureBox6.Name = "categoryPictureBox6";
             this.categoryPictureBox6.Size = new System.Drawing.Size(60, 60);
@@ -310,7 +310,7 @@
             this.descriptionLabel6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.descriptionLabel6.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLabel6.ForeColor = System.Drawing.Color.Black;
-            this.descriptionLabel6.Location = new System.Drawing.Point(100, 19);
+            this.descriptionLabel6.Location = new System.Drawing.Point(119, 19);
             this.descriptionLabel6.Name = "descriptionLabel6";
             this.descriptionLabel6.Size = new System.Drawing.Size(111, 31);
             this.descriptionLabel6.TabIndex = 286;
@@ -336,7 +336,7 @@
             this.categoryLabel6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.categoryLabel6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.categoryLabel6.Location = new System.Drawing.Point(102, 49);
+            this.categoryLabel6.Location = new System.Drawing.Point(121, 49);
             this.categoryLabel6.Name = "categoryLabel6";
             this.categoryLabel6.Size = new System.Drawing.Size(49, 23);
             this.categoryLabel6.TabIndex = 287;
@@ -444,7 +444,7 @@
             // 
             this.categoryPictureBox5.BackColor = System.Drawing.Color.White;
             this.categoryPictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("categoryPictureBox5.Image")));
-            this.categoryPictureBox5.Location = new System.Drawing.Point(22, 12);
+            this.categoryPictureBox5.Location = new System.Drawing.Point(36, 12);
             this.categoryPictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.categoryPictureBox5.Name = "categoryPictureBox5";
             this.categoryPictureBox5.Size = new System.Drawing.Size(60, 60);
@@ -472,7 +472,7 @@
             this.descriptionLabel5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.descriptionLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLabel5.ForeColor = System.Drawing.Color.Black;
-            this.descriptionLabel5.Location = new System.Drawing.Point(100, 19);
+            this.descriptionLabel5.Location = new System.Drawing.Point(119, 19);
             this.descriptionLabel5.Name = "descriptionLabel5";
             this.descriptionLabel5.Size = new System.Drawing.Size(111, 31);
             this.descriptionLabel5.TabIndex = 286;
@@ -498,7 +498,7 @@
             this.categoryLabel5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.categoryLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.categoryLabel5.Location = new System.Drawing.Point(102, 49);
+            this.categoryLabel5.Location = new System.Drawing.Point(121, 49);
             this.categoryLabel5.Name = "categoryLabel5";
             this.categoryLabel5.Size = new System.Drawing.Size(49, 23);
             this.categoryLabel5.TabIndex = 287;
@@ -606,7 +606,7 @@
             // 
             this.categoryPictureBox4.BackColor = System.Drawing.Color.White;
             this.categoryPictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("categoryPictureBox4.Image")));
-            this.categoryPictureBox4.Location = new System.Drawing.Point(22, 12);
+            this.categoryPictureBox4.Location = new System.Drawing.Point(36, 12);
             this.categoryPictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.categoryPictureBox4.Name = "categoryPictureBox4";
             this.categoryPictureBox4.Size = new System.Drawing.Size(60, 60);
@@ -634,7 +634,7 @@
             this.descriptionLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.descriptionLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLabel4.ForeColor = System.Drawing.Color.Black;
-            this.descriptionLabel4.Location = new System.Drawing.Point(100, 19);
+            this.descriptionLabel4.Location = new System.Drawing.Point(119, 19);
             this.descriptionLabel4.Name = "descriptionLabel4";
             this.descriptionLabel4.Size = new System.Drawing.Size(111, 31);
             this.descriptionLabel4.TabIndex = 286;
@@ -660,7 +660,7 @@
             this.categoryLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.categoryLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.categoryLabel4.Location = new System.Drawing.Point(102, 49);
+            this.categoryLabel4.Location = new System.Drawing.Point(121, 49);
             this.categoryLabel4.Name = "categoryLabel4";
             this.categoryLabel4.Size = new System.Drawing.Size(49, 23);
             this.categoryLabel4.TabIndex = 287;
@@ -768,7 +768,7 @@
             // 
             this.categoryPictureBox3.BackColor = System.Drawing.Color.White;
             this.categoryPictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("categoryPictureBox3.Image")));
-            this.categoryPictureBox3.Location = new System.Drawing.Point(22, 12);
+            this.categoryPictureBox3.Location = new System.Drawing.Point(36, 12);
             this.categoryPictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.categoryPictureBox3.Name = "categoryPictureBox3";
             this.categoryPictureBox3.Size = new System.Drawing.Size(60, 60);
@@ -796,7 +796,7 @@
             this.descriptionLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.descriptionLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLabel3.ForeColor = System.Drawing.Color.Black;
-            this.descriptionLabel3.Location = new System.Drawing.Point(100, 19);
+            this.descriptionLabel3.Location = new System.Drawing.Point(119, 17);
             this.descriptionLabel3.Name = "descriptionLabel3";
             this.descriptionLabel3.Size = new System.Drawing.Size(111, 31);
             this.descriptionLabel3.TabIndex = 286;
@@ -822,7 +822,7 @@
             this.categoryLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.categoryLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.categoryLabel3.Location = new System.Drawing.Point(102, 49);
+            this.categoryLabel3.Location = new System.Drawing.Point(121, 47);
             this.categoryLabel3.Name = "categoryLabel3";
             this.categoryLabel3.Size = new System.Drawing.Size(49, 23);
             this.categoryLabel3.TabIndex = 287;
@@ -931,7 +931,7 @@
             // 
             this.categoryPictureBox2.BackColor = System.Drawing.Color.White;
             this.categoryPictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("categoryPictureBox2.Image")));
-            this.categoryPictureBox2.Location = new System.Drawing.Point(22, 12);
+            this.categoryPictureBox2.Location = new System.Drawing.Point(36, 12);
             this.categoryPictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.categoryPictureBox2.Name = "categoryPictureBox2";
             this.categoryPictureBox2.Size = new System.Drawing.Size(60, 60);
@@ -959,7 +959,7 @@
             this.descriptionLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.descriptionLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLabel2.ForeColor = System.Drawing.Color.Black;
-            this.descriptionLabel2.Location = new System.Drawing.Point(100, 19);
+            this.descriptionLabel2.Location = new System.Drawing.Point(119, 19);
             this.descriptionLabel2.Name = "descriptionLabel2";
             this.descriptionLabel2.Size = new System.Drawing.Size(111, 31);
             this.descriptionLabel2.TabIndex = 286;
@@ -985,7 +985,7 @@
             this.categoryLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.categoryLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.categoryLabel2.Location = new System.Drawing.Point(102, 49);
+            this.categoryLabel2.Location = new System.Drawing.Point(121, 49);
             this.categoryLabel2.Name = "categoryLabel2";
             this.categoryLabel2.Size = new System.Drawing.Size(49, 23);
             this.categoryLabel2.TabIndex = 287;
@@ -1093,7 +1093,7 @@
             // 
             this.categoryPictureBox1.BackColor = System.Drawing.Color.White;
             this.categoryPictureBox1.Image = global::Wallet_Manager.Properties.Resources._9;
-            this.categoryPictureBox1.Location = new System.Drawing.Point(22, 12);
+            this.categoryPictureBox1.Location = new System.Drawing.Point(36, 12);
             this.categoryPictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.categoryPictureBox1.Name = "categoryPictureBox1";
             this.categoryPictureBox1.Size = new System.Drawing.Size(60, 60);
@@ -1121,7 +1121,7 @@
             this.descriptionLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.descriptionLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLabel1.ForeColor = System.Drawing.Color.Black;
-            this.descriptionLabel1.Location = new System.Drawing.Point(100, 19);
+            this.descriptionLabel1.Location = new System.Drawing.Point(119, 19);
             this.descriptionLabel1.Name = "descriptionLabel1";
             this.descriptionLabel1.Size = new System.Drawing.Size(111, 31);
             this.descriptionLabel1.TabIndex = 286;
@@ -1147,7 +1147,7 @@
             this.categoryLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.categoryLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.categoryLabel1.Location = new System.Drawing.Point(102, 49);
+            this.categoryLabel1.Location = new System.Drawing.Point(121, 49);
             this.categoryLabel1.Name = "categoryLabel1";
             this.categoryLabel1.Size = new System.Drawing.Size(49, 23);
             this.categoryLabel1.TabIndex = 287;

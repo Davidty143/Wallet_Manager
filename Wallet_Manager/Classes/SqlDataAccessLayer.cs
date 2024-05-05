@@ -1183,9 +1183,6 @@ namespace Wallet_Manager.Classes
                 if (endDate.HasValue)
                     query.Append(" AND Date <= @EndDate");
 
-                query.Append(" AND WalletID = @WalletID");
-
-                // Append ORDER BY clause after all WHERE conditions
                 query.Append(" ORDER BY Date DESC, TransactionID");
 
                 
