@@ -390,5 +390,10 @@ namespace Wallet_Manager.Forms
         {
 
         }
+
+        private void Wallet_uc_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
