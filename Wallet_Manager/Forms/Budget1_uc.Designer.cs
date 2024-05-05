@@ -88,8 +88,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.doughnutCategoryChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.nonVisibleLabel4 = new System.Windows.Forms.Label();
             this.doughnutDataset1 = new Guna.Charts.WinForms.GunaDoughnutDataset();
             this.label27 = new System.Windows.Forms.Label();
@@ -109,8 +107,6 @@
             this.rpanel1.SuspendLayout();
             this.guna2CustomGradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doughnutCategoryChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,9 +153,9 @@
             this.panel1.Controls.Add(this.remainingBudgetLabel);
             this.panel1.Controls.Add(this.spentBudgetLabel);
             this.panel1.Controls.Add(this.dateLabel);
-            this.panel1.Location = new System.Drawing.Point(49, 111);
+            this.panel1.Location = new System.Drawing.Point(51, 111);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(718, 159);
+            this.panel1.Size = new System.Drawing.Size(716, 159);
             this.panel1.TabIndex = 285;
             // 
             // warningLabel
@@ -221,7 +217,7 @@
             // 
             this.generalProgressBar.BackColor = System.Drawing.Color.White;
             this.generalProgressBar.BorderRadius = 10;
-            this.generalProgressBar.Location = new System.Drawing.Point(35, 67);
+            this.generalProgressBar.Location = new System.Drawing.Point(29, 67);
             this.generalProgressBar.Name = "generalProgressBar";
             this.generalProgressBar.ProgressBrushMode = Guna.UI2.WinForms.Enums.BrushMode.Solid;
             this.generalProgressBar.ProgressColor = System.Drawing.Color.LimeGreen;
@@ -284,9 +280,9 @@
             this.guna2CustomGradientPanel1.Controls.Add(this.label9);
             this.guna2CustomGradientPanel1.Controls.Add(this.paginationLabel);
             this.guna2CustomGradientPanel1.Controls.Add(this.rpanel1);
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(49, 370);
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(51, 370);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(718, 499);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(716, 499);
             this.guna2CustomGradientPanel1.TabIndex = 292;
             // 
             // nonVisibleLabel2
@@ -678,8 +674,6 @@
             this.guna2CustomGradientPanel3.BorderRadius = 5;
             this.guna2CustomGradientPanel3.BorderThickness = 1;
             this.guna2CustomGradientPanel3.Controls.Add(this.doughnutCategoryChart);
-            this.guna2CustomGradientPanel3.Controls.Add(this.chart2);
-            this.guna2CustomGradientPanel3.Controls.Add(this.chart1);
             this.guna2CustomGradientPanel3.Controls.Add(this.nonVisibleLabel4);
             this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(814, 522);
             this.guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
@@ -690,36 +684,20 @@
             // 
             chartArea1.Name = "ChartArea1";
             this.doughnutCategoryChart.ChartAreas.Add(chartArea1);
-            this.doughnutCategoryChart.Dock = System.Windows.Forms.DockStyle.Left;
             legend1.Name = "Legend1";
             this.doughnutCategoryChart.Legends.Add(legend1);
-            this.doughnutCategoryChart.Location = new System.Drawing.Point(0, 0);
+            this.doughnutCategoryChart.Location = new System.Drawing.Point(60, 12);
             this.doughnutCategoryChart.Name = "doughnutCategoryChart";
             this.doughnutCategoryChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.doughnutCategoryChart.Series.Add(series1);
-            this.doughnutCategoryChart.Size = new System.Drawing.Size(638, 347);
+            this.doughnutCategoryChart.Size = new System.Drawing.Size(563, 319);
             this.doughnutCategoryChart.TabIndex = 312;
             this.doughnutCategoryChart.Text = "chart3";
-            // 
-            // chart2
-            // 
-            this.chart2.Location = new System.Drawing.Point(-232, -180);
-            this.chart2.Name = "chart2";
-            this.chart2.Size = new System.Drawing.Size(300, 300);
-            this.chart2.TabIndex = 0;
-            this.chart2.Text = "chart2";
-            // 
-            // chart1
-            // 
-            this.chart1.Location = new System.Drawing.Point(11, -242);
-            this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(300, 300);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
             // 
             // nonVisibleLabel4
             // 
@@ -889,7 +867,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.deleteBudgetLabel);
             this.Controls.Add(this.editBudgetLabel);
             this.Controls.Add(this.guna2Button1);
@@ -919,8 +897,6 @@
             this.guna2CustomGradientPanel3.ResumeLayout(false);
             this.guna2CustomGradientPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doughnutCategoryChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.guna2CustomGradientPanel2.ResumeLayout(false);
             this.guna2CustomGradientPanel2.PerformLayout();
             this.ResumeLayout(false);
@@ -980,9 +956,7 @@
         private Guna.Charts.WinForms.GunaSplineDataset splineDataset1;
         private Guna.UI2.WinForms.Guna2Button overSpentLabel;
         private Guna.UI2.WinForms.Guna2Button warningLabel;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataVisualization.Charting.Chart doughnutCategoryChart;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.Label editBudgetLabel;
         private System.Windows.Forms.Label deleteBudgetLabel;
     }

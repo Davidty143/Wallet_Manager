@@ -31,10 +31,11 @@
             this.editProfileLabel = new Guna.UI2.WinForms.Guna2Button();
             this.changePassLabel = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.editProfile1 = new Wallet_Manager.Forms.EditProfile();
             this.editPassword1 = new Wallet_Manager.Forms.EditPassword();
+            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CustomGradientPanel1.SuspendLayout();
+            this.guna2CustomGradientPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // editProfileLabel
@@ -64,7 +65,7 @@
             this.changePassLabel.FillColor = System.Drawing.Color.White;
             this.changePassLabel.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changePassLabel.ForeColor = System.Drawing.Color.Black;
-            this.changePassLabel.Location = new System.Drawing.Point(51, 183);
+            this.changePassLabel.Location = new System.Drawing.Point(16, 140);
             this.changePassLabel.Name = "changePassLabel";
             this.changePassLabel.Size = new System.Drawing.Size(254, 43);
             this.changePassLabel.TabIndex = 3;
@@ -79,15 +80,6 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(709, 717);
             this.guna2CustomGradientPanel1.TabIndex = 4;
-            // 
-            // guna2CustomGradientPanel2
-            // 
-            this.guna2CustomGradientPanel2.BorderRadius = 5;
-            this.guna2CustomGradientPanel2.BorderThickness = 1;
-            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(51, 42);
-            this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
-            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(1402, 796);
-            this.guna2CustomGradientPanel2.TabIndex = 5;
             // 
             // editProfile1
             // 
@@ -107,18 +99,28 @@
             this.editPassword1.Size = new System.Drawing.Size(709, 717);
             this.editPassword1.TabIndex = 0;
             // 
+            // guna2CustomGradientPanel2
+            // 
+            this.guna2CustomGradientPanel2.BorderRadius = 5;
+            this.guna2CustomGradientPanel2.BorderThickness = 1;
+            this.guna2CustomGradientPanel2.Controls.Add(this.changePassLabel);
+            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(51, 42);
+            this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
+            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(1402, 796);
+            this.guna2CustomGradientPanel2.TabIndex = 5;
+            // 
             // SettingsUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.guna2CustomGradientPanel1);
-            this.Controls.Add(this.changePassLabel);
             this.Controls.Add(this.editProfileLabel);
             this.Controls.Add(this.guna2CustomGradientPanel2);
             this.Name = "SettingsUC";
             this.Size = new System.Drawing.Size(1509, 950);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
+            this.guna2CustomGradientPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

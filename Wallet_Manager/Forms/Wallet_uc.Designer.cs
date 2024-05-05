@@ -140,9 +140,9 @@
             this.guna2CustomGradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(70)))), ((int)(((byte)(194)))));
             this.guna2CustomGradientPanel2.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(160)))), ((int)(((byte)(248)))));
             this.guna2CustomGradientPanel2.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(70)))), ((int)(((byte)(194)))));
-            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(62, 90);
+            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(56, 90);
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
-            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(1385, 297);
+            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(1391, 297);
             this.guna2CustomGradientPanel2.TabIndex = 143;
             // 
             // label4
@@ -705,9 +705,9 @@
             this.gunaBarDataset3});
             chartFont9.FontName = "Arial";
             this.barChart1.Legend.LabelFont = chartFont9;
-            this.barChart1.Location = new System.Drawing.Point(3, 3);
+            this.barChart1.Location = new System.Drawing.Point(-6, 3);
             this.barChart1.Name = "barChart1";
-            this.barChart1.Size = new System.Drawing.Size(730, 377);
+            this.barChart1.Size = new System.Drawing.Size(739, 377);
             this.barChart1.TabIndex = 316;
             chartFont10.FontName = "Arial";
             chartFont10.Size = 12;
@@ -795,7 +795,9 @@
             // 
             // guna2Button6
             // 
+            this.guna2Button6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Button6.BorderRadius = 15;
+            this.guna2Button6.BorderThickness = 1;
             this.guna2Button6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -816,7 +818,9 @@
             // 
             // guna2Button1
             // 
+            this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Button1.BorderRadius = 15;
+            this.guna2Button1.BorderThickness = 1;
             this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -862,7 +866,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.label2);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.guna2Button6);

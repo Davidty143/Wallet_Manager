@@ -168,7 +168,7 @@ namespace Wallet_Manager.Forms
 
         internal void clickSeeAllWallets()
         {
-            button_transaction_Click(this, EventArgs.Empty);
+            button_wallet_Click(this, EventArgs.Empty);
 
         }
 
