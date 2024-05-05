@@ -46,9 +46,8 @@ namespace Wallet_Manager.Forms
         {
             InitializeComponent();
             initializeControlArrays();
-            UpdateUIVisibility();
             PopulateBudgetComboBox();
-
+            UpdateUIVisibility();
 
             GlobalEvents.TransactionUpdated += UpdateUIVisibility;
 
@@ -367,6 +366,11 @@ namespace Wallet_Manager.Forms
             {
                 MessageBox.Show("No budget selected to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Budget1_uc_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

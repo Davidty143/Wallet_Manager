@@ -70,7 +70,16 @@ namespace Wallet_Manager.Forms
 
             if (signupSuccess)
             {
+                txtFirstName.Text = "";
+                txtLastName.Text = "";
+                txtEmail.Text = "";
+                txtPassword.Text = "";
+
                 MessageBox.Show("Account created successfully. You can now log in.");
+
+                Login newlogin = new Login();
+                newlogin.ShowDialog();
+                this.Close();
             }
             else
             {

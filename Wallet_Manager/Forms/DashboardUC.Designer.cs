@@ -67,15 +67,15 @@
             this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
             this.generalProgressBar = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.label11 = new System.Windows.Forms.Label();
-            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.activeBudgetPanel = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.budgetComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.activeBudgetPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.overSpentLabel = new Guna.UI2.WinForms.Guna2Button();
             this.warningLabel = new Guna.UI2.WinForms.Guna2Button();
             this.dateLabel = new System.Windows.Forms.Label();
             this.remainingBudgetLabel = new System.Windows.Forms.Label();
             this.spentBudgetLabel = new System.Windows.Forms.Label();
-            this.nameLabel = new System.Windows.Forms.Label();
+            this.budgetNameLabel = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.barChart1 = new Guna.Charts.WinForms.GunaChart();
             this.gunaBarDataset3 = new Guna.Charts.WinForms.GunaBarDataset();
@@ -116,8 +116,8 @@
             this.iconPictureBox3 = new System.Windows.Forms.PictureBox();
             this.iconPictureBox2 = new System.Windows.Forms.PictureBox();
             this.iconPictureBox1 = new System.Windows.Forms.PictureBox();
-            this.guna2CustomGradientPanel1.SuspendLayout();
-            this.guna2CustomGradientPanel2.SuspendLayout();
+            this.activeBudgetPanel.SuspendLayout();
+            this.activeBudgetPanel2.SuspendLayout();
             this.guna2CustomGradientPanel3.SuspendLayout();
             this.guna2CustomGradientPanel4.SuspendLayout();
             this.recentTransactionPanel3.SuspendLayout();
@@ -478,18 +478,19 @@
             this.label11.TabIndex = 124;
             this.label11.Text = "Overview";
             // 
-            // guna2CustomGradientPanel1
+            // activeBudgetPanel
             // 
-            this.guna2CustomGradientPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.guna2CustomGradientPanel1.BorderRadius = 5;
-            this.guna2CustomGradientPanel1.BorderThickness = 1;
-            this.guna2CustomGradientPanel1.Controls.Add(this.budgetComboBox);
-            this.guna2CustomGradientPanel1.Controls.Add(this.guna2CustomGradientPanel2);
-            this.guna2CustomGradientPanel1.Controls.Add(this.nameLabel);
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(56, 637);
-            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(789, 235);
-            this.guna2CustomGradientPanel1.TabIndex = 327;
+            this.activeBudgetPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.activeBudgetPanel.BorderRadius = 5;
+            this.activeBudgetPanel.BorderThickness = 1;
+            this.activeBudgetPanel.Controls.Add(this.budgetComboBox);
+            this.activeBudgetPanel.Controls.Add(this.activeBudgetPanel2);
+            this.activeBudgetPanel.Controls.Add(this.budgetNameLabel);
+            this.activeBudgetPanel.Location = new System.Drawing.Point(56, 637);
+            this.activeBudgetPanel.Name = "activeBudgetPanel";
+            this.activeBudgetPanel.Size = new System.Drawing.Size(789, 235);
+            this.activeBudgetPanel.TabIndex = 327;
+            this.activeBudgetPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.activeBudgetPanel_Paint);
             // 
             // budgetComboBox
             // 
@@ -510,22 +511,22 @@
             this.budgetComboBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.budgetComboBox.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
             // 
-            // guna2CustomGradientPanel2
+            // activeBudgetPanel2
             // 
-            this.guna2CustomGradientPanel2.BackColor = System.Drawing.Color.White;
-            this.guna2CustomGradientPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.guna2CustomGradientPanel2.BorderRadius = 5;
-            this.guna2CustomGradientPanel2.BorderThickness = 1;
-            this.guna2CustomGradientPanel2.Controls.Add(this.overSpentLabel);
-            this.guna2CustomGradientPanel2.Controls.Add(this.warningLabel);
-            this.guna2CustomGradientPanel2.Controls.Add(this.dateLabel);
-            this.guna2CustomGradientPanel2.Controls.Add(this.remainingBudgetLabel);
-            this.guna2CustomGradientPanel2.Controls.Add(this.spentBudgetLabel);
-            this.guna2CustomGradientPanel2.Controls.Add(this.generalProgressBar);
-            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(36, 73);
-            this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
-            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(709, 129);
-            this.guna2CustomGradientPanel2.TabIndex = 316;
+            this.activeBudgetPanel2.BackColor = System.Drawing.Color.White;
+            this.activeBudgetPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.activeBudgetPanel2.BorderRadius = 5;
+            this.activeBudgetPanel2.BorderThickness = 1;
+            this.activeBudgetPanel2.Controls.Add(this.overSpentLabel);
+            this.activeBudgetPanel2.Controls.Add(this.warningLabel);
+            this.activeBudgetPanel2.Controls.Add(this.dateLabel);
+            this.activeBudgetPanel2.Controls.Add(this.remainingBudgetLabel);
+            this.activeBudgetPanel2.Controls.Add(this.spentBudgetLabel);
+            this.activeBudgetPanel2.Controls.Add(this.generalProgressBar);
+            this.activeBudgetPanel2.Location = new System.Drawing.Point(36, 73);
+            this.activeBudgetPanel2.Name = "activeBudgetPanel2";
+            this.activeBudgetPanel2.Size = new System.Drawing.Size(709, 129);
+            this.activeBudgetPanel2.TabIndex = 316;
             // 
             // overSpentLabel
             // 
@@ -612,18 +613,18 @@
             this.spentBudgetLabel.TabIndex = 329;
             this.spentBudgetLabel.Text = "₱ 500.00 Spent";
             // 
-            // nameLabel
+            // budgetNameLabel
             // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.BackColor = System.Drawing.Color.White;
-            this.nameLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nameLabel.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.nameLabel.Location = new System.Drawing.Point(32, 25);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(129, 25);
-            this.nameLabel.TabIndex = 316;
-            this.nameLabel.Text = "Budget Name";
+            this.budgetNameLabel.AutoSize = true;
+            this.budgetNameLabel.BackColor = System.Drawing.Color.White;
+            this.budgetNameLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.budgetNameLabel.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.budgetNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.budgetNameLabel.Location = new System.Drawing.Point(32, 25);
+            this.budgetNameLabel.Name = "budgetNameLabel";
+            this.budgetNameLabel.Size = new System.Drawing.Size(129, 25);
+            this.budgetNameLabel.TabIndex = 316;
+            this.budgetNameLabel.Text = "Budget Name";
             // 
             // guna2CustomGradientPanel3
             // 
@@ -687,7 +688,7 @@
             System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233))))),
             System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233))))),
             System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))))});
-            this.gunaBarDataset3.Label = "Expense";
+            this.gunaBarDataset3.Label = "Income";
             this.gunaBarDataset3.TargetChart = this.barChart1;
             // 
             // gunaBarDataset2
@@ -1234,7 +1235,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.guna2Button3);
             this.Controls.Add(this.guna2CustomGradientPanel3);
-            this.Controls.Add(this.guna2CustomGradientPanel1);
+            this.Controls.Add(this.activeBudgetPanel);
             this.Controls.Add(this.guna2Button6);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pictureBox2);
@@ -1266,10 +1267,11 @@
             this.DoubleBuffered = true;
             this.Name = "DashboardUC";
             this.Size = new System.Drawing.Size(1509, 950);
-            this.guna2CustomGradientPanel1.ResumeLayout(false);
-            this.guna2CustomGradientPanel1.PerformLayout();
-            this.guna2CustomGradientPanel2.ResumeLayout(false);
-            this.guna2CustomGradientPanel2.PerformLayout();
+            this.Load += new System.EventHandler(this.DashboardUC_Load);
+            this.activeBudgetPanel.ResumeLayout(false);
+            this.activeBudgetPanel.PerformLayout();
+            this.activeBudgetPanel2.ResumeLayout(false);
+            this.activeBudgetPanel2.PerformLayout();
             this.guna2CustomGradientPanel3.ResumeLayout(false);
             this.guna2CustomGradientPanel4.ResumeLayout(false);
             this.recentTransactionPanel3.ResumeLayout(false);
@@ -1314,9 +1316,9 @@
         private Guna.UI2.WinForms.Guna2ProgressBar generalProgressBar;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label11;
-        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
-        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
-        private System.Windows.Forms.Label nameLabel;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel activeBudgetPanel;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel activeBudgetPanel2;
+        private System.Windows.Forms.Label budgetNameLabel;
         private System.Windows.Forms.Label spentBudgetLabel;
         private System.Windows.Forms.Label remainingBudgetLabel;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel3;

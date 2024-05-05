@@ -325,12 +325,21 @@ namespace Wallet_Manager.Forms
 
         private void button_signout_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.IsLoggedIn = false;
-            Properties.Settings.Default.LastUserID = 0;
-            Properties.Settings.Default.Save();
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to sign out?", "Sign Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            Program.ShowLoginForm();
-            this.Close();
+            if (dialogResult == DialogResult.Yes)
+            {
+                Properties.Settings.Default.IsLoggedIn = false;
+                Properties.Settings.Default.LastUserID = 0;
+                Properties.Settings.Default.Save();
+
+                Program.ShowLoginForm();
+                this.Close();
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void displayName_Click(object sender, EventArgs e)

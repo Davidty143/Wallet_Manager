@@ -53,6 +53,7 @@ namespace Wallet_Manager.Forms
             UpdateMostUsedWalletDisplay();
             PopulateGunaBarDataSet();
             PopulateBudgetComboBox();
+            updateBudgetVisibility();
 
             GlobalEvents.TransactionUpdated += LoadTransactions;
             GlobalEvents.TransactionUpdated += UpdateSavingsLabel;
@@ -60,6 +61,7 @@ namespace Wallet_Manager.Forms
             GlobalEvents.TransactionUpdated += UpdateMostUsedWalletDisplay;
             GlobalEvents.TransactionUpdated += PopulateGunaBarDataSet;
             GlobalEvents.TransactionUpdated += PopulateBudgetComboBox;
+            GlobalEvents.TransactionUpdated += updateBudgetVisibility;
 
 
             GlobalEvents.BudgetUpdated += PopulateBudgetComboBox;
@@ -81,6 +83,16 @@ namespace Wallet_Manager.Forms
             }
         }
 
+
+        void updateBudgetVisibility()
+        {
+            if (budgetComboBox.Items.Count <= 0)
+            {
+                activeBudgetPanel2.Visible = false;
+                budgetNameLabel.Visible = false;
+                budgetComboBox.Visible = false;
+            }
+        }
 
         private void InitializeControlArrays()
         {
@@ -394,13 +406,18 @@ namespace Wallet_Manager.Forms
         {
             if (budgetComboBox.SelectedItem is Budget selectedBudget)
             {
+                activeBudgetPanel2.Visible = true;
+                budgetNameLabel.Visible = false;
+                budgetComboBox.Visible = true;
                 string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
                 SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
                 selectedBudget.CategoryIds = dataAccessLayer.GetCategoryIdsByBudgetId(selectedBudget.BudgetID);
                 UpdateProgressBar(selectedBudget);
                 dateLabel.Text = $"{selectedBudget.StartDate:MMMM d} - {selectedBudget.EndDate:MMMM d}";
-                nameLabel.Text = selectedBudget.BudgetName;
+                budgetNameLabel.Text = selectedBudget.BudgetName;
             }
+
+
         }
 
         private void updateBudgetUI()
@@ -411,6 +428,16 @@ namespace Wallet_Manager.Forms
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DashboardUC_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void activeBudgetPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

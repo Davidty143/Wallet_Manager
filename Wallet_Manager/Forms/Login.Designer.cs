@@ -33,17 +33,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.cb_show_pass = new Guna.UI2.WinForms.Guna2CheckBox();
             this.t_login_button = new Guna.UI2.WinForms.Guna2Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -100,6 +99,17 @@
             this.label4.Size = new System.Drawing.Size(484, 70);
             this.label4.TabIndex = 33;
             this.label4.Text = "Wallet Manager";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(329, 764);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(257, 27);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Track, Save, Succeed";
             // 
             // txtEmail
             // 
@@ -203,20 +213,6 @@
             this.label7.TabIndex = 38;
             this.label7.Text = "Don\'t have an account?";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(1207, 553);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 23);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "Reset password";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -260,17 +256,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(329, 764);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(257, 27);
-            this.label5.TabIndex = 34;
-            this.label5.Text = "Track, Save, Succeed";
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -279,7 +264,6 @@
             this.ClientSize = new System.Drawing.Size(1920, 1055);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.t_login_button);
             this.Controls.Add(this.cb_show_pass);
@@ -311,7 +295,6 @@
         private Guna.UI2.WinForms.Guna2CheckBox cb_show_pass;
         private Guna.UI2.WinForms.Guna2Button t_login_button;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
