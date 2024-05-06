@@ -268,11 +268,7 @@ namespace Wallet_Manager.Forms
 
         private void txtAmount_Leave(object sender, EventArgs e)
         {
-            if (float.Parse(txtAmount.Text) == 0)
-            {
-                MessageBox.Show("Please enter a valid amount");
-                txtAmount.Text = "";
-            }
+
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)

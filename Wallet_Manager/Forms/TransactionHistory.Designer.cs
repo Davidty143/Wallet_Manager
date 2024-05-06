@@ -1230,6 +1230,7 @@
             this.Controls.Add(this.guna2CustomGradientPanel2);
             this.Name = "TransactionHistory";
             this.Size = new System.Drawing.Size(1509, 856);
+            this.Load += new System.EventHandler(this.TransactionHistory_Load);
             this.guna2CustomGradientPanel2.ResumeLayout(false);
             this.guna2CustomGradientPanel2.PerformLayout();
             this.panel6.ResumeLayout(false);

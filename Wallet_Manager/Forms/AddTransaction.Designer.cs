@@ -30,14 +30,14 @@
         {
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.label7 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.addIncomeUC1 = new Wallet_Manager.Forms.AddIncomeUC();
-            this.addTransferUC1 = new Wallet_Manager.Forms.AddTransferUC();
-            this.addExpenseUC1 = new Wallet_Manager.Forms.AddExpenseUC();
             this.button_transfer = new Guna.UI2.WinForms.Guna2Button();
             this.button_income = new Guna.UI2.WinForms.Guna2Button();
             this.button_expense = new Guna.UI2.WinForms.Guna2Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.addIncomeUC1 = new Wallet_Manager.Forms.AddIncomeUC();
+            this.addTransferUC1 = new Wallet_Manager.Forms.AddTransferUC();
+            this.addExpenseUC1 = new Wallet_Manager.Forms.AddExpenseUC();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.guna2CustomGradientPanel3.SuspendLayout();
@@ -69,6 +69,18 @@
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(606, 720);
             this.guna2CustomGradientPanel2.TabIndex = 0;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(47, 35);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(165, 28);
+            this.label7.TabIndex = 186;
+            this.label7.Text = "Add Transaction";
+            // 
             // guna2CustomGradientPanel3
             // 
             this.guna2CustomGradientPanel3.BackColor = System.Drawing.Color.White;
@@ -82,30 +94,6 @@
             this.guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
             this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(502, 463);
             this.guna2CustomGradientPanel3.TabIndex = 16;
-            // 
-            // addIncomeUC1
-            // 
-            this.addIncomeUC1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addIncomeUC1.Location = new System.Drawing.Point(0, 0);
-            this.addIncomeUC1.Name = "addIncomeUC1";
-            this.addIncomeUC1.Size = new System.Drawing.Size(502, 463);
-            this.addIncomeUC1.TabIndex = 2;
-            // 
-            // addTransferUC1
-            // 
-            this.addTransferUC1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addTransferUC1.Location = new System.Drawing.Point(0, 0);
-            this.addTransferUC1.Name = "addTransferUC1";
-            this.addTransferUC1.Size = new System.Drawing.Size(502, 463);
-            this.addTransferUC1.TabIndex = 1;
-            // 
-            // addExpenseUC1
-            // 
-            this.addExpenseUC1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addExpenseUC1.Location = new System.Drawing.Point(0, 0);
-            this.addExpenseUC1.Name = "addExpenseUC1";
-            this.addExpenseUC1.Size = new System.Drawing.Size(502, 463);
-            this.addExpenseUC1.TabIndex = 0;
             // 
             // button_transfer
             // 
@@ -167,17 +155,30 @@
             this.button_expense.Text = "Expense";
             this.button_expense.Click += new System.EventHandler(this.button_expense_Click);
             // 
-            // label7
+            // addIncomeUC1
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(47, 35);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(165, 28);
-            this.label7.TabIndex = 186;
-            this.label7.Text = "Add Transaction";
+            this.addIncomeUC1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addIncomeUC1.Location = new System.Drawing.Point(0, 0);
+            this.addIncomeUC1.Name = "addIncomeUC1";
+            this.addIncomeUC1.Size = new System.Drawing.Size(502, 463);
+            this.addIncomeUC1.TabIndex = 2;
+            this.addIncomeUC1.Load += new System.EventHandler(this.addIncomeUC1_Load);
+            // 
+            // addTransferUC1
+            // 
+            this.addTransferUC1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addTransferUC1.Location = new System.Drawing.Point(0, 0);
+            this.addTransferUC1.Name = "addTransferUC1";
+            this.addTransferUC1.Size = new System.Drawing.Size(502, 463);
+            this.addTransferUC1.TabIndex = 1;
+            // 
+            // addExpenseUC1
+            // 
+            this.addExpenseUC1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addExpenseUC1.Location = new System.Drawing.Point(0, 0);
+            this.addExpenseUC1.Name = "addExpenseUC1";
+            this.addExpenseUC1.Size = new System.Drawing.Size(502, 463);
+            this.addExpenseUC1.TabIndex = 0;
             // 
             // AddTransaction
             // 

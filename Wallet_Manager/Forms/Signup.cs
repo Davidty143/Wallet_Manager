@@ -36,7 +36,25 @@ namespace Wallet_Manager.Forms
         }
 
 
-        private void guna2Button2_Click(object sender, EventArgs e)
+        public bool IsValidEmail(string email)
+        {
+            string emailPattern = @"^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$";
+            return Regex.IsMatch(email, emailPattern);
+        }
+
+        public bool IsValidPassword(string password)
+        {
+            string pattern = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$";
+            return Regex.IsMatch(password, pattern);
+        }
+
+
+        private void showPassCheckBox_CheckedChanged_1(object sender, EventArgs e)
+        {
+            txtPassword.PasswordChar = showPassCheckBox.Checked ? '\0' : '*';
+        }
+
+        private void signupButton_Click(object sender, EventArgs e)
         {
             string firstName = txtFirstName.Text;
             string lastName = txtLastName.Text;
@@ -47,14 +65,14 @@ namespace Wallet_Manager.Forms
             {
                 MessageBox.Show("Please enter a valid Gmail address.");
                 txtEmail.Text = "";
-                return; 
+                return;
             }
 
             if (!IsValidPassword(password))
             {
                 MessageBox.Show("Please enter at least 8 characters, at least one letter.");
                 txtPassword.Text = "";
-                return; 
+                return;
             }
 
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
@@ -87,27 +105,9 @@ namespace Wallet_Manager.Forms
             }
         }
 
-
-        public bool IsValidEmail(string email)
+        private void signinLabel_Click(object sender, EventArgs e)
         {
-            string emailPattern = @"^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$";
-            return Regex.IsMatch(email, emailPattern);
-        }
-
-        public bool IsValidPassword(string password)
-        {
-            string pattern = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$";
-            return Regex.IsMatch(password, pattern);
-        }
-
-        private void cb_show_pass_CheckedChanged_1(object sender, EventArgs e)
-        {
-            txtPassword.PasswordChar = cb_show_pass.Checked ? '\0' : '*';
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-            Login newlogin= new Login();
+            Login newlogin = new Login();
             newlogin.ShowDialog();
             this.Close();
         }

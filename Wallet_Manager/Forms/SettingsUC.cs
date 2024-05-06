@@ -40,6 +40,10 @@ namespace Wallet_Manager.Forms
             editProfileLabel.Font = new Font(editProfileLabel.Font, FontStyle.Regular);
             changePassLabel.Font = new Font(changePassLabel.Font, FontStyle.Bold);
         }
+            
+        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

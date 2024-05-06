@@ -153,5 +153,10 @@ namespace Wallet_Manager.Forms
         {
             profilePicture.Image = Properties.Resources.user;
         }
+
+        private void profilePicture_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -29,36 +29,36 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
+            this.signupLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
-            this.cb_show_pass = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.t_login_button = new Guna.UI2.WinForms.Guna2Button();
+            this.showPassCheckBox = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.loginButton = new Guna.UI2.WinForms.Guna2Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // signupLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1415, 713);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 28);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Sign up";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.signupLabel.AutoSize = true;
+            this.signupLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.signupLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signupLabel.Location = new System.Drawing.Point(1415, 713);
+            this.signupLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.signupLabel.Name = "signupLabel";
+            this.signupLabel.Size = new System.Drawing.Size(82, 28);
+            this.signupLabel.TabIndex = 23;
+            this.signupLabel.Text = "Sign up";
+            this.signupLabel.Click += new System.EventHandler(this.signupLabel_Click);
             // 
             // label6
             // 
@@ -111,6 +111,16 @@
             this.label5.TabIndex = 34;
             this.label5.Text = "Track, Save, Succeed";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Wallet_Manager.Properties.Resources._6269574_ai;
+            this.pictureBox1.Location = new System.Drawing.Point(72, 203);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(800, 588);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // txtEmail
             // 
             this.txtEmail.AutoSize = true;
@@ -161,43 +171,43 @@
             this.txtPassword.Size = new System.Drawing.Size(477, 57);
             this.txtPassword.TabIndex = 35;
             // 
-            // cb_show_pass
+            // showPassCheckBox
             // 
-            this.cb_show_pass.AutoSize = true;
-            this.cb_show_pass.CheckedState.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.cb_show_pass.CheckedState.BorderRadius = 0;
-            this.cb_show_pass.CheckedState.BorderThickness = 0;
-            this.cb_show_pass.CheckedState.FillColor = System.Drawing.Color.MediumSlateBlue;
-            this.cb_show_pass.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_show_pass.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_show_pass.Location = new System.Drawing.Point(1553, 552);
-            this.cb_show_pass.Name = "cb_show_pass";
-            this.cb_show_pass.Size = new System.Drawing.Size(132, 24);
-            this.cb_show_pass.TabIndex = 36;
-            this.cb_show_pass.Text = "Show Password";
-            this.cb_show_pass.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.cb_show_pass.UncheckedState.BorderRadius = 0;
-            this.cb_show_pass.UncheckedState.BorderThickness = 0;
-            this.cb_show_pass.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.cb_show_pass.CheckedChanged += new System.EventHandler(this.cb_show_pass_CheckedChanged);
+            this.showPassCheckBox.AutoSize = true;
+            this.showPassCheckBox.CheckedState.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.showPassCheckBox.CheckedState.BorderRadius = 0;
+            this.showPassCheckBox.CheckedState.BorderThickness = 0;
+            this.showPassCheckBox.CheckedState.FillColor = System.Drawing.Color.MediumSlateBlue;
+            this.showPassCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.showPassCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showPassCheckBox.Location = new System.Drawing.Point(1553, 552);
+            this.showPassCheckBox.Name = "showPassCheckBox";
+            this.showPassCheckBox.Size = new System.Drawing.Size(132, 24);
+            this.showPassCheckBox.TabIndex = 36;
+            this.showPassCheckBox.Text = "Show Password";
+            this.showPassCheckBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.showPassCheckBox.UncheckedState.BorderRadius = 0;
+            this.showPassCheckBox.UncheckedState.BorderThickness = 0;
+            this.showPassCheckBox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.showPassCheckBox.CheckedChanged += new System.EventHandler(this.showPassCheckBox_CheckedChanged);
             // 
-            // t_login_button
+            // loginButton
             // 
-            this.t_login_button.BackColor = System.Drawing.Color.Transparent;
-            this.t_login_button.BorderRadius = 5;
-            this.t_login_button.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.t_login_button.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.t_login_button.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.t_login_button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.t_login_button.FillColor = System.Drawing.Color.MediumSlateBlue;
-            this.t_login_button.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.t_login_button.ForeColor = System.Drawing.Color.White;
-            this.t_login_button.Location = new System.Drawing.Point(1208, 631);
-            this.t_login_button.Name = "t_login_button";
-            this.t_login_button.Size = new System.Drawing.Size(477, 57);
-            this.t_login_button.TabIndex = 37;
-            this.t_login_button.Text = "Login";
-            this.t_login_button.Click += new System.EventHandler(this.t_login_button_Click_1);
+            this.loginButton.BackColor = System.Drawing.Color.Transparent;
+            this.loginButton.BorderRadius = 5;
+            this.loginButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.loginButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.loginButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.loginButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.loginButton.FillColor = System.Drawing.Color.MediumSlateBlue;
+            this.loginButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginButton.ForeColor = System.Drawing.Color.White;
+            this.loginButton.Location = new System.Drawing.Point(1208, 631);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(477, 57);
+            this.loginButton.TabIndex = 37;
+            this.loginButton.Text = "Login";
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click_1);
             // 
             // label7
             // 
@@ -246,16 +256,6 @@
             this.guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_BLEND;
             this.guna2AnimateWindow1.TargetForm = this;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Wallet_Manager.Properties.Resources._6269574_ai;
-            this.pictureBox1.Location = new System.Drawing.Point(72, 203);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(800, 588);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -265,13 +265,13 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.t_login_button);
-            this.Controls.Add(this.cb_show_pass);
+            this.Controls.Add(this.loginButton);
+            this.Controls.Add(this.showPassCheckBox);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.signupLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.Text = "W";
@@ -286,14 +286,14 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label signupLabel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
-        private Guna.UI2.WinForms.Guna2CheckBox cb_show_pass;
-        private Guna.UI2.WinForms.Guna2Button t_login_button;
+        private Guna.UI2.WinForms.Guna2CheckBox showPassCheckBox;
+        private Guna.UI2.WinForms.Guna2Button loginButton;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;

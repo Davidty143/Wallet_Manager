@@ -36,7 +36,7 @@ namespace Wallet_Manager.Forms
         }
 
 
-        private void t_login_button_Click_1(object sender, EventArgs e)
+        private void loginButton_Click_1(object sender, EventArgs e)
         {
             string email = txtEmail.Text;
             string password = txtPassword.Text;
@@ -70,19 +70,16 @@ namespace Wallet_Manager.Forms
             }
         }
 
-
-        private void cb_show_pass_CheckedChanged(object sender, EventArgs e)
+        private void showPassCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            txtPassword.PasswordChar = cb_show_pass.Checked ? '\0' : '*';
+            txtPassword.PasswordChar = showPassCheckBox.Checked ? '\0' : '*';
         }
 
-
-        private void label1_Click(object sender, EventArgs e)
+        private void signupLabel_Click(object sender, EventArgs e)
         {
             Signup newSignup = new Signup();
             newSignup.ShowDialog();
             this.Hide();
         }
-
     }
 }

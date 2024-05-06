@@ -428,5 +428,10 @@ namespace Wallet_Manager.Forms
         {
 
         }
+
+        private void TransactionHistory_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

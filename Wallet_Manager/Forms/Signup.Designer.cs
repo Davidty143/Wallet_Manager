@@ -33,7 +33,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtFirstName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label15 = new System.Windows.Forms.Label();
+            this.signinLabel = new System.Windows.Forms.Label();
             this.txtLastName = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
@@ -44,8 +44,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cb_show_pass = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.showPassCheckBox = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.signupButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -118,18 +118,18 @@
             this.txtFirstName.Size = new System.Drawing.Size(477, 57);
             this.txtFirstName.TabIndex = 53;
             // 
-            // label15
+            // signinLabel
             // 
-            this.label15.AutoSize = true;
-            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(1441, 889);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(75, 28);
-            this.label15.TabIndex = 51;
-            this.label15.Text = "Sign in";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
+            this.signinLabel.AutoSize = true;
+            this.signinLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.signinLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signinLabel.Location = new System.Drawing.Point(1441, 889);
+            this.signinLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.signinLabel.Name = "signinLabel";
+            this.signinLabel.Size = new System.Drawing.Size(75, 28);
+            this.signinLabel.TabIndex = 51;
+            this.signinLabel.Text = "Sign in";
+            this.signinLabel.Click += new System.EventHandler(this.signinLabel_Click);
             // 
             // txtLastName
             // 
@@ -296,43 +296,43 @@
             this.label1.TabIndex = 66;
             this.label1.Text = "Create Account";
             // 
-            // cb_show_pass
+            // showPassCheckBox
             // 
-            this.cb_show_pass.AutoSize = true;
-            this.cb_show_pass.CheckedState.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.cb_show_pass.CheckedState.BorderRadius = 0;
-            this.cb_show_pass.CheckedState.BorderThickness = 0;
-            this.cb_show_pass.CheckedState.FillColor = System.Drawing.Color.MediumSlateBlue;
-            this.cb_show_pass.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_show_pass.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_show_pass.Location = new System.Drawing.Point(1560, 741);
-            this.cb_show_pass.Name = "cb_show_pass";
-            this.cb_show_pass.Size = new System.Drawing.Size(132, 24);
-            this.cb_show_pass.TabIndex = 67;
-            this.cb_show_pass.Text = "Show Password";
-            this.cb_show_pass.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.cb_show_pass.UncheckedState.BorderRadius = 0;
-            this.cb_show_pass.UncheckedState.BorderThickness = 0;
-            this.cb_show_pass.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.cb_show_pass.CheckedChanged += new System.EventHandler(this.cb_show_pass_CheckedChanged_1);
+            this.showPassCheckBox.AutoSize = true;
+            this.showPassCheckBox.CheckedState.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.showPassCheckBox.CheckedState.BorderRadius = 0;
+            this.showPassCheckBox.CheckedState.BorderThickness = 0;
+            this.showPassCheckBox.CheckedState.FillColor = System.Drawing.Color.MediumSlateBlue;
+            this.showPassCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.showPassCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showPassCheckBox.Location = new System.Drawing.Point(1560, 741);
+            this.showPassCheckBox.Name = "showPassCheckBox";
+            this.showPassCheckBox.Size = new System.Drawing.Size(132, 24);
+            this.showPassCheckBox.TabIndex = 67;
+            this.showPassCheckBox.Text = "Show Password";
+            this.showPassCheckBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.showPassCheckBox.UncheckedState.BorderRadius = 0;
+            this.showPassCheckBox.UncheckedState.BorderThickness = 0;
+            this.showPassCheckBox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.showPassCheckBox.CheckedChanged += new System.EventHandler(this.showPassCheckBox_CheckedChanged_1);
             // 
-            // guna2Button2
+            // signupButton
             // 
-            this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.BorderRadius = 5;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.MediumSlateBlue;
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(1215, 800);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(477, 57);
-            this.guna2Button2.TabIndex = 68;
-            this.guna2Button2.Text = "Sign up";
-            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            this.signupButton.BackColor = System.Drawing.Color.Transparent;
+            this.signupButton.BorderRadius = 5;
+            this.signupButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.signupButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.signupButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.signupButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.signupButton.FillColor = System.Drawing.Color.MediumSlateBlue;
+            this.signupButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signupButton.ForeColor = System.Drawing.Color.White;
+            this.signupButton.Location = new System.Drawing.Point(1215, 800);
+            this.signupButton.Name = "signupButton";
+            this.signupButton.Size = new System.Drawing.Size(477, 57);
+            this.signupButton.TabIndex = 68;
+            this.signupButton.Text = "Sign up";
+            this.signupButton.Click += new System.EventHandler(this.signupButton_Click);
             // 
             // guna2AnimateWindow1
             // 
@@ -345,8 +345,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1920, 1055);
-            this.Controls.Add(this.guna2Button2);
-            this.Controls.Add(this.cb_show_pass);
+            this.Controls.Add(this.signupButton);
+            this.Controls.Add(this.showPassCheckBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label7);
@@ -357,7 +357,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtFirstName);
-            this.Controls.Add(this.label15);
+            this.Controls.Add(this.signinLabel);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Signup";
@@ -377,7 +377,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2TextBox txtFirstName;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label signinLabel;
         private Guna.UI2.WinForms.Guna2TextBox txtLastName;
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
@@ -385,8 +385,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2CheckBox cb_show_pass;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2CheckBox showPassCheckBox;
+        private Guna.UI2.WinForms.Guna2Button signupButton;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
