@@ -118,204 +118,204 @@
     <Compile Include="Classes\Transaction.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\Wallet.cs" />
-    <Compile Include="Forms\AddBudget.cs">
+    <Compile Include="Forms\Add Budget Form\AddBudget.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddBudget.Designer.cs">
+    <Compile Include="Forms\Add Budget Form\AddBudget.Designer.cs">
       <DependentUpon>AddBudget.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddExpenseUC.cs">
+    <Compile Include="User Controls\Add Expense User Control\AddExpenseUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\AddExpenseUC.Designer.cs">
+    <Compile Include="User Controls\Add Expense User Control\AddExpenseUC.Designer.cs">
       <DependentUpon>AddExpenseUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddIncomeUC.cs">
+    <Compile Include="User Controls\Add Income User Control\AddIncomeUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\AddIncomeUC.Designer.cs">
+    <Compile Include="User Controls\Add Income User Control\AddIncomeUC.Designer.cs">
       <DependentUpon>AddIncomeUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddTransaction.cs">
+    <Compile Include="Forms\Add Transaction Form\AddTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddTransaction.Designer.cs">
+    <Compile Include="Forms\Add Transaction Form\AddTransaction.Designer.cs">
       <DependentUpon>AddTransaction.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddTransferUC.cs">
+    <Compile Include="User Controls\Add Transfer User Control\AddTransferUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\AddTransferUC.Designer.cs">
+    <Compile Include="User Controls\Add Transfer User Control\AddTransferUC.Designer.cs">
       <DependentUpon>AddTransferUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddWallet.cs">
+    <Compile Include="Forms\Add Wallet Form\AddWallet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddWallet.Designer.cs">
+    <Compile Include="Forms\Add Wallet Form\AddWallet.Designer.cs">
       <DependentUpon>AddWallet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Budget1_uc.cs">
+    <Compile Include="User Controls\Budget User Control\Budget1_uc.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\Budget1_uc.Designer.cs">
+    <Compile Include="User Controls\Budget User Control\Budget1_uc.Designer.cs">
       <DependentUpon>Budget1_uc.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CategoryLegendUserControl.cs">
+    <Compile Include="User Controls\Category Legend User Control\CategoryLegendUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\CategoryLegendUserControl.Designer.cs">
+    <Compile Include="User Controls\Category Legend User Control\CategoryLegendUserControl.Designer.cs">
       <DependentUpon>CategoryLegendUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dashboard.cs">
+    <Compile Include="Forms\Dashboad Form\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dashboard.Designer.cs">
+    <Compile Include="Forms\Dashboad Form\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DashboardUC.cs">
+    <Compile Include="User Controls\Dashboard User Control\DashboardUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\DashboardUC.Designer.cs">
+    <Compile Include="User Controls\Dashboard User Control\DashboardUC.Designer.cs">
       <DependentUpon>DashboardUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EditBudget.cs">
+    <Compile Include="Forms\Edit Budget Form\EditBudget.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditBudget.Designer.cs">
+    <Compile Include="Forms\Edit Budget Form\EditBudget.Designer.cs">
       <DependentUpon>EditBudget.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EditPassword.cs">
+    <Compile Include="User Controls\Edit Password User Control\EditPassword.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\EditPassword.Designer.cs">
+    <Compile Include="User Controls\Edit Password User Control\EditPassword.Designer.cs">
       <DependentUpon>EditPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EditProfile.cs">
+    <Compile Include="User Controls\Edit Profile User Control\EditProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\EditProfile.Designer.cs">
+    <Compile Include="User Controls\Edit Profile User Control\EditProfile.Designer.cs">
       <DependentUpon>EditProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EditTransaction.cs">
+    <Compile Include="Forms\Edit Transaction Form\EditTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditTransaction.Designer.cs">
+    <Compile Include="Forms\Edit Transaction Form\EditTransaction.Designer.cs">
       <DependentUpon>EditTransaction.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EditWallet.cs">
+    <Compile Include="Forms\Edit Wallet Form\EditWallet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditWallet.Designer.cs">
+    <Compile Include="Forms\Edit Wallet Form\EditWallet.Designer.cs">
       <DependentUpon>EditWallet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\InsightsUC.cs">
+    <Compile Include="User Controls\Analytics User Control\InsightsUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\InsightsUC.Designer.cs">
+    <Compile Include="User Controls\Analytics User Control\InsightsUC.Designer.cs">
       <DependentUpon>InsightsUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Login.cs">
+    <Compile Include="Forms\Login Form\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Login.Designer.cs">
+    <Compile Include="Forms\Login Form\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SearchFilter.cs">
+    <Compile Include="Forms\Search Filter Form\SearchFilter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SearchFilter.Designer.cs">
+    <Compile Include="Forms\Search Filter Form\SearchFilter.Designer.cs">
       <DependentUpon>SearchFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SettingsUC.cs">
+    <Compile Include="User Controls\Settings User Control\SettingsUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\SettingsUC.Designer.cs">
+    <Compile Include="User Controls\Settings User Control\SettingsUC.Designer.cs">
       <DependentUpon>SettingsUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Signup.cs">
+    <Compile Include="Forms\Signup Form\Signup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Signup.Designer.cs">
+    <Compile Include="Forms\Signup Form\Signup.Designer.cs">
       <DependentUpon>Signup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TransactionHistory.cs">
+    <Compile Include="User Controls\Transaction User Control\TransactionHistory.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\TransactionHistory.Designer.cs">
+    <Compile Include="User Controls\Transaction User Control\TransactionHistory.Designer.cs">
       <DependentUpon>TransactionHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Wallet_uc.cs">
+    <Compile Include="User Controls\Wallet User Control\Wallet_uc.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\Wallet_uc.Designer.cs">
+    <Compile Include="User Controls\Wallet User Control\Wallet_uc.Designer.cs">
       <DependentUpon>Wallet_uc.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\AddBudget.resx">
+    <EmbeddedResource Include="Forms\Add Budget Form\AddBudget.resx">
       <DependentUpon>AddBudget.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddExpenseUC.resx">
+    <EmbeddedResource Include="User Controls\Add Expense User Control\AddExpenseUC.resx">
       <DependentUpon>AddExpenseUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddIncomeUC.resx">
+    <EmbeddedResource Include="User Controls\Add Income User Control\AddIncomeUC.resx">
       <DependentUpon>AddIncomeUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddTransaction.resx">
+    <EmbeddedResource Include="Forms\Add Transaction Form\AddTransaction.resx">
       <DependentUpon>AddTransaction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddTransferUC.resx">
+    <EmbeddedResource Include="User Controls\Add Transfer User Control\AddTransferUC.resx">
       <DependentUpon>AddTransferUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddWallet.resx">
+    <EmbeddedResource Include="Forms\Add Wallet Form\AddWallet.resx">
       <DependentUpon>AddWallet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Budget1_uc.resx">
+    <EmbeddedResource Include="User Controls\Budget User Control\Budget1_uc.resx">
       <DependentUpon>Budget1_uc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CategoryLegendUserControl.resx">
+    <EmbeddedResource Include="User Controls\Category Legend User Control\CategoryLegendUserControl.resx">
       <DependentUpon>CategoryLegendUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dashboard.resx">
+    <EmbeddedResource Include="Forms\Dashboad Form\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DashboardUC.resx">
+    <EmbeddedResource Include="User Controls\Dashboard User Control\DashboardUC.resx">
       <DependentUpon>DashboardUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditBudget.resx">
+    <EmbeddedResource Include="Forms\Edit Budget Form\EditBudget.resx">
       <DependentUpon>EditBudget.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditPassword.resx">
+    <EmbeddedResource Include="User Controls\Edit Password User Control\EditPassword.resx">
       <DependentUpon>EditPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditProfile.resx">
+    <EmbeddedResource Include="User Controls\Edit Profile User Control\EditProfile.resx">
       <DependentUpon>EditProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditTransaction.resx">
+    <EmbeddedResource Include="Forms\Edit Transaction Form\EditTransaction.resx">
       <DependentUpon>EditTransaction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditWallet.resx">
+    <EmbeddedResource Include="Forms\Edit Wallet Form\EditWallet.resx">
       <DependentUpon>EditWallet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\InsightsUC.resx">
+    <EmbeddedResource Include="User Controls\Analytics User Control\InsightsUC.resx">
       <DependentUpon>InsightsUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Login.resx">
+    <EmbeddedResource Include="Forms\Login Form\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SearchFilter.resx">
+    <EmbeddedResource Include="Forms\Search Filter Form\SearchFilter.resx">
       <DependentUpon>SearchFilter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsUC.resx">
+    <EmbeddedResource Include="User Controls\Settings User Control\SettingsUC.resx">
       <DependentUpon>SettingsUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Signup.resx">
+    <EmbeddedResource Include="Forms\Signup Form\Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TransactionHistory.resx">
+    <EmbeddedResource Include="User Controls\Transaction User Control\TransactionHistory.resx">
       <DependentUpon>TransactionHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Wallet_uc.resx">
+    <EmbeddedResource Include="User Controls\Wallet User Control\Wallet_uc.resx">
       <DependentUpon>Wallet_uc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -571,5 +571,6 @@
   <ItemGroup>
     <None Include="Resources\6269574.ai.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
