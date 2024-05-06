@@ -11,11 +11,16 @@ namespace Wallet_Manager.Classes
         public int CategoryID { get; set; }
         public string Name { get; set; }
 
-        // Constructor
         public Category(int id, string name)
         {
             CategoryID = id;
             Name = name;
+        }
+        
+        public void Validate()
+        {
+            if (string.IsNullOrEmpty(Name))
+                throw new Exception("Category name cannot be empty");
         }
     }
 }

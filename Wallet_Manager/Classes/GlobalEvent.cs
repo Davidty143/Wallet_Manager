@@ -8,7 +8,6 @@ namespace Wallet_Manager.Classes
 {
     public static class GlobalEvents
     {
-        // Define a delegate and an event for transaction updates
         public delegate void TransactionUpdateHandler();
         public static event TransactionUpdateHandler TransactionUpdated;
         public delegate void ProfileInformationHandler();
@@ -17,7 +16,6 @@ namespace Wallet_Manager.Classes
         public delegate void BudgetUpdatehandler();
         public static event BudgetUpdatehandler BudgetUpdated;
 
-        // Method to call to trigger the event
         public static void OnTransactionUpdated()
         {
             TransactionUpdated?.Invoke();

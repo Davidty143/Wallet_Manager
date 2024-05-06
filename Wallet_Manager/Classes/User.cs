@@ -13,5 +13,22 @@ namespace Wallet_Manager.Classes
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+
+        
+        public User()
+        {
+            FirstName = "";
+            LastName = "";
+            Email = "";
+            Password = "";
+        }
+
+        public bool Validate()
+        {
+            if (string.IsNullOrEmpty(FirstName) || string.IsNullOrEmpty(LastName) || string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password))
+                return false;
+            return true;
+        }   
     }
+
 }

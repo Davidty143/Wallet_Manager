@@ -16,10 +16,23 @@ namespace Wallet_Manager.Classes
         public float SpendingMoney { get; set; }
         public float SavingsMoney { get; set; }
 
-        public int getWalletID()
+        public Wallet()
         {
-            return this.WalletID; 
+            WalletName = "";
+            WalletType = "";
+            SpendingMoney = 0;
+            SavingsMoney = 0;
         }
+
+        public bool Validate()
+        {
+            if (string.IsNullOrEmpty(WalletName) || string.IsNullOrEmpty(WalletType))
+                return false;
+            if (SpendingMoney < 0 || SavingsMoney < 0)
+                return false;
+            return true;
+        }
+
     }
 }
     

@@ -1,2 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Wallet_Manager.Classes.Budget">
+    <Position X="3.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAACQAAAIEAAAAAggAEAAAAIAAAAAAEAAAAA=</HashCode>
+      <FileName>Classes\Budget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Wallet_Manager.Classes.Category">
+    <Position X="10.5" Y="7" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAACAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Category.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Wallet_Manager.Classes.GlobalData">
+    <Position X="7" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAACAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\GlobalData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Wallet_Manager.Classes.GlobalEvents">
+    <Position X="10.5" Y="4" Width="2.5" />
+    <NestedTypes>
+      <Delegate Name="Wallet_Manager.Classes.GlobalEvents.TransactionUpdateHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\GlobalEvent.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="Wallet_Manager.Classes.GlobalEvents.ProfileInformationHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\GlobalEvent.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="Wallet_Manager.Classes.GlobalEvents.BudgetUpdatehandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\GlobalEvent.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAAAQAEACABAAA=</HashCode>
+      <FileName>Classes\GlobalEvent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Wallet_Manager.Classes.SqlDataAccessLayer">
+    <Position X="7" Y="2.75" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AGVBiAAkAecGkAgAzMwABQADSGWEAAicCAIICGZAoYM=</HashCode>
+      <FileName>Classes\SqlDataAccessLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Wallet_Manager.Classes.Transaction">
+    <Position X="10.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAACAAAgAAEAAAAAAAigAAAAAAEBAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Transaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Wallet_Manager.Classes.User">
+    <Position X="7" Y="5.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACCAAAAAAAAAAAgAAAAAAAACAAAAAAAAAAg=</HashCode>
+      <FileName>Classes\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Wallet_Manager.Classes.Wallet">
+    <Position X="3.75" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAACAAAEAAAEAAAgAAAAAAAAAABAgAAAAAAA=</HashCode>
+      <FileName>Classes\Wallet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

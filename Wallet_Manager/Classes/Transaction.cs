@@ -18,5 +18,17 @@ namespace Wallet_Manager.Classes
         public float Amount { get; set; }
         public DateTime Date { get; set; }
         public string Description { get; set; }
+
+        public Transaction()
+        {
+            UserID = 0;
+            WalletID = 0;
+            CategoryID = 0;
+            WalletCategory = "";
+            TransactionType = "";
+            Amount = 0;
+            Date = DateTime.Now;
+            Description = "";
+        }
     }
 }

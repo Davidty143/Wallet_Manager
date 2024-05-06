@@ -725,10 +725,8 @@ namespace Wallet_Manager.Classes
                 {
                     conn.Open();
 
-                    // Begin a database transaction to ensure data integrity
                     using (MySqlTransaction transaction = conn.BeginTransaction())
                     {
-                        // Insert the main budget details into the Budget table
                         string insertBudgetQuery = @"
                 INSERT INTO Budget (UserID, BudgetName, TotalAmount, IsActive, PeriodType, StartDate, EndDate) 
                 VALUES (@UserID, @BudgetName, @TotalAmount, @IsActive, @PeriodType, @StartDate, @EndDate)";
@@ -737,16 +735,14 @@ namespace Wallet_Manager.Classes
                         cmd.Parameters.AddWithValue("@UserID", budget.UserID);
                         cmd.Parameters.AddWithValue("@BudgetName", budget.BudgetName);
                         cmd.Parameters.AddWithValue("@TotalAmount", budget.TotalAmount);
-                        cmd.Parameters.AddWithValue("@IsActive", budget.IsActive); // Ensure IsActive is handled correctly
+                        cmd.Parameters.AddWithValue("@IsActive", budget.IsActive); 
                         cmd.Parameters.AddWithValue("@PeriodType", budget.PeriodType);
                         cmd.Parameters.AddWithValue("@StartDate", budget.StartDate);
                         cmd.Parameters.AddWithValue("@EndDate", budget.EndDate);
                         cmd.ExecuteNonQuery();
 
-                        // Retrieve the ID of the newly inserted budget
                         long budgetId = cmd.LastInsertedId;
 
-                        // Insert category associations in BudgetCategories table   
                         foreach (int categoryId in budget.CategoryIds)
                         {
                             string insertCategoryQuery = @"
@@ -759,14 +755,12 @@ namespace Wallet_Manager.Classes
                             categoryCmd.ExecuteNonQuery();
                         }
 
-                        // Commit the transaction to finalize the changes
                         transaction.Commit();
                     }
                 }
                 catch (MySqlException ex)
                 {
                     Console.WriteLine("Database error: " + ex.Message);
-                    // Optionally, you might want to rollback the transaction here
                     throw;
                 }
                 catch (Exception ex)
@@ -785,29 +779,26 @@ namespace Wallet_Manager.Classes
                 {
                     conn.Open();
 
-                    // Begin a transaction to ensure data integrity
+                  
                     using (MySqlTransaction transaction = conn.BeginTransaction())
                     {
-                        // Delete entries from BudgetCategory table first if exists
+                        
                         string deleteCategoriesQuery = "DELETE FROM BudgetCategory WHERE BudgetID = @BudgetID";
                         MySqlCommand categoryCmd = new MySqlCommand(deleteCategoriesQuery, conn, transaction);
                         categoryCmd.Parameters.AddWithValue("@BudgetID", budgetId);
                         categoryCmd.ExecuteNonQuery();
 
-                        // Now delete the budget
                         string deleteBudgetQuery = "DELETE FROM Budget WHERE BudgetID = @BudgetID";
                         MySqlCommand cmd = new MySqlCommand(deleteBudgetQuery, conn, transaction);
                         cmd.Parameters.AddWithValue("@BudgetID", budgetId);
                         cmd.ExecuteNonQuery();
 
-                        // Commit the transaction
                         transaction.Commit();
                     }
                 }
                 catch (MySqlException ex)
                 {
                     Console.WriteLine("Database error: " + ex.Message);
-                    // Optionally, you might want to rollback the transaction here
                     throw;
                 }
                 catch (Exception ex)
@@ -818,7 +809,8 @@ namespace Wallet_Manager.Classes
             }
         }
 
-
+        public List<int> WalletIds { get; set; } // List of wallet IDs
+        public List<int> BudgetIds { get; set; } // List of budget IDs
 
         public Wallet GetWalletById(int walletId)
         {

@@ -9,24 +9,26 @@ namespace Wallet_Manager.Classes
 {
     public class Budget
     {
-        public int BudgetID { get; set; } // Primary key, auto-incremented
-        public int UserID { get; set; } // Foreign key linking to the Users table
+        public int BudgetID { get; set; } 
+        public int UserID { get; set; } 
         public string BudgetName { get; set; }
         public float TotalAmount { get; set; }
-        public string PeriodType { get; set; } // e.g., Monthly, Annually
+        public string PeriodType { get; set; } 
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        /// <summary>
         public bool IsActive { get; set; }
-        /// </summary>
-        public List<int> CategoryIds { get; set; } // List of category IDs
+        public List<int> CategoryIds { get; set; } 
 
         public Budget()
         {
-            CategoryIds = new List<int>(); // Initialize the list to prevent null reference issues
+            CategoryIds = new List<int>(); 
         }
-
-
+        public bool Validate()
+        {
+            if (string.IsNullOrEmpty(BudgetName) || TotalAmount < 0 || string.IsNullOrEmpty(PeriodType) || StartDate == null || EndDate == null)
+                return false;
+            return true;
+        }
 
     }
 }
