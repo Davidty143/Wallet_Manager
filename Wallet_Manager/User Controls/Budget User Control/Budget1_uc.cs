@@ -25,7 +25,7 @@ namespace Wallet_Manager.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000; 
                 return cp;
             }
         }
@@ -38,7 +38,7 @@ namespace Wallet_Manager.Forms
 
         private Budget currentBudget;
         private int currentRecordPage = 1;
-        private int recordsPerPage = 4; // Adjust as needed
+        private int recordsPerPage = 4; 
         private int actualRecordsCount = 0;
 
 
@@ -53,16 +53,25 @@ namespace Wallet_Manager.Forms
 
             GlobalEvents.TransactionUpdated += PopulateBudgetComboBox;
 
-            GlobalEvents.BudgetUpdated += PopulateBudgetComboBox;
+            GlobalEvents.BudgetUpdated += UpdateUIVisibility;
             GlobalEvents.BudgetUpdated += updateBudgetUI;
-
-
+            GlobalEvents.BudgetUpdated += PopulateBudgetComboBox;
+            
 
 
         }
+
+
+
         private void UpdateUIVisibility()
         {
             bool hasActiveBudgets = budgetComboBox.Items.Count > 0;
+            if(!hasActiveBudgets)
+            {
+                hideAllPanels();
+            }
+
+
 
             label9.Visible = hasActiveBudgets;
             label6.Visible = hasActiveBudgets;
@@ -77,6 +86,14 @@ namespace Wallet_Manager.Forms
             nonVisibleLabel4.Visible = !hasActiveBudgets;
             doughnutCategoryChart.Visible = hasActiveBudgets;
             splineChart.Visible = hasActiveBudgets;
+        }
+
+        public void hideAllPanels()
+        {
+            foreach (var panel in recordPanels)
+            {
+                panel.Visible = false;
+            }
         }
 
 
@@ -106,6 +123,12 @@ namespace Wallet_Manager.Forms
             var dailyAmounts = dataAccessLayer.GetDailyExpensesUnderBudget(budget).ToList();
             dailyAmounts.Reverse();
 
+            // Check if there are no transactions and hide all panels if true
+            if (!dailyAmounts.Any())
+            {
+                return; // Exit the method as there's nothing to display
+            }
+
             actualRecordsCount = dailyAmounts.Count;
             int totalPages = (int)Math.Ceiling((double)actualRecordsCount / recordsPerPage);
             UpdatePaginationLabel();
@@ -131,6 +154,7 @@ namespace Wallet_Manager.Forms
                 recordPanels[j].Visible = false;
             }
         }
+
 
         private string FormatDate(DateTime date)
         {
@@ -360,6 +384,7 @@ namespace Wallet_Manager.Forms
                     dataAccessLayer.DeleteBudget(currentBudget.BudgetID);
                     MessageBox.Show("Budget deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     GlobalEvents.onBudgetUpdated();
+                    GlobalEvents.OnTransactionUpdated();
                 }
             }
             else

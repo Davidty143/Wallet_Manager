@@ -238,6 +238,7 @@ namespace Wallet_Manager.Forms
                 dataAccessLayer.UpdateTransaction(updatedTransaction);
                 MessageBox.Show("Transaction updated successfully.");
                 GlobalEvents.OnTransactionUpdated();
+                GlobalEvents.onBudgetUpdated();
             }
             catch (Exception ex)
             {

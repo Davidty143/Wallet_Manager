@@ -43,6 +43,7 @@ namespace Wallet_Manager
                 GlobalData.SetUserID(Properties.Settings.Default.LastUserID);
                 GlobalEvents.OnTransactionUpdated();
                 GlobalEvents.OnProfileInformationUpdated();
+                GlobalEvents.onBudgetUpdated();
                 Application.Run(dashboardForm);
                 
             }
