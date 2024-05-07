@@ -254,7 +254,9 @@ namespace Wallet_Manager.Forms
                     string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
                     SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
                     _dataAccessLayer.DeleteTransaction(transactionId);
-                    LoadTransactions();
+                    //LoadTransactions();
+                    GlobalEvents.OnTransactionUpdated();
+
                 }
             }
         }
@@ -430,6 +432,16 @@ namespace Wallet_Manager.Forms
         }
 
         private void TransactionHistory_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
         }

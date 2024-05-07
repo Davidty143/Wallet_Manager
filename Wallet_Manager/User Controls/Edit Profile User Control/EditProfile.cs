@@ -141,7 +141,6 @@ namespace Wallet_Manager.Forms
 
                 MessageBox.Show("Profile updated successfully!");
                 
-
             }
             catch (Exception ex)
             {

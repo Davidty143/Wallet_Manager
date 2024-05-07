@@ -571,6 +571,26 @@
   <ItemGroup>
     <None Include="Resources\6269574.ai.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Track Wallet Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CS Gordon Rounded.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Track Wallet Logo 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-x-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-x-15 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-x-15 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close button.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -553,6 +553,26 @@ namespace Wallet_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close_button {
+            get {
+                object obj = ResourceManager.GetObject("close button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CS_Gordon_Rounded {
+            get {
+                object obj = ResourceManager.GetObject("CS Gordon Rounded", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete_button4 {
             get {
                 object obj = ResourceManager.GetObject("delete_button4", resourceCulture);
@@ -663,6 +683,36 @@ namespace Wallet_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_x_15__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-x-15 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_x_15__2_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-x-15 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_x_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-x-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap menu {
             get {
                 object obj = ResourceManager.GetObject("menu", resourceCulture);
@@ -716,6 +766,26 @@ namespace Wallet_Manager.Properties {
         internal static System.Drawing.Bitmap profit__1_1 {
             get {
                 object obj = ResourceManager.GetObject("profit (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Track_Wallet_Logo {
+            get {
+                object obj = ResourceManager.GetObject("Track Wallet Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Track_Wallet_Logo_2 {
+            get {
+                object obj = ResourceManager.GetObject("Track Wallet Logo 2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

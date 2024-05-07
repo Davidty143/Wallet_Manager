@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet_Manager", "Wallet_Manager\Wallet_Manager.csproj", "{22251719-8F12-48BE-9FA5-E6F6A6EE7A79}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Wallet-Manager", "Wallet-Manager\Wallet-Manager.vdproj", "{F6BF30DF-04BD-4095-97D4-C93DB0563A30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{22251719-8F12-48BE-9FA5-E6F6A6EE7A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22251719-8F12-48BE-9FA5-E6F6A6EE7A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22251719-8F12-48BE-9FA5-E6F6A6EE7A79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6BF30DF-04BD-4095-97D4-C93DB0563A30}.Debug|Any CPU.ActiveCfg = Debug
+		{F6BF30DF-04BD-4095-97D4-C93DB0563A30}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

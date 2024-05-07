@@ -23,6 +23,9 @@ namespace Wallet_Manager.Forms
             }
         }
 
+        Timer closeTimer;
+
+
 
         public Login()
         {
@@ -58,7 +61,13 @@ namespace Wallet_Manager.Forms
                 GlobalEvents.OnTransactionUpdated();
                 GlobalEvents.OnProfileInformationUpdated();
                 Program.ShowDashboard();
-                this.Hide();
+
+                closeTimer = new System.Windows.Forms.Timer();
+                closeTimer.Interval = 1; // Set the interval to 5 seconds (5000 milliseconds)
+                closeTimer.Tick += CloseTimer_Tick; // Add event handler for the Tick event
+                closeTimer.Start(); // Start the timer
+
+               
                 txtEmail.Text = "";
                 txtPassword.Text = "";
                 txtPassword.Text = "";
@@ -68,6 +77,15 @@ namespace Wallet_Manager.Forms
             {
                 MessageBox.Show("Invalid email or password.");
             }
+        }
+
+        private void CloseTimer_Tick(object sender, EventArgs e)
+        {
+            // Stop the timer to prevent continuous closing
+            closeTimer.Stop();
+
+            // Close the form
+            this.Hide();
         }
 
         private void showPassCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -81,5 +99,14 @@ namespace Wallet_Manager.Forms
             newSignup.ShowDialog();
             this.Hide();
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
+
+
+

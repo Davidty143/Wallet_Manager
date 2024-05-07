@@ -19,21 +19,19 @@ namespace Wallet_Manager.Classes
 
 
 
-        public SqlDataAccessLayer(string connectionString)
+        public SqlDataAccessLayer(string connectionString)  
         {
             _connectionString = connectionString;
         }
+
+
         public bool CreateAccount(string firstName, string lastName, string email, string password)
         {
-            // Check if a user with the same email already exists
             User existingUser = GetUserByEmail(email);
             if (existingUser != null)
             {
-                // A user with the same email already exists
                 return false;
             }
-
-            // Validate input, etc.
 
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
 
@@ -54,7 +52,6 @@ namespace Wallet_Manager.Classes
 
             if (user != null)
             {
-                // Compare the hashed password with the provided password
                 if (BCrypt.Net.BCrypt.Verify(password, user.Password))
                 {
                     return true;
@@ -68,13 +65,10 @@ namespace Wallet_Manager.Classes
         {
             if (AuthenticateUser(email, password))
             {
-                // Get the user ID
                 int userID = GetUserID(email);
 
-                // Check if the user ID is valid
                 if (userID != -1)
                 {
-                    // Set the global user ID
                     GlobalData.UserID = userID;
                     return true;
                 }
@@ -113,20 +107,17 @@ namespace Wallet_Manager.Classes
                 return user.UserID;
             }
 
-            return -1; // or throw an exception
+            return -1; 
         }
 
         public bool CreateWalletValidate(Wallet newWallet)
         {
-            // Check if a wallet of the same type already exists for the user
             Wallet existingWallet = GetWalletByUserIDAndType(newWallet.UserID, newWallet.WalletType, newWallet.WalletName);
             if (existingWallet != null)
             {
-                // A wallet of the same type already exists for the user
                 return false;
             }
 
-            // If no such wallet exists, create the new wallet
             return CreateWallet(newWallet);
         }
 
@@ -149,14 +140,12 @@ namespace Wallet_Manager.Classes
                 throw new Exception("Cannot transfer within the same wallet and category.");
             }
 
-            // Check for sufficient funds in the source wallet
             if ((sourceCategory == "Spending" && sourceWallet.SpendingMoney < amount) ||
                 (sourceCategory == "Savings" && sourceWallet.SavingsMoney < amount))
             {
                 throw new Exception("Not enough balance in source wallet's " + sourceCategory + ".");
             }
 
-            // Deduct from the source category
             if (sourceCategory == "Spending")
             {
                 sourceWallet.SpendingMoney -= amount;
@@ -166,7 +155,6 @@ namespace Wallet_Manager.Classes
                 sourceWallet.SavingsMoney -= amount;
             }
 
-            // Add to the target category
             if (targetCategory == "Spending")
             {
                 targetWallet.SpendingMoney += amount;
@@ -176,15 +164,14 @@ namespace Wallet_Manager.Classes
                 targetWallet.SavingsMoney += amount;
             }
 
-            // Create and record the transactions
             Transaction withdrawal = new Transaction
             {
                 UserID = userId,
                 WalletID = sourceWalletId,
                 WalletCategory = sourceCategory,
                 TransactionType = "Transfer",
-                CategoryID = 18, // Assuming CategoryID is predefined
-                Amount = -amount, // Negative for withdrawal
+                CategoryID = 18, 
+                Amount = -amount, 
                 Date = DateTime.Now,
                 Description = description
             };
@@ -195,13 +182,12 @@ namespace Wallet_Manager.Classes
                 WalletID = targetWalletId,
                 WalletCategory = targetCategory,
                 TransactionType = "Transfer",
-                CategoryID = 19, // Assuming CategoryID is predefined
+                CategoryID = 19,
                 Amount = amount,
                 Date = DateTime.Now,
                 Description = description
             };
 
-            // Only proceed with adding transactions if all checks pass
             bool isWithdrawalAdded = _dataAccessLayer.AddTransaction(withdrawal);
             bool isDepositAdded = _dataAccessLayer.AddTransaction(deposit);
 
@@ -210,7 +196,6 @@ namespace Wallet_Manager.Classes
                 throw new Exception("Failed to add one or both transactions to the database.");
             }
 
-            // Persist the updated wallet information to the database
             _dataAccessLayer.UpdateWallet(sourceWallet);
             if (sourceWalletId != targetWalletId)
             {
@@ -253,7 +238,7 @@ namespace Wallet_Manager.Classes
                 cmd.Parameters.AddWithValue("@NewPassword", hashedPassword);
                 cmd.Parameters.AddWithValue("@UserID", userId);
 
-                return cmd.ExecuteNonQuery() == 1; // Check if exactly one row was updated
+                return cmd.ExecuteNonQuery() == 1;
             }
         }
 
@@ -472,14 +457,12 @@ namespace Wallet_Manager.Classes
             {
                 connection.Open();
 
-                // Updated SQL command to use CategoryID instead of Category
                 using (MySqlCommand command = new MySqlCommand("INSERT INTO Transaction (UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description) VALUES (@UserID, @WalletID, @WalletCategory, @TransactionType, @CategoryID, @Amount, @Date, @Description)", connection))
                 {
                     command.Parameters.AddWithValue("@UserID", transaction.UserID);
                     command.Parameters.AddWithValue("@WalletID", transaction.WalletID);
                     command.Parameters.AddWithValue("@WalletCategory", transaction.WalletCategory);
                     command.Parameters.AddWithValue("@TransactionType", transaction.TransactionType);
-                    // Updated to use CategoryID
                     command.Parameters.AddWithValue("@CategoryID", transaction.CategoryID);
                     command.Parameters.AddWithValue("@Amount", transaction.Amount);
                     command.Parameters.AddWithValue("@Date", transaction.Date);
@@ -503,7 +486,7 @@ namespace Wallet_Manager.Classes
                     connection.Open();
                     using (MySqlCommand command = new MySqlCommand("SELECT * FROM wallet WHERE UserID = @UserID", connection))
                     {
-                        command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID()); // Ideally, replace 1 with a variable if needed
+                        command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID()); 
 
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
@@ -525,7 +508,6 @@ namespace Wallet_Manager.Classes
             }
             catch (Exception ex)
             {
-                // Log or handle the exception as needed
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
             return wallets;
@@ -573,7 +555,6 @@ namespace Wallet_Manager.Classes
         {
             using (MySqlConnection conn = new MySqlConnection(_connectionString))
             {
-                // First, check if the wallet name already exists for another wallet
                 string checkQuery = "SELECT COUNT(1) FROM wallet WHERE WalletName = @WalletName AND WalletID != @WalletID";
                 using (MySqlCommand checkCmd = new MySqlCommand(checkQuery, conn))
                 {
@@ -588,12 +569,10 @@ namespace Wallet_Manager.Classes
 
                     if (count > 0)
                     {
-                        // If the wallet name exists for another wallet, return false
                         return false;
                     }
                 }
 
-                // If the wallet name does not exist, proceed with updating the wallet
                 string updateQuery = @"
             UPDATE wallet 
             SET 
@@ -614,7 +593,6 @@ namespace Wallet_Manager.Classes
                     conn.Open();
                     int rowsAffected = updateCmd.ExecuteNonQuery();
 
-                    // Return true if the update was successful
                     return rowsAffected > 0;
                 }
             }
@@ -644,7 +622,6 @@ namespace Wallet_Manager.Classes
                                 WalletName = reader.GetString(reader.GetOrdinal("WalletName")),
                                 SpendingMoney = reader.GetFloat(reader.GetOrdinal("SpendingMoney")),
                                 SavingsMoney = reader.GetFloat(reader.GetOrdinal("SavingsMoney")),
-                                // Add other fields as necessary
                             };
                         }
                         else
@@ -658,10 +635,9 @@ namespace Wallet_Manager.Classes
 
         public DataTable GetAllCategories()
         {
-            using (var conn = new MySqlConnection(_connectionString)) // Ensure you use MySqlConnection
+            using (var conn = new MySqlConnection(_connectionString))
             {
                 conn.Open();
-                // Corrected SQL query
                 var cmd = new MySqlCommand("SELECT CategoryId, Name FROM Category", conn);
                 var dataTable = new DataTable();
                 using (var adapter = new MySqlDataAdapter(cmd))
@@ -674,10 +650,9 @@ namespace Wallet_Manager.Classes
 
         public DataTable GetIncomeCategories()
         {
-            using (var conn = new MySqlConnection(_connectionString)) // Ensure you use MySqlConnection
+            using (var conn = new MySqlConnection(_connectionString))
             {
                 conn.Open();
-                // Adjust the query to match your database schema
                 var cmd = new MySqlCommand("SELECT CategoryId, Name FROM Category WHERE CategoryType = 'Income' ", conn);
                 var dataTable = new DataTable();
                 using (var adapter = new MySqlDataAdapter(cmd))
@@ -809,8 +784,6 @@ namespace Wallet_Manager.Classes
             }
         }
 
-        public List<int> WalletIds { get; set; } // List of wallet IDs
-        public List<int> BudgetIds { get; set; } // List of budget IDs
 
         public Wallet GetWalletById(int walletId)
         {
@@ -880,7 +853,6 @@ namespace Wallet_Manager.Classes
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                // Update the SQL query to order by Date and TransactionID
                 using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction WHERE UserID =  @UserID ORDER BY Date DESC, TransactionID DESC", connection))
                 {
                     command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
@@ -978,9 +950,9 @@ namespace Wallet_Manager.Classes
             {
                 connection.Open();
                 string categories = string.Join(",", categoryIds);
-                if (categories == "") // Check if the category list is empty
+                if (categories == "") 
                 {
-                    return transactions; // Return empty list if no categories are specified
+                    return transactions;
                 }
 
                 string query = $"SELECT * FROM `Transaction` WHERE UserID = @UserID AND CategoryID IN ({categories}) AND `Date` >= @StartDate AND `Date` <= @EndDate";
@@ -1046,11 +1018,10 @@ namespace Wallet_Manager.Classes
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                // Convert category IDs to a comma-separated string for the SQL query
                 string categories = string.Join(",", categoryIds);
-                if (categories == "") // Check if the category list is empty
+                if (categories == "") 
                 {
-                    return categoryTotals; // Return empty dictionary if no categories are specified
+                    return categoryTotals; 
                 }
 
                 string query = "SELECT CategoryID, SUM(Amount) AS TotalAmount FROM `Transaction` WHERE UserID = @UserID AND CategoryID IN (" + categories + ") AND `Date` >= @StartDate AND `Date` <= @EndDate GROUP BY CategoryID";
@@ -1087,7 +1058,6 @@ namespace Wallet_Manager.Classes
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                // Modified SQL command to fetch only the latest 3 transactions, ordered by Date and TransactionID
                 using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction WHERE UserID = @UserID ORDER BY Date DESC, TransactionID DESC LIMIT 3", connection))
                 {
 
@@ -1123,10 +1093,8 @@ namespace Wallet_Manager.Classes
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                // Updated SQL command to order by Date and TransactionID
                 using (MySqlCommand command = new MySqlCommand("SELECT TransactionID, UserID, WalletID, WalletCategory, TransactionType, CategoryID, Amount, Date, Description FROM Transaction WHERE WalletID = @WalletID ORDER BY Date DESC, TransactionID DESC LIMIT 3", connection))
                 {
-                    // Adding the WalletID parameter to the command
                     command.Parameters.AddWithValue("@WalletID", walletId);
 
                     using (MySqlDataReader reader = command.ExecuteReader())
@@ -1153,7 +1121,7 @@ namespace Wallet_Manager.Classes
             return transactions;
         }
 
-        //flag
+        
 
         public List<Transaction> GetAllFilteredTransactions(string transactionType = null, string category = null, string wallet = null, string walletCategory = null, DateTime? startDate = null, DateTime? endDate = null)
         {
@@ -1451,7 +1419,6 @@ namespace Wallet_Manager.Classes
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                // Query to find the most used wallet ID
                 string queryFindMostUsedWalletId = @"
                 SELECT WalletID
                 FROM Transaction
@@ -1471,7 +1438,6 @@ namespace Wallet_Manager.Classes
                     }
                 }
 
-                // Query to get the details of the most used wallet
                 if (mostUsedWalletId != 0)
                 {
                     string queryGetWalletDetails = $@"
@@ -1510,12 +1476,10 @@ namespace Wallet_Manager.Classes
             {
                 conn.Open();
 
-                // Start a transaction
                 using (var transaction = conn.BeginTransaction())
                 {
                     try
                     {
-                        // Delete related records from the 'goal' table
                         var deleteGoalsQuery = "DELETE FROM goal WHERE WalletID = @WalletID";
                         using (var cmd = new MySqlCommand(deleteGoalsQuery, conn))
                         {
@@ -1523,7 +1487,6 @@ namespace Wallet_Manager.Classes
                             cmd.ExecuteNonQuery();
                         }
 
-                        // Delete related records from the 'transaction' table
                         var deleteTransactionsQuery = "DELETE FROM transaction WHERE WalletID = @WalletID";
                         using (var cmd = new MySqlCommand(deleteTransactionsQuery, conn))
                         {
@@ -1531,7 +1494,6 @@ namespace Wallet_Manager.Classes
                             cmd.ExecuteNonQuery();
                         }
 
-                        // Now delete the wallet
                         var deleteWalletQuery = "DELETE FROM wallet WHERE WalletID = @WalletID";
                         using (var cmd = new MySqlCommand(deleteWalletQuery, conn))
                         {
@@ -1539,22 +1501,18 @@ namespace Wallet_Manager.Classes
                             cmd.ExecuteNonQuery();
                         }
 
-                        // Commit transaction
                         transaction.Commit();
                         return true;
                     }
                     catch (Exception)
                     {
-                        // Rollback transaction on error
                         transaction.Rollback();
-                        // Log or handle the error as needed
                         return false;
                     }
                 }
             }
         }
 
-        //flag
 
         public List<Budget> GetAllBudgets()
         {
@@ -1632,17 +1590,16 @@ namespace Wallet_Manager.Classes
 
         public void UpdateBudgetStatuses()
         {
-            var budgets = GetAllBudgets(); // Retrieve all budgets
+            var budgets = GetAllBudgets(); 
 
             foreach (var budget in budgets)
             {
-                // Check if the current date is outside the budget timeframe
                 if (DateTime.Today < budget.StartDate || DateTime.Today > budget.EndDate)
                 {
                     if (budget.IsActive)
                     {
-                        budget.IsActive = false; // Set the budget to inactive
-                        UpdateBudgetInDatabase(budget); // Update the budget in the database
+                        budget.IsActive = false; 
+                        UpdateBudgetInDatabase(budget); 
                     }
                 }
             }
@@ -1655,11 +1612,9 @@ namespace Wallet_Manager.Classes
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             Dictionary<DateTime, float> dailyExpenses = new Dictionary<DateTime, float>();
 
-            // Use the budget's start date and today's date as the end date, ensuring it does not exceed the budget's end date
             DateTime startDate = budget.StartDate;
             DateTime endDate = DateTime.Today > budget.EndDate ? budget.EndDate : DateTime.Today;
 
-            // Initialize all dates within the budget's date range with 0 expenses
             for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
             {
                 dailyExpenses[date] = 0;
@@ -1669,13 +1624,11 @@ namespace Wallet_Manager.Classes
             {
                 connection.Open();
 
-                // Ensure the CategoryIds list is not empty to avoid SQL errors
                 if (budget.CategoryIds == null || budget.CategoryIds.Count == 0)
                 {
                     throw new ArgumentException("Budget must include at least one category ID.");
                 }
 
-                // Construct the SQL query to fetch expenses that match the budget's categories and date range
                 string query = $@"
         SELECT Date, IFNULL(SUM(Amount), 0) AS TotalAmount
         FROM Transaction
@@ -1683,7 +1636,7 @@ namespace Wallet_Manager.Classes
             AND Date BETWEEN @StartDate AND @EndDate
             AND CategoryID IN ({string.Join(",", budget.CategoryIds)})
         GROUP BY Date
-        ORDER BY Date ASC"; // Ensure data is sorted in ascending order by date
+        ORDER BY Date ASC";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
@@ -1693,7 +1646,6 @@ namespace Wallet_Manager.Classes
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
-                        // Update the dictionary with actual expenses
                         while (reader.Read())
                         {
                             DateTime date = reader.GetDateTime("Date");
@@ -1734,7 +1686,6 @@ namespace Wallet_Manager.Classes
             WHERE Date >= CURDATE() - INTERVAL 6 DAY
         ";
 
-                // Modify the query based on the wallet ID
                 if (walletId != 0)
                 {
                     baseQuery += " AND WalletID = @WalletID";   
@@ -1768,13 +1719,12 @@ namespace Wallet_Manager.Classes
                 }
             }
 
-            // Ensure all days in the last 7 days are included in the dictionary
             for (int i = 6; i >= 0; i--)
             {
                 DateTime date = DateTime.Today.AddDays(-i);
                 if (!summary.ContainsKey(date))
                 {
-                    summary[date] = (0, 0, 0); // Add missing days with zero values
+                    summary[date] = (0, 0, 0); 
                 }
             }
 
@@ -1803,7 +1753,6 @@ namespace Wallet_Manager.Classes
             WHERE Date >= CURDATE() - INTERVAL 1 MONTH
         ";
 
-                // Modify the query based on the wallet ID
                 if (walletId != 0)
                 {
                     baseQuery += " AND WalletID = @WalletID";
@@ -1836,15 +1785,14 @@ namespace Wallet_Manager.Classes
                 }
             }
 
-            // Ensure all days in the last month are included in the dictionary
-            DateTime startDate = DateTime.Today.AddDays(-DateTime.Today.Day + 1); // Start of the current month
+            DateTime startDate = DateTime.Today.AddDays(-DateTime.Today.Day + 1);
             int daysInMonth = DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month);
             for (int i = 0; i < daysInMonth; i++)
             {
                 DateTime date = startDate.AddDays(i);
                 if (!summary.ContainsKey(date))
                 {
-                    summary[date] = (0, 0, 0); // Add missing days with zero values
+                    summary[date] = (0, 0, 0); 
                 }
             }
 
@@ -1872,7 +1820,6 @@ namespace Wallet_Manager.Classes
             WHERE Date >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
         ";
 
-                // Modify the query based on the wallet ID
                 if (walletId != 0)
                 {
                     baseQuery += " AND WalletID = @WalletID";
@@ -1906,14 +1853,13 @@ namespace Wallet_Manager.Classes
                 }
             }
 
-            // Ensure all months in the last year are included in the dictionary
             DateTime startDate = DateTime.Today.AddMonths(-11).AddDays(-DateTime.Today.Day + 1);
             for (int i = 0; i < 12; i++)
             {
                 DateTime monthStart = startDate.AddMonths(i);
                 if (!summary.ContainsKey(monthStart))
                 {
-                    summary[monthStart] = (0, 0, 0); // Add missing months with zero values
+                    summary[monthStart] = (0, 0, 0);
                 }
             }
 
@@ -2103,14 +2049,13 @@ namespace Wallet_Manager.Classes
                 }
             }
 
-            // Ensure all days in the last 7 days are included in the dictionary
             for (int i = 6; i >= 0; i--)
             {
                 DateTime date = DateTime.Today.AddDays(-i);
                 if (!netWorthSummary.ContainsKey(date))
                 {
                     float previousNetWorth = i < 6 ? netWorthSummary[DateTime.Today.AddDays(-(i + 1))] : 0f;
-                    netWorthSummary[date] = previousNetWorth; // Add missing days with the last known net worth
+                    netWorthSummary[date] = previousNetWorth; 
                 }
             }
 
@@ -2184,7 +2129,6 @@ namespace Wallet_Manager.Classes
                 }
             }
 
-            // Ensure all days in the last 7 days are included in the dictionary
             DateTime startDate = DateTime.Today.AddDays(-7);
             for (int i = 0; i <= 7; i++)
             {
@@ -2192,7 +2136,7 @@ namespace Wallet_Manager.Classes
                 if (!netWorthSummary.ContainsKey(date))
                 {
                     float previousNetWorth = i > 0 ? netWorthSummary[date.AddDays(-1)] : 0f;
-                    netWorthSummary[date] = previousNetWorth; // Add missing days with the last known net worth
+                    netWorthSummary[date] = previousNetWorth; 
                 }
             }
 
@@ -2256,7 +2200,6 @@ namespace Wallet_Manager.Classes
                 }
             }
 
-            // Ensure all days in the last 30 days are included in the dictionary
             DateTime startDate = DateTime.Today.AddDays(-30);
             for (int i = 0; i <= 30; i++)
             {
@@ -2264,7 +2207,7 @@ namespace Wallet_Manager.Classes
                 if (!netWorthSummary.ContainsKey(date))
                 {
                     float previousNetWorth = i > 0 ? netWorthSummary[date.AddDays(-1)] : 0f;
-                    netWorthSummary[date] = previousNetWorth; // Add missing days with the last known net worth
+                    netWorthSummary[date] = previousNetWorth; 
                 }
             }
 
@@ -2320,7 +2263,6 @@ namespace Wallet_Manager.Classes
                 }
             }
 
-            // Ensure all months in the last year are included in the dictionary
             DateTime startMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddMonths(-12);
             for (int i = 0; i <= 12; i++)
             {
@@ -2328,7 +2270,7 @@ namespace Wallet_Manager.Classes
                 if (!netWorthSummary.ContainsKey(month))
                 {
                     float previousNetWorth = i > 0 ? netWorthSummary[month.AddMonths(-1)] : 0f;
-                    netWorthSummary[month] = previousNetWorth; // Add missing months with the last known net worth
+                    netWorthSummary[month] = previousNetWorth; 
                 }
             }
 

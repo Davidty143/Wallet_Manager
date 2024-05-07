@@ -30,5 +30,12 @@ namespace Wallet_Manager.Classes
             Date = DateTime.Now;
             Description = "";
         }
+        public bool Validate()
+        {
+            if (UserID < 0 || WalletID < 0 || CategoryID < 0 || string.IsNullOrEmpty(WalletCategory) || string.IsNullOrEmpty(TransactionType) || Amount < 0 || Date == null)
+                return false;
+            return true;
+        }
+        
     }
 }

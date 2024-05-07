@@ -11,6 +11,7 @@ namespace Wallet_Manager.Classes
     public static class GlobalData
     {
         public static int UserID { get; set; }
+
         public static void SetUserID(int userID)
         {
 
