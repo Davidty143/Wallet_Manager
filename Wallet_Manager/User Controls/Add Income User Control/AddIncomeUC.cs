@@ -159,7 +159,7 @@ namespace Wallet_Manager.Forms
             Guna2TextBox txt = sender as Guna2TextBox;
             if (txt.Text.Length > 13)
             {
-                txt.Text = txt.Text.Substring(0, 17);
+                txt.Text = txt.Text.Substring(0, 13);
                 txt.SelectionStart = txt.Text.Length;
             }
         }

@@ -175,5 +175,10 @@ namespace Wallet_Manager.Forms
                 e.Handled = true;
             }
         }
+
+        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

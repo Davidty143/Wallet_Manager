@@ -54,10 +54,11 @@ namespace Wallet_Manager.Forms
             PopulateGunaBarDataSet();
 
 
+            GlobalEvents.TransactionUpdated += PopulateWalletsComboBox;
             GlobalEvents.TransactionUpdated += UpdateWalletDisplay;
             GlobalEvents.TransactionUpdated += LoadTransactions;
             GlobalEvents.TransactionUpdated += PopulateGunaBarDataSet;
-            GlobalEvents.TransactionUpdated += PopulateWalletsComboBox;
+            
 
             editPictureBox.Click += editWalletPictureBox_Click;
             deletePictureBox.Click += deleteWalletPictureBox_Click;
@@ -132,11 +133,15 @@ namespace Wallet_Manager.Forms
             {
                 wallet = _dataAccessLayer.GetTotalBalancesForAllWallets();
                 walletTypeLabel.Visible = false;
+                editPictureBox.Visible = false;
+                deletePictureBox.Visible = false;
             }
             else 
             {
                 wallet = _dataAccessLayer.GetWalletById(walletId);
                 walletTypeLabel.Visible = true;
+                editPictureBox.Visible = true;
+                deletePictureBox.Visible = true;
             }
 
             if (wallet != null)
@@ -273,6 +278,15 @@ namespace Wallet_Manager.Forms
                     {
                         categoryPictureBoxes[i].Image = categoryImages[imageIndex];
                     }
+                    if (transaction.Date.Date == DateTime.Today)
+                    {
+                        dateLabels[i].Text = "         Today";
+                    }
+                    else if (transaction.Date.Date == DateTime.Today.AddDays(-1))
+                    {
+                        dateLabels[i].Text = "   Yesterday";
+
+                    }
                 }
                 else
                 {
@@ -311,16 +325,21 @@ namespace Wallet_Manager.Forms
 
         private void selectWalletComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             UpdateWalletDisplay();
             PopulateGunaBarDataSet();
             LoadTransactions();
+
 
         }
 
 
         private void editWalletPictureBox_Click(object sender, EventArgs e)
         {
+            if(selectWalletComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please select a wallet to edit.");
+                return;
+            }
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer _dataAccessLayer = new SqlDataAccessLayer(_connectionString);
             Wallet wallet = _dataAccessLayer.GetWalletById(currentWalletID);
@@ -328,8 +347,8 @@ namespace Wallet_Manager.Forms
             {
                 EditWallet editForm = new EditWallet(wallet);
                 editForm.ShowDialog();
-                UpdateWalletDisplay();
-                PopulateWalletsComboBox();
+                //UpdateWalletDisplay();
+                //PopulateWalletsComboBox();
             }
             else
             {
@@ -339,6 +358,11 @@ namespace Wallet_Manager.Forms
 
         private void deleteWalletPictureBox_Click(object sender, EventArgs e)
         {
+            if(selectWalletComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please select a wallet to delete.");
+                return;
+            }
             if (MessageBox.Show("Are you sure you want to delete this wallet?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
@@ -347,8 +371,8 @@ namespace Wallet_Manager.Forms
                 if (success)
                 {
                     MessageBox.Show("Wallet deleted successfully.");
-                    UpdateWalletDisplay();
-                    PopulateWalletsComboBox();
+                    GlobalEvents.OnTransactionUpdated();
+                    GlobalEvents.onBudgetUpdated();
                 }
                 else
                 {
@@ -392,6 +416,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void Wallet_uc_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

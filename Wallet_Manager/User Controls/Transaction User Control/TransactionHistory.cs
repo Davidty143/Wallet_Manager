@@ -172,9 +172,20 @@ namespace Wallet_Manager.Forms
                     dateLabels[index].Text = transaction.Date.ToString("d");
                     editLabels[index].Tag = transaction.TransactionID;
                     deleteLabels[index].Tag = transaction.TransactionID;
+                    if (transaction.Date.Date == DateTime.Today)
+                    {
+                        dateLabels[index].Text = " Today";
+                    }
+                    else if (transaction.Date.Date == DateTime.Today.AddDays(-1))
+                    {
+                        dateLabels[index].Text = "Yesterday";
+
+                    }
                     index++;
                 }
+
             }
+
 
             for (int i = index; i < transactionPanels.Length; i++)
             {
@@ -223,6 +234,19 @@ namespace Wallet_Manager.Forms
                     {
                         categoryPictureBoxes[i].Image = categoryImages[imageIndex];
                     }
+
+                    if (transaction.Date.Date == DateTime.Today)
+                    {
+                        dateLabels[i].Text = "Today";
+                    }
+                    else if (transaction.Date.Date == DateTime.Today.AddDays(-1))
+                    {
+                        dateLabels[i].Text = "Yesterday";
+
+                    }
+
+
+
                 }
                 else
                 {
@@ -337,6 +361,15 @@ namespace Wallet_Manager.Forms
                     else
                     {
                         categoryPictureBoxes[i].Image = categoryImages[imageIndex];
+                    }
+                    if (transaction.Date.Date == DateTime.Today)
+                    {
+                        dateLabels[i].Text = "         Today";
+                    }
+                    else if (transaction.Date.Date == DateTime.Today.AddDays(-1))
+                    {
+                        dateLabels[i].Text = "   Yesterday";
+
                     }
                 }
                 else
