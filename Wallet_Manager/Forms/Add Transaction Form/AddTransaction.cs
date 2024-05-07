@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Wallet_Manager.Classes;
 
 namespace Wallet_Manager.Forms
 {
@@ -26,6 +27,8 @@ namespace Wallet_Manager.Forms
         public AddTransaction()
         {
             InitializeComponent();
+
+
         }
 
         private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
@@ -159,6 +162,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void addIncomeUC1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

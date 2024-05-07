@@ -361,6 +361,14 @@ namespace Wallet_Manager.Forms
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
+            SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
+            MessageBox.Show("You need to add a wallet first");
+            if (dataAccessLayer.GetWallets().Count <= 0)
+            {
+                MessageBox.Show("You need to add a wallet first");
+                return;
+            }
             Dashboard dashboardParent = this.FindForm() as Dashboard;
             
 

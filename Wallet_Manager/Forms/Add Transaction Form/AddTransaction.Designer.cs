@@ -32,12 +32,12 @@
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.button_transfer = new Guna.UI2.WinForms.Guna2Button();
-            this.button_income = new Guna.UI2.WinForms.Guna2Button();
-            this.button_expense = new Guna.UI2.WinForms.Guna2Button();
             this.addIncomeUC1 = new Wallet_Manager.Forms.AddIncomeUC();
             this.addTransferUC1 = new Wallet_Manager.Forms.AddTransferUC();
             this.addExpenseUC1 = new Wallet_Manager.Forms.AddExpenseUC();
+            this.button_transfer = new Guna.UI2.WinForms.Guna2Button();
+            this.button_income = new Guna.UI2.WinForms.Guna2Button();
+            this.button_expense = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.guna2CustomGradientPanel3.SuspendLayout();
@@ -68,6 +68,7 @@
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(606, 720);
             this.guna2CustomGradientPanel2.TabIndex = 0;
+            this.guna2CustomGradientPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel2_Paint);
             // 
             // label7
             // 
@@ -94,6 +95,31 @@
             this.guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
             this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(502, 463);
             this.guna2CustomGradientPanel3.TabIndex = 16;
+            // 
+            // addIncomeUC1
+            // 
+            this.addIncomeUC1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addIncomeUC1.Location = new System.Drawing.Point(0, 0);
+            this.addIncomeUC1.Name = "addIncomeUC1";
+            this.addIncomeUC1.Size = new System.Drawing.Size(502, 463);
+            this.addIncomeUC1.TabIndex = 2;
+            this.addIncomeUC1.Load += new System.EventHandler(this.addIncomeUC1_Load);
+            // 
+            // addTransferUC1
+            // 
+            this.addTransferUC1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addTransferUC1.Location = new System.Drawing.Point(0, 0);
+            this.addTransferUC1.Name = "addTransferUC1";
+            this.addTransferUC1.Size = new System.Drawing.Size(502, 463);
+            this.addTransferUC1.TabIndex = 1;
+            // 
+            // addExpenseUC1
+            // 
+            this.addExpenseUC1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addExpenseUC1.Location = new System.Drawing.Point(0, 0);
+            this.addExpenseUC1.Name = "addExpenseUC1";
+            this.addExpenseUC1.Size = new System.Drawing.Size(502, 463);
+            this.addExpenseUC1.TabIndex = 0;
             // 
             // button_transfer
             // 
@@ -154,31 +180,6 @@
             this.button_expense.TabIndex = 14;
             this.button_expense.Text = "Expense";
             this.button_expense.Click += new System.EventHandler(this.button_expense_Click);
-            // 
-            // addIncomeUC1
-            // 
-            this.addIncomeUC1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addIncomeUC1.Location = new System.Drawing.Point(0, 0);
-            this.addIncomeUC1.Name = "addIncomeUC1";
-            this.addIncomeUC1.Size = new System.Drawing.Size(502, 463);
-            this.addIncomeUC1.TabIndex = 2;
-            this.addIncomeUC1.Load += new System.EventHandler(this.addIncomeUC1_Load);
-            // 
-            // addTransferUC1
-            // 
-            this.addTransferUC1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addTransferUC1.Location = new System.Drawing.Point(0, 0);
-            this.addTransferUC1.Name = "addTransferUC1";
-            this.addTransferUC1.Size = new System.Drawing.Size(502, 463);
-            this.addTransferUC1.TabIndex = 1;
-            // 
-            // addExpenseUC1
-            // 
-            this.addExpenseUC1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addExpenseUC1.Location = new System.Drawing.Point(0, 0);
-            this.addExpenseUC1.Name = "addExpenseUC1";
-            this.addExpenseUC1.Size = new System.Drawing.Size(502, 463);
-            this.addExpenseUC1.TabIndex = 0;
             // 
             // AddTransaction
             // 

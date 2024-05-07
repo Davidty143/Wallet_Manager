@@ -24,7 +24,6 @@ namespace Wallet_Manager
 
             string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
-            dataAccessLayer.UpdateBudgetStatuses();
 
             loginForm = new Login();
             dashboardForm = new Dashboard();

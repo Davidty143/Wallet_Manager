@@ -22,6 +22,7 @@ namespace Wallet_Manager.Classes
         public SqlDataAccessLayer(string connectionString)  
         {
             _connectionString = connectionString;
+            GlobalEvents.BudgetUpdated += UpdateBudgetStatuses;
         }
 
 
