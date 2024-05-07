@@ -144,7 +144,7 @@ namespace Wallet_Manager.Forms
 
             try
             {
-                bool transferSuccess = dataAccessLayer.Transfer(sourceWalletId, sourceCategory, targetWalletId, targetCategory, amount, 1, description);
+                bool transferSuccess = dataAccessLayer.Transfer(sourceWalletId, sourceCategory, targetWalletId, targetCategory, amount, GlobalData.GetUserID(), description);
                 if (transferSuccess)
                 {
                     MessageBox.Show("Transfer completed successfully.");
@@ -212,7 +212,7 @@ namespace Wallet_Manager.Forms
         private void txtDescription_TextChanged(object sender, EventArgs e)
         {
             Guna2TextBox txt = sender as Guna2TextBox;
-            if (txt.Text.Length > 13)
+            if (txt.Text.Length > 17)
             {
                 txt.Text = txt.Text.Substring(0, 17);
                 txt.SelectionStart = txt.Text.Length;

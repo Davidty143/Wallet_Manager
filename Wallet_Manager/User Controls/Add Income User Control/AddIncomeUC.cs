@@ -157,9 +157,9 @@ namespace Wallet_Manager.Forms
         private void txtDescription_TextChanged(object sender, EventArgs e)
         {
             Guna2TextBox txt = sender as Guna2TextBox;
-            if (txt.Text.Length > 13)
+            if (txt.Text.Length > 17)
             {
-                txt.Text = txt.Text.Substring(0, 13);
+                txt.Text = txt.Text.Substring(0, 17);
                 txt.SelectionStart = txt.Text.Length;
             }
         }

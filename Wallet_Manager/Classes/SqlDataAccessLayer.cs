@@ -1361,21 +1361,21 @@ namespace Wallet_Manager.Classes
             {
                 connection.Open();
                 string query = @"
-                SELECT GREATEST(0,
-                    (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
-                        WHERE TransactionType = 'Income' AND WalletCategory = 'Savings' AND Date = CURDATE() AND UserID = @UserID) +
-                    (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
-                        WHERE TransactionType = 'Transfer' AND CategoryID = 19 AND Date = CURDATE() AND UserID = @UserID) -
-                    (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
-                        WHERE TransactionType = 'Transfer' AND CategoryID = 18 AND Date = CURDATE() AND UserID = @UserID) -
-                    (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
-                        WHERE TransactionType = 'Expense' AND WalletCategory = 'Savings' AND Date = CURDATE() AND UserID = @UserID)
-                ) AS TotalSavingsToday";
-
+            SELECT GREATEST(0,
+                (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
+                    WHERE TransactionType = 'Income' AND WalletCategory = 'Savings' AND DATE(Date) = CURDATE() AND UserID = @UserID) +
+                (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
+                    WHERE TransactionType = 'Transfer' AND CategoryID = 19 AND WalletCategory = 'Savings' AND DATE(Date) = CURDATE() AND UserID = @UserID) +
+                (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
+                    WHERE TransactionType = 'Transfer' AND CategoryID = 18 AND  WalletCategory = 'Savings' AND DATE(Date) = CURDATE() AND UserID = @UserID) -
+                (SELECT IFNULL(SUM(Amount), 0) FROM Transaction
+                    WHERE TransactionType = 'Expense' AND WalletCategory = 'Savings' AND DATE(Date) = CURDATE() AND UserID = @UserID)
+            ) AS TotalSavingsToday";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@UserID", GlobalData.GetUserID());
+                    MessageBox.Show(GlobalData.GetUserID().ToString());
                     object result = command.ExecuteScalar();
                     if (result != DBNull.Value)
                     {
@@ -1386,6 +1386,7 @@ namespace Wallet_Manager.Classes
 
             return totalSavings;
         }
+
 
         public float GetTotalExpensesForToday()
         {
