@@ -150,7 +150,7 @@ namespace Wallet_Manager.Forms
             }
             else
             {
-                MessageBox.Show("Wallet not found.");
+                //MessageBox.Show("Wallet not found.");
             }
         }
 

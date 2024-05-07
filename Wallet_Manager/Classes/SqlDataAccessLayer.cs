@@ -1480,12 +1480,7 @@ namespace Wallet_Manager.Classes
                 {
                     try
                     {
-                        var deleteGoalsQuery = "DELETE FROM goal WHERE WalletID = @WalletID";
-                        using (var cmd = new MySqlCommand(deleteGoalsQuery, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@WalletID", walletId);
-                            cmd.ExecuteNonQuery();
-                        }
+
 
                         var deleteTransactionsQuery = "DELETE FROM transaction WHERE WalletID = @WalletID";
                         using (var cmd = new MySqlCommand(deleteTransactionsQuery, conn))

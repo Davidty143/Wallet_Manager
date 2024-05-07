@@ -245,6 +245,7 @@
             this.txtCategory.BackColor = System.Drawing.Color.Transparent;
             this.txtCategory.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtCategory.BorderRadius = 5;
+            this.txtCategory.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtCategory.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -328,6 +329,7 @@
             this.txtWallet.BackColor = System.Drawing.Color.Transparent;
             this.txtWallet.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtWallet.BorderRadius = 5;
+            this.txtWallet.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtWallet.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtWallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtWallet.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -365,6 +367,7 @@
             this.txtTransactionType.BackColor = System.Drawing.Color.Transparent;
             this.txtTransactionType.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtTransactionType.BorderRadius = 5;
+            this.txtTransactionType.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtTransactionType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtTransactionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtTransactionType.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));

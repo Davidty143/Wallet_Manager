@@ -197,7 +197,7 @@
             this.txtSourceWallet.BackColor = System.Drawing.Color.Transparent;
             this.txtSourceWallet.BorderColor = System.Drawing.Color.Black;
             this.txtSourceWallet.BorderRadius = 5;
-            this.txtSourceWallet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtSourceWallet.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtSourceWallet.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtSourceWallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtSourceWallet.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -417,7 +417,7 @@
             this.txtDestinationWallet.BackColor = System.Drawing.Color.Transparent;
             this.txtDestinationWallet.BorderColor = System.Drawing.Color.Black;
             this.txtDestinationWallet.BorderRadius = 5;
-            this.txtDestinationWallet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtDestinationWallet.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtDestinationWallet.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtDestinationWallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtDestinationWallet.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));

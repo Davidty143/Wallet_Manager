@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            Guna.Charts.WinForms.ChartFont chartFont9 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont10 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont11 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont12 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid4 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick4 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont13 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid5 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick5 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont14 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid6 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel2 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont15 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick6 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont16 = new Guna.Charts.WinForms.ChartFont();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            Guna.Charts.WinForms.ChartFont chartFont25 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont26 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont27 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont28 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid10 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick10 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont29 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid11 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick11 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont30 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid12 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel4 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont31 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick12 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont32 = new Guna.Charts.WinForms.ChartFont();
             this.label23 = new System.Windows.Forms.Label();
             this.budgetComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
@@ -126,13 +126,13 @@
             // 
             this.budgetComboBox.BackColor = System.Drawing.Color.Transparent;
             this.budgetComboBox.BorderRadius = 5;
-            this.budgetComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.budgetComboBox.Cursor = System.Windows.Forms.Cursors.Default;
             this.budgetComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.budgetComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.budgetComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.budgetComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.budgetComboBox.FocusedColor = System.Drawing.Color.MediumSlateBlue;
+            this.budgetComboBox.FocusedState.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.budgetComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.budgetComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.budgetComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.budgetComboBox.ItemHeight = 30;
             this.budgetComboBox.Location = new System.Drawing.Point(258, 43);
             this.budgetComboBox.Name = "budgetComboBox";
@@ -684,10 +684,10 @@
             // 
             // doughnutCategoryChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.doughnutCategoryChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.doughnutCategoryChart.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.doughnutCategoryChart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.doughnutCategoryChart.Legends.Add(legend4);
             this.doughnutCategoryChart.Location = new System.Drawing.Point(60, 12);
             this.doughnutCategoryChart.Name = "doughnutCategoryChart";
             this.doughnutCategoryChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -700,12 +700,12 @@
         System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(76)))), ((int)(((byte)(204))))),
         System.Drawing.Color.MediumSeaGreen,
         System.Drawing.Color.Olive};
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.doughnutCategoryChart.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series4.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.doughnutCategoryChart.Series.Add(series4);
             this.doughnutCategoryChart.Size = new System.Drawing.Size(563, 319);
             this.doughnutCategoryChart.TabIndex = 312;
             this.doughnutCategoryChart.Text = "chart3";
@@ -735,9 +735,10 @@
             this.label27.ForeColor = System.Drawing.Color.Black;
             this.label27.Location = new System.Drawing.Point(807, 452);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(312, 38);
+            this.label27.Size = new System.Drawing.Size(440, 38);
             this.label27.TabIndex = 296;
-            this.label27.Text = "Budget Category Trend";
+            this.label27.Text = "Budget Spending Category Trend";
+            this.label27.Click += new System.EventHandler(this.label27_Click);
             // 
             // label28
             // 
@@ -781,8 +782,8 @@
             // 
             this.splineChart.Datasets.AddRange(new Guna.Charts.Interfaces.IGunaDataset[] {
             this.splineDataset1});
-            chartFont9.FontName = "Arial";
-            this.splineChart.Legend.LabelFont = chartFont9;
+            chartFont25.FontName = "Arial";
+            this.splineChart.Legend.LabelFont = chartFont25;
             this.splineChart.Location = new System.Drawing.Point(3, 3);
             this.splineChart.Name = "splineChart";
             this.splineChart.PaletteCustomColors.BorderColors.AddRange(new System.Drawing.Color[] {
@@ -791,32 +792,32 @@
             System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(105)))), ((int)(((byte)(233)))))});
             this.splineChart.Size = new System.Drawing.Size(640, 302);
             this.splineChart.TabIndex = 0;
-            chartFont10.FontName = "Arial";
-            chartFont10.Size = 12;
-            chartFont10.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.splineChart.Title.Font = chartFont10;
-            chartFont11.FontName = "Arial";
-            this.splineChart.Tooltips.BodyFont = chartFont11;
-            chartFont12.FontName = "Arial";
-            chartFont12.Size = 9;
-            chartFont12.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.splineChart.Tooltips.TitleFont = chartFont12;
-            this.splineChart.XAxes.GridLines = grid4;
-            chartFont13.FontName = "Arial";
-            tick4.Font = chartFont13;
-            this.splineChart.XAxes.Ticks = tick4;
-            grid5.LineWidth = 0;
-            this.splineChart.YAxes.GridLines = grid5;
-            chartFont14.FontName = "Arial";
-            tick5.Font = chartFont14;
-            this.splineChart.YAxes.Ticks = tick5;
-            this.splineChart.ZAxes.GridLines = grid6;
-            chartFont15.FontName = "Arial";
-            pointLabel2.Font = chartFont15;
-            this.splineChart.ZAxes.PointLabels = pointLabel2;
-            chartFont16.FontName = "Arial";
-            tick6.Font = chartFont16;
-            this.splineChart.ZAxes.Ticks = tick6;
+            chartFont26.FontName = "Arial";
+            chartFont26.Size = 12;
+            chartFont26.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.splineChart.Title.Font = chartFont26;
+            chartFont27.FontName = "Arial";
+            this.splineChart.Tooltips.BodyFont = chartFont27;
+            chartFont28.FontName = "Arial";
+            chartFont28.Size = 9;
+            chartFont28.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.splineChart.Tooltips.TitleFont = chartFont28;
+            this.splineChart.XAxes.GridLines = grid10;
+            chartFont29.FontName = "Arial";
+            tick10.Font = chartFont29;
+            this.splineChart.XAxes.Ticks = tick10;
+            grid11.LineWidth = 0;
+            this.splineChart.YAxes.GridLines = grid11;
+            chartFont30.FontName = "Arial";
+            tick11.Font = chartFont30;
+            this.splineChart.YAxes.Ticks = tick11;
+            this.splineChart.ZAxes.GridLines = grid12;
+            chartFont31.FontName = "Arial";
+            pointLabel4.Font = chartFont31;
+            this.splineChart.ZAxes.PointLabels = pointLabel4;
+            chartFont32.FontName = "Arial";
+            tick12.Font = chartFont32;
+            this.splineChart.ZAxes.Ticks = tick12;
             // 
             // splineDataset1
             // 

@@ -84,10 +84,10 @@
             this.confirmPass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.confirmPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.confirmPass.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.confirmPass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.confirmPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmPass.FocusedState.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.confirmPass.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmPass.ForeColor = System.Drawing.Color.Black;
-            this.confirmPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.confirmPass.HoverState.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.confirmPass.Location = new System.Drawing.Point(117, 360);
             this.confirmPass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.confirmPass.Name = "confirmPass";
@@ -110,10 +110,10 @@
             this.newPass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.newPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.newPass.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.newPass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.newPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newPass.FocusedState.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.newPass.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newPass.ForeColor = System.Drawing.Color.Black;
-            this.newPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.newPass.HoverState.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.newPass.Location = new System.Drawing.Point(117, 230);
             this.newPass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.newPass.Name = "newPass";
@@ -164,10 +164,10 @@
             this.currPass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.currPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.currPass.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.currPass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.currPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currPass.FocusedState.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.currPass.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currPass.ForeColor = System.Drawing.Color.Black;
-            this.currPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.currPass.HoverState.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.currPass.Location = new System.Drawing.Point(117, 85);
             this.currPass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.currPass.Name = "currPass";
@@ -181,10 +181,10 @@
             // showPassCheckBox
             // 
             this.showPassCheckBox.AutoSize = true;
-            this.showPassCheckBox.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.showPassCheckBox.CheckedState.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.showPassCheckBox.CheckedState.BorderRadius = 0;
             this.showPassCheckBox.CheckedState.BorderThickness = 0;
-            this.showPassCheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.showPassCheckBox.CheckedState.FillColor = System.Drawing.Color.MediumSlateBlue;
             this.showPassCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.showPassCheckBox.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showPassCheckBox.ForeColor = System.Drawing.Color.DimGray;
@@ -203,10 +203,10 @@
             // showPassCheckBox2
             // 
             this.showPassCheckBox2.AutoSize = true;
-            this.showPassCheckBox2.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.showPassCheckBox2.CheckedState.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.showPassCheckBox2.CheckedState.BorderRadius = 0;
             this.showPassCheckBox2.CheckedState.BorderThickness = 0;
-            this.showPassCheckBox2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.showPassCheckBox2.CheckedState.FillColor = System.Drawing.Color.MediumSlateBlue;
             this.showPassCheckBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.showPassCheckBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showPassCheckBox2.ForeColor = System.Drawing.Color.DimGray;

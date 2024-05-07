@@ -235,6 +235,7 @@
             this.txtPeriod.BackColor = System.Drawing.Color.Transparent;
             this.txtPeriod.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtPeriod.BorderRadius = 5;
+            this.txtPeriod.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtPeriod.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtPeriod.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));

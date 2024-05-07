@@ -24,24 +24,41 @@ namespace Wallet_Manager.Forms
         public SettingsUC()
         {
             InitializeComponent();
+            PopulateComboBox();
         }
 
-
-        private void guna2Button1_Click(object sender, EventArgs e)
+        public void PopulateComboBox()
         {
-            editProfile1.BringToFront();
-            editProfileLabel.Font = new Font(editProfileLabel.Font, FontStyle.Bold);
-            changePassLabel.Font = new Font(changePassLabel.Font, FontStyle.Regular);
+            SelectSettingComboBox.Items.Clear();
+
+            SelectSettingComboBox.Items.Add("Edit Profile");
+            SelectSettingComboBox.Items.Add("Change Password");
+
+            SelectSettingComboBox.SelectedIndex = 0; 
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-            editPassword1.BringToFront();
-            editProfileLabel.Font = new Font(editProfileLabel.Font, FontStyle.Regular);
-            changePassLabel.Font = new Font(changePassLabel.Font, FontStyle.Bold);
-        }
-            
+
+
+
+
         private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (SelectSettingComboBox.SelectedItem.ToString() == "Edit Profile")
+            {
+                editProfile1.BringToFront();
+            }
+            else if (SelectSettingComboBox.SelectedItem.ToString() == "Change Password")
+            {
+                editPassword1.BringToFront();
+            }
+        }
+
+        private void editProfile1_Load(object sender, EventArgs e)
         {
 
         }
