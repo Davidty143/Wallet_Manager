@@ -544,6 +544,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -1442,7 +1450,7 @@
             "Target" = "8:_DEBAC1EE289F4EFD98472771196FDBE1"
             "Folder" = "8:_1AFC44D4A0D64A078DA15585154B6E31"
             "WorkingFolder" = "8:_E49F615200F549C9A3744905858BB75A"
-            "Icon" = "8:"
+            "Icon" = "8:_C58AF624C4014D54A0F85D90D6FA6A51"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D1F2412FE84E4E57B9C2EBF6653902B3"
@@ -1456,7 +1464,7 @@
             "Target" = "8:_DEBAC1EE289F4EFD98472771196FDBE1"
             "Folder" = "8:_EF7FFDFB3CA84C978A1BBCB52047C34C"
             "WorkingFolder" = "8:_E49F615200F549C9A3744905858BB75A"
-            "Icon" = "8:"
+            "Icon" = "8:_C58AF624C4014D54A0F85D90D6FA6A51"
             "Feature" = "8:"
             }
         }

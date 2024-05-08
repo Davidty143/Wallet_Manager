@@ -334,6 +334,8 @@ namespace Wallet_Manager.Forms
                 Properties.Settings.Default.Save();
 
                 Program.ShowLoginForm();
+
+
                 this.Close();
             }
             else

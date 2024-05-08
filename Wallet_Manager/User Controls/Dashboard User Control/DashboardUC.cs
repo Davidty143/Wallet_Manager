@@ -363,7 +363,6 @@ namespace Wallet_Manager.Forms
         {
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
             SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(_connectionString);
-            MessageBox.Show("You need to add a wallet first");
             if (dataAccessLayer.GetWallets().Count <= 0)
             {
                 MessageBox.Show("You need to add a wallet first");
@@ -456,6 +455,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void recentTransactionPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

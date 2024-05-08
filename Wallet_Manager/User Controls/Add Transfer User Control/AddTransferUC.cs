@@ -149,6 +149,7 @@ namespace Wallet_Manager.Forms
                 {
                     MessageBox.Show("Transfer completed successfully.");
                     GlobalEvents.OnTransactionUpdated();
+                    ClearForm();
                 }
                 else
                 {

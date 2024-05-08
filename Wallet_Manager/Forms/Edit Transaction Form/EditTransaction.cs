@@ -25,7 +25,7 @@ namespace Wallet_Manager.Forms
         }
 
         int txtTransactionID;
-        int txtUserID = 1; 
+        int txtUserID = GlobalData.GetUserID(); 
         public EditTransaction(int transactionID)
         {
             txtTransactionID = transactionID;
@@ -87,7 +87,7 @@ namespace Wallet_Manager.Forms
 
             var walletBindingList = wallets.Select(wallet => new
             {
-                Text = $"{wallet.WalletName} (ID: {wallet.WalletID})",
+                Text = $"{wallet.WalletName}",
                 Value = wallet.WalletID
             }).ToList();
 
@@ -271,9 +271,9 @@ namespace Wallet_Manager.Forms
         private void txtDescription_TextChanged(object sender, EventArgs e)
         {
             Guna2TextBox txt = sender as Guna2TextBox;
-            if (txt.Text.Length > 13)
+            if (txt.Text.Length > 17)
             {
-                txt.Text = txt.Text.Substring(0, 13);
+                txt.Text = txt.Text.Substring(0, 17);
                 txt.SelectionStart = txt.Text.Length;
             }
         
