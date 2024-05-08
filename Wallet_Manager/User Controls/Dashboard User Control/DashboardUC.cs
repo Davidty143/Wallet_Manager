@@ -415,7 +415,7 @@ namespace Wallet_Manager.Forms
             if (budgetComboBox.SelectedItem is Budget selectedBudget)
             {
                 activeBudgetPanel2.Visible = true;
-                budgetNameLabel.Visible = false;
+                budgetNameLabel.Visible = true;
                 budgetComboBox.Visible = true;
                 string connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";
                 SqlDataAccessLayer dataAccessLayer = new SqlDataAccessLayer(connectionString);
@@ -446,6 +446,16 @@ namespace Wallet_Manager.Forms
         }
 
         private void activeBudgetPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Button13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }

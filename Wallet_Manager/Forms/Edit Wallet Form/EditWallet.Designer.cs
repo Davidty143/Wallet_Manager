@@ -224,6 +224,7 @@
             this.walletNameTextBox.SelectedText = "";
             this.walletNameTextBox.Size = new System.Drawing.Size(276, 36);
             this.walletNameTextBox.TabIndex = 169;
+            this.walletNameTextBox.TextChanged += new System.EventHandler(this.walletNameTextBox_TextChanged);
             // 
             // pictureBox4
             // 

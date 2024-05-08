@@ -135,7 +135,7 @@ namespace Wallet_Manager.Forms
                 return;
             }
 
-
+                
             string description = txtDescription.Text;
 
             string _connectionString = "server=127.0.0.1;uid=root;pwd=123Database;database=wallet_manager";

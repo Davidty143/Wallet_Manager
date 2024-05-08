@@ -27,6 +27,9 @@ namespace Wallet_Manager.Forms
         public EditPassword()
         {
             InitializeComponent();
+            currPass.MaxLength = 20;
+            newPass.MaxLength = 20;
+            confirmPass.MaxLength = 20;
         }
 
         private void updatePass_Click(object sender, EventArgs e)

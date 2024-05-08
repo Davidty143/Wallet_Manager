@@ -31,6 +31,9 @@ namespace Wallet_Manager.Forms
             InitializeComponent();
             LoadUserProfile();
             LoadUserProfilePicture();
+            txtEmail.MaxLength = 20;
+            txtFirstName.MaxLength = 20;
+            txtLastName.MaxLength = 20;
         }
 
         private void LoadUserProfile()
@@ -154,6 +157,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void profilePicture_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
         {
 
         }

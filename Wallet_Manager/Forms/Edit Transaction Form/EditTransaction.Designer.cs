@@ -281,6 +281,7 @@
             this.txtAmount.SelectedText = "";
             this.txtAmount.Size = new System.Drawing.Size(276, 36);
             this.txtAmount.TabIndex = 174;
+            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // checkBoxSavings
             // 

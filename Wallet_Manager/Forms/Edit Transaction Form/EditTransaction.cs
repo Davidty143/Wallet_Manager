@@ -273,10 +273,18 @@ namespace Wallet_Manager.Forms
             Guna2TextBox txt = sender as Guna2TextBox;
             if (txt.Text.Length > 13)
             {
-                txt.Text = txt.Text.Substring(0, 17);
+                txt.Text = txt.Text.Substring(0, 13);
                 txt.SelectionStart = txt.Text.Length;
             }
         
+        }
+
+        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

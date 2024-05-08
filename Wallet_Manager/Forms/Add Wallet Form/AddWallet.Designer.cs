@@ -128,6 +128,7 @@
             this.txtName.SelectedText = "";
             this.txtName.Size = new System.Drawing.Size(276, 36);
             this.txtName.TabIndex = 155;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // label1
             // 
@@ -249,6 +250,7 @@
             this.spendingAmountTextBox.SelectedText = "";
             this.spendingAmountTextBox.Size = new System.Drawing.Size(276, 36);
             this.spendingAmountTextBox.TabIndex = 177;
+            this.spendingAmountTextBox.TextChanged += new System.EventHandler(this.spendingAmountTextBox_TextChanged);
             this.spendingAmountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.spendingAmountTextBox_KeyPress);
             // 
             // pictureBox4

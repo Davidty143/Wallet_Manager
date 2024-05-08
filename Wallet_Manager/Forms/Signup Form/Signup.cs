@@ -27,6 +27,10 @@ namespace Wallet_Manager.Forms
         public Signup()
         {
             InitializeComponent();
+            txtEmail.MaxLength = 20;
+            txtFirstName.MaxLength = 20;
+            txtLastName.MaxLength = 20;
+            txtPassword.MaxLength = 20;
         }
 
 
@@ -115,6 +119,11 @@ namespace Wallet_Manager.Forms
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

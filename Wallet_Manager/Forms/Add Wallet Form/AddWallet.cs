@@ -106,6 +106,7 @@ namespace Wallet_Manager.Forms
                         WalletCategory = "Spending",
                         TransactionType = "Income",
                         CategoryID = 8,
+
                         Amount = spendingMoney,
                         Date = DateTime.Now,
                         Description = "Add Wallet"
@@ -157,6 +158,16 @@ namespace Wallet_Manager.Forms
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void spendingAmountTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
    

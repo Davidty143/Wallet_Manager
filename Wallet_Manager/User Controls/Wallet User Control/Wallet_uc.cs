@@ -258,7 +258,7 @@ namespace Wallet_Manager.Forms
                     descriptionLabels[i].Text = transaction.Description;
                     categoryLabels[i].Text = _dataAccessLayer.GetCategoryNameById(transaction.CategoryID);
                     transactionTypeLabels[i].Text = transaction.TransactionType;
-                    amountLabels[i].Text = $"₱ {transaction.Amount}";
+                    amountLabels[i].Text = $"{transaction.Amount:C}".Insert(1, " ");
                     walletNameLabels[i].Text = _dataAccessLayer.GetWalletNameById(transaction.WalletID) + " - " + transaction.WalletCategory.ToString();
                     dateLabels[i].Text = transaction.Date.ToString("d");
 

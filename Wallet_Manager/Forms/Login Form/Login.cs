@@ -30,6 +30,9 @@ namespace Wallet_Manager.Forms
         public Login()
         {
             InitializeComponent();
+            txtEmail.MaxLength = 20;
+            txtPassword.MaxLength = 20;
+
 
         }
 

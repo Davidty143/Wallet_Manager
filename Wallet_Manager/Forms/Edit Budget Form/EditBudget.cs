@@ -218,6 +218,7 @@ namespace Wallet_Manager.Forms
                 }
             }
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Budget budget = CollectBudgetData();
@@ -241,6 +242,19 @@ namespace Wallet_Manager.Forms
         private void txtPeriod_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateDateVisibility();
+        }
+
+        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

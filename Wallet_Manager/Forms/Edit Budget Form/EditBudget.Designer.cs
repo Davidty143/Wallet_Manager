@@ -272,6 +272,7 @@
             this.txtAmount.SelectedText = "";
             this.txtAmount.Size = new System.Drawing.Size(276, 36);
             this.txtAmount.TabIndex = 153;
+            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // txtName
             // 
@@ -387,6 +388,7 @@
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(554, 597);
             this.guna2CustomGradientPanel2.TabIndex = 0;
+            this.guna2CustomGradientPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel2_Paint);
             // 
             // label2
             // 

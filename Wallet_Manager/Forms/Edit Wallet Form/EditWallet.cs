@@ -30,6 +30,9 @@ namespace Wallet_Manager.Forms
         {
             InitializeComponent();
             currentWallet = wallet;
+            walletNameTextBox.MaxLength = 13;
+            savingsAmountTextBox.MaxLength = 7;
+            spendingAmountTextBox.MaxLength = 7;
             PopulateWalletTypes();
             PopulateWalletDetails();
             
@@ -177,6 +180,11 @@ namespace Wallet_Manager.Forms
         }
 
         private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void walletNameTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }

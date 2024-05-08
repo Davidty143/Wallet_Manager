@@ -157,6 +157,7 @@
             this.txtFirstName.SelectedText = "";
             this.txtFirstName.Size = new System.Drawing.Size(477, 57);
             this.txtFirstName.TabIndex = 67;
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // guna2Button2
             // 
