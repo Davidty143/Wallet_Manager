@@ -25,8 +25,47 @@
                 GlobalEvents.BudgetUpdated += UpdateBudgetStatuses;
             }
 
+        public Transaction Transaction
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
-            public bool CreateAccount(string firstName, string lastName, string email, string password)
+        internal Category Category
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Wallet Wallet
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        internal User User
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Budget Budget
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public bool CreateAccount(string firstName, string lastName, string email, string password)
             {
                 User existingUser = GetUserByEmail(email);
                 if (existingUser != null)
